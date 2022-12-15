@@ -11,11 +11,24 @@ const findAll = () => {
     .then(([res]) => res);
 };
 
-const createOne = (payload) => {
+const findOne = (id) => {
   return database
     .promise()
-    .query("INSERT INTO users SET ?", [payload])
+    .query("SELECT * FROM user WHERE id =?", [Number(id)])
     .then(([res]) => res);
 };
 
-module.exports = { findAll, createOne };
+const findByEmail = (email) => {
+  return database
+    .promise()
+    .query("SELECT * FROM user WHERE email =?", [email])
+    .then(([res]) => res);
+};
+const createOne = (payload) => {
+  return database
+    .promise()
+    .query("INSERT INTO user SET ?", [payload])
+    .then(([res]) => res);
+};
+
+module.exports = { findAll, findOne, createOne, findByEmail };
