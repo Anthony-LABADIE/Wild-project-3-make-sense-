@@ -31,4 +31,11 @@ const createOne = (payload) => {
     .then(([res]) => res);
 };
 
-module.exports = { findAll, findOne, createOne, findByEmail };
+const deleteOne = (id) => {
+  return database
+    .promise()
+    .query("DELETE FROM users WHERE id = ?", [id])
+    .then(([res]) => res);
+};
+
+module.exports = { findAll, findOne, createOne, findByEmail, deleteOne };

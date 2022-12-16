@@ -6,9 +6,11 @@ const userController = require("../controllers/userControllers");
 const userValidationMiddleware = require("../middleware/validator");
 const emailAlreadyExistsMiddleware = require("../middleware/emailAlreadyExist");
 const credentialsCheck = require("../middleware/credentialsCheck");
+const authorization = require("../helpers/authentification");
 
 userRouter.get("/", userController.getUsers);
 userRouter.get("/:id", userController.getOneUSer);
+userRouter.get("/logout", authorization, userController.logout);
 userRouter.post(
   "/",
   emailAlreadyExistsMiddleware,
@@ -18,5 +20,6 @@ userRouter.post(
 );
 
 userRouter.post("/login", credentialsCheck, userController.login);
+userRouter.delete("/:id", userController.deleteUser);
 
 module.exports = userRouter;
