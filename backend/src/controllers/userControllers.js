@@ -1,8 +1,49 @@
 const { validationResult } = require("express-validator");
-const argon2 = require("argon2");
 const userModel = require("../models/user");
+const { jwtSign } = require("../helpers/jwt");
+const { passwordHash, passwordVerify } = require("../helpers/password");
 
 const userController = {
+  login: (req, res, next) => {
+    const { email, password } = req.body;
+
+    userModel
+      .findByEmail(email)
+      .then(async ([user]) => {
+        if (!user) {
+          res.status(401).send({ error: "invalid email" });
+        } else {
+          const { id, firstname, lastname, password: hash } = user;
+          if (await passwordVerify(hash, password)) {
+            const token = jwtSign(
+              {
+                id,
+                firstname,
+                lastname,
+                email,
+              },
+              { expiresIn: "1h" }
+            );
+
+            res
+              .cookie("access_token", token, {
+                httpOnly: true,
+                secure: true,
+              })
+              .status(200)
+              .send({ id, firstname, lastname, email });
+          } else {
+            res.status(401).send({ error: "invalid password" });
+          }
+        }
+      })
+      .catch((err) => next(err));
+  },
+
+  logout: (_, res) => {
+    return res.clearCookie("access_token").sendStatus(200);
+  },
+
   getUsers: (req, res, next) => {
     userModel
       .findAll()
@@ -31,17 +72,10 @@ const userController = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const hashingOptions = {
-      type: argon2.argon2id,
-      memoryCost: 2 ** 16,
-      timeCost: 5,
-      parallelism: 1,
-    };
-
     // eslint-disable-next-line camelcase
     const { firstname, lastname, email, is_admin, password } = req.body;
 
-    const hashedPassword = await argon2.hash(password, hashingOptions);
+    const hashedPassword = await passwordHash(password);
 
     userModel
       .createOne({
