@@ -1,12 +1,13 @@
-import Home from "./pages/Home";
-
+import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
+import Transition from "./Transition";
 
 function App() {
   return (
     <div className="App">
-      <Home />
-      <p>coucou</p>
+      <Router>
+        <Transition />
+      </Router>
     </div>
   );
 }
