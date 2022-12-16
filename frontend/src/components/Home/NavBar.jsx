@@ -36,7 +36,9 @@ function NavBar() {
           <img className="logo" src={logo} alt="logo" />
           <li className="item"> SOLUTION</li>
           <li className="item"> CONTACT</li>
-          <li className="item"> CONNEXION</li>
+          <Link to="connexion">
+            <li className="item"> CONNEXION</li>
+          </Link>
           <Link to="inscription">
             <li className="item" id="inscrit">
               INSCRIT TOI

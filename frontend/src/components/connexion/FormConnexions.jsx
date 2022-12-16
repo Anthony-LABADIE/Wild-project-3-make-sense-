@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import "./Forminscription.css";
+import "../../pages/connexionpage.css";
 
 export default function FormInscription() {
-  const [lastname, setLastName] = useState();
-  const [firstname, setFirstName] = useState();
   const [mail, setMail] = useState();
   const [password, setPassword] = useState();
 
@@ -31,14 +29,6 @@ export default function FormInscription() {
     reset();
   };
 
-  const handleChangeLastName = (e) => {
-    setLastName(e.targer.value);
-  };
-
-  const handleChangeFirstName = (e) => {
-    setFirstName(e.targer.value);
-  };
-
   const handleChangeMail = (e) => {
     setMail(e.targer.value);
   };
@@ -48,30 +38,8 @@ export default function FormInscription() {
   };
 
   return (
-    <form className="form">
-      <h2>Créer un compte gratuit</h2>
-      <input
-        type="text"
-        id="lastname"
-        name="lastname"
-        placeholder="Prénom"
-        value={lastname}
-        onChange={handleChangeLastName}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...register("lastname")}
-        required
-      />
-      <input
-        type="text"
-        id="firstname"
-        name="firstname"
-        placeholder="Nom de famille"
-        value={firstname}
-        onChange={handleChangeFirstName}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...register("firstname")}
-        required
-      />
+    <form className="form-connexion">
+      <h2>CONNEXION</h2>
       <div id="mail">
         <input
           type="text"
@@ -107,12 +75,8 @@ export default function FormInscription() {
         id="btn-inscription"
         onSubmit={handleSubmit(onSubmitHandler)}
       >
-        S'inscrire à Makesense
+        Connexion
       </button>
-      <div id="termes">
-        <h4>En vous inscrivant, vous accepter les</h4>
-        <h5>Termes et conditions</h5>
-      </div>
     </form>
   );
 }
