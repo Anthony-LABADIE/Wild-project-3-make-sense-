@@ -74,7 +74,7 @@ const decisionController = {
         res.sendStatus(500);
       });
   },
-  deleteUser: (req, res) => {
+  deleteDecision: (req, res) => {
     const { id } = req.params;
     decisionModel
       .deleteOne(id)
