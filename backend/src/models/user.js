@@ -34,7 +34,7 @@ const createOne = (payload) => {
 const deleteOne = (id) => {
   return database
     .promise()
-    .query("DELETE FROM users WHERE id = ?", [id])
+    .query("DELETE FROM user WHERE id = ?", [id])
     .then(([res]) => res);
 };
 
