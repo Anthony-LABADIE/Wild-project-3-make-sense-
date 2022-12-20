@@ -1,118 +1,140 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 import "./Forminscription.css";
+import PWDRequisite from "./PWDRequiste";
 
 export default function FormInscription() {
   const [lastname, setLastName] = useState();
   const [firstname, setFirstName] = useState();
-  const [mail, setMail] = useState();
-  const [password, setPassword] = useState();
-
-  const schema = yup.object().shape({
-    mail: yup.string().email().required(),
-    password: yup.string().min(8).max(32).required(),
-    lastname: yup.string(),
-    firstname: yup.string(),
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [pwdRequiste, setPWDRquisite] = useState(false);
+  const [checks, setChecks] = useState({
+    capsLetterCheck: false,
+    numberCheck: false,
+    pwdLengthCheck: false,
+    specialCharCheck: false,
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const onSubmitHandler = (data) => {
-    console.warn({ data });
-    reset();
+  const emailValidation = (e) => {
+    const pattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{1,2})+$/;
+    const emailValue = e.target.value;
+    setEmail(emailValue);
+    if (email.match(pattern)) {
+      setMessage("your mail it's good");
+    } else {
+      setMessage("It's not a mail");
+    }
   };
 
-  const handleChangeLastName = (e) => {
-    setLastName(e.targer.value);
+  const handleOnChange = (e) => {
+    setPassword(e.target.value);
   };
 
+  const handleOnFocus = () => {
+    setPWDRquisite(true);
+  };
+
+  const handleOnBlur = () => {
+    setPWDRquisite(false);
+  };
+
+  const handleOnKeyUp = (e) => {
+    const { value } = e.target;
+    const capsLetterCheck = /[A-Z]/.test(value);
+    const numberCheck = /[0-9]/.test(value);
+    const pwdLengthCheck = value.length >= 8;
+    const specialCharCheck = /[!@#$%^&*.]/.test(value);
+    setChecks({
+      capsLetterCheck,
+      numberCheck,
+      pwdLengthCheck,
+      specialCharCheck,
+    });
+  };
   const handleChangeFirstName = (e) => {
     setFirstName(e.targer.value);
   };
 
-  const handleChangeMail = (e) => {
-    setMail(e.targer.value);
-  };
-
-  const handleChangePassword = (e) => {
-    setPassword(e.targer.value);
+  const handleChangeLastname = (e) => {
+    setLastName(e.targer.value);
   };
 
   return (
-    <form className="form">
-      <h2>Créer un compte gratuit</h2>
-      <input
-        type="text"
-        id="lastname"
-        name="lastname"
-        placeholder="Prénom"
-        value={lastname}
-        onChange={handleChangeLastName}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...register("lastname")}
-        required
-      />
-      <input
-        type="text"
-        id="firstname"
-        name="firstname"
-        placeholder="Nom de famille"
-        value={firstname}
-        onChange={handleChangeFirstName}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...register("firstname")}
-        required
-      />
-      <div id="mail">
-        <input
-          type="text"
-          id="email"
-          name="mail"
-          placeholder="adresse mail"
-          value={mail}
-          onChange={handleChangeMail}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...register("mail")}
-          required
-        />
-        <p>{errors.mail?.message}</p>
-      </div>
+    <>
+      <form className="form">
+        <h2>Créer un compte gratuit</h2>
+        <div id="lastname">
+          <label htmlFor="lastname">Lastname</label>
+          <input
+            type="text"
+            value={lastname}
+            placeholder="Lastname"
+            onChange={handleChangeLastname}
+            name="lastname"
+            required="required"
+            id="lastnameConnexion"
+          />
+        </div>
+        <div id="firstname">
+          <label htmlFor="firstname">Firstname</label>
+          <input
+            type="text"
+            value={firstname}
+            placeholder="Firstname"
+            onChange={handleChangeFirstName}
+            name="firstname"
+            required="required"
+            id="firstnameConnexion"
+          />
+        </div>
 
-      <div id="password">
-        <input
-          type="text"
-          name="password"
-          id="pass"
-          placeholder="mot de passe"
-          value={password}
-          onChange={handleChangePassword}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...register("password")}
-          required
-        />
-        <p>{errors.password?.message}</p>
-      </div>
+        <div id="mail">
+          <label htmlFor="email" className="label">
+            Email:
+          </label>
+          <input
+            type="email"
+            id="emailConnexion"
+            required="required"
+            placeholder="email"
+            onChange={emailValidation}
+            value={email}
+          />
 
-      <button
-        type="submit"
-        id="btn-inscription"
-        onSubmit={handleSubmit(onSubmitHandler)}
-      >
-        S'inscrire à Makesense
-      </button>
+          <p className="message">{message}</p>
+        </div>
+
+        <div id="password">
+          <label htmlFor="password">password:</label>
+          <input
+            type="password"
+            placeholder="Password"
+            id="passwordConnexion"
+            value={password}
+            onChange={handleOnChange}
+            onFocus={handleOnFocus}
+            onBlur={handleOnBlur}
+            onKeyUp={handleOnKeyUp}
+          />
+        </div>
+        {pwdRequiste ? (
+          <PWDRequisite
+            capsLetterFlag={checks.capsLetterCheck ? "valid" : "invalid"}
+            numberFlag={checks.numberCheck ? "valid" : "invalid"}
+            pwdLengthFlag={checks.pwdLengthCheck ? "valid" : "invalid"}
+            specialCharFlag={checks.specialCharCheck ? "valid" : "invalid"}
+          />
+        ) : null}
+
+        <button onClick={emailValidation} type="button" id="btn-inscription">
+          S'inscrire à Makesense
+        </button>
+      </form>
       <div id="termes">
         <h4>En vous inscrivant, vous accepter les</h4>
         <h5>Termes et conditions</h5>
       </div>
-    </form>
+    </>
   );
 }
