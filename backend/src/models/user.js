@@ -11,11 +11,45 @@ const findAll = () => {
     .then(([res]) => res);
 };
 
-const createOne = (payload) => {
+const findOne = (id) => {
   return database
     .promise()
-    .query("INSERT INTO users SET ?", [payload])
+    .query("SELECT * FROM user WHERE id =?", [Number(id)])
     .then(([res]) => res);
 };
 
-module.exports = { findAll, createOne };
+const findByEmail = (email) => {
+  return database
+    .promise()
+    .query("SELECT * FROM user WHERE email =?", [email])
+    .then(([res]) => res);
+};
+const createOne = (payload) => {
+  return database
+    .promise()
+    .query("INSERT INTO user SET ?", [payload])
+    .then(([res]) => res);
+};
+
+const deleteOne = (id) => {
+  return database
+    .promise()
+    .query("DELETE FROM user WHERE id = ?", [id])
+    .then(([res]) => res);
+};
+
+const updateOne = (payload, id) => {
+  return database
+    .promise()
+    .query("UPDATE user SET ? Where id = ?", [payload, id])
+    .then(([res]) => res);
+};
+
+module.exports = {
+  findAll,
+  findOne,
+  createOne,
+  findByEmail,
+  deleteOne,
+  updateOne,
+};
