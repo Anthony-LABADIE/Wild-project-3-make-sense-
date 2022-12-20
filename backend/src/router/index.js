@@ -1,5 +1,6 @@
 const express = require("express");
 const routerDecision = require("./routerDecision");
+const routerFirstDecision = require("./routerFirstDecision");
 const userRouter = require("./userRouter");
 const conflictRouter = require("./conflictRouter");
 const finalDecisionRouter = require("./finalDecisionRouter");
@@ -11,6 +12,7 @@ router.use("/decision", routerDecision);
 router.use("/user", userRouter);
 router.use("/conflict", conflictRouter);
 router.use("/finalDecision", finalDecisionRouter);
+router.use("/firstdecsion", routerFirstDecision);
 router.use("/authorization", authorizationRouter);
 
 module.exports = router;

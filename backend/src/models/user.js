@@ -38,4 +38,18 @@ const deleteOne = (id) => {
     .then(([res]) => res);
 };
 
-module.exports = { findAll, findOne, createOne, findByEmail, deleteOne };
+const updateOne = (payload, id) => {
+  return database
+    .promise()
+    .query("UPDATE user SET ? Where id = ?", [payload, id])
+    .then(([res]) => res);
+};
+
+module.exports = {
+  findAll,
+  findOne,
+  createOne,
+  findByEmail,
+  deleteOne,
+  updateOne,
+};
