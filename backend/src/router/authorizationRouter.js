@@ -1,0 +1,12 @@
+const express = require("express");
+
+const authorizationRouter = express.Router();
+
+const authorizationController = require("../controllers/auhtorizationController");
+
+authorizationRouter.get("/", authorizationController.getAuthorizations);
+authorizationRouter.get("/:id", authorizationController.getOneAuthorization);
+authorizationRouter.post("/", authorizationController.postAuthorizations);
+authorizationRouter.delete("/:id", authorizationController.deleteAuthorization);
+authorizationRouter.put("/:id", authorizationController.updateAuthorization);
+module.exports = authorizationRouter;

@@ -1,10 +1,10 @@
 /* eslint-disable camelcase  */
 // (voir avec David pour le camelcase ..)
-const decisionModel = require("../models/decisionModels");
+const finalDecisionModel = require("../models/finalDecisionModel");
 
-const decisionController = {
-  getAllDecision: (_, res) => {
-    decisionModel
+const finalDecisionController = {
+  getAllFinalDecision: (_, res) => {
+    finalDecisionModel
       .findAll()
       .then((decision) => res.send(decision))
       .catch((err) => {
@@ -12,9 +12,9 @@ const decisionController = {
         res.sendStatus(500);
       });
   },
-  getOneDecision: (req, res) => {
+  getOneFinalDecision: (req, res) => {
     const { id } = req.params;
-    decisionModel
+    finalDecisionModel
       .findOne(id)
       .then((decision) => {
         if (decision.length === 0) {
@@ -28,45 +28,16 @@ const decisionController = {
         res.sendStatus(500);
       });
   },
-  postDecision: (req, res) => {
-    const {
-      title,
-      content,
-      deadline,
-      contexte,
-      profit,
-      usefullness,
-      inconvenience,
-      id_user,
-      date_posted,
-      id_status,
-    } = req.body;
-    decisionModel
+  postFinalDecision: (req, res) => {
+    const { content } = req.body;
+    finalDecisionModel
       .createOne({
-        title,
         content,
-        deadline,
-        contexte,
-        profit,
-        usefullness,
-        inconvenience,
-        id_user,
-        date_posted,
-        id_status,
       })
       .then((result) =>
         res.status(201).send({
           id: result.insertId,
-          title,
           content,
-          deadline,
-          contexte,
-          profit,
-          usefullness,
-          inconvenience,
-          id_user,
-          date_posted,
-          id_status,
         })
       )
       .catch((err) => {
@@ -74,9 +45,9 @@ const decisionController = {
         res.sendStatus(500);
       });
   },
-  deleteDecision: (req, res) => {
+  deleteFinalDecision: (req, res) => {
     const { id } = req.params;
-    decisionModel
+    finalDecisionModel
       .deleteOne(id)
       .then((response) => {
         if (response.affectedRows !== 1) {
@@ -89,10 +60,10 @@ const decisionController = {
         res.sendStatus(500);
       });
   },
-  updateDecision: (req, res) => {
+  updateFinalDecision: (req, res) => {
     const { id } = req.params;
     const decisionData = req.body;
-    decisionModel
+    finalDecisionModel
       .updateOne(decisionData, id)
       .then((decision) => res.send(decision))
       .catch((err) => {
@@ -101,4 +72,4 @@ const decisionController = {
       });
   },
 };
-module.exports = decisionController;
+module.exports = finalDecisionController;
