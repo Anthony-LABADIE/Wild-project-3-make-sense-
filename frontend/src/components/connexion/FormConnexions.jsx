@@ -1,44 +1,47 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../../pages/connexionpage.css";
 
 export default function FormInscription() {
-  const [mail, setMail] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
-  const schema = yup.object().shape({
-    mail: yup.string().email().required(),
-    password: yup.string().min(8).max(32).required(),
-    lastname: yup.string(),
-    firstname: yup.string(),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const onSubmitHandler = (data) => {
-    console.warn({ data });
-    reset();
+  const emailValidation = (e) => {
+    const pattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{1,2})+$/;
+    const emailValue = e.target.value;
+    setEmail(emailValue);
+    if (email.match(pattern)) {
+      setMessage("your mail it's good");
+    } else {
+      setMessage("It's not a mail");
+    }
   };
 
-  const handleChangeMail = (e) => {
-    setMail(e.targer.value);
-  };
-
-  const handleChangePassword = (e) => {
-    setPassword(e.targer.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email && password) {
+      axios
+        .post(
+          "http://localhost:5000/api/user/login",
+          { email, password },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            navigate("/");
+          }
+        })
+        .catch((err) => alert(err.response));
+    } else {
+      alert("Please specify both email and password");
+    }
   };
 
   return (
-    <form className="form-connexion">
+    <form className="form-connexion" onSubmit={handleSubmit}>
       <h2>CONNEXION</h2>
       <div id="mail">
         <input
@@ -46,13 +49,11 @@ export default function FormInscription() {
           id="email"
           name="mail"
           placeholder="adresse mail"
-          value={mail}
-          onChange={handleChangeMail}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...register("mail")}
-          required
+          value={email}
+          onChange={emailValidation}
+          required="required"
         />
-        <p>{errors.mail?.message}</p>
+        <p> {message} </p>
       </div>
 
       <div id="password">
@@ -62,19 +63,12 @@ export default function FormInscription() {
           id="pass"
           placeholder="mot de passe"
           value={password}
-          onChange={handleChangePassword}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...register("password")}
-          required
+          onChange={(e) => setPassword(e.target.value)}
+          required="required"
         />
-        <p>{errors.password?.message}</p>
       </div>
 
-      <button
-        type="submit"
-        id="btn-inscription"
-        onSubmit={handleSubmit(onSubmitHandler)}
-      >
+      <button type="submit" id="btn-inscription" value="Login">
         Connexion
       </button>
     </form>

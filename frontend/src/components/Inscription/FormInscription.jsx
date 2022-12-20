@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+// import api from "../../services/api";
 import "./Forminscription.css";
 import PWDRequisite from "./PWDRequiste";
 
@@ -9,6 +12,8 @@ export default function FormInscription() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [pwdRequiste, setPWDRquisite] = useState(false);
+  const navigate = useNavigate();
+
   const [checks, setChecks] = useState({
     capsLetterCheck: false,
     numberCheck: false,
@@ -52,12 +57,25 @@ export default function FormInscription() {
       specialCharCheck,
     });
   };
-  const handleChangeFirstName = (e) => {
-    setFirstName(e.targer.value);
-  };
 
-  const handleChangeLastname = (e) => {
-    setLastName(e.targer.value);
+  const handleSubmitConnexion = (e) => {
+    e.preventDefault();
+    if (lastname && firstname && email && password) {
+      axios
+        .post(
+          "http://localhost:5000/api/user/",
+          { lastname, firstname, email, password },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            navigate("/");
+          }
+        })
+        .catch((err) => alert(err.response));
+    } else {
+      alert("Please specify both email and password");
+    }
   };
 
   return (
@@ -70,7 +88,7 @@ export default function FormInscription() {
             type="text"
             value={lastname}
             placeholder="Lastname"
-            onChange={handleChangeLastname}
+            onChange={(e) => setLastName(e.target.value)}
             name="lastname"
             required="required"
             id="lastnameConnexion"
@@ -82,7 +100,7 @@ export default function FormInscription() {
             type="text"
             value={firstname}
             placeholder="Firstname"
-            onChange={handleChangeFirstName}
+            onChange={(e) => setFirstName(e.target.value)}
             name="firstname"
             required="required"
             id="firstnameConnexion"
@@ -127,7 +145,12 @@ export default function FormInscription() {
           />
         ) : null}
 
-        <button onClick={emailValidation} type="button" id="btn-inscription">
+        <button
+          type="button"
+          id="btn-inscription"
+          value="Creation"
+          onClick={handleSubmitConnexion}
+        >
           S'inscrire à Makesense
         </button>
       </form>

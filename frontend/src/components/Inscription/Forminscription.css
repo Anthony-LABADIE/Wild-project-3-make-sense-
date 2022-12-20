@@ -70,7 +70,6 @@
   justify-content: center;
 }
 
-
 #password p {
   color: red;
   font-size: xx-small;
@@ -82,17 +81,13 @@
   width: 98%;
 }
 
-
 #message {
   grid-area: 5 / 1 / 6 / 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-
 }
-
 
 #btn-inscription {
   grid-area: 6 / 1 / 7 / 3;
