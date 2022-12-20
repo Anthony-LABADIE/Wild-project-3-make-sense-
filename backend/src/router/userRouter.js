@@ -21,5 +21,6 @@ userRouter.post(
 
 userRouter.post("/login", credentialsCheck, userController.login);
 userRouter.delete("/:id", userController.deleteUser);
+userRouter.put("/:id", userController.updateUser);
 
 module.exports = userRouter;

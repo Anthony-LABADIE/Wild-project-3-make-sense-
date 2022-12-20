@@ -4,6 +4,32 @@ const { jwtSign } = require("../helpers/jwt");
 const { passwordHash, passwordVerify } = require("../helpers/password");
 
 const userController = {
+  updateUser: async (req, res) => {
+    const { id } = req.params;
+    // eslint-disable-next-line camelcase
+    const { firstname, lastname, email, is_admin, password } = req.body;
+
+    const hashedPassword = await passwordHash(password);
+
+    userModel
+      .updateOne(
+        {
+          firstname,
+          lastname,
+          email,
+          // eslint-disable-next-line camelcase
+          is_admin,
+          password: hashedPassword,
+        },
+        id
+      )
+      .then((user) => res.send(user))
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  },
+
   login: (req, res, next) => {
     const { email, password } = req.body;
 
