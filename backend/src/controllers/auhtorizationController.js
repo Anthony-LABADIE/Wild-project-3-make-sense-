@@ -1,4 +1,3 @@
-const { response } = require("express");
 const authorizationModel = require("../models/authorization");
 
 const authorizationController = {
@@ -18,13 +17,14 @@ const authorizationController = {
           res.status(404).send("USER NOT FOUND");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => res.send(err));
   },
   postAuthorizations: (req, res) => {
     authorizationModel.createOne(req.body).then((authorization) => {
       if (authorization.affectedRows !== 0) {
         authorizationModel
           .findOne(authorization.insertId)
+          // eslint-disable-next-line no-shadow
           .then(([authorization]) => res.send(authorization));
       } else {
         res.send("RIEN EST CREE");
@@ -42,7 +42,7 @@ const authorizationController = {
           res.send("DELETION COMPLETED");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => res.send(err));
   },
   updateAuthorization: (req, res) => {
     const { id } = req.params;
@@ -55,7 +55,7 @@ const authorizationController = {
           res.send(authorization);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => res.send(err));
   },
 };
 

@@ -1,4 +1,3 @@
-const { promise } = require("../../config");
 const database = require("../../config");
 
 const findAll = () => {
@@ -16,7 +15,6 @@ const findOne = (id) => {
 };
 
 const createOne = (payload) => {
-  console.log(payload);
   return database
     .promise()
     .query("INSERT INTO authorization SET ?", [payload])
