@@ -26,6 +26,7 @@ const FindOneNoticeByEmail = (email) => {
     .then(([res]) => res);
 };
 
+
 const createOneNotice = ({ id_decision, id_user, content, date }) => {
   return db
     .promise()
