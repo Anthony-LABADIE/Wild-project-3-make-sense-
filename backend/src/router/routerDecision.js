@@ -8,6 +8,6 @@ routerDecision.get("/", decisionController.getAllDecision);
 routerDecision.get("/:id", decisionController.getOneDecision);
 routerDecision.post("/", decisionController.postDecision);
 routerDecision.put("/:id", decisionController.updateDecision);
-routerDecision.delete("/:id", decisionController.deleteUser);
+routerDecision.delete("/:id", decisionController.deleteDecision);
 
 module.exports = routerDecision;
