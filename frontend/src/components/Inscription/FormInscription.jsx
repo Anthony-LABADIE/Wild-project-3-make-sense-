@@ -69,7 +69,7 @@ export default function FormInscription() {
         )
         .then((res) => {
           if (res.status === 200) {
-            navigate("/");
+            navigate("/connexion");
           }
         })
         .catch((err) => alert(err.response));

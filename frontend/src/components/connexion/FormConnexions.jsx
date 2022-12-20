@@ -31,7 +31,7 @@ export default function FormInscription() {
         )
         .then((res) => {
           if (res.status === 200) {
-            navigate("/");
+            navigate("/dashboard");
           }
         })
         .catch((err) => alert(err.response));
