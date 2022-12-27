@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import burger from "../../assets/img/burger.png";
+import profil from "../../assets/img/profil.png";
+import notification from "../../assets/img/notificaiton.jpg";
+import message from "../../assets/img/messages.jpg";
+import decision from "../../assets/img/decision.jpg";
 
-import "./NavBar.css";
+import "./NavBarDash.css";
 
 function NavBar() {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -32,18 +36,12 @@ function NavBar() {
   return (
     <nav>
       {(toggleMenu || largeur > 500) && (
-        <ul className="liste">
-          <img className="logo" src={logo} alt="logo" />
-          <li className="item"> SOLUTION</li>
-          <li className="item"> CONTACT</li>
-          <Link to="connexion" style={{ textDecoration: "none" }}>
-            <li className="item"> CONNEXION</li>
-          </Link>
-          <Link to="inscription" style={{ textDecoration: "none" }}>
-            <li className="item" id="inscrit">
-              INSCRIT TOI
-            </li>
-          </Link>
+        <ul className="listeNav">
+          <img className="logodash" src={logo} alt="logo" />
+          <img className="decision" src={decision} alt="decision" />
+          <img className="notification" src={notification} alt="notification" />
+          <img className="message" src={message} alt="message" />
+          <img className="profil" src={profil} alt="profil" />
         </ul>
       )}
       <button onClick={toggleNavSmallScreen} className="btn-nav" type="button">
