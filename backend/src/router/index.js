@@ -2,6 +2,7 @@ const express = require("express");
 const routerDecision = require("./routerDecision");
 const routerFirstDecision = require("./routerFirstDecision");
 const userRouter = require("./userRouter");
+const noticeRouter = require("./noticeRouter");
 const statusRouter = require("./routerStatus");
 const UserDecisionRouter = require("./routerDecicionUser");
 const conflictRouter = require("./conflictRouter");
@@ -12,6 +13,7 @@ const router = express.Router();
 
 router.use("/decision", routerDecision);
 router.use("/user", userRouter);
+router.use("/notice", noticeRouter);
 router.use("/status", statusRouter);
 router.use("/user/decision", UserDecisionRouter);
 router.use("/conflict", conflictRouter);
