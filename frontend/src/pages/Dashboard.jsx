@@ -3,6 +3,7 @@ import ButtonCreateDecision from "../components/dashboard/ButtonCreateDecision";
 import "./Dashboard.css";
 import Decisionimpact from "../components/dashboard/DecisionImpact";
 import AllDecision from "../components/dashboard/AllDecision";
+import CardsAllDecision from "../components/dashboard/CardsAllDecision";
 
 export default function Dashboard() {
   return (
@@ -12,6 +13,7 @@ export default function Dashboard() {
         <ButtonCreateDecision />
         <Decisionimpact />
         <AllDecision />
+        <CardsAllDecision />
       </div>
     </div>
   );

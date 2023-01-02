@@ -5,7 +5,7 @@ const decisionUserController = {
   getDecisionUser: (req, res) => {
     const { id } = req.params;
     decisionUserModel
-      .findOneDecision(id)
+      .findAllDecision(id)
       .then((decision) => res.send(decision))
       .catch((err) => res.send(err));
   },

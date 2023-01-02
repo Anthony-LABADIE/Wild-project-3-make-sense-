@@ -3,7 +3,9 @@ const db = require("../../config");
 const findAll = () => {
   return db
     .promise()
-    .query("SELECT * FROM decision")
+    .query(
+      "SELECT * FROM decision INNER JOIN user ON user.id = decision.id_user "
+    )
     .then(([decision]) => decision);
 };
 const findOne = (id) => {
