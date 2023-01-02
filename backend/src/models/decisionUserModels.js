@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 const db = require("../../config");
 
-const findOneDecision = (id) => {
+const findAllDecision = (id) => {
   return db
     .promise()
     .query(
@@ -10,4 +10,5 @@ const findOneDecision = (id) => {
     )
     .then(([decision]) => decision);
 };
-module.exports = { findOneDecision };
+
+module.exports = { findAllDecision };

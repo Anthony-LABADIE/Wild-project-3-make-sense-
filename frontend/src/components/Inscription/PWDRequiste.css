@@ -1,0 +1,12 @@
+#message {
+  position: absolute;
+  top: 62vh;
+  left: 37vw;
+  width: 12vw;
+  border: solid 1px black;
+  background-color: white;
+}
+
+#message p {
+  font-size: xx-small;
+}
