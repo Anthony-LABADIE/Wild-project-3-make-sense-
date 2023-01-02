@@ -1,4 +1,7 @@
 const express = require("express");
+const multer = require("multer");
+
+const upload = multer({ dest: "uploads/" });
 
 const userRouter = express.Router();
 
@@ -13,6 +16,7 @@ userRouter.get("/:id", userController.getOneUSer);
 userRouter.get("/logout", authorization, userController.logout);
 userRouter.post(
   "/",
+  upload.single("avatar"),
   emailAlreadyExistsMiddleware,
   userValidationMiddleware,
   credentialsCheck,
