@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import api from "../../services/api";
 import "./Forminscription.css";
 import PWDRequisite from "./PWDRequiste";
 
 export default function FormInscription() {
-  const [lastname, setLastName] = useState();
-  const [firstname, setFirstName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState("");
+  const [input, setInput] = useState({
+    firstname: "",
+    lastname: "",
+    password: "",
+  });
+
+  const [email, setEmail] = useState({ email: "" });
+
   const [message, setMessage] = useState("");
   const [pwdRequiste, setPWDRquisite] = useState(false);
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
 
   const [checks, setChecks] = useState({
     capsLetterCheck: false,
@@ -24,16 +31,12 @@ export default function FormInscription() {
   const emailValidation = (e) => {
     const pattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{1,2})+$/;
     const emailValue = e.target.value;
-    setEmail(emailValue);
-    if (email.match(pattern)) {
+    setEmail({ email: emailValue });
+    if (email.email.match(pattern)) {
       setMessage("your mail it's good");
     } else {
       setMessage("It's not a mail");
     }
-  };
-
-  const handleOnChange = (e) => {
-    setPassword(e.target.value);
   };
 
   const handleOnFocus = () => {
@@ -60,11 +63,11 @@ export default function FormInscription() {
 
   const handleSubmitConnexion = (e) => {
     e.preventDefault();
-    if (lastname && firstname && email && password) {
+    if (input.lastname && input.firstname && email && input.password) {
       axios
         .post(
           "http://localhost:5000/api/user/",
-          { lastname, firstname, email, password },
+          { ...input, ...email },
           { withCredentials: true }
         )
         .then((res) => {
@@ -86,9 +89,9 @@ export default function FormInscription() {
           <label htmlFor="lastname">Lastname</label>
           <input
             type="text"
-            value={lastname}
+            value={input.lastname}
             placeholder="Lastname"
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={handleChange}
             name="lastname"
             required="required"
             id="lastnameConnexion"
@@ -98,9 +101,9 @@ export default function FormInscription() {
           <label htmlFor="firstname">Firstname</label>
           <input
             type="text"
-            value={firstname}
+            value={input.firstname}
             placeholder="Firstname"
-            onChange={(e) => setFirstName(e.target.value)}
+            onChange={handleChange}
             name="firstname"
             required="required"
             id="firstnameConnexion"
@@ -117,7 +120,7 @@ export default function FormInscription() {
             required="required"
             placeholder="email"
             onChange={emailValidation}
-            value={email}
+            value={email.email}
           />
 
           <p className="message">{message}</p>
@@ -129,8 +132,9 @@ export default function FormInscription() {
             type="password"
             placeholder="Password"
             id="passwordConnexion"
-            value={password}
-            onChange={handleOnChange}
+            value={input.password}
+            name="password"
+            onChange={handleChange}
             onFocus={handleOnFocus}
             onBlur={handleOnBlur}
             onKeyUp={handleOnKeyUp}

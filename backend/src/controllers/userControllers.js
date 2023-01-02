@@ -1,6 +1,4 @@
 const { validationResult } = require("express-validator");
-const fs = require("fs");
-const { v4: uuidv4 } = require("uuid");
 const userModel = require("../models/user");
 const { jwtSign } = require("../helpers/jwt");
 const { passwordHash, passwordVerify } = require("../helpers/password");
@@ -102,17 +100,6 @@ const userController = {
 
     // eslint-disable-next-line camelcase
     const { firstname, lastname, email, is_admin, password } = req.body;
-    const { originalname } = req.file;
-    const { filename } = req.file;
-
-    fs.rename(
-      `uploads/${filename}`,
-      `uploads/${uuidv4()}-${originalname}`,
-      (err) => {
-        if (err) throw err;
-        res.send("File uploaded");
-      }
-    );
 
     const hashedPassword = await passwordHash(password);
 
