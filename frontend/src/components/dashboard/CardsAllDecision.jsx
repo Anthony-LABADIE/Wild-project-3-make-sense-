@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../../services/api";
 import CardsItem from "./CardsItem";
 import "./Cards.css";
 
@@ -8,9 +8,7 @@ function CardsAllDecision() {
   const [decision, setDecision] = useState([]);
 
   const getAllDecision = () => {
-    axios
-      .get("http://localhost:5000/api/decision")
-      .then((response) => setDecision(response.data));
+    api.get("decision").then((response) => setDecision(response.data));
   };
 
   useEffect(() => {

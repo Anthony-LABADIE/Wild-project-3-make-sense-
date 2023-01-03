@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
 import "../../pages/connexionpage.css";
 
 export default function FormInscription() {
@@ -23,12 +23,8 @@ export default function FormInscription() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email && password) {
-      axios
-        .post(
-          "http://localhost:5000/api/user/login",
-          { email, password },
-          { withCredentials: true }
-        )
+      api
+        .post("user/login", { email, password }, { withCredentials: true })
         .then((res) => {
           if (res.status === 200) {
             navigate("/dashboard");
