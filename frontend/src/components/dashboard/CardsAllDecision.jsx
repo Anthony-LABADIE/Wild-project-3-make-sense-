@@ -8,6 +8,11 @@ import "./Cards.css";
 function CardsAllDecision() {
   const [threedecision, setThreeDecision] = useState([]);
   const [decision, setDecision] = useState([]);
+  const [show, setShow] = useState(true);
+
+  const handleClick = () => {
+    setShow(!show);
+  };
 
   const getThreeDecision = () => {
     api
@@ -25,6 +30,8 @@ function CardsAllDecision() {
 
   const cardMap = threedecision.map((cardItem) => (
     <CardsItem
+      key={cardItem.id}
+      status={cardItem.status}
       title={cardItem.title}
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
@@ -33,6 +40,8 @@ function CardsAllDecision() {
 
   const cardAllMap = decision.map((cardItem) => (
     <CardsItem
+      key={cardItem.id}
+      status={cardItem.status}
       title={cardItem.title}
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
@@ -41,12 +50,27 @@ function CardsAllDecision() {
 
   return (
     <div className="carreau">
-      <div className="threecards"> {cardMap} </div>
-      <button onClick={getAllDecision} type="button" className="more">
-        <p> voir plus</p>
-        <img src={triangle} alt="triangle" />
-      </button>
-      <div className="allCards"> {cardAllMap} </div>
+      {show ? <div className="threecards"> {cardMap} </div> : null}
+      {show ? (
+        <button
+          onClick={() => {
+            getAllDecision();
+            handleClick();
+          }}
+          type="button"
+          className="more"
+        >
+          <p> voir plus</p>
+          <img src={triangle} alt="triangle" />
+        </button>
+      ) : null}
+      {show ? null : <div className="allCards"> {cardAllMap} </div>}
+      {show ? null : (
+        <button onClick={handleClick} type="button" className="less">
+          <p> voir moins</p>
+          <img src={triangle} alt="triangle" />
+        </button>
+      )}
     </div>
   );
 }

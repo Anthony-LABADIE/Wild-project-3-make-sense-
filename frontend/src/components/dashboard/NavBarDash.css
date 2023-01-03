@@ -43,10 +43,8 @@ nav {
 }
 
 .decision p {
-
-  margin-top:1px;
+  margin-top: 1px;
 }
-
 
 #decision {
   margin-top: 10%;
@@ -67,16 +65,13 @@ nav {
 }
 
 .notification p {
-
-  margin-top:1px;
+  margin-top: 1px;
 }
-
 
 #notification {
   margin-top: 10%;
   width: 30%;
 }
-
 
 .message {
   grid-area: 1 / 4 / 2 / 5;
@@ -92,10 +87,8 @@ nav {
 }
 
 .message p {
-
-  margin-top:1px;
+  margin-top: 1px;
 }
-
 
 #messageLogo {
   margin-top: 10%;
