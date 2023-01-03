@@ -1,6 +1,6 @@
-.carreau {
+.threecards {
+  grid-area: 1 / 2 / 2 / 5; 
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   margin-left: 30px;
   gap: 20px;
@@ -14,10 +14,32 @@
   flex-direction: column;
 }
 
+.more {
+  grid-area: 2 / 5 / 3 / 6;
+width: 10vw;
+display: flex;
+align-items: center;
+justify-content: space-between
+}
+
+.more img {
+  width: 13%;
+  height: 13%;
+}
+
 .black {
   font-size: medium;
 }
 
 .user {
   font-size: x-small;
+}
+
+
+.carreau {
+  display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
 }
