@@ -84,7 +84,7 @@ function ProfilePage() {
             </div>
             <div className="bio">
               <h2>Bio</h2>
-              <p></p>
+              <p />
             </div>
           </div>
         </div>
