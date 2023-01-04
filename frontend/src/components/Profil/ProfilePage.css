@@ -1,0 +1,69 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  padding-left: 3vmin;
+  gap: 90vmin;
+}
+.myDecisions {
+  display: flex;
+  flex-direction: row;
+}
+
+.navButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 14vmin;
+}
+.profilInfo {
+  display: flex;
+  flex-direction: row;
+  width: 200vmin;
+  padding-top: 7vmin;
+}
+.profilPic {
+  display: flex;
+  flex-direction: column;
+  max-width: 30vmin;
+  padding-left: 7vmin;
+}
+.profilText {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25vmin;
+  width: 120vmin;
+}
+.nameEmail {
+  display: flex;
+  flex-direction: row;
+  gap: 20vmin;
+}
+.bio {
+  padding-top: 10vmin;
+}
+#buttonProfil {
+  margin-left: auto;
+  margin-right: 0;
+}
+#buttonImage {
+  margin-top: 2vmin;
+}
+#line {
+  padding-top: 10vmin;
+  margin: auto;
+}
+.firstName {
+  display: flex;
+  gap: 5vmin;
+}
+.lastName {
+  display: flex;
+  gap: 5vmin;
+}
+.email {
+  display: flex;
+  gap: 5vmin;
+}
+#info {
+  margin: auto;
+}
