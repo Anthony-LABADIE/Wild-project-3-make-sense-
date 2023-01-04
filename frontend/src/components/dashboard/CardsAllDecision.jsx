@@ -1,31 +1,89 @@
 /* eslint-disable camelcase */
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../../services/api";
 import CardsItem from "./CardsItem";
+import triangle from "../../assets/img/triangle.png";
 import "./Cards.css";
 
 function CardsAllDecision() {
+  const [threedecision, setThreeDecision] = useState([]);
   const [decision, setDecision] = useState([]);
+  const [show, setShow] = useState(true);
+
+  const handleClick = () => {
+    setShow(!show);
+  };
+
+  const getThreeDecision = () => {
+    api
+      .get("decision/three")
+      .then((response) => setThreeDecision(response.data))
+      .catch((err) => alert(err.response));
+  };
 
   const getAllDecision = () => {
-    axios
-      .get("http://localhost:5000/api/decision")
-      .then((response) => setDecision(response.data));
+    api
+      .get("decision/")
+      .then((response) => setDecision(response.data))
+      .catch((err) => alert(err.response));
   };
 
   useEffect(() => {
-    getAllDecision();
+    getThreeDecision();
   }, []);
 
-  const cardMap = decision.map((cardItem) => (
+  const cardMap = threedecision.map((cardItem) => (
     <CardsItem
+      key={cardItem.id}
+      status={cardItem.status}
       title={cardItem.title}
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
     />
   ));
 
-  return <div className="carreau">{cardMap}</div>;
+  const cardAllMap = decision.map((cardItem) => (
+    <CardsItem
+      key={cardItem.id}
+      status={cardItem.status}
+      title={cardItem.title}
+      lastname={cardItem.lastname}
+      firstname={cardItem.firstname}
+    />
+  ));
+
+  return (
+    <div className="AllDecision">
+      <div className="title">
+        <h2>Toutes les décisions </h2>
+        <div className="trait" />
+        {show ? (
+          <button
+            onClick={() => {
+              getAllDecision();
+              handleClick();
+            }}
+            type="button"
+            className="more"
+          >
+            <p> voir plus</p>
+            <img src={triangle} alt="triangle" />
+          </button>
+        ) : null}
+
+        {show ? null : (
+          <button onClick={handleClick} type="button" className="less">
+            <p> voir moins</p>
+            <img src={triangle} alt="triangle" />
+          </button>
+        )}
+      </div>
+      <div className="carreau">
+        {show ? <div className="threecards"> {cardMap} </div> : null}
+        {show ? null : <div className="allCards"> {cardAllMap} </div>}
+      </div>
+    </div>
+  );
 }
 
 export default CardsAllDecision;

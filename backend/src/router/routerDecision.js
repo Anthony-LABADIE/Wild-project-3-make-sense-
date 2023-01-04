@@ -5,6 +5,7 @@ const routerDecision = express.Router();
 const decisionController = require("../controllers/decisionController");
 
 routerDecision.get("/", decisionController.getAllDecision);
+routerDecision.get("/three", decisionController.getThreeDecision);
 routerDecision.get("/:id", decisionController.getOneDecision);
 routerDecision.post("/", decisionController.postDecision);
 routerDecision.put("/:id", decisionController.updateDecision);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../../services/api";
 import "./Forminscription.css";
 import PWDRequisite from "./PWDRequiste";
 
@@ -64,12 +64,8 @@ export default function FormInscription() {
   const handleSubmitConnexion = (e) => {
     e.preventDefault();
     if (input.lastname && input.firstname && email && input.password) {
-      axios
-        .post(
-          "http://localhost:5000/api/user/",
-          { ...input, ...email },
-          { withCredentials: true }
-        )
+      api
+        .post("user/", { ...input, ...email }, { withCredentials: true })
         .then((res) => {
           if (res.status === 200) {
             navigate("/connexion");
