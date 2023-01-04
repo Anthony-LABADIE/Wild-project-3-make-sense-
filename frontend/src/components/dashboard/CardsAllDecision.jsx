@@ -17,11 +17,15 @@ function CardsAllDecision() {
   const getThreeDecision = () => {
     api
       .get("decision/three")
-      .then((response) => setThreeDecision(response.data));
+      .then((response) => setThreeDecision(response.data))
+      .catch((err) => alert(err.response));
   };
 
   const getAllDecision = () => {
-    api.get("decision/").then((response) => setDecision(response.data));
+    api
+      .get("decision/")
+      .then((response) => setDecision(response.data))
+      .catch((err) => alert(err.response));
   };
 
   useEffect(() => {
@@ -49,28 +53,35 @@ function CardsAllDecision() {
   ));
 
   return (
-    <div className="carreau">
-      {show ? <div className="threecards"> {cardMap} </div> : null}
-      {show ? (
-        <button
-          onClick={() => {
-            getAllDecision();
-            handleClick();
-          }}
-          type="button"
-          className="more"
-        >
-          <p> voir plus</p>
-          <img src={triangle} alt="triangle" />
-        </button>
-      ) : null}
-      {show ? null : <div className="allCards"> {cardAllMap} </div>}
-      {show ? null : (
-        <button onClick={handleClick} type="button" className="less">
-          <p> voir moins</p>
-          <img src={triangle} alt="triangle" />
-        </button>
-      )}
+    <div className="AllDecision">
+      <div className="title">
+        <h2>Toutes les décisions </h2>
+        <div className="trait" />
+        {show ? (
+          <button
+            onClick={() => {
+              getAllDecision();
+              handleClick();
+            }}
+            type="button"
+            className="more"
+          >
+            <p> voir plus</p>
+            <img src={triangle} alt="triangle" />
+          </button>
+        ) : null}
+
+        {show ? null : (
+          <button onClick={handleClick} type="button" className="less">
+            <p> voir moins</p>
+            <img src={triangle} alt="triangle" />
+          </button>
+        )}
+      </div>
+      <div className="carreau">
+        {show ? <div className="threecards"> {cardMap} </div> : null}
+        {show ? null : <div className="allCards"> {cardAllMap} </div>}
+      </div>
     </div>
   );
 }

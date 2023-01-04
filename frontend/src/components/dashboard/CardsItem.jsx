@@ -10,7 +10,7 @@ function CardsItem({ title, lastname, firstname, status }) {
       <div className="status"> {status}</div>
       <h2 className="black"> {title}</h2>
       <div className="user">
-        par {lastname} {firstname}{" "}
+        par {lastname} {firstname}
       </div>
     </div>
     // </Link>
