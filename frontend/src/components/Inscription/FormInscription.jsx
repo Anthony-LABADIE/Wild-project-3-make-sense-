@@ -79,7 +79,7 @@ export default function FormInscription() {
 
   return (
     <>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmitConnexion}>
         <h2>Créer un compte gratuit</h2>
         <div id="lastname">
           <label htmlFor="lastname">Lastname</label>
@@ -145,12 +145,7 @@ export default function FormInscription() {
           />
         ) : null}
 
-        <button
-          type="button"
-          id="btn-inscription"
-          value="Creation"
-          onClick={handleSubmitConnexion}
-        >
+        <button type="submit" id="btn-inscription" value="Creation">
           S'inscrire à Makesense
         </button>
       </form>

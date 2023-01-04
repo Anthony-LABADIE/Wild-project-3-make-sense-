@@ -7,10 +7,13 @@
   padding-right: 20px;
 }
 
-.connexion h2 {
+#btn-connexion {
   font-size: x-small;
   color: #346a82;
   margin-top: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .connexion h3 {

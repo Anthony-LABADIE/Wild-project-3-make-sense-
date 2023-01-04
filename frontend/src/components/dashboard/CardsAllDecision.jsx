@@ -39,6 +39,7 @@ function CardsAllDecision() {
       title={cardItem.title}
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
+      id_status={cardItem.id_status}
     />
   ));
 
@@ -49,6 +50,7 @@ function CardsAllDecision() {
       title={cardItem.title}
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
+      id_status={cardItem.id_status}
     />
   ));
 

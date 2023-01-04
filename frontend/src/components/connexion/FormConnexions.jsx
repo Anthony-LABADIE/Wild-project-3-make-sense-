@@ -54,7 +54,7 @@ export default function FormInscription() {
 
       <div id="password">
         <input
-          type="text"
+          type="password"
           name="password"
           id="pass"
           placeholder="mot de passe"

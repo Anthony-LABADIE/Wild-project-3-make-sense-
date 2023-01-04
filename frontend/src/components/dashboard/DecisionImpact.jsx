@@ -16,7 +16,7 @@ export default function Decisionimpact() {
 
   const getThreeDecision = () => {
     api
-      .get("decision/authorization/user/23")
+      .get("decision/authorization/user/three/23")
       .then((response) => setThreeDecision(response.data))
       .catch((err) => alert(err.response));
   };
