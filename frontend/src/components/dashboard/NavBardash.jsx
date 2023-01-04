@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import burger from "../../assets/img/burger.png";
 import profil from "../../assets/img/profil.png";
-import notification from "../../assets/img/notificaiton.jpg";
-import message from "../../assets/img/messages.jpg";
-import decision from "../../assets/img/decision.jpg";
+import notification from "../../assets/img/notificaiton.png";
+import message from "../../assets/img/messages.png";
+import decision from "../../assets/img/decision.png";
 
 import "./NavBarDash.css";
 
@@ -38,9 +38,18 @@ function NavBar() {
       {(toggleMenu || largeur > 500) && (
         <ul className="listeNav">
           <img className="logodash" src={logo} alt="logo" />
-          <img className="decision" src={decision} alt="decision" />
-          <img className="notification" src={notification} alt="notification" />
-          <img className="message" src={message} alt="message" />
+          <div className="decision">
+            <img id="decision" src={decision} alt="decision" />
+            <p>décisions</p>
+          </div>
+          <div className="notification">
+            <img id="notification" src={notification} alt="notification" />
+            <p>notifications</p>
+          </div>
+          <div className="message">
+            <img id="messageLogo" src={message} alt="message" />
+            <p>messages</p>
+          </div>
           <Link to="/update">
             <img className="profil" src={profil} alt="profil" />
           </Link>
