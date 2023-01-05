@@ -9,6 +9,13 @@
   height: 100vh;
 }
 
+#logoValidationconnexion{
+  position: absolute;
+  top: 59vh;
+  left: 72vw;
+  width: 2vw;
+}
+
 @media screen and (max-width: 500px) {
   .connexion-container {
     display: flex;
@@ -82,9 +89,9 @@
 
 #btn-visibility {
   position: absolute;
-  top: 69vh;
+  top: 68vh;
   left: 72vw;
-  width: 3vw;
+  width: 2vw;
   font-family: "Raleway", sans-serif;
 }
 

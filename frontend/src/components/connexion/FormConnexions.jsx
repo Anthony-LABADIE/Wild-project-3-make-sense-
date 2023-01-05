@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import good from "../../assets/img/good.png";
+import bad from "../../assets/img/bad.png";
 import eyes from "../../assets/img/oeil.png";
 import eyesInvisibles from "../../assets/img/oeilcache.png";
 import api from "../../services/api";
@@ -9,7 +11,7 @@ export default function FormInscription() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [passwordVisibility, setPasswordVisibility] = useState(false);
-  const [message, setMessage] = useState("");
+  const [logoValide, setLogoValide] = useState(false);
   const navigate = useNavigate();
 
   const handleVisibility = () => {
@@ -21,9 +23,9 @@ export default function FormInscription() {
     const emailValue = e.target.value;
     setEmail(emailValue);
     if (email.match(pattern)) {
-      setMessage("your mail it's good");
+      setLogoValide(true);
     } else {
-      setMessage("It's not a mail");
+      setLogoValide(false);
     }
   };
 
@@ -56,8 +58,12 @@ export default function FormInscription() {
           onChange={emailValidation}
           required="required"
         />
-        <p> {message} </p>
       </div>
+      <img
+        id="logoValidationconnexion"
+        src={logoValide ? good : bad}
+        alt="validation"
+      />
 
       <div id="password">
         <input
