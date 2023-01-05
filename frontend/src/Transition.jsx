@@ -19,6 +19,7 @@ function Transition() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/update" element={<UpdateUser />} />
         <Route path="/decision" element={<Decision />} />
+        <Route path="/Decision/:id" element={<Decision />} />
       </Routes>
     </div>
   );
