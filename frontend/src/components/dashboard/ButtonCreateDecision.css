@@ -8,6 +8,7 @@
   font-style: bold;
   border: none;
   cursor: pointer;
+  font-family: "Raleway", sans-serif;
 }
 
 .btn-decision {
@@ -15,4 +16,5 @@
   display: flex;
   justify-content: flex-end;
   width: 95%;
+  font-family: "Raleway", sans-serif;
 }

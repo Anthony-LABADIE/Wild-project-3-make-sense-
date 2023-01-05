@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import good from "../../assets/img/good.png";
+import bad from "../../assets/img/bad.png";
+import eyes from "../../assets/img/oeil.png";
+import eyesInvisibles from "../../assets/img/oeilcache.png";
 import api from "../../services/api";
 import "./Forminscription.css";
 import PWDRequisite from "./PWDRequiste";
@@ -12,10 +16,15 @@ export default function FormInscription() {
   });
 
   const [email, setEmail] = useState({ email: "" });
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
 
-  const [message, setMessage] = useState("");
+  const [logoValide, setLogoValide] = useState(false);
   const [pwdRequiste, setPWDRquisite] = useState(false);
   const navigate = useNavigate();
+
+  const handleVisibility = () => {
+    setPasswordVisibility(!passwordVisibility);
+  };
 
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -33,9 +42,9 @@ export default function FormInscription() {
     const emailValue = e.target.value;
     setEmail({ email: emailValue });
     if (email.email.match(pattern)) {
-      setMessage("your mail it's good");
+      setLogoValide(true);
     } else {
-      setMessage("It's not a mail");
+      setLogoValide(false);
     }
   };
 
@@ -118,14 +127,17 @@ export default function FormInscription() {
             onChange={emailValidation}
             value={email.email}
           />
-
-          <p className="message">{message}</p>
         </div>
+        <img
+          id="logoValidation"
+          src={logoValide ? good : bad}
+          alt="validation"
+        />
 
         <div id="password">
           <label htmlFor="password">password:</label>
           <input
-            type="password"
+            type={passwordVisibility ? "teste" : "password"}
             placeholder="Password"
             id="passwordConnexion"
             value={input.password}
@@ -136,12 +148,20 @@ export default function FormInscription() {
             onKeyUp={handleOnKeyUp}
           />
         </div>
+        <img
+          id="btn-visibility-inscription"
+          onClick={handleVisibility}
+          src={passwordVisibility ? eyesInvisibles : eyes}
+          role="presentation"
+          alt="oeil"
+        />
+
         {pwdRequiste ? (
           <PWDRequisite
-            capsLetterFlag={checks.capsLetterCheck ? "valid" : "invalid"}
-            numberFlag={checks.numberCheck ? "valid" : "invalid"}
-            pwdLengthFlag={checks.pwdLengthCheck ? "valid" : "invalid"}
-            specialCharFlag={checks.specialCharCheck ? "valid" : "invalid"}
+            capsLetterFlag={checks.capsLetterCheck}
+            numberFlag={checks.numberCheck}
+            pwdLengthFlag={checks.pwdLengthCheck}
+            specialCharFlag={checks.specialCharCheck}
           />
         ) : null}
 

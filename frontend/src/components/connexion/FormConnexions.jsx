@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import eyes from "../../assets/img/oeil.png";
+import eyesInvisibles from "../../assets/img/oeilcache.png";
 import api from "../../services/api";
 import "../../pages/connexionpage.css";
 
 export default function FormInscription() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+
+  const handleVisibility = () => {
+    setPasswordVisibility(!passwordVisibility);
+  };
 
   const emailValidation = (e) => {
     const pattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{1,2})+$/;
@@ -54,7 +61,7 @@ export default function FormInscription() {
 
       <div id="password">
         <input
-          type="password"
+          type={passwordVisibility ? "teste" : "password"}
           name="password"
           id="pass"
           placeholder="mot de passe"
@@ -63,6 +70,13 @@ export default function FormInscription() {
           required="required"
         />
       </div>
+      <img
+        id="btn-visibility"
+        onClick={handleVisibility}
+        src={passwordVisibility ? eyesInvisibles : eyes}
+        role="presentation"
+        alt="oeil"
+      />
 
       <button type="submit" id="btn-inscription" value="Login">
         Connexion
