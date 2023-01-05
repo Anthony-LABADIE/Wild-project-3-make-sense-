@@ -4,7 +4,7 @@
   grid-template-rows: 0.2fr 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  background-image: url(..\assets\img\fondinscription.JPG);
+  background-image: url(..\assets\img\fondinscription.jpg);
   background-size: cover;
   width: 100vw;
   height: 100vh;

@@ -1,0 +1,15 @@
+.carreau {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 30px;
+    gap: 20px;
+  }
+
+  .UserItem {
+    width: 15vw;
+    background-color: rgb(106, 158, 109);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+  }
