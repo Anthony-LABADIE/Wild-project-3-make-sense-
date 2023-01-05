@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import triangle from "../../assets/img/triangle.png";
 import CardsItem from "./CardsItem";
 import api from "../../services/api";
-// import { Link } from "react-router-dom";
+import { authContext } from "../../hooks/authContext";
 import "./Decisionimpact.css";
 
 export default function Decisionimpact() {
+  const { auth } = useContext(authContext);
   const [show, setShow] = useState(true);
   const [threedecision, setThreeDecision] = useState([]);
   const [decision, setDecision] = useState([]);
@@ -16,14 +17,18 @@ export default function Decisionimpact() {
 
   const getThreeDecision = () => {
     api
-      .get("decision/authorization/user/three/23")
+      .get(`decision/authorization/user/three/${auth.data.id}`, {
+        withCredentials: true,
+      })
       .then((response) => setThreeDecision(response.data))
       .catch((err) => alert(err.response));
   };
 
   const getAllDecision = () => {
     api
-      .get("decision/authorization/user/23")
+      .get(`decision/authorization/user/${auth.data.id}`, {
+        withCredentials: true,
+      })
       .then((response) => setDecision(response.data))
       .catch((err) => alert(err.response));
   };

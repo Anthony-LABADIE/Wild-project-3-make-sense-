@@ -10,7 +10,10 @@ function CardsItem({ title, lastname, firstname, status, id_status }) {
     <div className="CardItem">
       <div
         style={{
-          backgroundColor: id_status === 4 ? "red" : "green",
+          backgroundColor:
+            id_status === 4
+              ? " rgba(224, 177, 177, 0.28)"
+              : "rgba(178, 224, 177, 0.28)",
         }}
         className="status"
       >

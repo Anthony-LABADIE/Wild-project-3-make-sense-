@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import good from "../../assets/img/good.png";
 import bad from "../../assets/img/bad.png";
 import eyes from "../../assets/img/oeil.png";
 import eyesInvisibles from "../../assets/img/oeilcache.png";
 import api from "../../services/api";
+import { authContext } from "../../hooks/authContext";
 import "../../pages/connexionpage.css";
 
 export default function FormInscription() {
@@ -12,7 +13,14 @@ export default function FormInscription() {
   const [password, setPassword] = useState();
   const [passwordVisibility, setPasswordVisibility] = useState(false);
   const [logoValide, setLogoValide] = useState(false);
+  const { login, auth } = useContext(authContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (auth.data) {
+      navigate("/dashboard");
+    }
+  }, []);
 
   const handleVisibility = () => {
     setPasswordVisibility(!passwordVisibility);
@@ -36,7 +44,7 @@ export default function FormInscription() {
         .post("user/login", { email, password }, { withCredentials: true })
         .then((res) => {
           if (res.status === 200) {
-            navigate("/dashboard");
+            login(res.data);
           }
         })
         .catch((err) => alert(err.response));

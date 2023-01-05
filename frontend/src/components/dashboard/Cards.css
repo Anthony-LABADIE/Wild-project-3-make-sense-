@@ -76,11 +76,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: #ffffff;
+  box-shadow: -7px 5px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 34px;
 }
 
 .status {
-  border: 2px solid black;
-  border-radius: 15px;
+  border: 1px solid #3c9625;
+  border-radius: 7px;
   padding-left: 50px;
   padding-right: 50px;
 }
