@@ -9,4 +9,6 @@ export default function CustomButton({ onPress }) {
   );
 }
 
-
+CustomButton.propTypes = {
+  onPress: PropTypes.string.isRequired,
+};

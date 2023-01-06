@@ -21,6 +21,8 @@ UserItem.propTypes = {
   lastname: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  onclick: PropTypes.string.isRequired,
+  expert: PropTypes.string.isRequired,
 };
 
 export default UserItem;
