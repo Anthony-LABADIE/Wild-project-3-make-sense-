@@ -1,12 +1,18 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable camelcase */
 import PropTypes from "prop-types";
-import { useState } from "react";
 import "./ProfilAllUser.css";
 
-function UserItem({ lastname, firstname, id, onclick }) {
+function UserItem({ lastname, firstname, id, onclick, expert }) {
   return (
-    <div className="UserItem" onClick={onclick}>
-      {lastname} {firstname} {id}
+    <div>
+      <div className="UserItem" onClick={onclick} key={id}>
+        {lastname} {firstname} {id}
+      </div>
+      <button onClick={expert} type="button">
+        expert
+      </button>
     </div>
   );
 }

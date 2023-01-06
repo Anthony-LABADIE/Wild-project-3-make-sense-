@@ -7,7 +7,7 @@ const noticeController = {
     noticeModel
       .findAllnotice()
       .then((notice) => res.send(notice))
-      .catch((err) => res.send("toto"));
+      .catch((err) => res.send(err));
   },
 
   getOneNotice: (req, res) => {
