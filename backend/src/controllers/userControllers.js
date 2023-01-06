@@ -145,21 +145,20 @@ const userController = {
   },
 
   updateImage: (req, res, next) => {
-    console.log("hello");
     // je récupere grâce à multer mon fichier dans req.file
 
     // je crée le chemin d'accès avec mon process.env pour la sécurité
     // et j'envoie en BDD grâce à mon model !
 
     const imgSrc = `${process.env.BACKEND_URL}/uploads/${req.file.filename}`;
-    console.log(imgSrc, "imagesrc");
+
     userModel
       .updateImage(imgSrc, 1)
       .then((response) => {
         if (response.affectedRows !== 0) {
           return res.status(200).send("image uploaded successfully");
         }
-        console.log(imgSrc, "imagesrc");
+
         return res.status(404).send("error uploading image");
       })
       .catch((err) => next(err));
