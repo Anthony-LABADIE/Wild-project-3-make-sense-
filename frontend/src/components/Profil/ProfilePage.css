@@ -1,14 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@500&display=swap");
+
 nav {
   display: flex;
   flex-direction: row;
   padding-left: 3vmin;
   gap: 90vmin;
 }
+.decisionContainer {
+  display: flex;
+  flex-direction: column;
+}
 .myDecisions {
   display: flex;
   flex-direction: row;
 }
-
+.userDecisions {
+  display: flex;
+  padding-left: 3vmin;
+  padding-bottom: 10vmin;
+  padding-top: 10vmin;
+  gap: 13vmin;
+}
 .navButtons {
   display: flex;
   flex-direction: row;
@@ -31,7 +43,7 @@ nav {
   display: flex;
   flex-direction: column;
   padding-left: 25vmin;
-  width: 120vmin;
+  width: 130vmin;
 }
 .nameEmail {
   display: flex;
@@ -44,9 +56,118 @@ nav {
 #buttonProfil {
   margin-left: auto;
   margin-right: 0;
+  width: 22vmin;
+
+  height: 5vmin;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  background-color: #0c3944;
+  color: white;
+  border-radius: 1vmin;
+}
+.picture {
+  height: 35vmin;
+  width: 35vmin;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  background: url("../../assets/img/profil.png");
+  background-size: cover;
+}
+.picture:before {
+  content: "";
+  position: absolute;
+  width: 35vmin;
+  height: 35vmin;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+}
+.picture:hover::before {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.picture img {
+  display: block;
+}
+.decisionPhase {
+  width: 162.83px;
+  height: 20.38px;
+  margin: auto;
+  margin-top: 2vh;
+  background: rgba(178, 224, 177, 0.28);
+  border: 1px solid #3c9625;
+  border-radius: 7px;
+}
+.picutre button {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.picture:hover button {
+  opacity: 1;
+}
+.buttonImage {
+  width: 22vmin;
+
+  margin-left: 5vmin;
+  height: 4.5vmin;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: #0c3944;
+  color: white;
+  border-radius: 1vmin;
+}
+
+.decisionBubble {
+  width: 325px;
+  height: 184px;
+
+  background: #ffffff;
+  box-shadow: -7px 5px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 34px;
+}
+
+#profileImage {
+  height: 35vmin;
+  width: 35vmin;
+  border-radius: 50%;
+  background-size: cover;
+}
+#authorImg {
+  height: 4vmin;
+  width: 4vmin;
+  border-radius: 50%;
+  background-size: cover;
+}
+.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vw;
 }
 #buttonImage {
-  margin-top: 2vmin;
+  width: 22vmin;
+  margin: auto;
+  height: 5vmin;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  background-color: #0c3944;
+  color: white;
+  border-radius: 1vmin;
+}
+h4 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+#importBtn {
+  padding: 1.2vmin;
+  height: 5vmin;
+}
+#profilImg {
+  margin-bottom: 2vmin;
 }
 #line {
   padding-top: 10vmin;
@@ -66,4 +187,37 @@ nav {
 }
 #info {
   margin: auto;
+}
+h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
+}
+h1 {
+  font-family: "Raleway", sans-serif;
+}
+h3 {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+}
+#decisions {
+  white-space: nowrap;
+  margin: auto;
+  padding-left: 5vmin;
+  color: #3c9625;
+}
+.description {
+  display: flex;
+  justify-content: center;
+  max-height: 12vh;
+}
+#descr {
+  text-align: center;
+  max-width: 240px;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-size: 1.3rem;
+}
+#byAuthor {
+  font-size: 0.9rem;
+  font-weight: 400;
 }
