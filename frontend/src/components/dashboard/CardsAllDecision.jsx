@@ -16,14 +16,14 @@ function CardsAllDecision() {
 
   const getThreeDecision = () => {
     api
-      .get("decision/three")
+      .get("decision/three", { withCredentials: true })
       .then((response) => setThreeDecision(response.data))
       .catch((err) => alert(err.response));
   };
 
   const getAllDecision = () => {
     api
-      .get("decision/")
+      .get("decision/", { withCredentials: true })
       .then((response) => setDecision(response.data))
       .catch((err) => alert(err.response));
   };
@@ -39,6 +39,7 @@ function CardsAllDecision() {
       title={cardItem.title}
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
+      id_status={cardItem.id_status}
     />
   ));
 
@@ -49,6 +50,7 @@ function CardsAllDecision() {
       title={cardItem.title}
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
+      id_status={cardItem.id_status}
     />
   ));
 

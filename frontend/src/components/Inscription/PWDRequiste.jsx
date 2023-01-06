@@ -6,13 +6,25 @@ function PWDRequisite({
   numberFlag,
   pwdLengthFlag,
   specialCharFlag,
+  text,
+  imageInvalide,
+  imageValide,
+  className,
 }) {
   return (
     <div id="message">
-      <p className={capsLetterFlag}>Must contain 1 Capital Letter</p>
-      <p className={numberFlag}>Must contain number</p>
-      <p className={pwdLengthFlag}>Must be 8 Chars long</p>
-      <p className={specialCharFlag}> Must contain special character</p>
+      <div className={className}>
+        <p> {text}</p>
+        <img
+          src={
+            // eslint-disable-next-line no-bitwise
+            pwdLengthFlag & capsLetterFlag & numberFlag & specialCharFlag
+              ? imageValide
+              : imageInvalide
+          }
+          alt="logo"
+        />
+      </div>
     </div>
   );
 }
@@ -22,6 +34,10 @@ PWDRequisite.propTypes = {
   numberFlag: PropTypes.string.isRequired,
   pwdLengthFlag: PropTypes.string.isRequired,
   specialCharFlag: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  imageInvalide: PropTypes.bool.isRequired,
+  imageValide: PropTypes.bool.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
 export default PWDRequisite;

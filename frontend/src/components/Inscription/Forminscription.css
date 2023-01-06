@@ -9,11 +9,26 @@
   width: 40vw;
 }
 
+#logoValidation {
+  position: absolute;
+  top: 52vh;
+  left: 91vw;
+  width: 2vw;
+}
+
+#btn-visibility-inscription {
+  position: absolute;
+  top: 63vh;
+  left: 91vw;
+  width: 2vw;
+}
+
 .form h2 {
   grid-area: 1 / 1 / 2 / 3;
   padding-top: 30px;
   display: flex;
   justify-content: center;
+  font-family: "Raleway", sans-serif;
 }
 
 #lastname {
@@ -23,10 +38,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Raleway", sans-serif;
 }
 
 #lastnameConnexion {
   width: 98%;
+  font-family: "Raleway", sans-serif;
 }
 
 #firstname {
@@ -36,10 +53,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Raleway", sans-serif;
 }
 
 #firstnameConnexion {
   width: 98%;
+  font-family: "Raleway", sans-serif;
 }
 
 #mail {
@@ -49,6 +68,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Raleway", sans-serif;
 }
 
 #mail h4 {
@@ -56,10 +76,12 @@
   font-size: xx-small;
   height: 10px;
   margin: 0;
+  font-family: "Raleway", sans-serif;
 }
 
 #email {
   width: 98%;
+  font-family: "Raleway", sans-serif;
 }
 #password {
   grid-area: 4 / 1 / 5 / 3;
@@ -68,6 +90,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Raleway", sans-serif;
 }
 
 #password p {
@@ -75,10 +98,12 @@
   font-size: xx-small;
   height: 10px;
   margin: 0;
+  font-family: "Raleway", sans-serif;
 }
 
 #pass {
   width: 98%;
+  font-family: "Raleway", sans-serif;
 }
 
 #message {
@@ -87,6 +112,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Raleway", sans-serif;
 }
 
 #btn-inscription {
@@ -94,6 +120,7 @@
   border-radius: 10px solid transparent;
   background-color: #346a82;
   color: white;
+  font-family: "Raleway", sans-serif;
 }
 
 #termes {
@@ -107,32 +134,29 @@
   flex-direction: row;
   justify-content: center;
   column-gap: 2px;
+  font-family: "Raleway", sans-serif;
 }
 
 #termes h5 {
   color: blue;
   font-size: 9px;
-}
-
-.valid {
-  color: green;
-}
-
-.invalid {
-  color: red;
+  font-family: "Raleway", sans-serif;
 }
 
 #passwordConnexion {
   width: 98%;
+  font-family: "Raleway", sans-serif;
 }
 
 #emailConnexion {
   width: 98%;
+  font-family: "Raleway", sans-serif;
 }
 
 @media screen and (max-width: 500px) {
   .form {
     width: 90vw;
     margin-left: 20px;
+    font-family: "Raleway", sans-serif;
   }
 }

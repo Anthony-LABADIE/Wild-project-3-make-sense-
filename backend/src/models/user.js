@@ -44,7 +44,12 @@ const updateOne = (payload, id) => {
     .query("UPDATE user SET ? Where id = ?", [payload, id])
     .then(([res]) => res);
 };
-
+const updateImage = (url, id) => {
+  return database
+    .promise()
+    .query("UPDATE user SET image = ? WHERE id = ?", [url, id])
+    .then(([res]) => res);
+};
 module.exports = {
   findAll,
   findOne,
@@ -52,4 +57,5 @@ module.exports = {
   findByEmail,
   deleteOne,
   updateOne,
+  updateImage,
 };

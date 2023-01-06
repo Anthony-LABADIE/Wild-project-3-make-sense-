@@ -6,12 +6,14 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: "Raleway", sans-serif;
 }
 
 .App-header h2 {
   color: white;
   font-size: 4em;
   margin: 0;
+  font-family: "Raleway", sans-serif;
 }
 
 @media screen and (max-width: 500px) {

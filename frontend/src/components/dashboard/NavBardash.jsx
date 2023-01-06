@@ -40,17 +40,17 @@ function NavBar() {
           <img className="logodash" src={logo} alt="logo" />
           <div className="decision">
             <img id="decision" src={decision} alt="decision" />
-            <p>décisions</p>
+            <h4>décisions</h4>
           </div>
           <div className="notification">
             <img id="notification" src={notification} alt="notification" />
-            <p>notifications</p>
+            <h4>notifications</h4>
           </div>
           <div className="message">
             <img id="messageLogo" src={message} alt="message" />
-            <p>messages</p>
+            <h4>messages</h4>
           </div>
-          <Link to="/update">
+          <Link to="/dashboard/profil">
             <img className="profil" src={profil} alt="profil" />
           </Link>
         </ul>

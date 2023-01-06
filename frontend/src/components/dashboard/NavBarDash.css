@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@500&display=swap");
+
 nav {
   height: 10vh;
   background-color: white;
@@ -8,7 +10,9 @@ nav {
   height: 60%;
   padding-left: 10px;
 }
-
+h4 {
+  font-family: "Raleway", sans-serif;
+}
 .listeNav {
   list-style-type: none;
   background-color: white;
@@ -42,7 +46,7 @@ nav {
   font-size: xx-small;
 }
 
-.decision p {
+.decision h4 {
   margin-top: 1px;
 }
 
@@ -64,7 +68,7 @@ nav {
   font-size: xx-small;
 }
 
-.notification p {
+.notification h4 {
   margin-top: 1px;
 }
 
@@ -86,7 +90,7 @@ nav {
   font-size: xx-small;
 }
 
-.message p {
+.message h4 {
   margin-top: 1px;
 }
 
