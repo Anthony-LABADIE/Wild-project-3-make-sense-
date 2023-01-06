@@ -10,13 +10,15 @@ function Decision() {
   const [input, setInput] = useState({
     Description: "",
   });
+
   const [isActiveDecision, setIsActiveDecision] = useState(1);
-  const { apidecision } = useContext(CurrentDecisionContext);
+  const { apidecision, setInputDecision } = useContext(CurrentDecisionContext);
   function next() {
     setIsActiveDecision((i) => {
       if (i >= 5) return isActiveDecision;
       return i + 1;
     });
+    setInputDecision(input);
     setInput({});
   }
 
@@ -49,6 +51,10 @@ function Decision() {
                 txt={el.txt}
                 input={input}
                 setInput={setInput}
+                idInput={el.input.id}
+                type={el.input.type}
+                value={el.input.value}
+                name={el.input.name}
               />
             ))}
         </div>

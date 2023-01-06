@@ -9,8 +9,11 @@ export default CurrentDecisionContext;
 
 export function CurrentDecisionContextProvider({ children }) {
   const [apidecision, setApiDecision] = useState(dataDecision);
+  const [inputDecision, setInputDecision] = useState();
   return (
-    <CurrentDecisionContext.Provider value={{ apidecision, setApiDecision }}>
+    <CurrentDecisionContext.Provider
+      value={{ inputDecision, setInputDecision, apidecision, setApiDecision }}
+    >
       {children}
     </CurrentDecisionContext.Provider>
   );
