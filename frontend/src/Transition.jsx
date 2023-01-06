@@ -7,6 +7,7 @@ import Inscription from "./pages/Inscription";
 import Connexionpage from "./pages/Connexionpage";
 import Dashboard from "./pages/Dashboard";
 import Decision from "./pages/Decision";
+import ProfilePage from "./components/Profil/ProfilPage";
 
 function Transition() {
   return (
@@ -32,6 +33,7 @@ function Transition() {
             </ProtectedRoute>
           }
         />
+        <Route path="/profil" element={ <ProtectedRoute><ProfilePage /> </ProtectedRoute>} />
       </Routes>
     </div>
   );
