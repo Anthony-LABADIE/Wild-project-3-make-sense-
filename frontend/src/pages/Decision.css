@@ -1,0 +1,16 @@
+.dashboard__decision {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.dashboard__decision h2 {
+  border-color: black;
+  border: 0.2rem solid;
+  border-radius: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: black;
+  margin: 0 1rem;
+  padding: 1rem;
+}

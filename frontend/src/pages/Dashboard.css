@@ -1,5 +1,8 @@
-.dashboard {
+body {
   background-color: rgba(28, 71, 210, 0.119);
+}
+
+.dashboard {
   height: 90vh;
   display: grid;
   grid-template-columns: 1fr;

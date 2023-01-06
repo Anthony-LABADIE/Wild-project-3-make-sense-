@@ -5,7 +5,7 @@ const findAllDecision = (id) => {
   return db
     .promise()
     .query(
-      "SELECT title, content, deadline, contexte, profit, usefullness, inconvenience, id_user, date_posted, id_status FROM decision LEFT JOIN user ON user.id=decision.id_user WHERE user.id = ?",
+      "SELECT * FROM decision LEFT JOIN user ON user.id=decision.id_user INNER JOIN status ON decision.id_status = status.id WHERE user.id = ?",
       [id]
     )
     .then(([decision]) => decision);

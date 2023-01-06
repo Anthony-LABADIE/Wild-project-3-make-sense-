@@ -3,6 +3,16 @@
 const decisionModel = require("../models/decisionModels");
 
 const decisionController = {
+  getThreeDecision: (_, res) => {
+    decisionModel
+      .findthree()
+      .then((decision) => res.send(decision))
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  },
+
   getAllDecision: (_, res) => {
     decisionModel
       .findAll()
