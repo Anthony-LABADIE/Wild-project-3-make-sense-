@@ -46,7 +46,7 @@ h4 {
   font-size: xx-small;
 }
 
-.decision p {
+.decision h4 {
   margin-top: 1px;
 }
 
@@ -68,7 +68,7 @@ h4 {
   font-size: xx-small;
 }
 
-.notification p {
+.notification h4 {
   margin-top: 1px;
 }
 
@@ -90,7 +90,7 @@ h4 {
   font-size: xx-small;
 }
 
-.message p {
+.message h4 {
   margin-top: 1px;
 }
 

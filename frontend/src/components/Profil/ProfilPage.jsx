@@ -1,7 +1,8 @@
 import "./ProfilePage.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import api from "../../services/api";
 import NavBar from "../dashboard/NavBardash";
+import { authContext } from "../../hooks/authContext";
 
 function ProfilePage() {
   const [userFirst, setUserFirst] = useState();
@@ -9,8 +10,10 @@ function ProfilePage() {
   const [userEmail, setUserEmail] = useState();
   const [profilImage, setProfilImage] = useState();
   const [file, setFile] = useState();
+  const { auth } = useContext(authContext);
+
   const loadUserInfo = () => {
-    api.get("user/1").then((response) => {
+    api.get(`user/${auth.data.id}`).then((response) => {
       setUserFirst(response.data.firstname);
       setUserLast(response.data.lastname);
       setUserEmail(response.data.email);
@@ -25,7 +28,7 @@ function ProfilePage() {
   };
   const fetchImage = () => {
     // mon appel pour récupérer tous les users
-    api.get("/user/1").then((res) => {
+    api.get(`user/${auth.data.id}`).then((res) => {
       setProfilImage(res.data.image);
     });
   };
@@ -36,7 +39,7 @@ function ProfilePage() {
     formData.append("upload", file);
 
     api
-      .put(`/user/upload`, formData, {
+      .put(`/user/upload/${auth.data.id}`, formData, {
         // withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",

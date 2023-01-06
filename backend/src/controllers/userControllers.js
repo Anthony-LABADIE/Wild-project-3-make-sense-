@@ -151,9 +151,10 @@ const userController = {
     // et j'envoie en BDD grâce à mon model !
 
     const imgSrc = `${process.env.BACKEND_URL}/uploads/${req.file.filename}`;
+    const { id } = req.params;
 
     userModel
-      .updateImage(imgSrc, 1)
+      .updateImage(imgSrc, id)
       .then((response) => {
         if (response.affectedRows !== 0) {
           return res.status(200).send("image uploaded successfully");

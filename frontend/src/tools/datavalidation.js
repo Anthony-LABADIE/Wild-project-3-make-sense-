@@ -16,7 +16,6 @@ const validationLogo = [
     text: " Must contain number",
     imageInvalide: invalide,
     imageValide: valide,
-
   },
   {
     id: 3,

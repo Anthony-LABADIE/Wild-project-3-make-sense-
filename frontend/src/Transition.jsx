@@ -33,7 +33,14 @@ function Transition() {
             </ProtectedRoute>
           }
         />
-        <Route path="/profil" element={ <ProtectedRoute><ProfilePage /> </ProtectedRoute>} />
+        <Route
+          path="/dashboard/profil"
+          element={
+            <ProtectedRoute>
+              <ProfilePage />{" "}
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );

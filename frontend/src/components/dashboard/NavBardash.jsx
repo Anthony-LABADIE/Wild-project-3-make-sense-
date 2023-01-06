@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import burger from "../../assets/img/burger.png";
 import profil from "../../assets/img/profil.png";
@@ -49,8 +50,9 @@ function NavBar() {
             <img id="messageLogo" src={message} alt="message" />
             <h4>messages</h4>
           </div>
-
-          <img className="profil" src={profil} alt="profil" />
+          <Link to="/dashboard/profil">
+            <img className="profil" src={profil} alt="profil" />
+          </Link>
         </ul>
       )}
       <button onClick={toggleNavSmallScreen} className="btn-nav" type="button">

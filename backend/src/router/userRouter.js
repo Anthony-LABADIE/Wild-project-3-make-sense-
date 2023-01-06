@@ -24,7 +24,7 @@ userRouter.post(
 userRouter.post("/login", credentialsCheck, userController.login);
 userRouter.delete("/:id", userController.deleteUser);
 userRouter.put(
-  "/upload",
+  "/upload/:id",
   upload.single("upload"),
   checkImage,
   userController.updateImage
