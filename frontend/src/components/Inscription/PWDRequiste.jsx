@@ -1,6 +1,4 @@
 import PropTypes from "prop-types";
-import valide from "../../assets/img/cocher.png";
-import invalide from "../../assets/img/supprimer.png";
 import "./PWDRequiste.css";
 
 function PWDRequisite({
@@ -8,39 +6,23 @@ function PWDRequisite({
   numberFlag,
   pwdLengthFlag,
   specialCharFlag,
+  text,
+  imageInvalide,
+  imageValide,
+  className,
 }) {
   return (
     <div id="message">
-      <div className="capsLetterFlag">
-        <p id="capsLetterFlag">Must contain 1 Capital Letter</p>
+      <div className={className}>
+        <p> {text}</p>
         <img
-          id="logovalide"
-          src={capsLetterFlag ? valide : invalide}
-          alt="valide"
-        />
-      </div>
-      <div className="numberFlag">
-        <p id="numberFlag">Must contain number</p>
-        <img
-          id="logovalide"
-          src={numberFlag ? valide : invalide}
-          alt="valide"
-        />
-      </div>
-      <div className="pwdLengthFlag">
-        <p id="pwdLengthFlag">Must be 8 Chars long</p>
-        <img
-          id="logovalide"
-          src={pwdLengthFlag ? valide : invalide}
-          alt="valide"
-        />
-      </div>
-      <div className="specialCharFlag">
-        <p id="specialCharFlag"> Must contain special character</p>
-        <img
-          id="logovalide"
-          src={specialCharFlag ? valide : invalide}
-          alt="valide"
+          src={
+            // eslint-disable-next-line no-bitwise
+            pwdLengthFlag & capsLetterFlag & numberFlag & specialCharFlag
+              ? imageValide
+              : imageInvalide
+          }
+          alt="logo"
         />
       </div>
     </div>
@@ -52,6 +34,10 @@ PWDRequisite.propTypes = {
   numberFlag: PropTypes.string.isRequired,
   pwdLengthFlag: PropTypes.string.isRequired,
   specialCharFlag: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  imageInvalide: PropTypes.bool.isRequired,
+  imageValide: PropTypes.bool.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
 export default PWDRequisite;

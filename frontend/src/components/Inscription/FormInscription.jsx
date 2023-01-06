@@ -7,6 +7,7 @@ import eyesInvisibles from "../../assets/img/oeilcache.png";
 import api from "../../services/api";
 import "./Forminscription.css";
 import PWDRequisite from "./PWDRequiste";
+import data from "../../tools/datavalidation";
 
 export default function FormInscription() {
   const [input, setInput] = useState({
@@ -156,14 +157,21 @@ export default function FormInscription() {
           alt="oeil"
         />
 
-        {pwdRequiste ? (
-          <PWDRequisite
-            capsLetterFlag={checks.capsLetterCheck}
-            numberFlag={checks.numberCheck}
-            pwdLengthFlag={checks.pwdLengthCheck}
-            specialCharFlag={checks.specialCharCheck}
-          />
-        ) : null}
+        {pwdRequiste
+          ? data.map((validation) => (
+              <PWDRequisite
+                id={validation.id}
+                className={validation.className}
+                text={validation.text}
+                imageInvalide={validation.imageInvalide}
+                imageValide={validation.imageValide}
+                capsLetterFlag={checks.capsLetterCheck}
+                numberFlag={checks.numberCheck}
+                pwdLengthFlag={checks.pwdLengthCheck}
+                specialCharFlag={checks.specialCharCheck}
+              />
+            ))
+          : null}
 
         <button type="submit" id="btn-inscription" value="Creation">
           S'inscrire à Makesense
