@@ -7,6 +7,7 @@ import Connexionpage from "./pages/Connexionpage";
 import Dashboard from "./pages/Dashboard";
 import UpdateUser from "./components/Inscription/UpdateUser";
 import Decision from "./pages/Decision";
+import UserConcerned from "./pages/UserConcerned";
 
 function Transition() {
   return (
@@ -19,6 +20,7 @@ function Transition() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/update" element={<UpdateUser />} />
         <Route path="/decision" element={<Decision />} />
+        <Route path="/concerned" element={<UserConcerned />} />
       </Routes>
     </div>
   );
