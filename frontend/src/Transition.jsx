@@ -41,6 +41,7 @@ function Transition() {
             </ProtectedRoute>
           }
         />
+        <Route path="/Decision/:id" element={<Decision />} />
       </Routes>
     </div>
   );
