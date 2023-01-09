@@ -3,7 +3,6 @@ import DecisionCard from "../components/Decision/DecisionCard";
 import NavBardash from "../components/dashboard/NavBardash";
 import CurrentDecisionContext from "../Contexts/DecisionContexts";
 import DecisionDash from "../components/Decision/DecisionDash";
-import api from "../services/api";
 
 import "./Decision.css";
 
@@ -31,29 +30,6 @@ function Decision() {
   };
   const handleBack = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
-  };
-  const handleSubmitDecision = (e) => {
-    e.preventDefault();
-    if (
-      input.Description &&
-      input.Description1 &&
-      input.Description2 &&
-      input.Description3 &&
-      input.Description4
-    ) {
-      api
-        .post("decision/", { ...input }, { withCredentials: true })
-        .then((res) => {
-          if (res.status === 200) {
-            // navigate("/connexion");
-          }
-        })
-        // eslint-disable-next-line no-alert
-        .catch((err) => alert(err.response));
-    } else {
-      // eslint-disable-next-line no-alert
-      alert("Please specify both email and password");
-    }
   };
   return (
     <div>
@@ -91,9 +67,7 @@ function Decision() {
                   Suivant
                 </button>
               ) : (
-                <button onClick={handleSubmitDecision} type="submit">
-                  Valider
-                </button>
+                <button type="submit">Valider</button>
               )}
             </div>
           </div>

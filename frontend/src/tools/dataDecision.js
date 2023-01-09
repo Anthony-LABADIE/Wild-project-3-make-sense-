@@ -12,16 +12,16 @@ const dataDecision = [
     input: [
       {
         id: 1,
-        label: "Titre Decision",
-        placeholder: "First Name",
+        label: "Titre de la decision",
+        placeholder: "Texte",
         type: "text",
         name: "Title",
         value: "",
       },
       {
         id: 2,
-        label: "Description",
-        placeholder: "First Name",
+        label: "Contenu de la decision",
+        placeholder: "Texte",
         type: "text",
         name: "Description",
         value: "",
@@ -42,8 +42,8 @@ const dataDecision = [
     input: [
       {
         id: 2,
-        label: "First Name",
-        placeholder: "First Name",
+        label: "Utilité",
+        placeholder: "Texte",
         type: "text",
         name: "Description1",
         value: "",
@@ -63,8 +63,8 @@ const dataDecision = [
     input: [
       {
         id: 2,
-        label: "First Name",
-        placeholder: "First Name",
+        label: "contexte",
+        placeholder: "Texte",
         type: "text",
         name: "Description2",
         value: "",
@@ -84,8 +84,8 @@ const dataDecision = [
     input: [
       {
         id: 2,
-        label: "First Name",
-        placeholder: "First Name",
+        label: "bénéfice",
+        placeholder: "Texte",
         type: "text",
         name: "Description3",
         value: "",
@@ -105,8 +105,8 @@ const dataDecision = [
     input: [
       {
         id: 2,
-        label: "First Name",
-        placeholder: "First Name",
+        label: "l'inconvénient",
+        placeholder: "Texte",
         type: "text",
         name: "Description4",
         value: "",
