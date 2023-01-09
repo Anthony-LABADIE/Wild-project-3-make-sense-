@@ -9,14 +9,25 @@ const dataDecision = [
     title1: "Le Contenu",
     title2: "Titre de l'annonce",
     title3: "",
-    input: {
-      id: 1,
-      label: "First Name",
-      placeholder: "First Name",
-      type: "text",
-      name: "Description",
-      value: "",
-    },
+    input: [
+      {
+        id: 1,
+        label: "Titre Decision",
+        placeholder: "First Name",
+        type: "text",
+        name: "Title",
+        value: "",
+      },
+      {
+        id: 2,
+        label: "Description",
+        placeholder: "First Name",
+        type: "text",
+        name: "Description",
+        value: "",
+      },
+    ],
+
     isActive: false,
   },
 
@@ -28,14 +39,16 @@ const dataDecision = [
     title1: "L'Utilité",
     title2: "Utilité Utilité Utilité",
     title3: "",
-    input: {
-      id: 2,
-      label: "First Name",
-      placeholder: "First Name",
-      type: "text",
-      name: "Description",
-      value: "",
-    },
+    input: [
+      {
+        id: 2,
+        label: "First Name",
+        placeholder: "First Name",
+        type: "text",
+        name: "Description1",
+        value: "",
+      },
+    ],
     isActive: true,
   },
 
@@ -47,14 +60,16 @@ const dataDecision = [
     title1: "Le Contexte",
     title2: "",
     title3: "",
-    input: {
-      id: 3,
-      label: "First Name",
-      placeholder: "First Name",
-      type: "text",
-      name: "Description",
-      value: "",
-    },
+    input: [
+      {
+        id: 2,
+        label: "First Name",
+        placeholder: "First Name",
+        type: "text",
+        name: "Description2",
+        value: "",
+      },
+    ],
     isActive: false,
   },
 
@@ -66,14 +81,16 @@ const dataDecision = [
     title1: "Le Bénéfice",
     title2: "",
     title3: "",
-    input: {
-      id: 4,
-      label: "First Name",
-      placeholder: "First Name",
-      type: "text",
-      name: "Description",
-      value: "",
-    },
+    input: [
+      {
+        id: 2,
+        label: "First Name",
+        placeholder: "First Name",
+        type: "text",
+        name: "Description3",
+        value: "",
+      },
+    ],
     isActive: false,
   },
 
@@ -85,14 +102,16 @@ const dataDecision = [
     title1: "L'Inconvénient",
     title2: "",
     title3: "",
-    input: {
-      id: 5,
-      label: "First Name",
-      placeholder: "First Name",
-      type: "text",
-      name: "Description",
-      value: "",
-    },
+    input: [
+      {
+        id: 2,
+        label: "First Name",
+        placeholder: "First Name",
+        type: "text",
+        name: "Description4",
+        value: "",
+      },
+    ],
     isActive: false,
   },
 ];
