@@ -69,7 +69,7 @@ function ProfilePage() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar profileImage={profilImage} />
       <div className="profilInfo">
         <div className="profilPic">
           <div className="picture">
