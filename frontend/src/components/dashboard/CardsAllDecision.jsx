@@ -40,6 +40,7 @@ function CardsAllDecision() {
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
       id_status={cardItem.id_status}
+      image={cardItem.image}
     />
   ));
 
@@ -51,6 +52,7 @@ function CardsAllDecision() {
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
       id_status={cardItem.id_status}
+      image={cardItem.image}
     />
   ));
 

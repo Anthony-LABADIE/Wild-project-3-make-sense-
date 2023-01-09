@@ -34,6 +34,7 @@ function NavBar() {
       {(toggleMenu || largeur > 500) && (
         <ul className="liste">
           <img className="logo" src={logo} alt="logo" />
+
           <li className="item"> SOLUTION</li>
           <li className="item"> CONTACT</li>
           <Link to="connexion" style={{ textDecoration: "none" }}>

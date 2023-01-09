@@ -5,6 +5,25 @@ nav {
   background-color: white;
 }
 
+.pictureProfil {
+  height: 6vmin;
+  width: 6vmin;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  background: url("../../assets/img/profil.png");
+  background-size: cover;
+  margin-bottom: 1vh;
+}
+
+#imgProfil {
+  height: 6vmin;
+  width: 6vmin;
+  border-radius: 50%;
+  background-size: cover;
+  margin-bottom: 1vh;
+}
+
 .logo {
   width: 60%;
   height: 60%;
@@ -97,6 +116,13 @@ h4 {
 #messageLogo {
   margin-top: 10%;
   width: 30%;
+}
+
+.profilPicture {
+  display: flex;
+  flex-direction: column;
+  max-width: 30vmin;
+  padding-left: 7vmin;
 }
 
 .profil {
