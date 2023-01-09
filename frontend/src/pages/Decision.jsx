@@ -48,8 +48,10 @@ function Decision() {
             // navigate("/connexion");
           }
         })
+        // eslint-disable-next-line no-alert
         .catch((err) => alert(err.response));
     } else {
+      // eslint-disable-next-line no-alert
       alert("Please specify both email and password");
     }
   };
