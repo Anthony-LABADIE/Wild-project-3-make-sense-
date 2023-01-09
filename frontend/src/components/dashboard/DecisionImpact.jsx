@@ -44,6 +44,7 @@ export default function Decisionimpact() {
       title={cardItem.title}
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
+      image={cardItem.image}
     />
   ));
 
@@ -54,6 +55,7 @@ export default function Decisionimpact() {
       title={cardItem.title}
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
+      image={cardItem.image}
     />
   ));
   return (

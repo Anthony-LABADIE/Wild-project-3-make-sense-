@@ -5,6 +5,14 @@
   justify-content: space-around;
 }
 
+#imgprofile{
+  height: 6vmin;
+  width: 6vmin;
+  border-radius: 50%;
+  background-size: cover;
+  margin-bottom: 1vh;
+}
+
 .carreau {
   width: 90vw;
   padding-left: 5vw;
@@ -46,15 +54,19 @@
 }
 
 .black {
-  font-size: medium;
+  font-size: 1.5vw;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 80%;
 }
 
 .user {
   font-size: x-small;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  justify-content: space-around;
 }
 
 .allCards {
@@ -68,8 +80,8 @@
 }
 
 .CardItem {
-  width: 25vw;
-  height: 25vh;
+  width: 30vw;
+  height: 28vh;
   background-color: white;
   border-radius: 15px;
   display: flex;
@@ -82,10 +94,13 @@
 }
 
 .status {
-  border: 1px solid #3c9625;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   border-radius: 7px;
-  padding-left: 50px;
-  padding-right: 50px;
+  width: 70%;
+  height: 20%;
+  font-size: medium;
 }
 
 .less {
