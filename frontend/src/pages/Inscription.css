@@ -8,6 +8,7 @@
   background-size: cover;
   width: 100vw;
   height: 100vh;
+  font-family: "Raleway", sans-serif;
 }
 
 @media screen and (max-width: 500px) {
