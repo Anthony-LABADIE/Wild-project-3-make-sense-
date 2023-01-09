@@ -1,16 +1,59 @@
-.carreau2 {
+.concernedContainer {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-left: 30px;
   gap: 20px;
 }
 
+.userContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .UserItem {
   width: 15vw;
-  height: 10vh;
+  height: 20vh;
   background-color: rgb(106, 158, 109);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 1vh;
+}
+
+.select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userCard {
+  background-color: aquamarine;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
+  gap: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+.expertButtonGreen {
+  background-color: rgb(0, 255, 13);
+}
+
+.expertButtonRed {
+  background-color: brown;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.image img {
+  width: 100px;
 }
