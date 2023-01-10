@@ -5,9 +5,17 @@ nav {
   background-color: white;
 }
 
-#btn-logout {
-  width: 4vw;
+.profilMenu p{
+  margin-left:0.8vw;
+  color: black;
   font-size: 1em;
+
+}
+
+#btn-logout {
+  width: 0vw;
+  font-size: 1em;
+  color: black;
   background-color: transparent;
   border: none;
 }
@@ -15,8 +23,8 @@ nav {
   position: absolute;
   top: 8vh;
   left: 90vw;
-  width: 9vw;
-  height: 12vh;
+  width: 8.9vw;
+  height: 14vh;
   background-color: white;
   font-size: small;
 }

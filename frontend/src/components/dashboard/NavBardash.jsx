@@ -58,7 +58,9 @@ function NavBar({ profileImage }) {
       <nav>
         {(toggleMenu || largeur > 500) && (
           <ul className="listeNav">
-            <img className="logodash" src={logo} alt="logo" />
+            <Link to="/dashboard">
+              <img className="logodash" src={logo} alt="logo" />
+            </Link>
             <div className="decision">
               <img id="decision" src={decision} alt="decision" />
               <h4>décisions</h4>
@@ -97,11 +99,15 @@ function NavBar({ profileImage }) {
           style={{ display: dropMenu ? "none" : "block" }}
           className="dropdown-menu"
         >
-          <Link to="/dashboard/profil" className="profilMenu">
+          <Link
+            to="/dashboard/profil"
+            className="profilMenu"
+            style={{ textDecoration: "none" }}
+          >
             <p> mon profil</p>
           </Link>
           <button id="btn-logout" type="button" onClick={() => logout()}>
-            Déconnexion
+            déconnexion
           </button>
         </div>
       </nav>
