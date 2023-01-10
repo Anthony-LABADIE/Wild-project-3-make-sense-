@@ -5,11 +5,10 @@ nav {
   background-color: white;
 }
 
-.profilMenu p{
-  margin-left:0.8vw;
+.profilMenu p {
+  margin-left: 0.8vw;
   color: black;
   font-size: 1em;
-
 }
 
 #btn-logout {
