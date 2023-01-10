@@ -7,10 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 function ReactDatePicker() {
   const [startDate, setStartDate] = useState(new Date());
   const { setInput, input } = useContext(CurrentDecisionContext);
-  // function handleDate(date) {
-  //   setStartDate(date);
-  //   handleDateChange;
-  // }
   const handleDateChange = (e) => {
     setInput({
       ...input,

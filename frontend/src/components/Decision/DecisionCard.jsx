@@ -32,7 +32,10 @@ function DecisionCard({ txt, title1, inputtext, isActiveDecision }) {
       </div>
       {isActiveDecision === 1 ? (
         <div>
-          <label htmlFor="Date">Date Fake pour l'instant</label>
+          <label style={{ color: "red" }} htmlFor="Date">
+            Date fake pour l'instant <br />
+            "ne pas remplir"
+          </label>
           <DatePickerr />
         </div>
       ) : null}
