@@ -8,6 +8,7 @@ import Connexionpage from "./pages/Connexionpage";
 import Dashboard from "./pages/Dashboard";
 import Decision from "./pages/Decision";
 import ProfilePage from "./components/Profil/ProfilPage";
+import ModifyProfil from "./components/Profil/ModifyProfil";
 
 function Transition() {
   return (
@@ -41,6 +42,7 @@ function Transition() {
             </ProtectedRoute>
           }
         />
+        <Route path="/dashboard/profil/modify" element={<ModifyProfil />} />
       </Routes>
     </div>
   );

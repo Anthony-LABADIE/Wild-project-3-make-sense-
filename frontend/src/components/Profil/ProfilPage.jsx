@@ -1,16 +1,20 @@
 import "./ProfilePage.css";
 import { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import api from "../../services/api";
 import NavBar from "../dashboard/NavBardash";
 import { authContext } from "../../hooks/authContext";
+import CardsItem from "../dashboard/CardsItem";
 
 function ProfilePage() {
   const [userFirst, setUserFirst] = useState();
   const [userLast, setUserLast] = useState();
   const [userEmail, setUserEmail] = useState();
+  const [userBio, setUserBio] = useState();
   const [profilImage, setProfilImage] = useState();
   const [file, setFile] = useState();
   const { auth } = useContext(authContext);
+  const [userDecisions, setUserDecisions] = useState();
 
   const loadUserInfo = () => {
     api.get(`user/${auth.data.id}`).then((response) => {
@@ -18,6 +22,14 @@ function ProfilePage() {
       setUserLast(response.data.lastname);
       setUserEmail(response.data.email);
       setProfilImage(response.data.image);
+
+      setUserBio(response.data.bio);
+    });
+  };
+
+  const loadUserDecision = () => {
+    api.get(`/user/decision/${auth.data.id}`).then((response) => {
+      setUserDecisions(response.data);
     });
   };
 
@@ -59,6 +71,10 @@ function ProfilePage() {
       uploadFile();
     }
   };
+
+  useEffect(() => {
+    loadUserDecision();
+  }, []);
   useEffect(() => {
     loadUserInfo();
   }, [profilImage]);
@@ -91,9 +107,16 @@ function ProfilePage() {
           />
         </div>
         <div className="profilText">
-          <button id="buttonProfil" style={{ width: "20vmin" }} type="button">
-            Modifier mon profil
-          </button>
+          <Link
+            to="/dashboard/profil/modify"
+            id="buttonProfil"
+            style={{ textDecoration: "none" }}
+          >
+            {" "}
+            <button id="buttonProfil" style={{ width: "20vmin" }} type="button">
+              Modifier mon profil
+            </button>{" "}
+          </Link>
           <div className="personalInfo">
             <div className="nameEmail">
               <div className="firstName">
@@ -113,7 +136,10 @@ function ProfilePage() {
             </div>
             <div className="bio">
               <h2>Bio:</h2>
-              <p />
+              <div className="bioText">
+                {" "}
+                <p>{userBio}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -133,30 +159,17 @@ function ProfilePage() {
         </div>
         <div className="userDecisions">
           {" "}
-          <div className="decisionBubble">
-            <div className="decisionPhase">
-              <h4 id="decisions">1ère décision</h4>
-            </div>
-            <div className="description">
-              <h3 id="descr">Passer à l'optique</h3>
-            </div>
-            <div className="author">
-              <img src={profilImage} alt="" id="authorImg" />
-              <h4 id="byAuthor">Par Ryan Tama</h4>
-            </div>
-          </div>
-          <div className="decisionBubble">
-            <div className="decisionPhase">
-              <h4 id="decisions">1ère décision</h4>
-            </div>{" "}
-            <div className="description">
-              <h3 id="descr">Acheter une machine à café</h3>
-            </div>
-            <div className="author">
-              <img src={profilImage} alt="" id="authorImg" />
-              <h4 id="byAuthor">Par Ryan Tama</h4>
-            </div>
-          </div>
+          {userDecisions &&
+            userDecisions.map((decision) => (
+              <CardsItem
+                title={decision.title}
+                lastname={decision.lastname}
+                firstname={decision.firstname}
+                status={decision.status}
+                id_status={decision.id_status}
+                image={decision.image}
+              />
+            ))}
         </div>
       </div>
     </div>
