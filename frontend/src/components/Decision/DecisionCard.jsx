@@ -1,15 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import DatePickerr from "./ReactDatePicker";
+import CurrentDecisionContext from "../../Contexts/DecisionContexts";
 
-function DecisionCard({
-  txt,
-  title1,
-  input,
-  setInput,
-  inputtext,
-  isActiveDecision,
-}) {
+function DecisionCard({ txt, title1, inputtext, isActiveDecision }) {
+  const { setInput, input } = useContext(CurrentDecisionContext);
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
@@ -22,20 +17,25 @@ function DecisionCard({
           <div>
             <label htmlFor={el.label}>{el.label}</label>
             <br />
-            <input
+            <textarea
               placeholder={el.placeholder}
               type={el.type}
               value={input[el.value]}
               name={el.name}
               id={el.id}
               onChange={handleChange}
+              input={input}
+              setInput={setInput}
             />
           </div>
         ))}
       </div>
-      {isActiveDecision === 4 ? (
+      {isActiveDecision === 1 ? (
         <div>
-          <label htmlFor="Date">Date</label>
+          <label style={{ color: "red" }} htmlFor="Date">
+            Date fake pour l'instant <br />
+            "ne pas remplir"
+          </label>
           <DatePickerr />
         </div>
       ) : null}
@@ -45,8 +45,6 @@ function DecisionCard({
 DecisionCard.propTypes = {
   title1: PropTypes.string.isRequired,
   txt: PropTypes.string.isRequired,
-  input: PropTypes.string.isRequired,
-  setInput: PropTypes.string.isRequired,
   inputtext: PropTypes.string.isRequired,
   isActiveDecision: PropTypes.string.isRequired,
 };
