@@ -7,6 +7,7 @@ import burger from "../../assets/img/burger.png";
 import notification from "../../assets/img/notificaiton.png";
 import message from "../../assets/img/messages.png";
 import decision from "../../assets/img/decision.png";
+import triangle from "../../assets/img/triangle.png";
 import { authContext } from "../../hooks/authContext";
 
 import "./NavBarDash.css";
@@ -16,6 +17,11 @@ function NavBar({ profileImage }) {
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
   const { logout, auth } = useContext(authContext);
+  const [dropMenu, setDropMenu] = useState(true);
+
+  const handleClick = () => {
+    setDropMenu(!dropMenu);
+  };
 
   const loadUserInfo = () => {
     api.get(`user/${auth.data.id}`).then((response) => {
@@ -52,7 +58,9 @@ function NavBar({ profileImage }) {
       <nav>
         {(toggleMenu || largeur > 500) && (
           <ul className="listeNav">
-            <img className="logodash" src={logo} alt="logo" />
+            <Link to="/dashboard">
+              <img className="logodash" src={logo} alt="logo" />
+            </Link>
             <div className="decision">
               <img id="decision" src={decision} alt="decision" />
               <h4>décisions</h4>
@@ -65,17 +73,19 @@ function NavBar({ profileImage }) {
               <img id="messageLogo" src={message} alt="message" />
               <h4>messages</h4>
             </div>
-            <Link to="/dashboard/profil">
-              <div className="pictureProfil">
-                {profilImage && (
-                  <img
-                    src={profileImage || profilImage}
-                    alt=""
-                    id="imgProfil"
-                  />
-                )}
-              </div>
-            </Link>
+
+            <div className="pictureProfil">
+              {profilImage && (
+                <img src={profileImage || profilImage} alt="" id="imgProfil" />
+              )}
+            </div>
+            <img
+              src={triangle}
+              alt=""
+              id="triangle"
+              onClick={handleClick}
+              role="presentation"
+            />
           </ul>
         )}
         <button
@@ -85,10 +95,22 @@ function NavBar({ profileImage }) {
         >
           <img className="burger" src={burger} alt="burger" />
         </button>
+        <div
+          style={{ display: dropMenu ? "none" : "block" }}
+          className="dropdown-menu"
+        >
+          <Link
+            to="/dashboard/profil"
+            className="profilMenu"
+            style={{ textDecoration: "none" }}
+          >
+            <p> mon profil</p>
+          </Link>
+          <button id="btn-logout" type="button" onClick={() => logout()}>
+            déconnexion
+          </button>
+        </div>
       </nav>
-      <button type="button" onClick={() => logout()}>
-        Déconnexion
-      </button>
     </div>
   );
 }

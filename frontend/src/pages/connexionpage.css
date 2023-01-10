@@ -10,10 +10,10 @@
 }
 
 #logoValidationconnexion {
-  position: absolute;
-  top: 59vh;
-  left: 72vw;
-  width: 2vw;
+  position: relative;
+  top: -3.5vh;
+  left: 19vw;
+  width: 1.3vw;
 }
 
 @media screen and (max-width: 500px) {
@@ -88,10 +88,10 @@
 }
 
 #btn-visibility {
-  position: absolute;
-  top: 68vh;
-  left: 72vw;
-  width: 2vw;
+  position: relative;
+  top: -3.5vh;
+  left: 19vw;
+  width: 1.3vw;
   font-family: "Raleway", sans-serif;
 }
 
