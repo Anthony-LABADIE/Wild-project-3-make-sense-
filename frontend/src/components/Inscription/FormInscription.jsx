@@ -92,7 +92,6 @@ export default function FormInscription() {
       <form className="form" onSubmit={handleSubmitConnexion}>
         <h2>Créer un compte gratuit</h2>
         <div id="lastname">
-          <label htmlFor="lastname">Lastname</label>
           <input
             type="text"
             value={input.lastname}
@@ -104,7 +103,6 @@ export default function FormInscription() {
           />
         </div>
         <div id="firstname">
-          <label htmlFor="firstname">Firstname</label>
           <input
             type="text"
             value={input.firstname}
@@ -117,9 +115,6 @@ export default function FormInscription() {
         </div>
 
         <div id="mail">
-          <label htmlFor="email" className="label">
-            Email:
-          </label>
           <input
             type="email"
             id="emailConnexion"
@@ -128,15 +123,14 @@ export default function FormInscription() {
             onChange={emailValidation}
             value={email.email}
           />
+          <img
+            id="logoValidation"
+            src={logoValide ? good : bad}
+            alt="validation"
+          />
         </div>
-        <img
-          id="logoValidation"
-          src={logoValide ? good : bad}
-          alt="validation"
-        />
 
         <div id="password">
-          <label htmlFor="password">password:</label>
           <input
             type={passwordVisibility ? "teste" : "password"}
             placeholder="Password"
@@ -148,14 +142,14 @@ export default function FormInscription() {
             onBlur={handleOnBlur}
             onKeyUp={handleOnKeyUp}
           />
+          <img
+            id="btn-visibility-inscription"
+            onClick={handleVisibility}
+            src={passwordVisibility ? eyesInvisibles : eyes}
+            role="presentation"
+            alt="oeil"
+          />
         </div>
-        <img
-          id="btn-visibility-inscription"
-          onClick={handleVisibility}
-          src={passwordVisibility ? eyesInvisibles : eyes}
-          role="presentation"
-          alt="oeil"
-        />
 
         {pwdRequiste
           ? data.map((validation) => (
