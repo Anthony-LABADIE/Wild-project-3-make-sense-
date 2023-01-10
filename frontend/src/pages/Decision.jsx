@@ -1,14 +1,17 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import DecisionCard from "../components/Decision/DecisionCard";
 import NavBardash from "../components/dashboard/NavBardash";
 import CurrentDecisionContext from "../Contexts/DecisionContexts";
 import DecisionDash from "../components/Decision/DecisionDash";
+import api from "../services/api";
 
 import "./Decision.css";
 
 function Decision() {
   const [isActiveDecision, setIsActiveDecision] = useState(1);
   const { apidecision, setInput, input } = useContext(CurrentDecisionContext);
+  const navigate = useNavigate();
   function next() {
     setIsActiveDecision((i) => {
       if (i >= 5) return isActiveDecision;
@@ -30,6 +33,34 @@ function Decision() {
   };
   const handleBack = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
+  };
+  const handleSubmitDecision = (e) => {
+    e.preventDefault();
+    if (
+      input.title &&
+      input.content &&
+      input.deadline &&
+      input.contexte &&
+      input.profit &&
+      input.usefullness &&
+      input.inconvenience &&
+      input.id_user &&
+      input.date_posted &&
+      input.id_status
+    ) {
+      api
+        .post("decision", { ...input }, { withCredentials: true })
+        .then((res) => {
+          if (res.status === 201) {
+            navigate("/dashboard");
+          }
+        })
+        // eslint-disable-next-line no-alert
+        .catch((err) => alert(err.response));
+    } else {
+      // eslint-disable-next-line no-alert
+      alert("Please specify decision");
+    }
   };
   return (
     <div>
@@ -59,15 +90,17 @@ function Decision() {
                 />
               ))}
             <div>
-              <button onClick={back} type="submit">
+              <button onClick={back} type="button">
                 Précedent
               </button>
               {isActiveDecision < 5 ? (
-                <button onClick={next} type="submit">
+                <button onClick={next} type="button">
                   Suivant
                 </button>
               ) : (
-                <button type="submit">Valider</button>
+                <button onClick={handleSubmitDecision} type="button">
+                  Valider
+                </button>
               )}
             </div>
           </div>
