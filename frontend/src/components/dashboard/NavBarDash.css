@@ -153,9 +153,9 @@ h4 {
 #triangle {
   height: 1vh;
   width: 1vh;
-  position: absolute;
-  top: 7vh;
-  left: 92.5vw;
+  position: relative;
+  top: -5.3vh;
+  left: 3vw;
 }
 
 .profil {

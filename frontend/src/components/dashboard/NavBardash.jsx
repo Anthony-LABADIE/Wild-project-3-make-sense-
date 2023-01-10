@@ -78,14 +78,14 @@ function NavBar({ profileImage }) {
               {profilImage && (
                 <img src={profileImage || profilImage} alt="" id="imgProfil" />
               )}
+              <img
+                src={triangle}
+                alt=""
+                id="triangle"
+                onClick={handleClick}
+                role="presentation"
+              />
             </div>
-            <img
-              src={triangle}
-              alt=""
-              id="triangle"
-              onClick={handleClick}
-              role="presentation"
-            />
           </ul>
         )}
         <button
