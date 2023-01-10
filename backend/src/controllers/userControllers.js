@@ -7,8 +7,7 @@ const userController = {
   updateUser: async (req, res) => {
     const { id } = req.params;
     // eslint-disable-next-line camelcase
-    const { firstname, lastname, email, is_admin, image, bio, password } =
-      req.body;
+
     /*    console.log(bio); */
     /* const hashedPassword = await passwordHash(password); */
 
