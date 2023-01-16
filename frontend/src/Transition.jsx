@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import PostDecision from "./pages/PostDecision";
 import ProtectedRoute from "./hooks/ProtectedRoute";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
@@ -40,7 +41,16 @@ function Transition() {
           path="/dashboard/profil"
           element={
             <ProtectedRoute>
-              <ProfilePage />{" "}
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/dashboard/decision/:nbdec"
+          element={
+            <ProtectedRoute>
+              <PostDecision />
             </ProtectedRoute>
           }
         />

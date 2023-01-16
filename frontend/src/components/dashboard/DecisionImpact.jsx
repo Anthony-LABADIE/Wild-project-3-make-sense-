@@ -39,7 +39,8 @@ export default function Decisionimpact() {
 
   const cardMap = threedecision.map((cardItem) => (
     <CardsItem
-      key={cardItem.id}
+      id={cardItem.id}
+      nbdec={cardItem.nbdec}
       status={cardItem.status}
       title={cardItem.title}
       lastname={cardItem.lastname}
@@ -51,6 +52,7 @@ export default function Decisionimpact() {
   const cardAllMap = decision.map((cardItem) => (
     <CardsItem
       key={cardItem.id}
+      nbdec={cardItem.nbdec}
       status={cardItem.status}
       title={cardItem.title}
       lastname={cardItem.lastname}

@@ -72,12 +72,6 @@ function NavBar({ profileImage }) {
             <div className="message">
               <img id="messageLogo" src={message} alt="message" />
               <h4>messages</h4>
-            </div>
-
-            <div className="pictureProfil">
-              {profilImage && (
-                <img src={profileImage || profilImage} alt="" id="imgProfil" />
-              )}
               <img
                 src={triangle}
                 alt=""
@@ -85,6 +79,12 @@ function NavBar({ profileImage }) {
                 onClick={handleClick}
                 role="presentation"
               />
+            </div>
+
+            <div className="pictureProfil">
+              {profilImage && (
+                <img src={profileImage || profilImage} alt="" id="imgProfil" />
+              )}
             </div>
           </ul>
         )}
