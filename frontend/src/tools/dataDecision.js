@@ -26,17 +26,9 @@ const dataDecision = [
         name: "content",
         value: "",
       },
-      {
-        id: 3,
-        label: "Deadline decision",
-        placeholder: "YYYY-MM-DD",
-        type: "text",
-        name: "deadline",
-        value: "",
-      },
     ],
 
-    isActive: false,
+    isActive: true,
   },
 
   {
@@ -57,7 +49,7 @@ const dataDecision = [
         value: "",
       },
     ],
-    isActive: true,
+    isActive: false,
   },
 
   {

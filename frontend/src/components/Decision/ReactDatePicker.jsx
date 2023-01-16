@@ -7,22 +7,27 @@ import "react-datepicker/dist/react-datepicker.css";
 function ReactDatePicker() {
   const [startDate, setStartDate] = useState(new Date());
   const { setInput, input } = useContext(CurrentDecisionContext);
-  const handleDateChange = (e) => {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value,
-    });
+  const onChange = (e) => {
+    setInput({ ...input, [e.name]: e.value });
   };
   return (
-    <DatePicker
-      selected={startDate}
-      onChange={(date) => setStartDate(date)}
-      onSelect={handleDateChange}
-      dateFormat="yyyy/MM/dd/"
-      filterDate={(date) => date.getDay() !== 5 && date.getDay() !== 6}
-      name="Date"
-      value=""
-    />
+    <div>
+      <DatePicker
+        selected={startDate}
+        onSelect={(date) => setStartDate(date)}
+        onChange={(date) =>
+          onChange({
+            name: "date_posted",
+            value: date.toLocaleDateString("fr-CA"),
+          })
+        }
+        dateFormat="MMMM d, yyyy"
+        filterDate={(date) => date.getDay() !== 5 && date.getDay() !== 6}
+        name="date_posted"
+        value={input.date_posted}
+        placeholderText="Click to select a date"
+      />
+    </div>
   );
 }
 export default ReactDatePicker;

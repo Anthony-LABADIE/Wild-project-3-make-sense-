@@ -11,7 +11,9 @@ import "./Decision.css";
 function Decision() {
   const [isActiveDecision, setIsActiveDecision] = useState(1);
   const { apidecision, setInput, input } = useContext(CurrentDecisionContext);
+  const [isActive, setIsActive] = useState(apidecision);
   const navigate = useNavigate();
+
   function next() {
     setIsActiveDecision((i) => {
       if (i >= 5) return isActiveDecision;
@@ -19,6 +21,14 @@ function Decision() {
     });
     // eslint-disable-next-line no-use-before-define, no-unused-expressions
     handleNext;
+    // const pour passer de true à false
+    const isTrueOrFalse = isActive.map((el) => {
+      if (el.id - 1 === isActiveDecision) {
+        return { ...el, isActive: true };
+      }
+      return el;
+    });
+    setIsActive(isTrueOrFalse);
   }
   function back() {
     setIsActiveDecision((i) => {
@@ -27,6 +37,13 @@ function Decision() {
     });
     // eslint-disable-next-line no-use-before-define, no-unused-expressions
     handleBack;
+    const isTrueOrFalse = isActive.map((el) => {
+      if (el.id === isActiveDecision) {
+        return { ...el, isActive: !isActive };
+      }
+      return el;
+    });
+    setIsActive(isTrueOrFalse);
   }
   const handleNext = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -70,8 +87,8 @@ function Decision() {
       <div>
         <h1>Créer une nouvelle annonce : Make Sense France </h1>
         <div className="dashboard__decision">
-          {apidecision.map((el) => (
-            <DecisionDash id={el.id} title={el.title} />
+          {isActive.map((el) => (
+            <DecisionDash id={el.id} title={el.title} isActive={el.isActive} />
           ))}
         </div>
         <div className="formulaire__decision">
@@ -90,7 +107,11 @@ function Decision() {
                 />
               ))}
             <div>
-              <button onClick={back} type="button">
+              <button
+                className={isActiveDecision === 1 ? "none__btn" : "active__btn"}
+                onClick={back}
+                type="button"
+              >
                 Précedent
               </button>
               {isActiveDecision < 5 ? (

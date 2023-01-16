@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import DatePickerr from "./ReactDatePicker";
 import CurrentDecisionContext from "../../Contexts/DecisionContexts";
+import "./DecisionCard.css";
 
 function DecisionCard({ txt, title1, inputtext, isActiveDecision }) {
   const { setInput, input } = useContext(CurrentDecisionContext);
@@ -10,7 +11,7 @@ function DecisionCard({ txt, title1, inputtext, isActiveDecision }) {
   };
   return (
     <div>
-      <div>
+      <div className="Decision__card">
         <h3>{title1}</h3>
         <p>{txt}</p>
         {inputtext.map((el) => (
@@ -32,10 +33,7 @@ function DecisionCard({ txt, title1, inputtext, isActiveDecision }) {
       </div>
       {isActiveDecision === 1 ? (
         <div>
-          <label style={{ color: "red" }} htmlFor="Date">
-            Date fake pour l'instant <br />
-            "ne pas remplir"
-          </label>
+          <label htmlFor="Date">Date posted</label>
           <DatePickerr />
         </div>
       ) : null}
