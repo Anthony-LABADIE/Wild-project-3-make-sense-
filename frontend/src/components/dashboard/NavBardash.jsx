@@ -107,19 +107,6 @@ function NavBar({ profileImage }) {
                 <img src={profileImage || profilImage} alt="" id="imgProfil" />
               )}
             </div>
-
-            <div className="pictureProfil">
-              {profilImage && (
-                <img src={profileImage || profilImage} alt="" id="imgProfil" />
-              )}
-            </div>
-            <img
-              src={triangle}
-              alt=""
-              id="triangle"
-              onClick={handleClick}
-              role="presentation"
-            />
           </ul>
         )}
         <button

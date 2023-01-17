@@ -113,16 +113,16 @@ function ProfilePage() {
           </Link>
           <div className="personalInfo">
             <div className="nameEmail">
-              <div className="firstName">
+              <div className="firstNameProfil">
                 {" "}
                 <h2>Prénom:</h2>
                 <h3 id="info">{userInfo.firstname}</h3>
               </div>
-              <div className="lastName">
+              <div className="lastNameProfil">
                 <h2>Nom:</h2>
                 <h3 id="info">{userInfo.lastname}</h3>
               </div>
-              <div className="email">
+              <div className="emailProfil">
                 {" "}
                 <h2>Email:</h2>
                 <h3 id="info">{userInfo.email}</h3>

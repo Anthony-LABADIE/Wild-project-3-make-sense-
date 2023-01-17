@@ -31,7 +31,7 @@ nav {
   display: flex;
   flex-direction: row;
   max-width: 100%;
-  padding-top: 7vmin;
+ margin-top : 8vh;
 }
 .profilPic {
   display: flex;
@@ -184,15 +184,15 @@ h4 {
 #line {
   margin: auto;
 }
-.firstName {
+.firstNameProfil {
   display: flex;
   gap: 5vmin;
 }
-.lastName {
+.lastNameProfil {
   display: flex;
   gap: 5vmin;
 }
-.email {
+.emailProfil {
   display: flex;
   gap: 5vmin;
 }

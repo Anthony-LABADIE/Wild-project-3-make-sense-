@@ -62,9 +62,9 @@ function Transition() {
           element={
             <ProtectedRoute>
               <PostDecision />
-              </ProtectedRoute>
+            </ProtectedRoute>
           }
-          />
+        />
         <Route
           path="/dashboard/profil/modify"
           element={
