@@ -5,14 +5,10 @@ import "./DecisionDash.css";
 
 function DecisionDash({ title, isActive }) {
   return (
-    <div>
-      <div
-        className={
-          isActive ? "active__Decision__dash__h2" : "Decision__dash__h2"
-        }
-      >
-        <h2>{title}</h2>
-      </div>
+    <div
+      className={isActive ? "active__Decision__dash__h2" : "Decision__dash__h2"}
+    >
+      <h2>{title}</h2>
     </div>
   );
 }
