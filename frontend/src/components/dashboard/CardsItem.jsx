@@ -13,12 +13,10 @@ function CardsItem({
   status,
   id_status,
   image,
-})
-
-{console.log(nbdec, "je suis là")
+}) {
   return (
     <Link to={`/dashboard/decision/${nbdec}`}>
-      <div className="CardItem">
+      <div className="CardItem" style={{ textDecoration: "none" }}>
         <div
           style={{
             backgroundColor:
@@ -28,12 +26,16 @@ function CardsItem({
             border:
               id_status === 4 ? " 1px solid #ff0000" : "1px solid #3c9625",
             color: id_status === 4 ? "#ff0000" : "#3c9625",
+            textDecoration: "none",
           }}
           className="status"
         >
           {status}
         </div>
-        <h2 className="black"> {title}</h2>
+        <h2 className="black" style={{ textDecoration: "none" }}>
+          {" "}
+          {title}
+        </h2>
         <div className="user">
           <img id="imgprofile" src={image || profil} alt="imgprofile" />
           par {lastname} {firstname}

@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Decision from "./pages/Decision";
 import ProfilePage from "./components/Profil/ProfilPage";
 import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
+import Admin from "./pages/Admin";
 
 function Transition() {
   return (
@@ -42,6 +43,15 @@ function Transition() {
           element={
             <ProtectedRoute>
               <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
             </ProtectedRoute>
           }
         />

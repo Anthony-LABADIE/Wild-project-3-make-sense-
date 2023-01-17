@@ -32,7 +32,6 @@ function CardsAllDecision() {
     getThreeDecision();
   }, []);
 
-
   const cardMap = threedecision.map((cardItem) => (
     <CardsItem
       nbdec={cardItem.id}
