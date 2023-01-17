@@ -8,6 +8,7 @@ import notification from "../../assets/img/notificaiton.png";
 import message from "../../assets/img/messages.png";
 import decision from "../../assets/img/decision.png";
 import triangle from "../../assets/img/triangle.png";
+import adminImg from "../../assets/img/utilisateur.png";
 import { authContext } from "../../hooks/authContext";
 
 import "./NavBarDash.css";
@@ -18,6 +19,11 @@ function NavBar({ profileImage }) {
   const [largeur, setLargeur] = useState(window.innerWidth);
   const { logout, auth } = useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
+  const [admin, setAdmin] = useState(false);
+
+  const displayAdmin = () => {
+    if (auth.data.is_admin === 1) setAdmin(true);
+  };
 
   const handleClick = () => {
     setDropMenu(!dropMenu);
@@ -32,6 +38,10 @@ function NavBar({ profileImage }) {
   useEffect(() => {
     loadUserInfo();
   }, [profilImage]);
+
+  useEffect(() => {
+    displayAdmin();
+  }, [admin]);
 
   const toggleNavSmallScreen = () => {
     setToggleMenu(!toggleMenu);
@@ -61,6 +71,17 @@ function NavBar({ profileImage }) {
             <Link to="/dashboard">
               <img className="logodash" src={logo} alt="logo" />
             </Link>
+
+            <div
+              style={{ display: admin ? "block" : "none" }}
+              className="admin"
+            >
+              <Link to="/admin">
+                <img id="adminImg" src={adminImg} alt="admin" />
+                <h4>admin</h4>
+              </Link>
+            </div>
+
             <div className="decision">
               <img id="decision" src={decision} alt="decision" />
               <h4>décisions</h4>
@@ -72,6 +93,13 @@ function NavBar({ profileImage }) {
             <div className="message">
               <img id="messageLogo" src={message} alt="message" />
               <h4>messages</h4>
+              <img
+                src={triangle}
+                alt=""
+                id="triangle"
+                onClick={handleClick}
+                role="presentation"
+              />
             </div>
 
             <div className="pictureProfil">
@@ -79,13 +107,6 @@ function NavBar({ profileImage }) {
                 <img src={profileImage || profilImage} alt="" id="imgProfil" />
               )}
             </div>
-            <img
-              src={triangle}
-              alt=""
-              id="triangle"
-              onClick={handleClick}
-              role="presentation"
-            />
           </ul>
         )}
         <button
