@@ -6,88 +6,113 @@ import { authContext } from "../../hooks/authContext";
 import "./ModifyProfil.css";
 
 function ModifyProfil() {
-  const [profilImage, setProfilImage] = useState();
-
   const { auth } = useContext(authContext);
-  const [bio, setBio] = useState({});
+  const [input, setInput] = useState({});
+
   const navigate = useNavigate();
+
   const putUserInfo = () => {
     api.get(`user/${auth.data.id}`).then((response) => {
-      setProfilImage(response.data.image);
+      setInput(response.data);
     });
   };
   const handleChange = (e) => {
-    setBio({ ...bio, bio: e.target.value });
+    if (input) {
+      setInput({ ...input, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmission = (e) => {
     e.preventDefault();
 
-    if (bio) {
-      api
-        .put(`/user/${auth.data.id}`, bio)
-        .then((res) => {
-          if (res.status === 200) {
-            navigate("/dashboard/profil");
-          }
-        })
-        .catch((err) => alert(err.response));
-    }
+    api
+      .put(`/user/${auth.data.id}`, input)
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/dashboard/profil");
+        }
+      })
+      .catch((err) => alert(err.response));
   };
 
   useEffect(() => {
     putUserInfo();
-  }, [profilImage]);
+  }, [input.image]);
 
   return (
     <div>
-      <NavBar profileImage={profilImage} />
+      <NavBar profileImage={input.image} />
       {/* {profilImage && <NavBar profileImage={profilImage} />} */}
 
-      <form action="/action_page.php" onSubmit={handleSubmission}>
-        <label htmlFor="fname" id="formLabel">
-          First Name
-        </label>
-        <input
-          type="text"
-          id="fname"
-          name="firstname"
-          placeholder="Votre prénom.."
-          defaultValue={auth.data.firstname}
-        />
-        <label htmlFor="lname" id="formLabel">
-          Last Name
-        </label>
-        <input
-          type="text"
-          id="lname"
-          name="lastname"
-          placeholder="Votre nom.."
-          defaultValue={auth.data.lastname}
-        />
-        <label htmlFor="email" id="formLabel">
-          Email
-        </label>
-        <input
-          type="text"
-          id="e-mail"
-          name="email"
-          placeholder="Votre email."
-          defaultValue={auth.data.email}
-        />
-
-        <label htmlFor="lname" id="formLabel">
-          Bio
-        </label>
-        <textarea
-          type="text"
-          id="bio"
-          name="bio"
-          placeholder="Ecris ta bio.."
-          onChange={handleChange}
-          defaultValue={auth.data.bio}
-        />
-        <input type="submit" value="Submit" />
+      <form
+        action="/action_page.php"
+        onSubmit={handleSubmission}
+        id="modifyForm"
+      >
+        <div className="formContainer">
+          {" "}
+          <div className="firstNameMod">
+            {" "}
+            <h3 id="label">Prénom</h3>
+            <input
+              type="text"
+              id="fname"
+              name="firstname"
+              placeholder="Votre prénom.."
+              onChange={handleChange}
+              defaultValue={input.firstname}
+            />
+          </div>
+          <div className="lastNameMod">
+            {" "}
+            <h3 id="label">Nom</h3>
+            <input
+              type="text"
+              id="lname"
+              name="lastname"
+              placeholder="Votre nom.."
+              onChange={handleChange}
+              defaultValue={input.lastname}
+            />
+          </div>
+          <div className="emailMod">
+            {" "}
+            <h3 id="label">Email</h3>
+            <input
+              type="text"
+              id="e-mail"
+              name="email"
+              placeholder="Votre email."
+              onChange={handleChange}
+              defaultValue={input.email}
+            />
+          </div>
+          <div className="poste">
+            {" "}
+            <h3 id="label">Poste</h3>
+            <input
+              type="text"
+              id="e-mail"
+              name="position"
+              placeholder="Votre poste."
+              onChange={handleChange}
+              defaultValue={input.position}
+            />
+          </div>
+          <div className="bioForm">
+            {" "}
+            <h3 id="label">Bio</h3>
+            <textarea
+              type="text"
+              id="bio"
+              name="bio"
+              placeholder="Ecris ta bio.."
+              onChange={handleChange}
+              defaultValue={input.bio}
+            />
+          </div>
+          <input type="submit" value="Submit" />
+        </div>
       </form>
     </div>
   );

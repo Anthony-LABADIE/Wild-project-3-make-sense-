@@ -66,12 +66,12 @@ export default function FormInscription() {
           onChange={emailValidation}
           required="required"
         />
+        <img
+          id="logoValidationconnexion"
+          src={logoValide ? good : bad}
+          alt="validation"
+        />
       </div>
-      <img
-        id="logoValidationconnexion"
-        src={logoValide ? good : bad}
-        alt="validation"
-      />
 
       <div id="password">
         <input
@@ -83,14 +83,14 @@ export default function FormInscription() {
           onChange={(e) => setPassword(e.target.value)}
           required="required"
         />
+        <img
+          id="btn-visibility"
+          onClick={handleVisibility}
+          src={passwordVisibility ? eyesInvisibles : eyes}
+          role="presentation"
+          alt="oeil"
+        />
       </div>
-      <img
-        id="btn-visibility"
-        onClick={handleVisibility}
-        src={passwordVisibility ? eyesInvisibles : eyes}
-        role="presentation"
-        alt="oeil"
-      />
 
       <button type="submit" id="btn-inscription" value="Login">
         Connexion

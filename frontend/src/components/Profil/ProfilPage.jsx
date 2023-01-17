@@ -7,10 +7,7 @@ import { authContext } from "../../hooks/authContext";
 import CardsItem from "../dashboard/CardsItem";
 
 function ProfilePage() {
-  const [userFirst, setUserFirst] = useState();
-  const [userLast, setUserLast] = useState();
-  const [userEmail, setUserEmail] = useState();
-  const [userBio, setUserBio] = useState();
+  const [userInfo, setUserInfo] = useState({});
   const [profilImage, setProfilImage] = useState();
   const [file, setFile] = useState();
   const { auth } = useContext(authContext);
@@ -18,12 +15,7 @@ function ProfilePage() {
 
   const loadUserInfo = () => {
     api.get(`user/${auth.data.id}`).then((response) => {
-      setUserFirst(response.data.firstname);
-      setUserLast(response.data.lastname);
-      setUserEmail(response.data.email);
-      setProfilImage(response.data.image);
-
-      setUserBio(response.data.bio);
+      setUserInfo(response.data);
     });
   };
 
@@ -77,7 +69,7 @@ function ProfilePage() {
   }, []);
   useEffect(() => {
     loadUserInfo();
-  }, [profilImage]);
+  }, []);
 
   useEffect(() => {
     autoUpload();
@@ -89,7 +81,9 @@ function ProfilePage() {
       <div className="profilInfo">
         <div className="profilPic">
           <div className="picture">
-            {profilImage && <img src={profilImage} alt="" id="profileImage" />}
+            {userInfo.image && (
+              <img src={userInfo.image} alt="" id="profileImage" />
+            )}
           </div>
           <label htmlFor="image">
             <div className="buttonImage">
@@ -122,23 +116,27 @@ function ProfilePage() {
               <div className="firstName">
                 {" "}
                 <h2>Prénom:</h2>
-                <h3 id="info">{userFirst}</h3>
+                <h3 id="info">{userInfo.firstname}</h3>
               </div>
               <div className="lastName">
                 <h2>Nom:</h2>
-                <h3 id="info">{userLast}</h3>
+                <h3 id="info">{userInfo.lastname}</h3>
               </div>
               <div className="email">
                 {" "}
                 <h2>Email:</h2>
-                <h3 id="info">{userEmail}</h3>
+                <h3 id="info">{userInfo.email}</h3>
               </div>
+            </div>
+            <div className="position">
+              <h2 id="positionTitle">Poste:</h2>
+              <h3 id="infoPos">{userInfo.position}</h3>
             </div>
             <div className="bio">
               <h2>Bio:</h2>
               <div className="bioText">
                 {" "}
-                <p>{userBio}</p>
+                <p id="pText">{userInfo.bio}</p>
               </div>
             </div>
           </div>
@@ -147,9 +145,7 @@ function ProfilePage() {
       <div className="decisionContainer">
         {" "}
         <div className="myDecisions">
-          <h1 style={{ paddingLeft: "7vmin", paddingTop: "10vmin" }}>
-            Mes décisions
-          </h1>
+          <h1 style={{ paddingLeft: "7vmin" }}>Mes décisions</h1>
           <img
             src="/src/assets/img/Line-4.png"
             alt=""

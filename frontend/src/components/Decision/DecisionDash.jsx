@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function DecisionCard1({ title }) {
+function DecisionDash({ title }) {
   return (
     <div>
-      <h2>{title}</h2>
+      <div>
+        <h2>{title}</h2>
+      </div>
     </div>
   );
 }
-DecisionCard1.propTypes = {
+DecisionDash.propTypes = {
   title: PropTypes.string.isRequired,
 };
-export default DecisionCard1;
+export default DecisionDash;

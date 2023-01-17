@@ -8,6 +8,7 @@ import Connexionpage from "./pages/Connexionpage";
 import Dashboard from "./pages/Dashboard";
 import Decision from "./pages/Decision";
 import ProfilePage from "./components/Profil/ProfilPage";
+import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
 import ModifyProfil from "./components/Profil/ModifyProfil";
 
 function Transition() {
@@ -30,7 +31,9 @@ function Transition() {
           path="/decision"
           element={
             <ProtectedRoute>
-              <Decision />
+              <CurrentDecisionContextProvider>
+                <Decision />
+              </CurrentDecisionContextProvider>
             </ProtectedRoute>
           }
         />
@@ -42,7 +45,15 @@ function Transition() {
             </ProtectedRoute>
           }
         />
-        <Route path="/dashboard/profil/modify" element={<ModifyProfil />} />
+        <Route
+          path="/dashboard/profil/modify"
+          element={
+            <ProtectedRoute>
+              <ModifyProfil />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/Decision/:id" element={<Decision />} />
       </Routes>
     </div>
   );
