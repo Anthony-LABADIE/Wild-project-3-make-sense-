@@ -8,23 +8,12 @@ const userController = {
   updateUser: async (req, res) => {
     const { id } = req.params;
     // eslint-disable-next-line camelcase
-    const { firstname, lastname, email, is_admin, image, password } = req.body;
 
-    const hashedPassword = await passwordHash(password);
+    /*    console.log(bio); */
+    /* const hashedPassword = await passwordHash(password); */
 
     userModel
-      .updateOne(
-        {
-          firstname,
-          lastname,
-          email,
-          image,
-          // eslint-disable-next-line camelcase
-          is_admin,
-          password: hashedPassword,
-        },
-        id
-      )
+      .updateOne(req.body, id)
       .then((user) => res.send(user))
       .catch((err) => {
         console.error(err);
@@ -102,7 +91,7 @@ const userController = {
     }
 
     // eslint-disable-next-line camelcase
-    const { firstname, lastname, email, is_admin, password } = req.body;
+    const { firstname, lastname, email, is_admin, bio, password } = req.body;
 
     const hashedPassword = await passwordHash(password);
 
@@ -111,6 +100,7 @@ const userController = {
         firstname,
         lastname,
         email,
+        bio,
         // eslint-disable-next-line camelcase
         is_admin,
         password: hashedPassword,
