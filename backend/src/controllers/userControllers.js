@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const { validationResult } = require("express-validator");
 const userModel = require("../models/user");
 const { jwtSign } = require("../helpers/jwt");
@@ -40,7 +41,7 @@ const userController = {
         if (!user) {
           res.status(401).send({ error: "invalid email" });
         } else {
-          const { id, firstname, lastname, password: hash } = user;
+          const { id, firstname, lastname, password: hash, is_admin } = user;
           if (await passwordVerify(hash, password)) {
             const token = jwtSign(
               {
@@ -48,6 +49,7 @@ const userController = {
                 firstname,
                 lastname,
                 email,
+                is_admin,
               },
               { expiresIn: "1h" }
             );
@@ -58,7 +60,7 @@ const userController = {
                 secure: true,
               })
               .status(200)
-              .send({ id, firstname, lastname, email });
+              .send({ id, firstname, lastname, email, is_admin });
           } else {
             res.status(401).send({ error: "invalid password" });
           }
