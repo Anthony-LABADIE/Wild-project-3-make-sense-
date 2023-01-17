@@ -6,13 +6,23 @@
   gap: 20px;
 }
 
-.userContainer {
+.userContainerOn {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.UserItem {
+.UserItemOn {
+  width: 15vw;
+  height: 20vh;
+  background-color: rgb(15, 146, 21);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1vh;
+}
+
+.UserItemOff {
   width: 15vw;
   height: 20vh;
   background-color: rgb(106, 158, 109);

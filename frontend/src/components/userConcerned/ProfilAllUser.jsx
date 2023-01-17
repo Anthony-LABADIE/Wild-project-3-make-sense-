@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import api from "../../services/api";
 import UserItem from "./UserItem";
 import "./ProfilAllUser.css";
-import CustomButton from "./CustomButton";
 
 function profilAllUser() {
   const [user, setUser] = useState([]);
@@ -17,6 +16,18 @@ function profilAllUser() {
       setAllIds(allIdsUpdated);
     } else {
       setAllIds([...allIds, { id_user: index, is_expert: false }]);
+    }
+
+    // index of the user in the array of object
+    const trueIndex = user.map((e) => e.id).indexOf(index);
+    // if user index exists in the array of object
+    if (trueIndex !== -1) {
+      // set invers of clicked
+      const isTrue = !user[trueIndex].clicked;
+      const newUser = user.map((obj) =>
+        obj.id === index ? { ...obj, clicked: isTrue, isExpert: false } : obj
+      );
+      setUser(newUser);
     }
   };
 
@@ -33,15 +44,18 @@ function profilAllUser() {
         obj.id_user === index ? { ...obj, is_expert: isTrue } : obj
       );
       setAllIds(newAllIds);
-    }
 
-    const clickIndex = user.map((e) => e.id).indexOf(index);
-    if (clickIndex !== -1 && trueIndex !== -1) {
-      const newClick = !user[clickIndex].clicked;
-      const newClicked = user.map((obj) =>
-        obj.id === index ? { ...obj, clicked: newClick } : obj
-      );
-      setUser(newClicked);
+      // index of the user in the array of object
+      const trueIndex2 = user.map((e) => e.id).indexOf(index);
+      // if user index exists in the array of object
+      if (trueIndex2 !== -1) {
+        // set invers of isExpert
+        const isTrue2 = !user[trueIndex2].isExpert;
+        const newUser2 = user.map((obj) =>
+          obj.id === index ? { ...obj, isExpert: isTrue2 } : obj
+        );
+        setUser(newUser2);
+      }
     }
   };
 
@@ -62,6 +76,7 @@ function profilAllUser() {
       firstname={userItem.firstname}
       id={userItem.id}
       clicked={userItem.clicked}
+      isExpert={userItem.isExpert}
       onclick={() => handleClick(userItem.id)}
       expert={() => handleExpert(userItem.id)}
     />
@@ -71,7 +86,9 @@ function profilAllUser() {
     <div className="concernedContainer" key={Math.random()}>
       <div className="select">
         <h2>Sélectionne tes collègues qui pourront commenter ta décision</h2>
-        <CustomButton key={Math.random()} onPress={createTab} />
+        <button className="expertButton" type="button" onClick={createTab}>
+          Valide ta sélection
+        </button>
       </div>
       <div className="userCard">{userMap}</div>
     </div>
