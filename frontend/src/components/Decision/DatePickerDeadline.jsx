@@ -4,7 +4,7 @@ import CurrentDecisionContext from "../../Contexts/DecisionContexts";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-function ReactDatePicker() {
+function DatePickerDeadline() {
   const [startDate, setStartDate] = useState(new Date());
   const { setInput, input } = useContext(CurrentDecisionContext);
   const onChange = (e) => {
@@ -17,18 +17,18 @@ function ReactDatePicker() {
         onSelect={(date) => setStartDate(date)}
         onChange={(date) =>
           onChange({
-            name: "date_posted",
+            name: "deadline",
             value: date.toLocaleDateString("fr-CA"),
           })
         }
         dateFormat="MMMM d, yyyy"
         filterDate={(date) => date.getDay() !== 5 && date.getDay() !== 6}
-        name="date_posted"
-        value={input.date_posted}
+        name="deadline"
+        value={input.deadline}
         placeholderText="Click to select a date"
         inline
       />
     </div>
   );
 }
-export default ReactDatePicker;
+export default DatePickerDeadline;

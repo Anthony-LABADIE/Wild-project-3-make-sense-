@@ -4,7 +4,7 @@ const dataDecision = [
   {
     id: 1,
     title: "1.Contenu",
-    txt: "lorem ipsum contenus",
+    txt: "Quelle est la problématique à résoudre ?",
     img: logo,
     title1: "Le Contenu",
     title2: "Titre de l'annonce",
@@ -26,23 +26,15 @@ const dataDecision = [
         name: "content",
         value: "",
       },
-      {
-        id: 3,
-        label: "Deadline decision",
-        placeholder: "YYYY-MM-DD",
-        type: "text",
-        name: "deadline",
-        value: "",
-      },
     ],
 
-    isActive: false,
+    isActive: true,
   },
 
   {
     id: 2,
     title: "2.Utilité",
-    txt: "lorem ipsum utilité",
+    txt: "Quel est l'utilité de cette décision ?",
     img: logo,
     title1: "L'Utilité",
     title2: "Utilité Utilité Utilité",
@@ -57,13 +49,13 @@ const dataDecision = [
         value: "",
       },
     ],
-    isActive: true,
+    isActive: false,
   },
 
   {
     id: 3,
     title: "3.Contexte",
-    txt: "lorem ipsum contexte",
+    txt: "Décrivez le contexte de la décision",
     img: logo,
     title1: "Le Contexte",
     title2: "",
@@ -71,7 +63,7 @@ const dataDecision = [
     input: [
       {
         id: 2,
-        label: "contexte",
+        label: "Contexte",
         placeholder: "Texte",
         type: "text",
         name: "contexte",
@@ -84,7 +76,7 @@ const dataDecision = [
   {
     id: 4,
     title: "4.Bénéfice",
-    txt: "lorem ipsum bénéfice",
+    txt: "Quel est le bénéfice de cette décision ?",
     img: logo,
     title1: "Le Bénéfice",
     title2: "",
@@ -92,7 +84,7 @@ const dataDecision = [
     input: [
       {
         id: 2,
-        label: "bénéfice",
+        label: "Bénéfice",
         placeholder: "Texte",
         type: "text",
         name: "profit",
@@ -105,7 +97,7 @@ const dataDecision = [
   {
     id: 5,
     title: "5.Inconvénient",
-    txt: "lorem ipsum inconvénient",
+    txt: "Quelles sont les inconvénients de cette décision ?",
     img: logo,
     title1: "L'Inconvénient",
     title2: "",
@@ -113,7 +105,7 @@ const dataDecision = [
     input: [
       {
         id: 2,
-        label: "l'inconvénient",
+        label: "L'inconvénient",
         placeholder: "Texte",
         type: "text",
         name: "inconvenience",
