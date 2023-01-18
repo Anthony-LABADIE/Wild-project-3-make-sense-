@@ -12,6 +12,7 @@ import UserConcerned from "./pages/UserConcerned";
 import ProfilePage from "./components/Profil/ProfilPage";
 import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
 import Admin from "./pages/Admin";
+import ModifyProfil from "./components/Profil/ModifyProfil";
 
 function Transition() {
   return (
@@ -63,6 +64,14 @@ function Transition() {
           element={
             <ProtectedRoute>
               <PostDecision />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/profil/modify"
+          element={
+            <ProtectedRoute>
+              <ModifyProfil />
             </ProtectedRoute>
           }
         />
