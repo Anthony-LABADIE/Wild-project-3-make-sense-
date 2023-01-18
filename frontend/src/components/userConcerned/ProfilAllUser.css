@@ -18,6 +18,7 @@
   background-color: rgb(15, 146, 21);
   border-radius: 15px;
   display: flex;
+  align-items: center;
   flex-direction: column;
   padding-bottom: 1vh;
 }
@@ -25,10 +26,11 @@
 .UserItemOff {
   width: 20vw;
   height: 20vh;
-  background-color: rgb(106, 158, 109);
+  background-color: white;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-bottom: 1vh;
 }
 
@@ -66,4 +68,16 @@ ul {
 
 .image img {
   width: 100px;
+}
+
+.userName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  width: 70%;
+  /* height: 20%; */
+  font-size: medium;
+  background-color: rgba(178, 224, 177, 0.28);
+  border: 1px solid rgb(60, 150, 37);
 }
