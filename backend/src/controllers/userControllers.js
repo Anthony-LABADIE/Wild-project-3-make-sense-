@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const { validationResult } = require("express-validator");
 const userModel = require("../models/user");
 const { jwtSign } = require("../helpers/jwt");
@@ -7,23 +8,12 @@ const userController = {
   updateUser: async (req, res) => {
     const { id } = req.params;
     // eslint-disable-next-line camelcase
-    const { firstname, lastname, email, is_admin, image, password } = req.body;
 
-    const hashedPassword = await passwordHash(password);
+    /*    console.log(bio); */
+    /* const hashedPassword = await passwordHash(password); */
 
     userModel
-      .updateOne(
-        {
-          firstname,
-          lastname,
-          email,
-          image,
-          // eslint-disable-next-line camelcase
-          is_admin,
-          password: hashedPassword,
-        },
-        id
-      )
+      .updateOne(req.body, id)
       .then((user) => res.send(user))
       .catch((err) => {
         console.error(err);
@@ -40,7 +30,7 @@ const userController = {
         if (!user) {
           res.status(401).send({ error: "invalid email" });
         } else {
-          const { id, firstname, lastname, password: hash } = user;
+          const { id, firstname, lastname, password: hash, is_admin } = user;
           if (await passwordVerify(hash, password)) {
             const token = jwtSign(
               {
@@ -48,6 +38,7 @@ const userController = {
                 firstname,
                 lastname,
                 email,
+                is_admin,
               },
               { expiresIn: "1h" }
             );
@@ -58,7 +49,7 @@ const userController = {
                 secure: true,
               })
               .status(200)
-              .send({ id, firstname, lastname, email });
+              .send({ id, firstname, lastname, email, is_admin });
           } else {
             res.status(401).send({ error: "invalid password" });
           }
@@ -100,7 +91,7 @@ const userController = {
     }
 
     // eslint-disable-next-line camelcase
-    const { firstname, lastname, email, is_admin, password } = req.body;
+    const { firstname, lastname, email, is_admin, bio, password } = req.body;
 
     const hashedPassword = await passwordHash(password);
 
@@ -109,6 +100,7 @@ const userController = {
         firstname,
         lastname,
         email,
+        bio,
         // eslint-disable-next-line camelcase
         is_admin,
         password: hashedPassword,

@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import PostDecision from "./pages/PostDecision";
 import ProtectedRoute from "./hooks/ProtectedRoute";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
@@ -9,8 +10,11 @@ import Dashboard from "./pages/Dashboard";
 import Decision from "./pages/Decision";
 import Notice from "./pages/Notice";
 
+import UserConcerned from "./pages/UserConcerned";
 import ProfilePage from "./components/Profil/ProfilPage";
 import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
+import Admin from "./pages/Admin";
+import ModifyProfil from "./components/Profil/ModifyProfil";
 
 function Transition() {
   return (
@@ -20,6 +24,7 @@ function Transition() {
         <Route path="*" element={<Error />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/connexion" element={<Connexionpage />} />
+        <Route path="/concerned" element={<UserConcerned />} />
         <Route path="/notice" element={<Notice />} />
         <Route
           path="/dashboard"
@@ -43,7 +48,33 @@ function Transition() {
           path="/dashboard/profil"
           element={
             <ProtectedRoute>
-              <ProfilePage />{" "}
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/dashboard/decision/:nbdec"
+          element={
+            <ProtectedRoute>
+              <PostDecision />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard/profil/modify"
+          element={
+            <ProtectedRoute>
+              <ModifyProfil />
             </ProtectedRoute>
           }
         />
