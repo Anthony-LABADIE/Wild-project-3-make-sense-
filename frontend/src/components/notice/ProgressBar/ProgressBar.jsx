@@ -14,14 +14,24 @@ function ProgressBar() {
         <p className="three">15 oct 22</p>
         <p className="four">15 oct 22</p>
         <p className="five">15 oct 22</p>
-        <div className="progress">
+        <div className="barProgress">
           <div className="color" />
         </div>{" "}
-        <p className="six">15 oct 22</p>
-        <p className="seven">15 oct 22</p>
-        <p className="height">15 oct 22</p>
-        <p className="nine">15 oct 22</p>
-        <p className="ten">15 oct 22</p>
+        <p className="six">
+          Début <br /> de décision
+        </p>
+        <p className="seven">
+          Fin <br /> des avis
+        </p>
+        <p className="height">
+          1ère décision <br /> prise
+        </p>
+        <p className="nine">
+          Fin des <br /> conflit
+        </p>
+        <p className="ten">
+          Décision <br /> définitif
+        </p>
       </ul>
     </nav>
   );
