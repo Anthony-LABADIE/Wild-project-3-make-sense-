@@ -1,6 +1,3 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable camelcase */
 import PropTypes from "prop-types";
 import "./ProfilAllUser.css";
@@ -15,12 +12,16 @@ function UserItem({
   clicked,
   isExpert,
 }) {
+  const expertCondition = isExpert ? "expertButtonGreen" : "expertButtonRed";
+
   return (
     <div className="userContainer">
       <div
         className={clicked ? "UserItemOn" : "UserItemOff"}
         onClick={onclick}
         key={id}
+        onKeyDown={onclick}
+        role="presentation"
       >
         <ul>
           <li>{firstname}</li>
@@ -32,13 +33,7 @@ function UserItem({
       </div>
       <div>
         <button
-          className={
-            clicked
-              ? isExpert
-                ? "expertButtonGreen"
-                : "expertButtonRed"
-              : "expertButtonRed"
-          }
+          className={clicked ? expertCondition : "expertButtonRed"}
           onClick={expert}
           type="button"
         >

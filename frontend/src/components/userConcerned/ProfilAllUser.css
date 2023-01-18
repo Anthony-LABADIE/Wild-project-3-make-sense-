@@ -13,7 +13,7 @@
 }
 
 .UserItemOn {
-  width: 15vw;
+  width: 20vw;
   height: 20vh;
   background-color: rgb(15, 146, 21);
   border-radius: 15px;
@@ -23,7 +23,7 @@
 }
 
 .UserItemOff {
-  width: 15vw;
+  width: 20vw;
   height: 20vh;
   background-color: rgb(106, 158, 109);
   border-radius: 15px;
