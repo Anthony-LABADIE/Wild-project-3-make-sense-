@@ -5,9 +5,8 @@ import api from "../../services/api";
 import UserItem from "./UserItem";
 import "./ProfilAllUser.css";
 
-function profilAllUser() {
+function profilAllUser({ allIds, setAllIds, idDecision }) {
   const [user, setUser] = useState([]);
-  const [allIds, setAllIds] = useState([]);
 
   const handleClick = (id) => {
     const index = id;
@@ -15,9 +14,11 @@ function profilAllUser() {
       const allIdsUpdated = allIds.filter((ids) => ids.id_user !== index);
       setAllIds(allIdsUpdated);
     } else {
-      setAllIds([...allIds, { id_user: index, is_expert: false }]);
+      setAllIds([
+        ...allIds,
+        { id_user: index, is_expert: false, id_decision: idDecision.id },
+      ]);
     }
-
     // index of the user in the array of object
     const trueIndex = user.map((e) => e.id).indexOf(index);
     // if user index exists in the array of object
@@ -59,8 +60,6 @@ function profilAllUser() {
     }
   };
 
-  const createTab = () => allIds.map((e) => api.post("/authorization", e));
-
   const getAllUser = () => {
     api.get("user").then((response) => setUser(response.data));
   };
@@ -86,9 +85,9 @@ function profilAllUser() {
     <div className="concernedContainer" key={Math.random()}>
       <div className="select">
         <h2>Sélectionne tes collègues qui pourront commenter ta décision</h2>
-        <button className="expertButton" type="button" onClick={createTab}>
+        {/* <button className="expertButton" type="button" onClick={createTab}>
           Valide ta sélection
-        </button>
+        </button> */}
       </div>
       <div className="userCard">{userMap}</div>
     </div>

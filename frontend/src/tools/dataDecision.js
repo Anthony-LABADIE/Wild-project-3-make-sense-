@@ -114,5 +114,12 @@ const dataDecision = [
     ],
     isActive: false,
   },
+  {
+    id: 6,
+    title: "6.Qui participe ?",
+    txt: "Sélectionne les personnes qui participent à la décision",
+    title1: "L'Inconvénient",
+    isActive: false,
+  },
 ];
 export default dataDecision;
