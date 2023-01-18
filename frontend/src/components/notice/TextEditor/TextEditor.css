@@ -24,7 +24,6 @@
   color: white;
   border: none;
   cursor: pointer;
-
 }
 .avis {
   position: relative;
@@ -34,5 +33,5 @@
   display: flex;
   justify-content: center;
   font-size: 2.4em;
-  padding:1% ;
+  padding: 1%;
 }

@@ -1,4 +1,3 @@
-
 .progressBar {
   height: 10vh;
 }
@@ -74,71 +73,68 @@ p.five {
 }
 
 p.six {
-    color: white;
-    grid-area: 1 / 2;
-    margin-left: -20%;
-    height: 0%;
-    font-size: 0.8em;
-    text-align: center;
-  }
-  p.seven {
-    color: white;
-    grid-area: 1 / 2;
-    margin-left: 5%;
-    height: 0%;
-    font-size: 0.8em;
-    text-align: center;
-  }
-  p.height {
-    color: white;
-    grid-area: 1 / 2;
-    margin-left: 30%;
-    height: 0%;
-    font-size: 0.8em;
-    text-align: center;
-  }
-  p.nine {
-    color: white;
-    grid-area: 1 / 2;
-    margin-left: 54%;
-    height: 0%;
-    font-size: 0.8em;
-    text-align: center;
-  }
-  p.ten {
-    color: white;
-    grid-area: 1 / 2;
-    margin-left: 77%;
-    height: 0%;
-    font-size: 0.8em;
-    text-align: center;
-  }
+  color: white;
+  grid-area: 1 / 2;
+  margin-left: -20%;
+  height: 0%;
+  font-size: 0.8em;
+  text-align: center;
+}
+p.seven {
+  color: white;
+  grid-area: 1 / 2;
+  margin-left: 5%;
+  height: 0%;
+  font-size: 0.8em;
+  text-align: center;
+}
+p.height {
+  color: white;
+  grid-area: 1 / 2;
+  margin-left: 30%;
+  height: 0%;
+  font-size: 0.8em;
+  text-align: center;
+}
+p.nine {
+  color: white;
+  grid-area: 1 / 2;
+  margin-left: 54%;
+  height: 0%;
+  font-size: 0.8em;
+  text-align: center;
+}
+p.ten {
+  color: white;
+  grid-area: 1 / 2;
+  margin-left: 77%;
+  height: 0%;
+  font-size: 0.8em;
+  text-align: center;
+}
 
-.barProgress{
-    position: relative;
-    grid-area: 1 / 2;
-    height: 15px;
+.barProgress {
+  position: relative;
+  grid-area: 1 / 2;
+  height: 15px;
+  width: 50%;
+  border: 0px solid;
+  border-radius: 15px;
+  margin-left: 40%;
+}
+.barProgress .color {
+  position: absolute;
+  background-color: #08d804;
+  width: 100%;
+  height: 5px;
+  border-radius: 15px;
+  animation: progres 4s infinite linear;
+}
+@keyframes progres {
+  0% {
+    width: 0%;
+  }
+  25% {
     width: 50%;
-    border: 0px solid ;
-    border-radius: 15px;
-    margin-left: 40%;
-
-}
-.barProgress .color{
-    position: absolute;
-    background-color: #08D804;
-    width: 100%;
-    height: 5px;
-    border-radius: 15px;
-    animation: progres 4s infinite linear;  
-
-}
-@keyframes progres{
-    0%{
-      width: 0%;
-    }
-    25%{
-        width: 50%;
-    }
-};
-
+  }
+} ;

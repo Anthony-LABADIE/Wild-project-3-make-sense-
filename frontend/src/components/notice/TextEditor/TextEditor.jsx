@@ -20,13 +20,11 @@ function TextEditor() {
       content: content.content,
       date: "2022-01-01",
     });
-    console.log(content)
   };
 
   const handleSubmitConnexion = (e) => {
     e.preventDefault();
     if (notice) {
-        console.log(notice, "notice")
       api
         .post("notice/", notice)
         .then((res) => {
