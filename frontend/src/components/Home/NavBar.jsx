@@ -42,7 +42,7 @@ function NavBar() {
           </Link>
           <Link to="inscription" style={{ textDecoration: "none" }}>
             <li className="item" id="inscrit">
-              INSCRIT TOI
+              INSCRIS TOI
             </li>
           </Link>
         </ul>

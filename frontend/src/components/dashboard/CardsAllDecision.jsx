@@ -34,7 +34,7 @@ function CardsAllDecision() {
 
   const cardMap = threedecision.map((cardItem) => (
     <CardsItem
-      key={cardItem.id}
+      nbdec={cardItem.id}
       status={cardItem.status}
       title={cardItem.title}
       lastname={cardItem.lastname}
@@ -46,7 +46,7 @@ function CardsAllDecision() {
 
   const cardAllMap = decision.map((cardItem) => (
     <CardsItem
-      key={cardItem.id}
+      nbdec={cardItem.id}
       status={cardItem.status}
       title={cardItem.title}
       lastname={cardItem.lastname}

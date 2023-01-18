@@ -10,17 +10,17 @@
 }
 
 #logoValidation {
-  position: absolute;
-  top: 52vh;
-  left: 91vw;
-  width: 2vw;
+  position: relative;
+  top: -3.5vh;
+  left: 19vw;
+  width: 1.3vw;
 }
 
 #btn-visibility-inscription {
-  position: absolute;
-  top: 63vh;
-  left: 91vw;
-  width: 2vw;
+  position: relative;
+  top: -3.5vh;
+  left: 19vw;
+  width: 1.3vw;
 }
 
 .form h2 {
@@ -42,7 +42,7 @@
 }
 
 #lastnameConnexion {
-  width: 98%;
+  width: 96%;
   font-family: "Raleway", sans-serif;
 }
 
@@ -57,7 +57,7 @@
 }
 
 #firstnameConnexion {
-  width: 98%;
+  width: 96%;
   font-family: "Raleway", sans-serif;
 }
 
