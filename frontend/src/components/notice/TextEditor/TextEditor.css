@@ -1,0 +1,39 @@
+.editorr {
+  border: solid 1px #ccc;
+  text-align: left;
+  padding: 1%;
+  width: 50vw;
+  height: 50vh;
+  min-height: 50%;
+  background-color: white;
+  margin-top: 0%;
+  margin-left: 25%;
+  margin-right: 20%;
+  border-radius: 10px;
+}
+.btn-publis {
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  margin-left: 45%;
+  margin-top: 2.5%;
+  height: 40px;
+  padding: 11px;
+  width: 150px;
+  background-color: #346a82;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+}
+.avis {
+  position: relative;
+  color: #346a82;
+  font-family: "Raleway" bold;
+  font-weight: 1000;
+  display: flex;
+  justify-content: center;
+  font-size: 2.4em;
+  width: 100%;
+  padding: 10px;
+}

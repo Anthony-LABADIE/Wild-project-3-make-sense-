@@ -7,6 +7,8 @@ import Inscription from "./pages/Inscription";
 import Connexionpage from "./pages/Connexionpage";
 import Dashboard from "./pages/Dashboard";
 import Decision from "./pages/Decision";
+import Notice from "./pages/Notice";
+
 import ProfilePage from "./components/Profil/ProfilPage";
 import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
 
@@ -18,6 +20,7 @@ function Transition() {
         <Route path="*" element={<Error />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/connexion" element={<Connexionpage />} />
+        <Route path="/notice" element={<Notice />} />
         <Route
           path="/dashboard"
           element={
