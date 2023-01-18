@@ -31,7 +31,7 @@ nav {
   display: flex;
   flex-direction: row;
   max-width: 100%;
- margin-top : 8vh;
+  margin-top: 8vh;
 }
 .profilPic {
   display: flex;
@@ -251,6 +251,4 @@ h3 {
 }
 #infoPos {
   padding-left: 2vw;
-}
-#positionTitle {
 }
