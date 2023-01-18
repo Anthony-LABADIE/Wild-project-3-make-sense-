@@ -10,7 +10,7 @@ export default function Home() {
       <NavBar />
       <header className="App-header">
         <h2> PRENONS DES DECISIONS </h2>
-        <h2> COLLECTIVES ENSEMBLE </h2>
+        <h2> COLLECTIVES </h2>
         <Buttontestme />
       </header>
       <Homebody />
