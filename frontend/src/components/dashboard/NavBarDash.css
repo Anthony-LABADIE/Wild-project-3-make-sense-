@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@500&display=swap");
 
 nav {
-  height: 15vh;
+  height: 8vh;
   background-color: white;
 }
 
@@ -204,48 +204,4 @@ h4 {
 
 .btn-nav {
   display: none;
-}
-
-@media screen and (max-width: 500px) {
-  .liste {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 200px;
-  }
-
-  .items:nth-child(1) {
-    border-top: 1px solid white;
-    margin-top: 50px;
-  }
-
-  .items {
-    height: 50px;
-    width: 100%;
-    border-bottom: 1px solid white;
-    line-height: 50px;
-  }
-
-  .btn-nav {
-    display: block;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    color: #333;
-    cursor: pointer;
-    background-color: #1a3843;
-    border: none;
-  }
-
-  .burger {
-    width: 5vw;
-  }
-
-  nav {
-    height: 5vh;
-    background-color: #1a3843;
-    margin: 0;
-    padding: 0;
-  }
 }

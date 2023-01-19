@@ -47,9 +47,7 @@ export default function FormInscription() {
             login(res.data);
           }
         })
-        .catch((err) => alert(err.response));
-    } else {
-      alert("Please specify both email and password");
+        .catch((err) => err.response);
     }
   };
 

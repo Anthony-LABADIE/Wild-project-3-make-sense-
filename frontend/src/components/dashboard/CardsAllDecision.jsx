@@ -18,14 +18,14 @@ function CardsAllDecision() {
     api
       .get("decision/three", { withCredentials: true })
       .then((response) => setThreeDecision(response.data))
-      .catch((err) => alert(err.response));
+      .catch((err) => err.response);
   };
 
   const getAllDecision = () => {
     api
       .get("decision/", { withCredentials: true })
       .then((response) => setDecision(response.data))
-      .catch((err) => alert(err.response));
+      .catch((err) => err.response);
   };
 
   useEffect(() => {
