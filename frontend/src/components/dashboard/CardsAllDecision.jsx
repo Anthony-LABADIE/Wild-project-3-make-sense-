@@ -18,7 +18,7 @@ function CardsAllDecision() {
     api
       .get("decision/three", { withCredentials: true })
       .then((response) => setThreeDecision(response.data))
-      .catch((err) => alert(err.response));
+      .catch((err) => err.response);
   };
 
   const getAllDecision = () => {

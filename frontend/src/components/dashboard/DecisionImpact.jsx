@@ -21,7 +21,7 @@ export default function Decisionimpact() {
         withCredentials: true,
       })
       .then((response) => setThreeDecision(response.data))
-      .catch((err) => alert(err.response));
+      .catch((err) => err.response);
   };
 
   const getAllDecision = () => {

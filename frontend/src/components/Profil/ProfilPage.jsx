@@ -36,7 +36,7 @@ function ProfilePage() {
             navigate("/dashboard/profil");
           }
         })
-        .catch((err) => alert(err.response));
+        .catch((err) => err.response);
 
       setModify(false);
     }

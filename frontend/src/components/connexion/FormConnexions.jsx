@@ -48,8 +48,6 @@ export default function FormInscription() {
           }
         })
         .catch((err) => alert(err.response));
-    } else {
-      alert("Please specify both email and password");
     }
   };
 

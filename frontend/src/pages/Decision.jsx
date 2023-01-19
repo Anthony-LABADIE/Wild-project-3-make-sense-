@@ -79,10 +79,7 @@ function Decision() {
           }
         })
         // eslint-disable-next-line no-alert
-        .catch((err) => alert(err.response));
-    } else {
-      // eslint-disable-next-line no-alert
-      alert("Please specify decision");
+        .catch((err) => err.response);
     }
   };
   return (
