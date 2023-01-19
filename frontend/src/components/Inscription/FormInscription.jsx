@@ -81,9 +81,7 @@ export default function FormInscription() {
             navigate("/connexion");
           }
         })
-        .catch((err) => alert(err.response));
-    } else {
-      alert("Please specify both email and password");
+        .catch((err) => err.response);
     }
   };
 

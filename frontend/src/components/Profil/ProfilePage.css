@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@500&display=swap");
 
-/* nav {
-  display: flex;
-  flex-direction: row;
-  padding-left: 3vmin;
-  gap: 90vmin;
-} */
 .decisionContainer {
   display: flex;
   flex-direction: column;
@@ -42,12 +36,12 @@
 .profilText {
   display: flex;
   flex-direction: column;
-  padding-left: 20vmin;
+  padding-left: 13vmin;
 }
 .nameEmail {
   display: flex;
   flex-direction: row;
-  gap: 20vmin;
+  gap: 12vmin;
 }
 
 #buttonProfil {
@@ -81,6 +75,7 @@
 }
 .picture:hover::before {
   background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 .picture img {
   display: block;
@@ -117,7 +112,19 @@
   color: white;
   border-radius: 1vmin;
 }
-
+#inputPos {
+  width: 20vw;
+  margin-top: 3vh;
+}
+#inputFirst {
+  width: 10vw;
+}
+#inputLast {
+  width: 10vw;
+}
+#inputMail {
+  width: 13vw;
+}
 .decisionBubble {
   width: 325px;
   height: 184px;
@@ -196,9 +203,13 @@ h4 {
   display: flex;
   gap: 5vmin;
 }
-#info {
+#info,
+#infoLast,
+#infoFirst,
+#infoMail {
   margin: auto;
 }
+
 h2 {
   font-family: "Raleway", sans-serif;
   font-weight: 100;
@@ -235,7 +246,7 @@ h3 {
 .bio {
   display: flex;
   padding-top: 10vmin;
-  gap: 5vw;
+  gap: 5.8vw;
 }
 #pText {
   font-family: "Raleway", sans-serif;
@@ -248,7 +259,28 @@ h3 {
 .position {
   padding-top: 6vh;
   text-align: center;
+  gap: 3vw;
 }
 #infoPos {
-  padding-left: 2vw;
+  padding: 1vh;
+}
+
+#infoPos:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+.personalInfo {
+  background-color: #ffffff;
+  padding: 2.3vw;
+  margin-top: 3vh;
+  box-shadow: 1px 5px 8px rgb(0 0 0 / 15%);
+  border-radius: 30px;
+}
+#positionTitle {
+  padding: 1vh;
 }
