@@ -1,6 +1,6 @@
 import "./ProfilePage.css";
 import { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import NavBar from "../dashboard/NavBardash";
 import { authContext } from "../../hooks/authContext";
@@ -12,13 +12,146 @@ function ProfilePage() {
   const [file, setFile] = useState();
   const { auth } = useContext(authContext);
   const [userDecisions, setUserDecisions] = useState();
+  const [modify, setModify] = useState(false);
 
+  const [input, setInput] = useState({});
+
+  const navigate = useNavigate();
   const loadUserInfo = () => {
     api.get(`user/${auth.data.id}`).then((response) => {
       setUserInfo(response.data);
     });
   };
+  const handleChange = (e) => {
+    if (input) {
+      setInput({ ...input, [e.target.name]: e.target.value });
+    }
+  };
+  const handleSubmission = (e) => {
+    if (e.key === "Enter") {
+      api
+        .put(`/user/${auth.data.id}`, input)
+        .then((res) => {
+          if (res.status === 200) {
+            navigate("/dashboard/profil");
+          }
+        })
+        .catch((err) => alert(err.response));
 
+      setModify(false);
+    }
+  };
+
+  const modifyOn = () => {
+    setModify(!modify);
+  };
+
+  // eslint-disable-next-line consistent-return
+  function modifyActivate(info) {
+    switch (info) {
+      case "position":
+        if (!modify) {
+          return <h3 id="infoPos">{userInfo.position}</h3>;
+        }
+        if (modify) {
+          return (
+            <input
+              defaultValue={userInfo.position}
+              name="position"
+              type="text"
+              id="inputPos"
+              onChange={handleChange}
+              onKeyDown={handleSubmission}
+            />
+          );
+        }
+        break;
+      case "firstname":
+        if (!modify) {
+          return <h3 id="infoFirst">{userInfo.firstname}</h3>;
+        }
+        if (modify) {
+          return (
+            <input
+              defaultValue={userInfo.firstname}
+              name="firstname"
+              id="inputFirst"
+              type="text"
+              onChange={handleChange}
+              onKeyDown={handleSubmission}
+            />
+          );
+        }
+        break;
+      case "lastname":
+        if (!modify) {
+          return <h3 id="infoLast">{userInfo.lastname}</h3>;
+        }
+        if (modify) {
+          return (
+            <input
+              defaultValue={userInfo.lastname}
+              name="lastname"
+              id="inputLast"
+              type="text"
+              onChange={handleChange}
+              onKeyDown={handleSubmission}
+            />
+          );
+        }
+        break;
+      case "email":
+        if (!modify) {
+          return <h3 id="infoMail">{userInfo.email}</h3>;
+        }
+        if (modify) {
+          return (
+            <input
+              defaultValue={userInfo.email}
+              name="email"
+              id="inputMail"
+              type="text"
+              onChange={handleChange}
+              onKeyDown={handleSubmission}
+            />
+          );
+        }
+        break;
+      case "bio":
+        if (!modify) {
+          return <p id="pText">{userInfo.bio}</p>;
+        }
+        if (modify) {
+          return (
+            <input
+              defaultValue={userInfo.bio}
+              name="bio"
+              type="text"
+              id="inputBio"
+              onChange={handleChange}
+              onKeyDown={handleSubmission}
+            />
+          );
+        }
+        break;
+      default:
+        if (!modify) {
+          return <h3 id="infoPos">{userInfo.firstname}</h3>;
+        }
+        if (modify) {
+          return (
+            <input
+              defaultValue={userInfo.firstname}
+              name="position"
+              id="inputPos"
+              onChange={handleChange}
+              onKeyDown={handleSubmission}
+            />
+          );
+        }
+        break;
+    }
+  }
   const loadUserDecision = () => {
     api.get(`/user/decision/${auth.data.id}`).then((response) => {
       setUserDecisions(response.data);
@@ -69,7 +202,7 @@ function ProfilePage() {
   }, []);
   useEffect(() => {
     loadUserInfo();
-  }, []);
+  }, [userInfo]);
 
   useEffect(() => {
     autoUpload();
@@ -101,43 +234,39 @@ function ProfilePage() {
           />
         </div>
         <div className="profilText">
-          <Link
-            to="/dashboard/profil/modify"
+          {" "}
+          <button
             id="buttonProfil"
-            style={{ textDecoration: "none" }}
+            style={{ width: "20vmin" }}
+            type="button"
+            onClick={modifyOn}
           >
-            {" "}
-            <button id="buttonProfil" style={{ width: "20vmin" }} type="button">
-              Modifier mon profil
-            </button>{" "}
-          </Link>
+            Modifier mon profil
+          </button>{" "}
           <div className="personalInfo">
             <div className="nameEmail">
               <div className="firstNameProfil">
                 {" "}
                 <h2>Prénom:</h2>
-                <h3 id="info">{userInfo.firstname}</h3>
+                {modifyActivate("firstname")}
               </div>
               <div className="lastNameProfil">
                 <h2>Nom:</h2>
-                <h3 id="info">{userInfo.lastname}</h3>
+                {modifyActivate("lastname")}
               </div>
               <div className="emailProfil">
                 {" "}
                 <h2>Email:</h2>
-                <h3 id="info">{userInfo.email}</h3>
+                {modifyActivate("email")}
               </div>
             </div>
             <div className="position">
               <h2 id="positionTitle">Poste:</h2>
-              <h3 id="infoPos">{userInfo.position}</h3>
+              <div className="modifyOption">{modifyActivate("position")}</div>
             </div>
             <div className="bio">
               <h2>Bio:</h2>
-              <div className="bioText">
-                {" "}
-                <p id="pText">{userInfo.bio}</p>
-              </div>
+              <div className="bioText"> {modifyActivate("bio")}</div>
             </div>
           </div>
         </div>
