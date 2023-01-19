@@ -30,7 +30,7 @@ export default function Decisionimpact() {
         withCredentials: true,
       })
       .then((response) => setDecision(response.data))
-      .catch((err) => alert(err.response));
+      .catch((err) => err.response);
   };
 
   useEffect(() => {

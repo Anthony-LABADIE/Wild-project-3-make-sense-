@@ -32,7 +32,7 @@ function ModifyProfil() {
           navigate("/dashboard/profil");
         }
       })
-      .catch((err) => alert(err.response));
+      .catch((err) => err.response);
   };
 
   useEffect(() => {

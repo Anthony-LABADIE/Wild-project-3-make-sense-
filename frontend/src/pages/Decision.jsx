@@ -78,7 +78,7 @@ function Decision() {
             navigate("/dashboard");
           }
         })
-        // eslint-disable-next-line no-alert
+
         .catch((err) => err.response);
     }
   };

@@ -47,7 +47,7 @@ export default function FormInscription() {
             login(res.data);
           }
         })
-        .catch((err) => alert(err.response));
+        .catch((err) => err.response);
     }
   };
 
