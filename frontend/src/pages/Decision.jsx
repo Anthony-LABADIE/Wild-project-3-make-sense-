@@ -5,7 +5,9 @@ import NavBardash from "../components/dashboard/NavBardash";
 import CurrentDecisionContext from "../Contexts/DecisionContexts";
 import DecisionDash from "../components/Decision/DecisionDash";
 import vecteur from "../assets/img/Vector.png";
+import ProfilAllUser from "../components/userConcerned/ProfilAllUser";
 import api from "../services/api";
+import ButtonSwitch from "../components/Decision/ButtonSwitch";
 
 import "./Decision.css";
 
@@ -13,13 +15,17 @@ function Decision() {
   const [isActiveDecision, setIsActiveDecision] = useState(1);
   const { apidecision, setInput, input } = useContext(CurrentDecisionContext);
   const [isActive, setIsActive] = useState(apidecision);
+  const [allIds, setAllIds] = useState([]);
+  const [idDecision, setIdDecision] = useState();
   const navigate = useNavigate();
+  const createTab = () =>
+    allIds.map((e) => api.post("/authorization", e) && navigate("/dashboard"));
   function clear() {
     document.getElementById("form").reset();
   }
-  function next() {
+  const next = () => {
     setIsActiveDecision((i) => {
-      if (i >= 5) return isActiveDecision;
+      if (i >= 6) return isActiveDecision;
       return i + 1;
     });
     // eslint-disable-next-line no-use-before-define, no-unused-expressions
@@ -33,9 +39,9 @@ function Decision() {
     });
     setIsActive(isTrueOrFalse);
     clear();
-  }
+  };
 
-  function back() {
+  const back = () => {
     setIsActiveDecision((i) => {
       if (i <= 1) return isActiveDecision;
       return i - 1;
@@ -50,7 +56,7 @@ function Decision() {
     });
     setIsActive(isTrueOrFalse);
     clear();
-  }
+  };
   const handleNext = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
@@ -74,9 +80,8 @@ function Decision() {
       api
         .post("decision", { ...input }, { withCredentials: true })
         .then((res) => {
-          if (res.status === 201) {
-            navigate("/dashboard");
-          }
+          if (res.status === 201);
+          setIdDecision(res.data);
         })
         // eslint-disable-next-line no-alert
         .catch((err) => alert(err.response));
@@ -84,6 +89,7 @@ function Decision() {
       // eslint-disable-next-line no-alert
       alert("Please specify decision");
     }
+    next();
   };
   return (
     <div>
@@ -102,43 +108,42 @@ function Decision() {
                 title={el.title}
                 isActive={el.isActive}
               />
-              {el.id < 5 ? <img src={vecteur} alt="" /> : null}
+              {el.id < 6 ? <img src={vecteur} alt="" /> : null}
             </>
           ))}
         </div>
         <div className="formulaire__decision">
           {apidecision
             .filter((el) => el.id === isActiveDecision)
-            .map((el) => (
-              <DecisionCard
-                id={el.id}
-                title1={el.title1}
-                txt={el.txt}
-                input={input}
-                setInput={setInput}
-                inputtext={el.input}
-                isActiveDecision={isActiveDecision}
-                img={el.img}
-              />
-            ))}
+            .map((el) =>
+              el.id < 6 ? (
+                <DecisionCard
+                  id={el.id}
+                  title1={el.title1}
+                  txt={el.txt}
+                  input={input}
+                  setInput={setInput}
+                  inputtext={el.input}
+                  isActiveDecision={isActiveDecision}
+                  img={el.img}
+                />
+              ) : (
+                <ProfilAllUser
+                  allIds={allIds}
+                  setAllIds={setAllIds}
+                  idDecision={idDecision}
+                />
+              )
+            )}
 
           <div className="btn__decision">
-            <button
-              className={isActiveDecision === 1 ? "none__btn" : "active__btn"}
-              onClick={back}
-              type="button"
-            >
-              Précedent
-            </button>
-            {isActiveDecision < 5 ? (
-              <button onClick={next} type="button">
-                Suivant
-              </button>
-            ) : (
-              <button onClick={handleSubmitDecision} type="button">
-                Valider
-              </button>
-            )}
+            <ButtonSwitch
+              next={next}
+              back={back}
+              handleSubmitDecision={handleSubmitDecision}
+              createTab={createTab}
+              isActiveDecision={isActiveDecision}
+            />
           </div>
         </div>
       </div>

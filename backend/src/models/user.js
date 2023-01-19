@@ -41,7 +41,7 @@ const deleteOne = (id) => {
 const updateOne = (payload, id) => {
   return database
     .promise()
-    .query("UPDATE user SET ? Where id = ?", [payload, id])
+    .query("UPDATE user SET ? WHERE id = ?", [payload, id])
     .then(([res]) => res);
 };
 const updateImage = (url, id) => {

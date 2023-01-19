@@ -20,7 +20,7 @@ const findAll = () => {
 const findOne = (id) => {
   return db
     .promise()
-    .query("SELECT * FROM decision WHERE id = ?", [Number(id)])
+    .query("SELECT * FROM decision WHERE id = ?", [id])
     .then(([res]) => res);
 };
 const createOne = (payload) => {
