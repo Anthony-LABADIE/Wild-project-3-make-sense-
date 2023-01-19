@@ -1,0 +1,93 @@
+.navbardecision {
+  display: flex;
+  justify-content: space-around;
+  background-color: #346a82;
+  height: 8vh;
+}
+
+.textdecision {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textdecision p {
+  background-color: white;
+  border: solid 2px black;
+  border-radius: 5%;
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+}
+
+.navbardecision img {
+  margin-top: 1vh;
+  width: 3vw;
+  height: 80%;
+}
+
+.bodyMenuDecision {
+  width: 70vw;
+  height: 70vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.menubar {
+  background: rgba(51, 105, 129, 11%);
+  width: 30vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.cardMenuDecision {
+  width: 70vw;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(51, 105, 129, 11%);
+}
+
+.bodyDecision {
+  position: absolute;
+  top: 15vh;
+  left: 30vw;
+  display: flex;
+  justify-content: space-between;
+  width: 70vw;
+}
+
+.menutitle {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.menudecision {
+  /* position: absolute;
+  top: 15vh;
+  left: 50vw; */
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 70vw;
+}
+
+#btnDecision {
+  width: 6vw;
+}
+
+#decisiontext {
+  position: absolute;
+  top: 30vh;
+  left: 15vw;
+  width: 40vw;
+  background-color: white;
+}
+
+.none-p {
+  display: none;
+}
