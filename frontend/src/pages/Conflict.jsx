@@ -34,7 +34,7 @@ function Conflict() {
             navigate("/decision");
           }
         })
-        .catch((err) => alert(err.response));
+        .catch((err) => err.response);
     }
   };
 

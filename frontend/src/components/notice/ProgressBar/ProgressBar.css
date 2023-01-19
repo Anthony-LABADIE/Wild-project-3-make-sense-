@@ -122,6 +122,7 @@ p.ten {
   border-radius: 15px;
   margin-left: 40%;
   background-color: white;
+  margin-bottom: 0.5em;
 }
 .barProgress .color {
   position: absolute;

@@ -32,7 +32,7 @@ function TextEditor() {
             navigate("/decision");
           }
         })
-        .catch((err) => alert(err.response));
+        .catch((err) => err.response);
     }
   };
   return (
