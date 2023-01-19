@@ -116,11 +116,12 @@ p.ten {
 .barProgress {
   position: relative;
   grid-area: 1 / 2;
-  height: 15px;
-  width: 50%;
+  height: 5px;
+  width: 49%;
   border: 0px solid;
   border-radius: 15px;
   margin-left: 40%;
+  background-color: white;
 }
 .barProgress .color {
   position: absolute;

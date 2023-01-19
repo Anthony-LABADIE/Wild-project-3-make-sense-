@@ -30,7 +30,7 @@ function Conflict() {
       api
         .post("conflict/", conflict)
         .then((res) => {
-          if (res.status === 201) {
+          if (res.status === 200) {
             navigate("/decision");
           }
         })
