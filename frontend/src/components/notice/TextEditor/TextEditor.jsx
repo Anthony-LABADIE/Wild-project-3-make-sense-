@@ -37,7 +37,6 @@ function TextEditor() {
   };
   return (
     <div>
-      <h1 className="avis">Donne ton avis : Make Sense France </h1>
       <textarea
         className="editorr"
         contentEditable="true"

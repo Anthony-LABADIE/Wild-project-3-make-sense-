@@ -9,7 +9,7 @@ import Connexionpage from "./pages/Connexionpage";
 import Dashboard from "./pages/Dashboard";
 import Decision from "./pages/Decision";
 import Notice from "./pages/Notice";
-
+import Conflict from "./pages/Conflict";
 import UserConcerned from "./pages/UserConcerned";
 import ProfilePage from "./components/Profil/ProfilPage";
 import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
@@ -26,6 +26,8 @@ function Transition() {
         <Route path="/connexion" element={<Connexionpage />} />
         <Route path="/concerned" element={<UserConcerned />} />
         <Route path="/notice" element={<Notice />} />
+        <Route path="/conflict" element={<Conflict />} />
+
         <Route
           path="/dashboard"
           element={

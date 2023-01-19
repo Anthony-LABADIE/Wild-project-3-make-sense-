@@ -8,6 +8,8 @@ export default function Notice() {
     <div className="Notice">
       {/* <NavBarDash /> */}
       <ProgressBar />
+      <h1 className="avis">Donne ton avis : Make Sense France </h1>
+
       <TextEditor />
     </div>
   );
