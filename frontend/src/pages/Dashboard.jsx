@@ -16,7 +16,7 @@ export default function Dashboard() {
         withCredentials: true,
       })
       .then((response) => setThreeDecision(response.data))
-      .catch((err) => alert(err.response));
+      .catch((err) => err.response);
   };
   useEffect(() => {
     getThreeDecision();
