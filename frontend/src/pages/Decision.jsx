@@ -83,11 +83,8 @@ function Decision() {
           if (res.status === 201);
           setIdDecision(res.data);
         })
-        // eslint-disable-next-line no-alert
-        .catch((err) => alert(err.response));
-    } else {
-      // eslint-disable-next-line no-alert
-      alert("Please specify decision");
+
+        .catch((err) => err.response);
     }
     next();
   };
