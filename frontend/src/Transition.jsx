@@ -11,7 +11,6 @@ import Decision from "./pages/Decision";
 import UserConcerned from "./pages/UserConcerned";
 import ProfilePage from "./components/Profil/ProfilPage";
 import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
-// import { DecisionContextProvider } from "./Contexts/InfoDecisionContext";
 import Admin from "./pages/Admin";
 import ModifyProfil from "./components/Profil/ModifyProfil";
 
@@ -63,11 +62,9 @@ function Transition() {
         <Route
           path="/dashboard/decision/:nbdec"
           element={
-            // <DecisionContextProvider>
             <ProtectedRoute>
               <PostDecision />
             </ProtectedRoute>
-            // </DecisionContextProvider>
           }
         />
         <Route

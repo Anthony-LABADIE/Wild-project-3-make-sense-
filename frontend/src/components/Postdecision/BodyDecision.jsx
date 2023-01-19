@@ -40,7 +40,12 @@ export default function BodyDecision({ info }) {
 
   const getAllbutton = () => {
     return dataMenu.map((button) => (
-      <button type="button" id={button.id} onClick={handleClick}>
+      <button
+        type="button"
+        id={button.id}
+        onClick={handleClick}
+        className="btnMenu"
+      >
         {button.title}
       </button>
     ));
@@ -48,8 +53,10 @@ export default function BodyDecision({ info }) {
 
   return (
     <div className="bodyDecision">
-      {getAllbutton()}
-      <p>{infoText}</p>
+      <diV className="menuBody">{getAllbutton()}</diV>
+      <div className="textBody">
+        <p>{infoText}</p>
+      </div>
     </div>
   );
 }

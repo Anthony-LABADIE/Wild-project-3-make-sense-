@@ -14,7 +14,7 @@ export default function PostDecision() {
     api
       .get(`decision/user/${nbdec}`)
       .then((response) => setInfo(response.data))
-      .catch((err) => alert(err.response));
+      .catch((err) => err.response);
   };
 
   useEffect(() => {
@@ -24,9 +24,13 @@ export default function PostDecision() {
   return (
     <div>
       <NavBar />
-      {info && <NavBarDecision info={info} />}
-      <MenuBar />
-      {info && <BodyDecision info={info} />}
+
+      <div className="containerDecision">
+        {info && <NavBarDecision info={info} />}
+
+        {info && <BodyDecision info={info} />}
+        <MenuBar />
+      </div>
     </div>
   );
 }

@@ -1,24 +1,8 @@
 .navbardecision {
+  grid-area: 1 / 1 / 2 / 3;
   display: flex;
   justify-content: space-around;
   background-color: #346a82;
-  height: 8vh;
-}
-
-.textdecision {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.textdecision p {
-  background-color: white;
-  border: solid 2px black;
-  border-radius: 5%;
-  height: 50vh;
-  width: 50vw;
-  display: flex;
-  justify-content: center;
 }
 
 .navbardecision img {
@@ -27,67 +11,54 @@
   height: 80%;
 }
 
-.bodyMenuDecision {
-  width: 70vw;
-  height: 70vh;
-  display: flex;
-  justify-content: space-around;
-}
-
 .menubar {
+  grid-area: 2 / 2 / 3 / 3;
   background: rgba(51, 105, 129, 11%);
-  width: 30vw;
-  height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-}
-
-.cardMenuDecision {
-  width: 70vw;
-  display: flex;
-  justify-content: space-around;
-  background: rgba(51, 105, 129, 11%);
+  height: 100%;
+  padding-left: 3vw;
 }
 
 .bodyDecision {
-  position: absolute;
-  top: 15vh;
-  left: 30vw;
+  grid-area: 2 / 1 / 3 / 2;
+
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  width: 70vw;
+  align-items: center;
+  height: 100%;
+  row-gap: 0;
 }
 
-.menutitle {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
-.menudecision {
-  /* position: absolute;
-  top: 15vh;
-  left: 50vw; */
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  width: 70vw;
-}
-
-#btnDecision {
-  width: 6vw;
-}
-
-#decisiontext {
-  position: absolute;
-  top: 30vh;
-  left: 15vw;
+.textBody {
+  height: 60vh;
   width: 40vw;
   background-color: white;
+  border: solid 1px black;
+  margin-bottom: 8vh;
+  display: flex;
+  justify-content: center;
+}
+.menuBody {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 10vh;
 }
 
-.none-p {
-  display: none;
+.btnMenu {
+  background-color: transparent;
+  border: none;
+}
+
+.containerDecision {
+  display: grid;
+  grid-template-columns: 3fr 0.5fr;
+  grid-template-rows: 0.1fr 4fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 93vh;
 }
