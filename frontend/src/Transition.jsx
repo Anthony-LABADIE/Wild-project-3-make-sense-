@@ -12,7 +12,7 @@ import UserConcerned from "./pages/UserConcerned";
 import ProfilePage from "./components/Profil/ProfilPage";
 import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
 import Admin from "./pages/Admin";
-import ModifyProfil from "./components/Profil/ModifyProfil";
+import Messages from "./components/Messages/Messages";
 
 function Transition() {
   return (
@@ -67,22 +67,8 @@ function Transition() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/dashboard/profil/modify"
-          element={
-            <ProtectedRoute>
-              <ModifyProfil />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/Decision/:id"
-          element={
-            <ProtectedRoute>
-              <Decision />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/messages" element={<Messages />} />
+        <Route path="/Decision/:id" element={<Decision />} />
       </Routes>
     </div>
   );

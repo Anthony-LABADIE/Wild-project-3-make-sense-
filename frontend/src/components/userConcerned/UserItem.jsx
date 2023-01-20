@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import PropTypes from "prop-types";
 import "./ProfilAllUser.css";
-import insta from "../../assets/img/insta.png";
+import profil from "../../assets/img/profil.png";
 
 function UserItem({
   lastname,
@@ -28,7 +28,7 @@ function UserItem({
           <li>{lastname}</li>
         </ul>
         <div className="image">
-          <img src={insta} alt="insta" />
+          <img src={profil} alt="insta" />
         </div>
       </div>
       <div>
