@@ -13,13 +13,14 @@ import { authContext } from "../../hooks/authContext";
 
 import "./NavBarDash.css";
 
-function NavBar({ profileImage }) {
+function NavBar({ profileImage, socket }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
   const { logout, auth } = useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
   const [admin, setAdmin] = useState(false);
+  // const [notificationState, setNotificationState] = useState([]);
 
   const displayAdmin = () => {
     if (auth.data.is_admin === 1) setAdmin(true);
@@ -63,6 +64,12 @@ function NavBar({ profileImage }) {
     };
   }, []);
 
+  useEffect(() => {
+    socket?.on("getNotification", () => {
+      // console.log(data, "data");
+    });
+  }, [socket]);
+
   return (
     <div>
       <nav>
@@ -89,6 +96,7 @@ function NavBar({ profileImage }) {
             <div className="notification">
               <img id="notification" src={notification} alt="notification" />
               <h4>notifications</h4>
+              <div className="counter_notification">2</div>
             </div>
             <div className="message">
               <img id="messageLogo" src={message} alt="message" />
@@ -138,6 +146,8 @@ function NavBar({ profileImage }) {
 
 NavBar.propTypes = {
   profileImage: PropTypes.string.isRequired,
+  socket: PropTypes.func.isRequired,
+  on: PropTypes.func.isRequired,
 };
 
 export default NavBar;

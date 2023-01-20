@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import PostDecision from "./pages/PostDecision";
@@ -14,7 +15,7 @@ import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
 import Admin from "./pages/Admin";
 import ModifyProfil from "./components/Profil/ModifyProfil";
 
-function Transition() {
+function Transition({ socket }) {
   return (
     <div>
       <Routes>
@@ -27,7 +28,7 @@ function Transition() {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <Dashboard socket={socket} />
             </ProtectedRoute>
           }
         />
@@ -36,7 +37,7 @@ function Transition() {
           element={
             <ProtectedRoute>
               <CurrentDecisionContextProvider>
-                <Decision />
+                <Decision socket={socket} />
               </CurrentDecisionContextProvider>
             </ProtectedRoute>
           }
@@ -80,5 +81,9 @@ function Transition() {
     </div>
   );
 }
+
+Transition.propTypes = {
+  socket: PropTypes.func.isRequired,
+};
 
 export default Transition;
