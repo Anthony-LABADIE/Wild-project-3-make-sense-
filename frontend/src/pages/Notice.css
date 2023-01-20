@@ -4,16 +4,13 @@
   width: 100vw;
   height: 100vh;
 }
-.btn-pulish {
-  border-radius: 30px;
+
+.avis {
+  position: relative;
+  color: #346a82;
+  font-family: "Raleway" bold;
+  font-weight: 1000;
   display: flex;
   justify-content: center;
-  margin-left: 45%;
-  margin-top: 2.5%;
-  height: 40px;
-  padding: 5px;
-  width: 150px;
-  background-color: #346a82;
-  color: white;
-  border: none;
+  font-size: 2.4em;
 }

@@ -26,6 +26,7 @@ nav {
   height: 14vh;
   background-color: white;
   font-size: small;
+  z-index: 1;
 }
 
 .pictureProfil {

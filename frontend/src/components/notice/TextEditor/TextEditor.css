@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@500;700&display=swap");
+
 .editorr {
   border: solid 1px #ccc;
   text-align: left;
@@ -9,6 +11,8 @@
   margin-top: 0%;
   margin-left: 25%;
   margin-right: 20%;
+  font-size: 1.5em;
+  font-family: "Raleway" bold;
   border-radius: 10px;
 }
 .btn-publis {
@@ -16,7 +20,7 @@
   display: flex;
   justify-content: center;
   margin-left: 45%;
-  margin-top: 1.5%;
+  margin-top: 0.7%;
   height: 40px;
   padding: 11px;
   width: 150px;
@@ -25,13 +29,4 @@
   border: none;
   cursor: pointer;
 }
-.avis {
-  position: relative;
-  color: #346a82;
-  font-family: "Raleway" bold;
-  font-weight: 1000;
-  display: flex;
-  justify-content: center;
-  font-size: 2.4em;
-  padding: 1%;
-}
+

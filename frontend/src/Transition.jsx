@@ -25,9 +25,23 @@ function Transition() {
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/connexion" element={<Connexionpage />} />
         <Route path="/concerned" element={<UserConcerned />} />
-        <Route path="/notice" element={<Notice />} />
-        <Route path="/conflict" element={<Conflict />} />
 
+        <Route
+          path="/conflict"
+          element={
+            <ProtectedRoute>
+              <Conflict />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/notice"
+          element={
+            <ProtectedRoute>
+              <Notice />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/dashboard"
           element={
