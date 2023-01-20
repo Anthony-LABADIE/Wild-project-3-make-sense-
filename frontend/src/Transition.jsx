@@ -94,7 +94,14 @@ function Transition() {
             </ProtectedRoute>
           }
         />
-        <Route path="/Decision/:id" element={<Decision />} />
+        <Route
+          path="/Decision/:id"
+          element={
+            <ProtectedRoute>
+              <Decision />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );
