@@ -53,7 +53,7 @@ export default function BodyDecision({ info }) {
 
   return (
     <div className="bodyDecision">
-      <diV className="menuBody">{getAllbutton()}</diV>
+      <div className="menuBody">{getAllbutton()}</div>
       <div className="textBody">
         <p>{infoText}</p>
       </div>
