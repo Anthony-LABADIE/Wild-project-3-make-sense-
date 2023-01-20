@@ -10,6 +10,7 @@
 }
 .userDecisions {
   display: flex;
+  flex-wrap: wrap;
   padding-left: 3vmin;
   padding-bottom: 10vmin;
   padding-top: 10vmin;
