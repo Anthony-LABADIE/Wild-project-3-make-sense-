@@ -41,9 +41,10 @@
   width: 40vw;
   background-color: white;
   border: solid 1px black;
-  margin-bottom: 8vh;
+  margin-top: 5vh;
   display: flex;
   justify-content: center;
+  margin-left: 50vh;
 }
 .menuBody {
   display: flex;

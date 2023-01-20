@@ -38,6 +38,8 @@ function TextEditor({ shown }) {
   };
   return (
     <div style={{ display: shown ? "none" : "block" }}>
+      <h1 className="avis">Donne ton avis : Make Sense France </h1>
+
       <textarea
         className="editorr"
         contentEditable="true"
