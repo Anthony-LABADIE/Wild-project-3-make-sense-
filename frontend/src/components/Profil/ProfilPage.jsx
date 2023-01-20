@@ -293,6 +293,7 @@ function ProfilePage() {
                 status={decision.status}
                 id_status={decision.id_status}
                 image={decision.image}
+                nbdec={decision.id}
               />
             ))}
         </div>
