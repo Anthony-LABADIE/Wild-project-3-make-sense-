@@ -1,10 +1,11 @@
+import PropTypes from "prop-types";
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { authContext } from "../../../hooks/authContext";
-import api from "../../../services/api";
+import { authContext } from "../../hooks/authContext";
+import api from "../../services/api";
 import "./TextEditor.css";
 
-function TextEditor() {
+function TextEditor({ shown }) {
   const [notice, setNotice] = useState({});
   const [content, setContent] = useState();
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ function TextEditor() {
     }
   };
   return (
-    <div>
+    <div style={{ display: shown ? "none" : "block" }}>
       <textarea
         className="editorr"
         contentEditable="true"
@@ -58,3 +59,7 @@ function TextEditor() {
 }
 
 export default TextEditor;
+
+TextEditor.propTypes = {
+  shown: PropTypes.string.isRequired,
+};

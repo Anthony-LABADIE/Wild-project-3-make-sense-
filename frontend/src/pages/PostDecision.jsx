@@ -5,9 +5,11 @@ import NavBar from "../components/dashboard/NavBardash";
 import api from "../services/api";
 import MenuBar from "../components/Postdecision/MenuBar";
 import BodyDecision from "../components/Postdecision/BodyDecision";
+import TextEditor from "../components/Postdecision/TextEditor";
 
 export default function PostDecision() {
   const [info, setInfo] = useState();
+  const [shown, setShown] = useState(true);
   const { nbdec } = useParams();
 
   const getDecision = () => {
@@ -21,6 +23,10 @@ export default function PostDecision() {
     getDecision();
   }, [nbdec]);
 
+  const handleClick = () => {
+    setShown(!shown);
+  };
+
   return (
     <div>
       <NavBar />
@@ -28,8 +34,9 @@ export default function PostDecision() {
       <div className="containerDecision">
         {info && <NavBarDecision info={info} />}
 
-        {info && <BodyDecision info={info} />}
-        <MenuBar />
+        {info && <BodyDecision info={info} shown={shown} />}
+        <MenuBar handleClick={handleClick} />
+        <TextEditor shown={shown} />
       </div>
     </div>
   );

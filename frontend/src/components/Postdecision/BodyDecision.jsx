@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import dataMenu from "../../tools/dataMenu";
 
-export default function BodyDecision({ info }) {
+export default function BodyDecision({ info, shown }) {
   const infoContent = info[0].content;
   const infoContexte = info[0].contexte;
   const infoProfit = info[0].profit;
@@ -52,7 +52,7 @@ export default function BodyDecision({ info }) {
   };
 
   return (
-    <div className="bodyDecision">
+    <div className="bodyDecision" style={{ display: shown ? "block" : "none" }}>
       <div className="menuBody">{getAllbutton()}</div>
       <div className="textBody">
         <p>{infoText}</p>
@@ -63,4 +63,5 @@ export default function BodyDecision({ info }) {
 
 BodyDecision.propTypes = {
   info: PropTypes.string.isRequired,
+  shown: PropTypes.string.isRequired,
 };

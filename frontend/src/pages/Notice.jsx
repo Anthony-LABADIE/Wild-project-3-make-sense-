@@ -1,6 +1,6 @@
 import NavBar from "../components/dashboard/NavBardash";
 import ProgressBar from "../components/notice/ProgressBar/ProgressBar";
-import TextEditor from "../components/notice/TextEditor/TextEditor";
+import TextEditor from "../components/Postdecision/TextEditor";
 import "./Notice.css";
 
 export default function Notice() {
