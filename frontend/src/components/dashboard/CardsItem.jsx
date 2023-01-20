@@ -11,8 +11,8 @@ function CardsItem({
   lastname,
   firstname,
   status,
-  id_status,
   image,
+  nbStatus,
 }) {
   return (
     <Link to={`/dashboard/decision/${nbdec}`}>
@@ -20,12 +20,11 @@ function CardsItem({
         <div
           style={{
             backgroundColor:
-              id_status === 4
+              nbStatus === 4
                 ? " rgba(224, 177, 177, 0.28)"
                 : "rgba(178, 224, 177, 0.28)",
-            border:
-              id_status === 4 ? " 1px solid #ff0000" : "1px solid #3c9625",
-            color: id_status === 4 ? "#ff0000" : "#3c9625",
+            border: nbStatus === 4 ? " 1px solid #ff0000" : "1px solid #3c9625",
+            color: nbStatus === 4 ? "#ff0000" : "#3c9625",
             textDecoration: "none",
           }}
           className="status"
@@ -50,7 +49,7 @@ CardsItem.propTypes = {
   title: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
-  id_status: PropTypes.number.isRequired,
+  nbStatus: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   nbdec: PropTypes.number.isRequired,
 };

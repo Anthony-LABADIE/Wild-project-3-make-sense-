@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import dataMenu from "../../tools/dataMenu";
 
-export default function BodyDecision({ info, shown }) {
+export default function BodyDecision({ info, shown, notice }) {
   const infoContent = info[0].content;
   const infoContexte = info[0].contexte;
   const infoProfit = info[0].profit;
@@ -10,6 +10,17 @@ export default function BodyDecision({ info, shown }) {
   const infoInconvenience = info[0].inconvenience;
 
   const [infoText, setInfotext] = useState("");
+
+  const getAllAvis = () => {
+    return notice.map((avis) => (
+      <div>
+        <p> {avis.content}</p>
+        <h4>
+          de {avis.lastname} {avis.firstname}
+        </h4>
+      </div>
+    ));
+  };
 
   const handleClick = (e) => {
     switch (e.target.id) {
@@ -31,6 +42,11 @@ export default function BodyDecision({ info, shown }) {
 
       case "5":
         setInfotext(infoInconvenience);
+
+        break;
+
+      case "6":
+        setInfotext(getAllAvis);
 
         break;
       default:
@@ -64,4 +80,5 @@ export default function BodyDecision({ info, shown }) {
 BodyDecision.propTypes = {
   info: PropTypes.string.isRequired,
   shown: PropTypes.string.isRequired,
+  notice: PropTypes.string.isRequired,
 };

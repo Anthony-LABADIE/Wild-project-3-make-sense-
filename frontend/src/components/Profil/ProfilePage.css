@@ -119,11 +119,14 @@
 }
 #inputFirst {
   width: 10vw;
+  height: 3vh;
 }
 #inputLast {
   width: 10vw;
+  height: 3vh;
 }
 #inputMail {
+  height: 5vh;
   width: 13vw;
 }
 .decisionBubble {

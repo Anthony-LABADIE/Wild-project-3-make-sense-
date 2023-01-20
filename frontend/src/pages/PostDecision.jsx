@@ -9,7 +9,7 @@ import TextEditor from "../components/Postdecision/TextEditor";
 
 export default function PostDecision() {
   const [info, setInfo] = useState();
-  const [notice, setNotice] = useState();
+  const [notice, setNotice] = useState([]);
   const [shown, setShown] = useState(true);
   const { nbdec } = useParams();
 
@@ -36,7 +36,6 @@ export default function PostDecision() {
     setShown(!shown);
   };
 
-  console.warn(notice, "je suis là");
   return (
     <div>
       <NavBar />
@@ -44,9 +43,16 @@ export default function PostDecision() {
       <div className="containerDecision">
         {info && <NavBarDecision info={info} />}
 
-        {info && <BodyDecision info={info} shown={shown} />}
+        {info && (
+          <BodyDecision
+            info={info}
+            shown={shown}
+            notice={notice}
+            nbdec={nbdec}
+          />
+        )}
         <MenuBar handleClick={handleClick} />
-        <TextEditor shown={shown} nbdec={nbdec} />
+        <TextEditor shown={shown} nbdec={nbdec} handleClick={handleClick} />
       </div>
     </div>
   );

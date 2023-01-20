@@ -45,7 +45,9 @@
   display: flex;
   justify-content: center;
   margin-left: 50vh;
+  overflow-y: scroll;
 }
+
 .menuBody {
   display: flex;
   justify-content: space-around;

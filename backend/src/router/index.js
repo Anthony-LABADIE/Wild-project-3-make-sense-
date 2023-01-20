@@ -12,9 +12,11 @@ const AuthorisationUserDecisionRouter = require("./routerAuthorizationDecisionUs
 const userAuthorizationRouter = require("./userAuthorizationRouter");
 const concernedRouter = require("./concernedRouter");
 const DecisionUserRouter = require("./routerUserDecision");
+const notificationRouter = require("./notificationRouter");
 
 const router = express.Router();
 
+router.use("/notification", notificationRouter);
 router.use("/decision", routerDecision);
 router.use("/user/authorization", userAuthorizationRouter);
 router.use("/user", userRouter);
