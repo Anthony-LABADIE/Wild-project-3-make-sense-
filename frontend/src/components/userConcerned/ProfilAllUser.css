@@ -5,14 +5,29 @@
   margin-left: 30px;
 }
 
-.userContainerOn {
+.select {
+  display: flex;
+  flex-direction: row;
+  /* width: 20vw;
+  height: 20vh; */
+  /* align-items: center;
+  justify-content: center; */
+  background-color: aqua;
+}
+
+.userContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.showDecision {
+  width: 20vw;
+  background-color: blueviolet;
+}
+
 .userCard {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   display: flex;
   flex-wrap: wrap;
   width: 57vw;
@@ -22,11 +37,11 @@
 .UserItemOn {
   width: 18vw;
   height: 20vh;
-  background-color: rgb(15, 146, 21);
+  background-color: rgb(164, 205, 224);
   border-radius: 15px;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
 
 .UserItemOff {
@@ -37,26 +52,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 1vh;
-}
-
-.select {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 ul {
   list-style: none;
 }
-
+.expert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .expertButtonGreen {
-  background-color: rgb(0, 255, 13);
+  background-color: rgb(164, 205, 224);
+  border-radius: 10px;
 }
 
 .expertButtonRed {
-  background-color: brown;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .image {

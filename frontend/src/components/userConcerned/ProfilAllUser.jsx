@@ -82,14 +82,19 @@ function profilAllUser({ allIds, setAllIds, idDecision }) {
   ));
 
   return (
-    <div className="concernedContainer" key={Math.random()}>
+    <div className="concernedContainer">
+      <h2>Sélectionne tes collègues qui pourront commenter ta décision</h2>
       <div className="select">
-        <h2>Sélectionne tes collègues qui pourront commenter ta décision</h2>
-        {/* <button className="expertButton" type="button" onClick={createTab}>
-          Valide ta sélection
-        </button> */}
+        <div className="showDecision">
+          <div>titre {idDecision.title}</div>
+          <div>Contenu {idDecision.content}</div>
+          <div>Date postée {idDecision.date_posted}</div>
+          <div>Deadline {idDecision.deadline}</div>
+          <div>Utilité {idDecision.profit} </div>
+          <div>toto</div>
+        </div>
+        <div className="userCard">{userMap}</div>
       </div>
-      <div className="userCard">{userMap}</div>
     </div>
   );
 }

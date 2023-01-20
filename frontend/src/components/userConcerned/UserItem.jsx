@@ -30,7 +30,7 @@ function UserItem({
           <img src={profil} alt="insta" />
         </div>
       </div>
-      <div>
+      <div className="expert">
         <button
           className={clicked ? expertCondition : "expertButtonRed"}
           onClick={expert}
