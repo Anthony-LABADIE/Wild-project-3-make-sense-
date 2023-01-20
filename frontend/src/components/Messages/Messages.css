@@ -1,0 +1,49 @@
+.inboxContainer {
+  display: flex;
+  background-color: white;
+  height: 85vh;
+  width: 80vw;
+  margin: auto;
+  margin-top: 3vh;
+  box-shadow: 1px 5px 8px rgb(0 0 0 / 10%);
+  border-radius: 20px;
+}
+.sideBar {
+  height: 100%;
+  width: 40%;
+  border-right: solid rgb(219, 214, 214);
+}
+#dmTitle {
+  font-size: 2.3rem;
+  margin: 0;
+}
+.chat {
+  width: 60%;
+}
+.addChat {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15vw;
+  padding-top: 23vh;
+  width: 17vw;
+
+  align-items: center;
+}
+#buttonMessage {
+  width: 22vmin;
+  margin: auto;
+  height: 6vmin;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  background-color: #0c3944;
+  color: white;
+  border-radius: 1vmin;
+}
+#plane {
+  width: 7vw;
+}
+#dmDescription {
+  font-size: 1rem;
+  white-space: nowrap;
+  color: gray;
+}
