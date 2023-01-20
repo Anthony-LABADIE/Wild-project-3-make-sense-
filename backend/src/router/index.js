@@ -11,6 +11,7 @@ const authorizationRouter = require("./authorizationRouter");
 const AuthorisationUserDecisionRouter = require("./routerAuthorizationDecisionUser");
 const userAuthorizationRouter = require("./userAuthorizationRouter");
 const concernedRouter = require("./concernedRouter");
+const DecisionUserRouter = require("./routerUserDecision");
 
 const router = express.Router();
 
@@ -20,6 +21,7 @@ router.use("/user", userRouter);
 router.use("/notice", noticeRouter);
 router.use("/status", statusRouter);
 router.use("/user/decision", UserDecisionRouter);
+router.use("/decision/user", DecisionUserRouter);
 router.use("/conflict", conflictRouter);
 router.use("/finalDecision", finalDecisionRouter);
 router.use("/firstdecsion", routerFirstDecision);
