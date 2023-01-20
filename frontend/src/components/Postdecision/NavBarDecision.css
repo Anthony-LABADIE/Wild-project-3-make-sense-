@@ -1,14 +1,17 @@
 .navbardecision {
   grid-area: 1 / 1 / 2 / 3;
   display: flex;
-  justify-content: space-around;
+  padding-left: 2vw;
   background-color: #346a82;
 }
 
 .navbardecision img {
-  margin-top: 1vh;
+  margin-left: 5vw;
+  margin-top: 2vh;
   width: 3vw;
-  height: 80%;
+  border-radius: 50%;
+  height: 6vh;
+  margin-right: 1vw;
 }
 
 .menubar {
