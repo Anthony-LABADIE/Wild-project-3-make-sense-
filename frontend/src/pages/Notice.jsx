@@ -1,5 +1,5 @@
 import NavBar from "../components/dashboard/NavBardash";
-import ProgressBar from "../components/notice/ProgressBar/ProgressBar";
+import ProgressBar from "../components/Postdecision/ProgressBar";
 import TextEditor from "../components/Postdecision/TextEditor";
 import "./Notice.css";
 

@@ -12,7 +12,10 @@ const findAllnotice = () => {
 const findOneNotice = (id) => {
   return db
     .promise()
-    .query("SELECT * FROM notice WHERE id = ?", [Number(id)])
+    .query(
+      "SELECT notice.content FROM notice INNER JOIN decision  ON decision.id = notice.id_decision WHERE notice.id_decision = ?",
+      [Number(id)]
+    )
     .then(([res]) => res);
 };
 

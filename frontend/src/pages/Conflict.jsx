@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../hooks/authContext";
 import api from "../services/api";
-import ProgressBar from "../components/notice/ProgressBar/ProgressBar";
+import ProgressBar from "../components/Postdecision/ProgressBar";
 import "./Conflict.css";
 
 function Conflict() {

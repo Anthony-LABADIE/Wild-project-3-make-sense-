@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import PropTypes from "prop-types";
 import "./ProfilAllUser.css";
-import insta from "../../assets/img/insta.png";
+import profil from "../../assets/img/profil.png";
 
 function UserItem({
   lastname,
@@ -13,7 +13,6 @@ function UserItem({
   isExpert,
 }) {
   const expertCondition = isExpert ? "expertButtonGreen" : "expertButtonRed";
-
   return (
     <div className="userContainer">
       <div
@@ -23,15 +22,14 @@ function UserItem({
         onKeyDown={onclick}
         role="presentation"
       >
-        <ul>
-          <li>{firstname}</li>
-          <li>{lastname}</li>
-        </ul>
+        <h2 className="userName">
+          {firstname} {lastname}
+        </h2>
         <div className="image">
-          <img src={insta} alt="insta" />
+          <img src={profil} alt="insta" />
         </div>
       </div>
-      <div>
+      <div className="expert">
         <button
           className={clicked ? expertCondition : "expertButtonRed"}
           onClick={expert}

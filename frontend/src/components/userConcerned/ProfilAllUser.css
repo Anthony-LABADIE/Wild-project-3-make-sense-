@@ -3,67 +3,80 @@
   flex-direction: column;
   align-items: center;
   margin-left: 30px;
-  gap: 20px;
 }
-
-.userContainerOn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.UserItemOn {
-  width: 20vw;
-  height: 20vh;
-  background-color: rgb(15, 146, 21);
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 1vh;
-}
-
-.UserItemOff {
-  width: 20vw;
-  height: 20vh;
-  background-color: rgb(106, 158, 109);
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 1vh;
-}
-
 .select {
   display: flex;
+  flex-direction: row;
+  /* width: 20vw;
+  height: 20vh; */
+  /* align-items: center;
+  justify-content: center; */
+}
+.userContainer {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
-
+.showDecision {
+  width: 20vw;
+  background-color: blueviolet;
+}
 .userCard {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   display: flex;
   flex-wrap: wrap;
-  width: 80vw;
-  gap: 10px;
+  width: 57vw;
+  gap: 1vw;
 }
-
+.UserItemOn {
+  width: 18vw;
+  height: 20vh;
+  background-color: rgb(164, 205, 224);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.UserItemOff {
+  width: 18vw;
+  height: 20vh;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 ul {
   list-style: none;
 }
-
+.expert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .expertButtonGreen {
-  background-color: rgb(0, 255, 13);
+  background-color: rgb(164, 205, 224);
+  border-radius: 10px;
 }
-
 .expertButtonRed {
-  background-color: brown;
+  background-color: white;
+  border-radius: 10px;
 }
-
 .image {
   display: flex;
   justify-content: center;
 }
-
 .image img {
   width: 100px;
+}
+.userName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  width: 70%;
+  /* height: 20%; */
+  font-size: medium;
+  background-color: rgba(178, 224, 177, 0.28);
+  border: 1px solid rgb(60, 150, 37);
 }

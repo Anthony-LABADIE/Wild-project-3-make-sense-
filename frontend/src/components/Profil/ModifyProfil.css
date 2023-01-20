@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
 }
-input[type="text"],
+/* input[type="text"],
 select {
   width: 50vw;
   padding: 12px 20px;
@@ -14,7 +14,7 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
-}
+} */
 
 /* Style the submit button */
 input[type="submit"] {

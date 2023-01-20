@@ -33,7 +33,8 @@ const noticeController = {
   },
 
   createOneNotice: (req, res) => {
-    const { id_decision, id_user, content, date } = req.body;
+    const { id_decision } = req.params;
+    const { id_user, content, date } = req.body;
     noticeModel
       .createOneNotice({ id_decision, id_user, content, date })
       .then((notice) => res.send(notice))
