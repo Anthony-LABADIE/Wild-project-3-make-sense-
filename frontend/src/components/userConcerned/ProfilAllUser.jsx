@@ -83,16 +83,23 @@ function profilAllUser({ allIds, setAllIds, idDecision }) {
 
   return (
     <div className="concernedContainer">
-      <h2>Sélectionne tes collègues qui pourront commenter ta décision</h2>
+      <h2 className="collegue">
+        Sélectionne les collègues qui pourront commenter ta décision
+      </h2>
       <div className="select">
         <div className="showDecision">
-          <div>titre {idDecision.title}</div>
-          <div>Contenu {idDecision.content}</div>
-          <div>Date postée {idDecision.date_posted}</div>
-          <div>Deadline {idDecision.deadline}</div>
-          <div>Utilité {idDecision.profit} </div>
-          <div>toto</div>
+          <div className="content">{idDecision.title}</div>
+          <div className="content">{idDecision.content}</div>
+          <div className="date">
+            <div className="content">Date postée {idDecision.date_posted}</div>
+            <div className="content">Deadline {idDecision.deadline}</div>
+          </div>
+          <div className="content">{idDecision.usefullness} </div>
+          <div className="content">{idDecision.contexte} </div>
+          <div className="content">{idDecision.profit} </div>
+          <div className="content">{idDecision.inconvenience} </div>
         </div>
+        <div className="space" />
         <div className="userCard">{userMap}</div>
       </div>
     </div>
