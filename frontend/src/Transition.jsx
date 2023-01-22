@@ -13,6 +13,7 @@ import Conflict from "./pages/Conflict";
 import UserConcerned from "./pages/UserConcerned";
 import ProfilePage from "./components/Profil/ProfilPage";
 import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
+import { NotificationContextProvider } from "./Contexts/NotificationContexts";
 import Admin from "./pages/Admin";
 import ModifyProfil from "./components/Profil/ModifyProfil";
 
@@ -30,7 +31,9 @@ function Transition() {
           path="/conflict"
           element={
             <ProtectedRoute>
-              <Conflict />
+              <NotificationContextProvider>
+                <Conflict />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -38,7 +41,9 @@ function Transition() {
           path="/notice"
           element={
             <ProtectedRoute>
-              <Notice />
+              <NotificationContextProvider>
+                <Notice />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -46,7 +51,9 @@ function Transition() {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <NotificationContextProvider>
+                <Dashboard />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -54,9 +61,11 @@ function Transition() {
           path="/decision"
           element={
             <ProtectedRoute>
-              <CurrentDecisionContextProvider>
-                <Decision />
-              </CurrentDecisionContextProvider>
+              <NotificationContextProvider>
+                <CurrentDecisionContextProvider>
+                  <Decision />
+                </CurrentDecisionContextProvider>
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -64,7 +73,9 @@ function Transition() {
           path="/dashboard/profil"
           element={
             <ProtectedRoute>
-              <ProfilePage />
+              <NotificationContextProvider>
+                <ProfilePage />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -73,7 +84,9 @@ function Transition() {
           path="/admin"
           element={
             <ProtectedRoute>
-              <Admin />
+              <NotificationContextProvider>
+                <Admin />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -82,7 +95,9 @@ function Transition() {
           path="/dashboard/decision/:nbdec"
           element={
             <ProtectedRoute>
-              <PostDecision />
+              <NotificationContextProvider>
+                <PostDecision />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -90,7 +105,9 @@ function Transition() {
           path="/dashboard/profil/modify"
           element={
             <ProtectedRoute>
-              <ModifyProfil />
+              <NotificationContextProvider>
+                <ModifyProfil />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -98,7 +115,9 @@ function Transition() {
           path="/Decision/:id"
           element={
             <ProtectedRoute>
-              <Decision />
+              <NotificationContextProvider>
+                <Decision />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />

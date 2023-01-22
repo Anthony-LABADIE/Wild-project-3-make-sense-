@@ -16,7 +16,12 @@ function profilAllUser({ allIds, setAllIds, idDecision }) {
     } else {
       setAllIds([
         ...allIds,
-        { id_user: index, is_expert: false, id_decision: idDecision.id },
+        {
+          id_user: index,
+          is_expert: false,
+          id_decision: idDecision.id,
+          notification: true,
+        },
       ]);
     }
     // index of the user in the array of object

@@ -18,6 +18,7 @@ export default function BodyDecision({ info, shown, notice }) {
         <h4>
           de {avis.lastname} {avis.firstname}
         </h4>
+        f
       </div>
     ));
   };
