@@ -4,8 +4,6 @@
   display: flex;
   flex-direction: column;
 }
-/* input[type="text"],
-select { */
 
 .imputProfil {
   width: 50vw;
@@ -18,9 +16,6 @@ select { */
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
 }
-
-/* Style the submit button */
-/* input[type="submit"]  */
 
 .imputProfil {
   width: 30vw;
@@ -41,7 +36,7 @@ select { */
 }
 
 /* Add a background color to the submit button on mouse-over */
-/* input[type="submit"] */
+
 .imputProfil:hover {
   background-color: #45a049;
   font-family: "Raleway", sans-serif;

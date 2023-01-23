@@ -10,7 +10,6 @@ const finalDecisionRouter = require("./finalDecisionRouter");
 const authorizationRouter = require("./authorizationRouter");
 const AuthorisationUserDecisionRouter = require("./routerAuthorizationDecisionUser");
 const userAuthorizationRouter = require("./userAuthorizationRouter");
-// const concernedRouter = require("./concernedRouter");
 const DecisionUserRouter = require("./routerUserDecision");
 const notificationRouter = require("./notificationRouter");
 
@@ -29,6 +28,5 @@ router.use("/finalDecision", finalDecisionRouter);
 router.use("/firstdecsion", routerFirstDecision);
 router.use("/authorization", authorizationRouter);
 router.use("/decision/authorization/user", AuthorisationUserDecisionRouter);
-// router.use("/concerned", concernedRouter);
 
 module.exports = router;

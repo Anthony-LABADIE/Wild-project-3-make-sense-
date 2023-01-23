@@ -34,21 +34,10 @@ const putOne = (payload, id) => {
     .then(([res]) => res);
 };
 
-// const countNotifcation = (id_user) => {
-//   return database
-//     .promise()
-//     .query(
-//       "SELECT  count(authorization.notification) FROM authorization WHERE authorization.notification=1 and id_user = ?",
-//       [id_user]
-//     )
-//     .then(([res]) => res);
-// };
-
 module.exports = {
   findAll,
   createOne,
   findOne,
   deleteOne,
   putOne,
-  // countNotifcation,
 };

@@ -9,5 +9,4 @@ authorizationRouter.get("/:id", authorizationController.getOneAuthorization);
 authorizationRouter.post("/", authorizationController.postAuthorizations);
 authorizationRouter.delete("/:id", authorizationController.deleteAuthorization);
 authorizationRouter.put("/:id", authorizationController.updateAuthorization);
-// authorizationRouter.get("/notification", authorizationController.countDecision);
 module.exports = authorizationRouter;

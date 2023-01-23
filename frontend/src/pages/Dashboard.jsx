@@ -12,7 +12,6 @@ import CardsAllDecision from "../components/dashboard/CardsAllDecision";
 export default function Dashboard({ socket }) {
   const { auth } = useContext(authContext);
   const { notif, setNotif } = useContext(NotificationContext);
-  // const [threedecision, setThreeDecision] = useState([]);
 
   const loadNotifcation = () => {
     api
@@ -26,14 +25,6 @@ export default function Dashboard({ socket }) {
     loadNotifcation();
   }, [notif]);
 
-  // const getThreeDecision = () => {
-  //   api
-  //     .get(`decision/authorization/user/three/${auth.data.id}`, {
-  //       withCredentials: true,
-  //     })
-  //     .then((response) => setThreeDecision(response.data))
-  //     .catch((err) => err.response);
-  // };
   useEffect(() => {
     socket?.emit("addUser", auth.firstname);
   }, [socket, auth.firstname]);

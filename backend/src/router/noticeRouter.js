@@ -6,7 +6,6 @@ const noticeController = require("../controllers/noticeController");
 
 noticeRouter.get("/:id", noticeController.getAllNotice);
 noticeRouter.get("/email", noticeController.getOneNoticeByEmail);
-// noticeRouter.get("/:id", noticeController.getOneNotice);
 noticeRouter.post("/", noticeController.createOneNotice);
 noticeRouter.put("/:id", noticeController.modifyNotice);
 noticeRouter.delete("/:id", noticeController.deleteNotice);

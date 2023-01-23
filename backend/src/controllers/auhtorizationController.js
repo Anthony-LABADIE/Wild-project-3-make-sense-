@@ -2,14 +2,6 @@
 const authorizationModel = require("../models/authorization");
 
 const authorizationController = {
-  // countDecision: (req, res) => {
-  //   const { id_user } = req.body;
-  //   authorizationModel
-  //     .countNotifcation(id_user)
-  //     .then((authorizations) => res.send(authorizations))
-  //     .catch((err) => res.send(err));
-  // },
-
   getAuthorizations: (req, res) => {
     authorizationModel
       .findAll()
