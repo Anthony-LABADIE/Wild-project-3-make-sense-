@@ -1,4 +1,4 @@
-concernedContainer {
+.concernedContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,34 +15,62 @@ concernedContainer {
   flex-direction: column;
   align-items: center;
 }
+
 .showDecision {
-  width: 20vw;
-  background-color: blueviolet;
+  width: 60vw;
+  height: 50vh;
+  background-color: white;
+  border-radius: 2vw;
+  padding-top: 1vw;
+  padding-left: 1vw;
+  font-size: 1rem;
+  color: white;
+  overflow: auto;
 }
+
+.space {
+  width: 1vw;
+  background-color: rgb(233, 233, 240);
+}
+
 .userCard {
-  /* background-color: aquamarine; */
   display: flex;
-  flex-wrap: wrap;
-  width: 57vw;
+  flex-direction: column;
+  width: 20vw;
+  height: 50vh;
   gap: 1vw;
+  overflow: auto;
+  border: solid 2px;
+  border-radius: 2vw;
+  padding-top: 1vw;
 }
+
 .UserItemOn {
   width: 18vw;
-  height: 20vh;
+  height: 6vh;
   background-color: rgb(164, 205, 224);
   border-radius: 15px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   align-items: center;
+  justify-content: center;
 }
+
 .UserItemOff {
   width: 18vw;
-  height: 20vh;
+  height: 6vh;
   background-color: white;
   border-radius: 15px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   align-items: center;
+  justify-content: center;
 }
 
 .div1 {
@@ -80,25 +108,28 @@ ul {
   border-radius: 40%;
   font-size: 1rem;
 }
+
 .expertButtonRed {
   background-color: white;
   border-radius: 40%;
   font-size: 1rem;
 }
+
 .image {
   display: flex;
   justify-content: center;
 }
+
 .image img {
   width: 100px;
 }
+
 .userName {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 7px;
   width: 70%;
-  /* height: 20%; */
   font-size: medium;
   background-color: rgba(178, 224, 177, 0.28);
   border: 1px solid rgb(60, 150, 37);
