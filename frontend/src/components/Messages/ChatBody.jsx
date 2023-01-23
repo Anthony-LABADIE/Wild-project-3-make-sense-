@@ -19,7 +19,6 @@ function ChatBody({ socket }) {
   return (
     <>
       <header className="chat__mainHeader">
-        <p>Workshop socket.io</p>
         <button
           type="button"
           className="leaveChat__btn"

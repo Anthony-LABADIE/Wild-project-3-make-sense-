@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import api from "../../services/api";
 import logo from "../../assets/img/logo.png";
@@ -13,15 +13,14 @@ import { authContext } from "../../hooks/authContext";
 
 import "./NavBarDash.css";
 
-function NavBar({ profileImage, socket }) {
+function NavBar({ profileImage }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
   const { logout, auth, setUserSocketIo } = useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
   const [admin, setAdmin] = useState(false);
-
-  // const [notificationState, setNotificationState] = useState([]);
+  const navigate = useNavigate();
 
   const displayAdmin = () => {
     if (auth.data.is_admin === 1) setAdmin(true);
@@ -65,11 +64,6 @@ function NavBar({ profileImage, socket }) {
     };
   }, []);
 
-  useEffect(() => {
-    socket?.on("getNotification", () => {
-      // console.log(data, "data");
-    });
-  }, [socket]);
   const getUserSocketIo = () => {
     api.get("user/").then((response) => {
       setUserSocketIo(response.data);
@@ -78,7 +72,15 @@ function NavBar({ profileImage, socket }) {
   useEffect(() => {
     getUserSocketIo();
   }, []);
-
+  const nav = () => {
+    navigate("/messages");
+  };
+  const handleSubmission = () => {
+    api
+      .put(`/user/disconnect/${auth.data.id}`, false)
+      .catch((err) => err.response);
+    logout();
+  };
   return (
     <div>
       <nav>
@@ -108,20 +110,23 @@ function NavBar({ profileImage, socket }) {
             </div>
 
             <div className="message">
-              <Link to="/messages" onClick={getUserSocketIo}>
-                <img id="messageLogo" src={message} alt="message" />
-                <h4>messages</h4>
+              <img
+                id="messageLogo"
+                src={message}
+                alt="message"
+                onClick={(getUserSocketIo, nav)}
+                role="presentation"
+              />
+              <h4>messages</h4>
 
-                <img
-                  src={triangle}
-                  alt=""
-                  id="triangle"
-                  onClick={handleClick}
-                  role="presentation"
-                />
-              </Link>
+              <img
+                src={triangle}
+                alt=""
+                id="triangle"
+                onClick={handleClick}
+                role="presentation"
+              />
             </div>
-
             <div className="pictureProfil">
               {profilImage && (
                 <img src={profileImage || profilImage} alt="" id="imgProfil" />
@@ -147,7 +152,7 @@ function NavBar({ profileImage, socket }) {
           >
             <p> mon profil</p>
           </Link>
-          <button id="btn-logout" type="button" onClick={() => logout()}>
+          <button id="btn-logout" type="button" onClick={handleSubmission}>
             déconnexion
           </button>
         </div>
@@ -158,8 +163,6 @@ function NavBar({ profileImage, socket }) {
 
 NavBar.propTypes = {
   profileImage: PropTypes.string.isRequired,
-  socket: PropTypes.func.isRequired,
-  on: PropTypes.func.isRequired,
 };
 
 export default NavBar;

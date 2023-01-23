@@ -50,6 +50,18 @@ const updateImage = (url, id) => {
     .query("UPDATE user SET image = ? WHERE id = ?", [url, id])
     .then(([res]) => res);
 };
+const updateConnected = (connect, id) => {
+  return database
+    .promise()
+    .query("UPDATE user SET is_connect = ? WHERE id = ?", [connect, id])
+    .then(([res]) => res);
+};
+const updateDisconnect = (disConnect, id) => {
+  return database
+    .promise()
+    .query("UPDATE user SET is_connect = ? WHERE id = ?", [disConnect, id])
+    .then(([res]) => res);
+};
 module.exports = {
   findAll,
   findOne,
@@ -58,4 +70,6 @@ module.exports = {
   deleteOne,
   updateOne,
   updateImage,
+  updateConnected,
+  updateDisconnect,
 };
