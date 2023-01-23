@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import dataMenu from "../../tools/dataMenu";
+import "./NavBarDecision.css";
 
 export default function BodyDecision({ info, shown }) {
   const infoContent = info[0].content;
@@ -10,28 +11,55 @@ export default function BodyDecision({ info, shown }) {
   const infoInconvenience = info[0].inconvenience;
 
   const [infoText, setInfotext] = useState("");
+  const [active, setActive] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   const handleClick = (e) => {
     switch (e.target.id) {
       case "1":
         setInfotext(infoContent);
+        setActive(!active);
+        if (active && e.target.name === "unClicked") {
+          e.target.className = "btnMenu2";
+        }
+        setClicked(true);
 
         break;
       case "2":
         setInfotext(infoContexte);
+        setActive(!active);
+        if (active && e.target.name === "unClicked") {
+          e.target.className = "btnMenu2";
+        }
+        setClicked(true);
 
         break;
       case "3":
         setInfotext(infoProfit);
+        setActive(!active);
+        if (active && e.target.name === "unClicked") {
+          e.target.className = "btnMenu2";
+        }
+        setClicked(true);
 
         break;
       case "4":
         setInfotext(infoUsefullness);
+        setActive(!active);
+        if (active && e.target.name === "unClicked") {
+          e.target.className = "btnMenu2";
+        }
+        setClicked(true);
+
         break;
 
       case "5":
         setInfotext(infoInconvenience);
-
+        setActive(!active);
+        if (active && e.target.name === "unClicked") {
+          e.target.className = "btnMenu2";
+        }
+        setClicked(true);
         break;
       default:
         setInfotext("nothing");
@@ -42,9 +70,11 @@ export default function BodyDecision({ info, shown }) {
     return dataMenu.map((button) => (
       <button
         type="button"
+        name="unClicked"
         id={button.id}
         onClick={handleClick}
-        className="btnMenu"
+        className={clicked ? "btnMenu" : "btnMenu"}
+        // isSelected={target[1] === !active}
       >
         {button.title}
       </button>
