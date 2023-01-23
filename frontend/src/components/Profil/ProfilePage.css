@@ -16,6 +16,18 @@
   padding-top: 10vmin;
   gap: 13vmin;
 }
+input[type="text"],
+select {
+  width: 50vw;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+}
 .navButtons {
   display: flex;
   flex-direction: row;
@@ -43,6 +55,11 @@
   display: flex;
   flex-direction: row;
   gap: 12vmin;
+}
+.nameEmailMod {
+  display: flex;
+  flex-direction: row;
+  gap: 7vmin;
 }
 
 #buttonProfil {
@@ -252,6 +269,11 @@ h3 {
   padding-top: 10vmin;
   gap: 5.8vw;
 }
+.bioMod {
+  display: flex;
+  padding-top: 10vmin;
+  gap: 4vw;
+}
 #pText {
   font-family: "Raleway", sans-serif;
   font-size: 1.3rem;
@@ -262,6 +284,7 @@ h3 {
 }
 .position {
   padding-top: 6vh;
+  display: flex;
   text-align: center;
   gap: 3vw;
 }

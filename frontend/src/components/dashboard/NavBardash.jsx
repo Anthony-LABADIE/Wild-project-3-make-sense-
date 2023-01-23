@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import api from "../../services/api";
 import logo from "../../assets/img/logo.png";
@@ -18,11 +18,11 @@ function NavBar({ profileImage }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
-  const { logout, auth } = useContext(authContext);
   const { notif } = useContext(NotificationContext);
-
+  const { logout, auth, setUserSocketIo } = useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
   const [admin, setAdmin] = useState(false);
+  const navigate = useNavigate();
 
   const displayAdmin = () => {
     if (auth.data.is_admin === 1) setAdmin(true);
@@ -66,6 +66,23 @@ function NavBar({ profileImage }) {
     };
   }, []);
 
+  const getUserSocketIo = () => {
+    api.get("user/").then((response) => {
+      setUserSocketIo(response.data);
+    });
+  };
+  useEffect(() => {
+    getUserSocketIo();
+  }, []);
+  const nav = () => {
+    navigate("/messages");
+  };
+  const handleSubmission = () => {
+    api
+      .put(`/user/disconnect/${auth.data.id}`, false)
+      .catch((err) => err.response);
+    logout();
+  };
   return (
     <div>
       <nav>
@@ -93,9 +110,17 @@ function NavBar({ profileImage }) {
               <img id="notification" src={notificationImg} alt="notification" />
               <h4>notifications {notif[0].notification}</h4>
             </div>
+
             <div className="message">
-              <img id="messageLogo" src={message} alt="message" />
+              <img
+                id="messageLogo"
+                src={message}
+                alt="message"
+                onClick={(getUserSocketIo, nav)}
+                role="presentation"
+              />
               <h4>messages</h4>
+
               <img
                 src={triangle}
                 alt=""
@@ -104,7 +129,6 @@ function NavBar({ profileImage }) {
                 role="presentation"
               />
             </div>
-
             <div className="pictureProfil">
               {profilImage && (
                 <img src={profileImage || profilImage} alt="" id="imgProfil" />
@@ -130,7 +154,7 @@ function NavBar({ profileImage }) {
           >
             <p> mon profil</p>
           </Link>
-          <button id="btn-logout" type="button" onClick={() => logout()}>
+          <button id="btn-logout" type="button" onClick={handleSubmission}>
             déconnexion
           </button>
         </div>

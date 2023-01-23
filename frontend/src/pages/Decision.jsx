@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DecisionCard from "../components/Decision/DecisionCard";
@@ -9,18 +10,26 @@ import vecteur from "../assets/img/Vector.png";
 import ProfilAllUser from "../components/userConcerned/ProfilAllUser";
 import api from "../services/api";
 import ButtonSwitch from "../components/Decision/ButtonSwitch";
+import { authContext } from "../hooks/authContext";
 
 import "./Decision.css";
 
-function Decision() {
+function Decision({ socket }) {
   const [isActiveDecision, setIsActiveDecision] = useState(1);
   const { apidecision, setInput, input } = useContext(NotificationContext);
   const [isActive, setIsActive] = useState(apidecision);
   const [allIds, setAllIds] = useState([]);
   const [idDecision, setIdDecision] = useState();
+  const { auth } = useContext(authContext);
   const navigate = useNavigate();
-  const createTab = () =>
-    allIds.map((e) => api.post("/authorization", e) && navigate("/dashboard"));
+  const createTab = () => {
+    allIds.map((e) => api.post("/authorization", e), navigate("/dashboard"));
+    socket.emit("sendNotification", {
+      senderName: auth.data.firstname,
+      receiverName: "ANTHONY",
+      message: input.title,
+    });
+  };
   function clear() {
     document.getElementById("form").reset();
   }
@@ -148,4 +157,9 @@ function Decision() {
     </div>
   );
 }
+
+Decision.propTypes = {
+  socket: PropTypes.func.isRequired,
+  emit: PropTypes.func.isRequired,
+};
 export default Decision;

@@ -64,7 +64,7 @@ export default function Decisionimpact() {
   return (
     <div className="AllDecision">
       <div className="title">
-        <h2>Décisions impacté </h2>
+        <h2>Décisions impactées </h2>
         <div className="trait" />
         {show ? (
           <button

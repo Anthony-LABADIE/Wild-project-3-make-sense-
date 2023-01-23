@@ -85,7 +85,6 @@ function profilAllUser({ allIds, setAllIds, idDecision }) {
       expert={() => handleExpert(userItem.id)}
     />
   ));
-
   return (
     <div className="concernedContainer" key={Math.random()}>
       <div className="select">

@@ -1,4 +1,5 @@
-import { useEffect, useState, useContext } from "react";
+import PropTypes from "prop-types";
+import { useEffect, useContext } from "react";
 import api from "../services/api";
 import { authContext } from "../hooks/authContext";
 import NotificationContext from "../Contexts/NotificationContexts";
@@ -8,10 +9,10 @@ import "./Dashboard.css";
 import Decisionimpact from "../components/dashboard/DecisionImpact";
 import CardsAllDecision from "../components/dashboard/CardsAllDecision";
 
-export default function Dashboard() {
+export default function Dashboard({ socket }) {
   const { auth } = useContext(authContext);
   const { notif, setNotif } = useContext(NotificationContext);
-  const [threedecision, setThreeDecision] = useState([]);
+  // const [threedecision, setThreeDecision] = useState([]);
 
   const loadNotifcation = () => {
     api
@@ -25,25 +26,37 @@ export default function Dashboard() {
     loadNotifcation();
   }, [notif]);
 
-  const getThreeDecision = () => {
-    api
-      .get(`decision/authorization/user/three/${auth.data.id}`, {
-        withCredentials: true,
-      })
-      .then((response) => setThreeDecision(response.data))
-      .catch((err) => err.response);
+  // const getThreeDecision = () => {
+  //   api
+  //     .get(`decision/authorization/user/three/${auth.data.id}`, {
+  //       withCredentials: true,
+  //     })
+  //     .then((response) => setThreeDecision(response.data))
+  //     .catch((err) => err.response);
+  // };
+  useEffect(() => {
+    socket?.emit("addUser", auth.firstname);
+  }, [socket, auth.firstname]);
+  const handleSubmission = () => {
+    api.put(`/user/connect/${auth.data.id}`, true).catch((err) => err.response);
   };
   useEffect(() => {
-    getThreeDecision();
+    handleSubmission();
   }, []);
+
   return (
     <div>
-      {notif && <NavBardash />}
+      {notif && <NavBardash socket={socket} />}
       <div className="dashboard">
         <ButtonCreateDecision />
-        {threedecision.length > 0 && <Decisionimpact />}
+        <Decisionimpact />
         <CardsAllDecision />
       </div>
     </div>
   );
 }
+
+Dashboard.propTypes = {
+  socket: PropTypes.func.isRequired,
+  emit: PropTypes.func.isRequired,
+};

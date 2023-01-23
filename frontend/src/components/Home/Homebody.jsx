@@ -10,7 +10,7 @@ export default function Homebody() {
 
   return (
     <div className="body">
-      <h2>SOYONS COLLABORATIF ET INCLUSIFS ...</h2>
+      <h2>SOYONS COLLABORATIF ET INCLUSIF ...</h2>
       <div className="card">{dataMap}</div>
     </div>
   );

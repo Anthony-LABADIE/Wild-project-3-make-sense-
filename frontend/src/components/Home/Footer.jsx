@@ -15,7 +15,7 @@ export default function Footer() {
         </div>
         <div className="rejoindre">
           <h2>Rejoindre l'équipe</h2>
-          <h3>Offre d'emploi</h3>
+          <h3>Offre d'emplois</h3>
         </div>
         <div className="contacts">
           <h2>Contact</h2>
