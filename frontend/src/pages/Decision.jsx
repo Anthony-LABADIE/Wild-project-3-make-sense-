@@ -72,7 +72,7 @@ function Decision({ socket }) {
   const handleBack = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
-  const handleSubmitDecision = (e) => {
+  const handleSubmitDecision = async (e) => {
     e.preventDefault();
     if (
       input.title &&
@@ -86,7 +86,7 @@ function Decision({ socket }) {
       input.date_posted &&
       input.id_status
     ) {
-      api
+      await api
         .post("decision", { ...input }, { withCredentials: true })
         .then((res) => {
           if (res.status === 201);

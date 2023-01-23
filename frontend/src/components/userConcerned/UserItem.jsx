@@ -15,28 +15,34 @@ function UserItem({
   const expertCondition = isExpert ? "expertButtonGreen" : "expertButtonRed";
   return (
     <div className="userContainer">
-      <div
-        className={clicked ? "UserItemOn" : "UserItemOff"}
-        onClick={onclick}
-        key={id}
-        onKeyDown={onclick}
-        role="presentation"
-      >
-        <h2 className="userName">
+      <div className={clicked ? "UserItemOn" : "UserItemOff"}>
+        <h2
+          className="div2"
+          onClick={onclick}
+          key={id}
+          onKeyDown={onclick}
+          role="presentation"
+        >
           {firstname} {lastname}
         </h2>
-        <div className="image">
+        <div
+          className="div1"
+          onClick={onclick}
+          key={id}
+          onKeyDown={onclick}
+          role="presentation"
+        >
           <img src={profil} alt="insta" />
         </div>
-      </div>
-      <div className="expert">
-        <button
-          className={clicked ? expertCondition : "expertButtonRed"}
-          onClick={expert}
-          type="button"
-        >
-          expert
-        </button>
+        <div className="div3">
+          <button
+            className={clicked ? expertCondition : "expertButtonRed"}
+            onClick={expert}
+            type="button"
+          >
+            expert
+          </button>
+        </div>
       </div>
     </div>
   );
