@@ -7,28 +7,28 @@ const data = [
   {
     id: 1,
     title: "Dépose une décision",
-    txt: "Publie une prise de décision visible et interagible par les membres de l’entreprise ",
+    txt: "Publie une prise de décision visible et intéragible par les membres de l’entreprise ",
     img: logo1,
   },
 
   {
     id: 2,
-    title: "Instaure une Deadline",
-    txt: "Met en place une deadline et un cheminement sur la validation d’une prise de décision. ",
+    title: "Instaure une deadline",
+    txt: "Mets en place une deadline et un cheminement sur la validation d’une prise de décision. ",
     img: logo2,
   },
 
   {
     id: 3,
-    title: "Donne ton avis",
-    txt: " Donne des avis (sous un délai donné) sur toutes les décisions au sein de l’entreprise.",
+    title: "Exprime toi",
+    txt: " Donne des avis (sous un délai donné) sur toutes les décisions prises au sein de l’entreprise.",
     img: logo3,
   },
 
   {
     id: 4,
     title: "Soit alerté",
-    txt: "Alerte en temps réel sur toutes les décisions concérnés. ",
+    txt: "Alerte en temps réel sur toutes les décisions concernées. ",
     img: logo4,
   },
 ];

@@ -30,7 +30,14 @@ const userController = {
         if (!user) {
           res.status(401).send({ error: "invalid email" });
         } else {
-          const { id, firstname, lastname, password: hash, is_admin } = user;
+          const {
+            id,
+            firstname,
+            lastname,
+            password: hash,
+            is_admin,
+            is_connect,
+          } = user;
           if (await passwordVerify(hash, password)) {
             const token = jwtSign(
               {
@@ -39,6 +46,7 @@ const userController = {
                 lastname,
                 email,
                 is_admin,
+                is_connect,
               },
               { expiresIn: "1h" }
             );
@@ -49,7 +57,7 @@ const userController = {
                 secure: true,
               })
               .status(200)
-              .send({ id, firstname, lastname, email, is_admin });
+              .send({ id, firstname, lastname, email, is_admin, is_connect });
           } else {
             res.status(401).send({ error: "invalid password" });
           }
@@ -156,6 +164,36 @@ const userController = {
       })
       .catch((err) => next(err));
     //
+  },
+  updateConnected: (req, res, next) => {
+    const connect = true;
+    const { id } = req.params;
+
+    userModel
+      .updateConnected(connect, id)
+      .then((response) => {
+        if (response.affectedRows !== 0) {
+          return res.status(200).send("User connected");
+        }
+
+        return res.status(404).send("error connecting user");
+      })
+      .catch((err) => next(err));
+  },
+  updateDisconnect: (req, res, next) => {
+    const disConnect = false;
+    const { id } = req.params;
+
+    userModel
+      .updateDisconnect(disConnect, id)
+      .then((response) => {
+        if (response.affectedRows === 0) {
+          return res.status(200).send("User disconnect");
+        }
+
+        return res.status(404).send("error connecting user");
+      })
+      .catch((err) => next(err));
   },
 };
 

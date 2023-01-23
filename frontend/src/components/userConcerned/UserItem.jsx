@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import PropTypes from "prop-types";
 import "./ProfilAllUser.css";
-import insta from "../../assets/img/insta.png";
+import profil from "../../assets/img/profil.png";
 
 function UserItem({
   lastname,
@@ -16,29 +16,34 @@ function UserItem({
 
   return (
     <div className="userContainer">
-      <div
-        className={clicked ? "UserItemOn" : "UserItemOff"}
-        onClick={onclick}
-        key={id}
-        onKeyDown={onclick}
-        role="presentation"
-      >
-        <ul>
-          <li>{firstname}</li>
-          <li>{lastname}</li>
-        </ul>
-        <div className="image">
-          <img src={insta} alt="insta" />
-        </div>
-      </div>
-      <div>
-        <button
-          className={clicked ? expertCondition : "expertButtonRed"}
-          onClick={expert}
-          type="button"
+      <div className={clicked ? "UserItemOn" : "UserItemOff"}>
+        <h2
+          className="div2"
+          onClick={onclick}
+          key={id}
+          onKeyDown={onclick}
+          role="presentation"
         >
-          expert
-        </button>
+          {firstname} {lastname}
+        </h2>
+        <div
+          className="div1"
+          onClick={onclick}
+          key={id}
+          onKeyDown={onclick}
+          role="presentation"
+        >
+          <img src={profil} alt="insta" />
+        </div>
+        <div className="div3">
+          <button
+            className={clicked ? expertCondition : "expertButtonRed"}
+            onClick={expert}
+            type="button"
+          >
+            expert
+          </button>
+        </div>
       </div>
     </div>
   );
