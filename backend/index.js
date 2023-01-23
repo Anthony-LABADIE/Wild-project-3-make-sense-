@@ -19,16 +19,6 @@ io.on("connection", (socket) => {
     io.emit("newMessage", payload);
   });
 });
-io.on("connection", (socket) => {
-  socket.on("sendUser", (payload) => {
-    io.emit("newUser", payload);
-  });
-});
-// io.on("connection", (socket) => {
-//   socket.on("sendNotification", (payload) => {
-//     socket.broadcast.emit("newNotification", payload);
-//   });
-// });
 Server.listen(port, (err) => {
   if (err) {
     console.error("Something bad happened");
