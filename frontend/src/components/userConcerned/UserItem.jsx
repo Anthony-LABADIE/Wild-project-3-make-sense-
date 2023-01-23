@@ -13,7 +13,6 @@ function UserItem({
   isExpert,
 }) {
   const expertCondition = isExpert ? "expertButtonGreen" : "expertButtonRed";
-
   return (
     <div className="userContainer">
       <div className={clicked ? "UserItemOn" : "UserItemOff"}>

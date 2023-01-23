@@ -19,5 +19,13 @@ const authorizationDecisionUserController = {
       .then((decision) => res.send(decision))
       .catch((err) => res.send(err));
   },
+
+  countDecision: (req, res) => {
+    const { id } = req.params;
+    authorizationDecisionUserModel
+      .countNotifcation(id)
+      .then((authorizations) => res.send(authorizations))
+      .catch((err) => res.send(err));
+  },
 };
 module.exports = authorizationDecisionUserController;

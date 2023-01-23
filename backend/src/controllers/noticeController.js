@@ -4,8 +4,9 @@ const noticeModel = require("../models/noticeModel");
 
 const noticeController = {
   getAllNotice: (req, res) => {
+    const { id } = req.params;
     noticeModel
-      .findAllnotice()
+      .findAllnotice(id)
       .then((notice) => res.send(notice))
       .catch((err) => res.send(err));
   },
@@ -33,7 +34,7 @@ const noticeController = {
   },
 
   createOneNotice: (req, res) => {
-    const { id_decision, id_user, content, date } = req.body;
+    const { id_user, content, date, id_decision } = req.body;
     noticeModel
       .createOneNotice({ id_decision, id_user, content, date })
       .then((notice) => res.send(notice))

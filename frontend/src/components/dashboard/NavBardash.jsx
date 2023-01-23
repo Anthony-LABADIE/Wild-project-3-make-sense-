@@ -4,12 +4,13 @@ import PropTypes from "prop-types";
 import api from "../../services/api";
 import logo from "../../assets/img/logo.png";
 import burger from "../../assets/img/burger.png";
-import notification from "../../assets/img/notificaiton.png";
+import notificationImg from "../../assets/img/notificaiton.png";
 import message from "../../assets/img/messages.png";
 import decision from "../../assets/img/decision.png";
 import triangle from "../../assets/img/triangle.png";
 import adminImg from "../../assets/img/utilisateur.png";
 import { authContext } from "../../hooks/authContext";
+import NotificationContext from "../../Contexts/NotificationContexts";
 
 import "./NavBarDash.css";
 
@@ -17,6 +18,7 @@ function NavBar({ profileImage }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
+  const { notif } = useContext(NotificationContext);
   const { logout, auth, setUserSocketIo } = useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
   const [admin, setAdmin] = useState(false);
@@ -105,8 +107,8 @@ function NavBar({ profileImage }) {
               <h4>décisions</h4>
             </div>
             <div className="notification">
-              <img id="notification" src={notification} alt="notification" />
-              <h4>notifications</h4>
+              <img id="notification" src={notificationImg} alt="notification" />
+              <h4>notifications {notif[0].notification}</h4>
             </div>
 
             <div className="message">

@@ -7,6 +7,7 @@ export const authContext = createContext({});
 
 function AuthProvider({ children }) {
   const [auth, setAuth] = useState({ data: null });
+  const [notif, setNotif] = useState();
   const [userSocketIo, setUserSocketIo] = useState({});
   const [user, setUser] = useState("");
   const navigate = useNavigate();
@@ -42,6 +43,8 @@ function AuthProvider({ children }) {
       auth,
       login,
       logout,
+      notif,
+      setNotif,
       userSocketIo,
       setUserSocketIo,
       user,
@@ -50,7 +53,16 @@ function AuthProvider({ children }) {
     [auth, userSocketIo]
   );
 
-  return <authContext.Provider value={value}>{children}</authContext.Provider>;
+  const valueNotif = () => ({
+    notif,
+    setNotif,
+  });
+
+  return (
+    <authContext.Provider value={value} valueNotif={valueNotif}>
+      {children}
+    </authContext.Provider>
+  );
 }
 
 export default AuthProvider;

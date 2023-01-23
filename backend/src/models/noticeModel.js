@@ -2,17 +2,23 @@
 
 const db = require("../../config");
 
-const findAllnotice = () => {
+const findAllnotice = (id) => {
   return db
     .promise()
-    .query("SELECT * FROM notice")
+    .query(
+      "SELECT notice.content, user.lastname, user.firstname FROM notice INNER JOIN user ON user.id = notice.id_user WHERE notice.id_decision = ?",
+      [Number(id)]
+    )
     .then(([res]) => res);
 };
 
 const findOneNotice = (id) => {
   return db
     .promise()
-    .query("SELECT * FROM notice WHERE id = ?", [Number(id)])
+    .query(
+      "SELECT notice.content FROM notice INNER JOIN decision  ON decision.id = notice.id_decision WHERE notice.id_decision = ?",
+      [Number(id)]
+    )
     .then(([res]) => res);
 };
 

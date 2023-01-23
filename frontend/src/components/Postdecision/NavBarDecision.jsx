@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import profileImage from "../../assets/img/profil.png";
 import "./NavBarDecision.css";
+import ProgressBar from "./ProgressBar";
 
 function NavBarDecision({ info }) {
   return (
@@ -15,6 +16,7 @@ function NavBarDecision({ info }) {
           </h3>
         </>
       ))}
+      <ProgressBar />
     </div>
   );
 }

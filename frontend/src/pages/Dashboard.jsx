@@ -1,15 +1,30 @@
 import PropTypes from "prop-types";
 import { useEffect, useContext } from "react";
+import api from "../services/api";
+import { authContext } from "../hooks/authContext";
+import NotificationContext from "../Contexts/NotificationContexts";
 import NavBardash from "../components/dashboard/NavBardash";
 import ButtonCreateDecision from "../components/dashboard/ButtonCreateDecision";
 import "./Dashboard.css";
 import Decisionimpact from "../components/dashboard/DecisionImpact";
 import CardsAllDecision from "../components/dashboard/CardsAllDecision";
-import { authContext } from "../hooks/authContext";
-import api from "../services/api";
 
 export default function Dashboard({ socket }) {
   const { auth } = useContext(authContext);
+  const { notif, setNotif } = useContext(NotificationContext);
+
+  const loadNotifcation = () => {
+    api
+      .get(`decision/authorization/user/notification/${auth.data.id}`)
+      .then((res) => {
+        setNotif(res.data);
+      });
+  };
+
+  useEffect(() => {
+    loadNotifcation();
+  }, [notif]);
+
   useEffect(() => {
     socket?.emit("addUser", auth.firstname);
   }, [socket, auth.firstname]);
@@ -22,7 +37,7 @@ export default function Dashboard({ socket }) {
 
   return (
     <div>
-      <NavBardash socket={socket} />
+      {notif && <NavBardash socket={socket} />}
       <div className="dashboard">
         <ButtonCreateDecision />
         <Decisionimpact />

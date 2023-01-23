@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const database = require("../../config");
 
 const findAll = () => {
@@ -33,4 +34,10 @@ const putOne = (payload, id) => {
     .then(([res]) => res);
 };
 
-module.exports = { findAll, createOne, findOne, deleteOne, putOne };
+module.exports = {
+  findAll,
+  createOne,
+  findOne,
+  deleteOne,
+  putOne,
+};

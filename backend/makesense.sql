@@ -77,6 +77,16 @@ CREATE TABLE
         `date` DATE NOT NULL,
         PRIMARY KEY (`id`)
     );
+
+    CREATE TABLE
+    `Notification` (
+        `id` INT NOT NULL AUTO_INCREMENT, 
+        `id_authorization` INT NOT NULL, 
+        PRIMARY KEY (`id`) 
+    );
+    ALTER TABLE `Notification`
+ADD
+    CONSTRAINT `fk_Notification_id_authorization` FOREIGN KEY(`id_authorization`) REFERENCES `Authorization` (`id`);
 ​
 ALTER TABLE `Decision`
 ADD
