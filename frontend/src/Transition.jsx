@@ -12,7 +12,6 @@ import Notice from "./pages/Notice";
 import Conflict from "./pages/Conflict";
 import UserConcerned from "./pages/UserConcerned";
 import ProfilePage from "./components/Profil/ProfilPage";
-import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
 import { NotificationContextProvider } from "./Contexts/NotificationContexts";
 import Admin from "./pages/Admin";
 import ModifyProfil from "./components/Profil/ModifyProfil";
@@ -62,9 +61,7 @@ function Transition() {
           element={
             <ProtectedRoute>
               <NotificationContextProvider>
-                <CurrentDecisionContextProvider>
-                  <Decision />
-                </CurrentDecisionContextProvider>
+                <Decision />
               </NotificationContextProvider>
             </ProtectedRoute>
           }
