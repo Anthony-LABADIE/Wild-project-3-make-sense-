@@ -16,6 +16,7 @@ import ProfilePage from "./components/Profil/ProfilPage";
 import { NotificationContextProvider } from "./Contexts/NotificationContexts";
 import Admin from "./pages/Admin";
 import Messages from "./components/Messages/Messages";
+import DecisionPage from "./pages/DecisionPage";
 
 function Transition({ socket }) {
   return (
@@ -113,9 +114,15 @@ function Transition({ socket }) {
           path="/Decision/:id"
           element={
             <ProtectedRoute>
-              <NotificationContextProvider>
-                <Decision />
-              </NotificationContextProvider>
+              <Decision />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/decisiondash"
+          element={
+            <ProtectedRoute>
+              <DecisionPage />
             </ProtectedRoute>
           }
         />

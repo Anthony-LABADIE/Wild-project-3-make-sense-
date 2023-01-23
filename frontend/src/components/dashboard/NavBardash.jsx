@@ -103,8 +103,10 @@ function NavBar({ profileImage }) {
             </div>
 
             <div className="decision">
-              <img id="decision" src={decision} alt="decision" />
-              <h4>décisions</h4>
+              <Link to="/decisiondash" className="decision">
+                <img id="decision" src={decision} alt="decision" />
+                <h4>décisions</h4>
+              </Link>
             </div>
             <div className="notification">
               <img id="notification" src={notificationImg} alt="notification" />
