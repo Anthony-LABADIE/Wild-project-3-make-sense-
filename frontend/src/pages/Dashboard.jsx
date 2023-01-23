@@ -1,34 +1,38 @@
-import { useEffect, useState, useContext } from "react";
-import api from "../services/api";
-import { authContext } from "../hooks/authContext";
+import PropTypes from "prop-types";
+import { useEffect, useContext } from "react";
 import NavBardash from "../components/dashboard/NavBardash";
 import ButtonCreateDecision from "../components/dashboard/ButtonCreateDecision";
 import "./Dashboard.css";
 import Decisionimpact from "../components/dashboard/DecisionImpact";
 import CardsAllDecision from "../components/dashboard/CardsAllDecision";
+import { authContext } from "../hooks/authContext";
+import api from "../services/api";
 
-export default function Dashboard() {
+export default function Dashboard({ socket }) {
   const { auth } = useContext(authContext);
-  const [threedecision, setThreeDecision] = useState([]);
-  const getThreeDecision = () => {
-    api
-      .get(`decision/authorization/user/three/${auth.data.id}`, {
-        withCredentials: true,
-      })
-      .then((response) => setThreeDecision(response.data))
-      .catch((err) => err.response);
+  useEffect(() => {
+    socket?.emit("addUser", auth.firstname);
+  }, [socket, auth.firstname]);
+  const handleSubmission = () => {
+    api.put(`/user/connect/${auth.data.id}`, true).catch((err) => err.response);
   };
   useEffect(() => {
-    getThreeDecision();
+    handleSubmission();
   }, []);
+
   return (
     <div>
-      <NavBardash />
+      <NavBardash socket={socket} />
       <div className="dashboard">
         <ButtonCreateDecision />
-        {threedecision.length > 0 && <Decisionimpact />}
+        <Decisionimpact />
         <CardsAllDecision />
       </div>
     </div>
   );
 }
+
+Dashboard.propTypes = {
+  socket: PropTypes.func.isRequired,
+  emit: PropTypes.func.isRequired,
+};

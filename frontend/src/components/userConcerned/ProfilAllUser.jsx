@@ -85,7 +85,6 @@ function profilAllUser({ allIds, setAllIds, idDecision }) {
       expert={() => handleExpert(userItem.id)}
     />
   ));
-
   return (
     <div className="concernedContainer">
       <h2 className="collegue">

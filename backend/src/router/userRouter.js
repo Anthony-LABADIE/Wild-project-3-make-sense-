@@ -30,5 +30,7 @@ userRouter.put(
   userController.updateImage
 );
 userRouter.put("/:id", userController.updateUser);
+userRouter.put("/connect/:id", userController.updateConnected);
+userRouter.put("/disconnect/:id", userController.updateDisconnect);
 
 module.exports = userRouter;
