@@ -7,6 +7,8 @@ export const authContext = createContext({});
 
 function AuthProvider({ children }) {
   const [auth, setAuth] = useState({ data: null });
+  const [userSocketIo, setUserSocketIo] = useState({});
+  const [user, setUser] = useState("");
   const navigate = useNavigate();
   const login = (data) => {
     setAuth({ data });
@@ -40,8 +42,12 @@ function AuthProvider({ children }) {
       auth,
       login,
       logout,
+      userSocketIo,
+      setUserSocketIo,
+      user,
+      setUser,
     }),
-    [auth]
+    [auth, userSocketIo]
   );
 
   return <authContext.Provider value={value}>{children}</authContext.Provider>;

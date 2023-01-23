@@ -36,7 +36,6 @@ export default function FormInscription() {
       setLogoValide(false);
     }
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email && password) {

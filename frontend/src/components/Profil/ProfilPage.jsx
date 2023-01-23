@@ -244,7 +244,7 @@ function ProfilePage() {
             Modifier mon profil
           </button>{" "}
           <div className="personalInfo">
-            <div className="nameEmail">
+            <div className={!modify ? "nameEmail" : "nameEmailMod"}>
               <div className="firstNameProfil">
                 {" "}
                 <h2>Prénom:</h2>
@@ -264,7 +264,7 @@ function ProfilePage() {
               <h2 id="positionTitle">Poste:</h2>
               <div className="modifyOption">{modifyActivate("position")}</div>
             </div>
-            <div className="bio">
+            <div className={!modify ? "bio" : "bioMod"}>
               <h2>Bio:</h2>
               <div className="bioText"> {modifyActivate("bio")}</div>
             </div>
