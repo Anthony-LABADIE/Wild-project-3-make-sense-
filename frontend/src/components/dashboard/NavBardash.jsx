@@ -11,7 +11,7 @@ import triangle from "../../assets/img/triangle.png";
 import adminImg from "../../assets/img/utilisateur.png";
 import { authContext } from "../../hooks/authContext";
 import NotificationContext from "../../Contexts/NotificationContexts";
-
+import MemuNotification from "./MenuNotification";
 import "./NavBarDash.css";
 
 function NavBar({ profileImage }) {
@@ -21,6 +21,7 @@ function NavBar({ profileImage }) {
   const { notif } = useContext(NotificationContext);
   const { logout, auth, setUserSocketIo } = useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
+  const [dropNotif, setDropNotif] = useState(true);
   const [admin, setAdmin] = useState(false);
   const navigate = useNavigate();
 
@@ -30,6 +31,10 @@ function NavBar({ profileImage }) {
 
   const handleClick = () => {
     setDropMenu(!dropMenu);
+  };
+
+  const handleNotif = () => {
+    setDropNotif(!dropNotif);
   };
 
   const loadUserInfo = () => {
@@ -107,7 +112,13 @@ function NavBar({ profileImage }) {
               <h4>décisions</h4>
             </div>
             <div className="notification">
-              <img id="notification" src={notificationImg} alt="notification" />
+              <img
+                id="notification"
+                src={notificationImg}
+                alt="notification"
+                onClick={handleNotif}
+                role="presentation"
+              />
               <h4>notifications {notif[0].notification}</h4>
             </div>
 
@@ -158,6 +169,7 @@ function NavBar({ profileImage }) {
             déconnexion
           </button>
         </div>
+        <MemuNotification dropNotif={dropNotif} />
       </nav>
     </div>
   );

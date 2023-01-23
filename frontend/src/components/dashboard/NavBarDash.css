@@ -206,3 +206,30 @@ h4 {
 .btn-nav {
   display: none;
 }
+
+.notifuser {
+  width: 10vw;
+}
+
+#notifimage {
+  border-radius: 55%;
+}
+
+.notifTitle {
+  font-size: small;
+}
+
+.menuNotif {
+  position: absolute;
+  left: 80vw;
+  height: 10vmax;
+  z-index: 2;
+  background-color: white;
+  overflow-y: scroll;
+  row-gap: 0.5vh;
+}
+
+.notifItem {
+  display: flex;
+  justify-content: space-around;
+}
