@@ -40,7 +40,7 @@ export default function BodyDecision({ info, shown }) {
         if (active && e.target.name === "unClicked") {
           e.target.className = "btnMenu2";
         }
-        setClicked(true);
+        setClicked(false);
 
         break;
       case "4":
