@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DecisionCard from "../components/Decision/DecisionCard";
 import NavBardash from "../components/dashboard/NavBardash";
-import CurrentDecisionContext from "../Contexts/DecisionContexts";
+import NotificationContext from "../Contexts/NotificationContexts";
 import DecisionDash from "../components/Decision/DecisionDash";
 import vecteur from "../assets/img/Vector.png";
 import ProfilAllUser from "../components/userConcerned/ProfilAllUser";
@@ -15,7 +15,7 @@ import "./Decision.css";
 
 function Decision({ socket }) {
   const [isActiveDecision, setIsActiveDecision] = useState(1);
-  const { apidecision, setInput, input } = useContext(CurrentDecisionContext);
+  const { apidecision, setInput, input } = useContext(NotificationContext);
   const [isActive, setIsActive] = useState(apidecision);
   const [allIds, setAllIds] = useState([]);
   const [idDecision, setIdDecision] = useState();

@@ -9,6 +9,7 @@ import TextEditor from "../components/Postdecision/TextEditor";
 
 export default function PostDecision() {
   const [info, setInfo] = useState();
+  const [notice, setNotice] = useState([]);
   const [shown, setShown] = useState(true);
   const { nbdec } = useParams();
 
@@ -19,8 +20,16 @@ export default function PostDecision() {
       .catch((err) => err.response);
   };
 
+  const getAvis = () => {
+    api
+      .get(`notice/${nbdec}`)
+      .then((res) => setNotice(res.data))
+      .catch((err) => err.response);
+  };
+
   useEffect(() => {
     getDecision();
+    getAvis();
   }, [nbdec]);
 
   const handleClick = () => {
@@ -34,9 +43,16 @@ export default function PostDecision() {
       <div className="containerDecision">
         {info && <NavBarDecision info={info} />}
 
-        {info && <BodyDecision info={info} shown={shown} />}
+        {info && (
+          <BodyDecision
+            info={info}
+            shown={shown}
+            notice={notice}
+            nbdec={nbdec}
+          />
+        )}
         <MenuBar handleClick={handleClick} />
-        <TextEditor shown={shown} />
+        <TextEditor shown={shown} nbdec={nbdec} handleClick={handleClick} />
       </div>
     </div>
   );

@@ -56,6 +56,7 @@ function ModifyProfil() {
             <h3 id="label">Prénom</h3>
             <input
               type="text"
+              className="imputProfil"
               id="fname"
               name="firstname"
               placeholder="Votre prénom.."
@@ -68,6 +69,7 @@ function ModifyProfil() {
             <h3 id="label">Nom</h3>
             <input
               type="text"
+              className="imputProfil"
               id="lname"
               name="lastname"
               placeholder="Votre nom.."
@@ -80,6 +82,7 @@ function ModifyProfil() {
             <h3 id="label">Email</h3>
             <input
               type="text"
+              className="imputProfil"
               id="e-mail"
               name="email"
               placeholder="Votre email."
@@ -92,7 +95,8 @@ function ModifyProfil() {
             <h3 id="label">Poste</h3>
             <input
               type="text"
-              id="e-mail"
+              className="imputProfil"
+              id="position"
               name="position"
               placeholder="Votre poste."
               onChange={handleChange}
@@ -104,6 +108,7 @@ function ModifyProfil() {
             <h3 id="label">Bio</h3>
             <textarea
               type="text"
+              className="imputProfil"
               id="bio"
               name="bio"
               placeholder="Ecris ta bio.."

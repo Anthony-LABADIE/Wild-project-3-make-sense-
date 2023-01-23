@@ -3,14 +3,17 @@
 .navbardecision {
   grid-area: 1 / 1 / 2 / 3;
   display: flex;
-  justify-content: space-around;
+  padding-left: 2vw;
   background-color: #346a82;
 }
 
 .navbardecision img {
-  margin-top: 1vh;
+  margin-left: 7vw;
+  margin-top: 4vh;
   width: 3vw;
-  height: 80%;
+  border-radius: 50%;
+  height: 6vh;
+  margin-right: 1vw;
 }
 
 .menubar {
@@ -45,8 +48,10 @@
   display: flex;
   justify-content: center;
   margin-left: 50vh;
+  overflow-y: scroll;
   border-radius: 10px;
 }
+
 .menuBody {
   display: flex;
   justify-content: space-around;

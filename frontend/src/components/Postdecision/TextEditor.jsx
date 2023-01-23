@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
+// import { useParams } from "react-router-dom";
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../hooks/authContext";
 import api from "../../services/api";
 import "./TextEditor.css";
 
-function TextEditor({ shown }) {
+function TextEditor({ shown, nbdec }) {
   const [notice, setNotice] = useState({});
   const [content, setContent] = useState();
+
   const navigate = useNavigate();
   const { auth } = useContext(authContext);
   const handleChange = (e) => {
@@ -15,8 +17,9 @@ function TextEditor({ shown }) {
       ...content,
       content: e.target.value,
     });
+
     setNotice({
-      id_decision: 1,
+      id_decision: nbdec,
       id_user: auth.data.id,
       content: content.content,
       date: "2022-01-01",
@@ -30,7 +33,7 @@ function TextEditor({ shown }) {
         .post("notice/", notice)
         .then((res) => {
           if (res.status === 200) {
-            navigate("/decision");
+            navigate("/dashboard");
           }
         })
         .catch((err) => err.response);
@@ -64,4 +67,5 @@ export default TextEditor;
 
 TextEditor.propTypes = {
   shown: PropTypes.string.isRequired,
+  nbdec: PropTypes.string.isRequired,
 };

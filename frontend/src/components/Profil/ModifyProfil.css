@@ -4,9 +4,10 @@
   display: flex;
   flex-direction: column;
 }
-input[type="text"],
-select {
+
+.imputProfil {
   width: 50vw;
+  height: 10vh;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -16,8 +17,7 @@ select {
   font-family: "Raleway", sans-serif;
 }
 
-/* Style the submit button */
-input[type="submit"] {
+.imputProfil {
   width: 30vw;
   background-color: #0c3944;
   color: white;
@@ -36,7 +36,8 @@ input[type="submit"] {
 }
 
 /* Add a background color to the submit button on mouse-over */
-input[type="submit"]:hover {
+
+.imputProfil:hover {
   background-color: #45a049;
   font-family: "Raleway", sans-serif;
 }

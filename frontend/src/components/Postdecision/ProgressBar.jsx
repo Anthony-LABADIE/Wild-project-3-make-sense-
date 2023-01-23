@@ -1,14 +1,10 @@
 import React from "react";
-import profil from "../../../assets/img/profil.png";
 import "./ProgressBar.css";
 
 function ProgressBar() {
   return (
     <nav className="progressBar">
       <ul className="NavList">
-        <div className="TitleNotice">Acheter une nouvelle machine à café</div>
-        <img className="ProfilImg" src={profil} alt="profil" />
-        <div className="NameProfil">par RYAN TAMA</div>
         <p className="one">15 oct 22</p>
         <p className="two">15 oct 22</p>
         <p className="three">15 oct 22</p>

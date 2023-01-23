@@ -13,7 +13,7 @@ import Notice from "./pages/Notice";
 import Conflict from "./pages/Conflict";
 import UserConcerned from "./pages/UserConcerned";
 import ProfilePage from "./components/Profil/ProfilPage";
-import { CurrentDecisionContextProvider } from "./Contexts/DecisionContexts";
+import { NotificationContextProvider } from "./Contexts/NotificationContexts";
 import Admin from "./pages/Admin";
 import Messages from "./components/Messages/Messages";
 
@@ -31,7 +31,9 @@ function Transition({ socket }) {
           path="/conflict"
           element={
             <ProtectedRoute>
-              <Conflict />
+              <NotificationContextProvider>
+                <Conflict />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -39,7 +41,9 @@ function Transition({ socket }) {
           path="/notice"
           element={
             <ProtectedRoute>
-              <Notice />
+              <NotificationContextProvider>
+                <Notice />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -47,7 +51,9 @@ function Transition({ socket }) {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard socket={socket} />
+              <NotificationContextProvider>
+                <Dashboard socket={socket} />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -55,9 +61,9 @@ function Transition({ socket }) {
           path="/decision"
           element={
             <ProtectedRoute>
-              <CurrentDecisionContextProvider>
+              <NotificationContextProvider>
                 <Decision />
-              </CurrentDecisionContextProvider>
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -65,7 +71,9 @@ function Transition({ socket }) {
           path="/dashboard/profil"
           element={
             <ProtectedRoute>
-              <ProfilePage />
+              <NotificationContextProvider>
+                <ProfilePage />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -74,7 +82,9 @@ function Transition({ socket }) {
           path="/admin"
           element={
             <ProtectedRoute>
-              <Admin />
+              <NotificationContextProvider>
+                <Admin />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -83,7 +93,9 @@ function Transition({ socket }) {
           path="/dashboard/decision/:nbdec"
           element={
             <ProtectedRoute>
-              <PostDecision />
+              <NotificationContextProvider>
+                <PostDecision />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
@@ -91,11 +103,22 @@ function Transition({ socket }) {
           path="/messages"
           element={
             <ProtectedRoute>
-              <Messages socket={socket} />
+              <NotificationContextProvider>
+                <Messages socket={socket} />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
-        <Route path="/Decision/:id" element={<Decision />} />
+        <Route
+          path="/Decision/:id"
+          element={
+            <ProtectedRoute>
+              <NotificationContextProvider>
+                <Decision />
+              </NotificationContextProvider>
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );
