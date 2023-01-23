@@ -19,7 +19,6 @@ export default function Dashboard({ socket }) {
   useEffect(() => {
     handleSubmission();
   }, []);
-
   return (
     <div>
       <NavBardash socket={socket} />

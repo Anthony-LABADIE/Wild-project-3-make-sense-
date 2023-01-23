@@ -8,13 +8,11 @@ export const authContext = createContext({});
 function AuthProvider({ children }) {
   const [auth, setAuth] = useState({ data: null });
   const [userSocketIo, setUserSocketIo] = useState({});
-  const [user, setUser] = useState("");
   const navigate = useNavigate();
   const login = (data) => {
     setAuth({ data });
     navigate("/dashboard");
   };
-
   const logout = () => {
     setAuth({});
     window.localStorage.removeItem("user");
@@ -44,8 +42,6 @@ function AuthProvider({ children }) {
       logout,
       userSocketIo,
       setUserSocketIo,
-      user,
-      setUser,
     }),
     [auth, userSocketIo]
   );
