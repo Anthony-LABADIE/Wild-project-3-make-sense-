@@ -17,7 +17,7 @@ function ChatFooter({ socket }) {
   };
   return (
     <div className="chat__footer">
-      <div className="form">
+      <div className="form__message">
         <input
           type="text"
           placeholder="Write message"
