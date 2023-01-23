@@ -51,7 +51,9 @@ function Transition({ socket }) {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard socket={socket} />
+              <NotificationContextProvider>
+                <Dashboard socket={socket} />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />
