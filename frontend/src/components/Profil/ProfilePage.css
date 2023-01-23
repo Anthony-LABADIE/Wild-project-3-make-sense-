@@ -135,13 +135,16 @@ select {
   margin-top: 3vh;
 }
 #inputFirst {
-  width: 8vw;
+  width: 10vw;
+  height: 3vh;
 }
 #inputLast {
-  width: 8vw;
+  width: 10vw;
+  height: 3vh;
 }
 #inputMail {
-  width: 10vw;
+  height: 5vh;
+  width: 13vw;
 }
 .decisionBubble {
   width: 325px;

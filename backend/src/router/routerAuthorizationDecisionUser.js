@@ -10,6 +10,11 @@ AuthorisationUserDecisionRouter.get(
 );
 
 AuthorisationUserDecisionRouter.get(
+  "/notification/:id",
+  authorizationDecisionUserController.countDecision
+);
+
+AuthorisationUserDecisionRouter.get(
   "/three/:id/",
   authorizationDecisionUserController.getThreeDecision
 );

@@ -11,16 +11,8 @@ const conflictControllers = {
     conflictModel
       // eslint-disable-next-line camelcase
       .createOne({ id_decision, id_user, content, date })
-      .then((result) => {
-        res
-          .sendStatus(201)
-          // eslint-disable-next-line camelcase
-          .send({ id: result.insertId, id_decision, id_user, content, date });
-      })
-      .catch((err) => {
-        console.error(err);
-        res.status(500).send("Error saving the conflict");
-      });
+      .then((conflict) => res.send(conflict))
+      .catch((err) => res.send(err));
   },
   getOneConflict: (req, res, next) => {
     const { id } = req.params;

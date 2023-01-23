@@ -5,9 +5,12 @@ import NavBar from "../components/dashboard/NavBardash";
 import api from "../services/api";
 import MenuBar from "../components/Postdecision/MenuBar";
 import BodyDecision from "../components/Postdecision/BodyDecision";
+import TextEditor from "../components/Postdecision/TextEditor";
 
 export default function PostDecision() {
   const [info, setInfo] = useState();
+  const [notice, setNotice] = useState([]);
+  const [shown, setShown] = useState(true);
   const { nbdec } = useParams();
 
   const getDecision = () => {
@@ -17,9 +20,21 @@ export default function PostDecision() {
       .catch((err) => err.response);
   };
 
+  const getAvis = () => {
+    api
+      .get(`notice/${nbdec}`)
+      .then((res) => setNotice(res.data))
+      .catch((err) => err.response);
+  };
+
   useEffect(() => {
     getDecision();
+    getAvis();
   }, [nbdec]);
+
+  const handleClick = () => {
+    setShown(!shown);
+  };
 
   return (
     <div>
@@ -28,8 +43,16 @@ export default function PostDecision() {
       <div className="containerDecision">
         {info && <NavBarDecision info={info} />}
 
-        {info && <BodyDecision info={info} />}
-        <MenuBar />
+        {info && (
+          <BodyDecision
+            info={info}
+            shown={shown}
+            notice={notice}
+            nbdec={nbdec}
+          />
+        )}
+        <MenuBar handleClick={handleClick} />
+        <TextEditor shown={shown} nbdec={nbdec} handleClick={handleClick} />
       </div>
     </div>
   );
