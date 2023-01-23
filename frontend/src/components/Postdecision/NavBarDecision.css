@@ -71,10 +71,6 @@
   border-radius: 10%;
 }
 
-/* .btnMenu:focus{
-  color: red;
-
-} */
 
 .containerDecision {
   display: grid;
@@ -88,11 +84,12 @@
 }
 
 .btnMenu2 {
-  background-color: red;
+  background-color: #E3E8EA;
   border: none;
+  border-bottom: solid 3px #346A82;
   cursor: pointer;
-  height:40%;
-  margin-top: 1.5em;
+  height:100%;
+  /* margin-top: 1.5em; */
   font-size: 0.9em;
   font-family: 'Raleway', sans-serif;
   font-weight: bold;

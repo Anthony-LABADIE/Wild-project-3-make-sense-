@@ -11,55 +11,39 @@ export default function BodyDecision({ info, shown }) {
   const infoInconvenience = info[0].inconvenience;
 
   const [infoText, setInfotext] = useState("");
-  const [active, setActive] = useState(false);
-  const [clicked, setClicked] = useState(false);
+  const [numberClicked, setNumberClicked] = useState(false);
 
   const handleClick = (e) => {
     switch (e.target.id) {
       case "1":
         setInfotext(infoContent);
-        setActive(!active);
-        if (active && e.target.name === "unClicked") {
-          e.target.className = "btnMenu2";
-        }
-        setClicked(true);
+
+        setNumberClicked(1);
 
         break;
       case "2":
         setInfotext(infoContexte);
-        setActive(!active);
-        if (active && e.target.name === "unClicked") {
-          e.target.className = "btnMenu2";
-        }
-        setClicked(true);
+
+        setNumberClicked(2);
 
         break;
       case "3":
         setInfotext(infoProfit);
-        setActive(!active);
-        if (active && e.target.name === "unClicked") {
-          e.target.className = "btnMenu2";
-        }
-        setClicked(false);
+
+        setNumberClicked(3);
 
         break;
       case "4":
         setInfotext(infoUsefullness);
-        setActive(!active);
-        if (active && e.target.name === "unClicked") {
-          e.target.className = "btnMenu2";
-        }
-        setClicked(true);
+
+        setNumberClicked(4);
 
         break;
 
       case "5":
         setInfotext(infoInconvenience);
-        setActive(!active);
-        if (active && e.target.name === "unClicked") {
-          e.target.className = "btnMenu2";
-        }
-        setClicked(true);
+
+        setNumberClicked(5);
         break;
       default:
         setInfotext("nothing");
@@ -73,8 +57,7 @@ export default function BodyDecision({ info, shown }) {
         name="unClicked"
         id={button.id}
         onClick={handleClick}
-        className={clicked ? "btnMenu" : "btnMenu"}
-        // isSelected={target[1] === !active}
+        className={button.id === numberClicked ? "btnMenu2" : "btnMenu"}
       >
         {button.title}
       </button>
