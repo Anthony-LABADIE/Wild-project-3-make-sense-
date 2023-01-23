@@ -37,7 +37,7 @@ function Transition({ socket }) {
           element={
             <ProtectedRoute>
               <CurrentDecisionContextProvider>
-                <Decision socket={socket} />
+                <Decision />
               </CurrentDecisionContextProvider>
             </ProtectedRoute>
           }
@@ -68,7 +68,14 @@ function Transition({ socket }) {
             </ProtectedRoute>
           }
         />
-        <Route path="/messages" element={<Messages />} />
+        <Route
+          path="/messages"
+          element={
+            <ProtectedRoute>
+              <Messages socket={socket} />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/Decision/:id" element={<Decision />} />
       </Routes>
     </div>

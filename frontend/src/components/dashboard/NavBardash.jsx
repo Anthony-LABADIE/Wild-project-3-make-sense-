@@ -17,9 +17,10 @@ function NavBar({ profileImage, socket }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
-  const { logout, auth } = useContext(authContext);
+  const { logout, auth, setUserSocketIo } = useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
   const [admin, setAdmin] = useState(false);
+
   // const [notificationState, setNotificationState] = useState([]);
 
   const displayAdmin = () => {
@@ -69,6 +70,14 @@ function NavBar({ profileImage, socket }) {
       // console.log(data, "data");
     });
   }, [socket]);
+  const getUserSocketIo = () => {
+    api.get("user/").then((response) => {
+      setUserSocketIo(response.data);
+    });
+  };
+  useEffect(() => {
+    getUserSocketIo();
+  }, []);
 
   return (
     <div>
@@ -96,18 +105,21 @@ function NavBar({ profileImage, socket }) {
             <div className="notification">
               <img id="notification" src={notification} alt="notification" />
               <h4>notifications</h4>
-              <div className="counter_notification">2</div>
             </div>
+
             <div className="message">
-              <img id="messageLogo" src={message} alt="message" />
-              <h4>messages</h4>
-              <img
-                src={triangle}
-                alt=""
-                id="triangle"
-                onClick={handleClick}
-                role="presentation"
-              />
+              <Link to="/messages" onClick={getUserSocketIo}>
+                <img id="messageLogo" src={message} alt="message" />
+                <h4>messages</h4>
+
+                <img
+                  src={triangle}
+                  alt=""
+                  id="triangle"
+                  onClick={handleClick}
+                  role="presentation"
+                />
+              </Link>
             </div>
 
             <div className="pictureProfil">
