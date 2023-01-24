@@ -36,6 +36,7 @@ export default function Decisionimpact() {
 
   useEffect(() => {
     getThreeDecision();
+    getAllDecision();
   }, []);
 
   const cardMap = threedecision.map((cardItem) => (

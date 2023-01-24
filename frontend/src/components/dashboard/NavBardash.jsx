@@ -11,17 +11,18 @@ import triangle from "../../assets/img/triangle.png";
 import adminImg from "../../assets/img/utilisateur.png";
 import { authContext } from "../../hooks/authContext";
 import NotificationContext from "../../Contexts/NotificationContexts";
-
+import MemuNotification from "./MenuNotification";
 import "./NavBarDash.css";
 
 function NavBar({ profileImage }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
-  const { notif } = useContext(NotificationContext);
+  const { notif, setNotif } = useContext(NotificationContext);
   const { logout, auth, userSocketIo, setUserSocketIo } =
     useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
+  const [dropNotif, setDropNotif] = useState(true);
   const [admin, setAdmin] = useState(false);
   const navigate = useNavigate();
 
@@ -32,6 +33,22 @@ function NavBar({ profileImage }) {
   const handleClick = () => {
     setDropMenu(!dropMenu);
   };
+
+  const handleNotif = () => {
+    setDropNotif(!dropNotif);
+  };
+
+  const loadNotifcation = () => {
+    api
+      .get(`decision/authorization/user/notification/${auth.data.id}`)
+      .then((res) => {
+        setNotif(res.data);
+      });
+  };
+
+  useEffect(() => {
+    loadNotifcation();
+  }, [notif]);
 
   const loadUserInfo = () => {
     api.get(`user/${auth.data.id}`).then((response) => {
@@ -113,6 +130,8 @@ function NavBar({ profileImage }) {
                 src={notificationImg}
                 alt="notification"
                 className="iconImg"
+                onClick={handleNotif}
+                role="presentation"
               />
               <h4>notifications</h4>
               <div className="counter"> {notif[0].notification}</div>
@@ -165,6 +184,7 @@ function NavBar({ profileImage }) {
             déconnexion
           </button>
         </div>
+        <MemuNotification dropNotif={dropNotif} />
       </nav>
     </div>
   );
