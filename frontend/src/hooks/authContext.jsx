@@ -9,13 +9,11 @@ function AuthProvider({ children }) {
   const [auth, setAuth] = useState({ data: null });
   const [notif, setNotif] = useState();
   const [userSocketIo, setUserSocketIo] = useState({});
-  const [user, setUser] = useState("");
   const navigate = useNavigate();
   const login = (data) => {
     setAuth({ data });
     navigate("/dashboard");
   };
-
   const logout = () => {
     setAuth({});
     window.localStorage.removeItem("user");
@@ -47,8 +45,6 @@ function AuthProvider({ children }) {
       setNotif,
       userSocketIo,
       setUserSocketIo,
-      user,
-      setUser,
     }),
     [auth, userSocketIo]
   );
