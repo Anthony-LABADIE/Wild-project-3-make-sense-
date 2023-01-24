@@ -25,9 +25,6 @@ export default function Dashboard({ socket }) {
     loadNotifcation();
   }, [notif]);
 
-  useEffect(() => {
-    socket?.emit("addUser", auth.firstname);
-  }, [socket, auth.firstname]);
   const handleSubmission = () => {
     api.put(`/user/connect/${auth.data.id}`, true).catch((err) => err.response);
   };
@@ -49,5 +46,4 @@ export default function Dashboard({ socket }) {
 
 Dashboard.propTypes = {
   socket: PropTypes.func.isRequired,
-  emit: PropTypes.func.isRequired,
 };
