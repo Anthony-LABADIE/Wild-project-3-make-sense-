@@ -24,7 +24,7 @@ function ChatBody({ socket }) {
           className="leaveChat__btn"
           onClick={handleLeaveChat}
         >
-          LEAVE CHAT
+          Quitter le chat
         </button>
       </header>
       <div className="message__container">
