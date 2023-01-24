@@ -1,9 +1,14 @@
 const conflictModel = require("../models/conflictModel");
 
 const conflictControllers = {
-  getAllConflict: (_, res) => {
-    conflictModel.findAll().then((conflict) => res.send(conflict));
+  getAllConflict: (req, res) => {
+    const { id } = req.params;
+    conflictModel
+      .findAll(id)
+      .then((conflict) => res.send(conflict))
+      .catch((err) => res.send(err));
   },
+
   postConflict: (req, res) => {
     // eslint-disable-next-line camelcase
     const { id_decision, id_user, content, date } = req.body;

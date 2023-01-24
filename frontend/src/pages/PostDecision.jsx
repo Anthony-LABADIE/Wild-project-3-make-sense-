@@ -6,11 +6,15 @@ import api from "../services/api";
 import MenuBar from "../components/Postdecision/MenuBar";
 import BodyDecision from "../components/Postdecision/BodyDecision";
 import TextEditor from "../components/Postdecision/TextEditor";
+import ConflitEditor from "../components/Postdecision/ConflitEditor";
 
 export default function PostDecision() {
   const [info, setInfo] = useState();
   const [notice, setNotice] = useState([]);
+  const [conflit, setConflit] = useState([]);
   const [shown, setShown] = useState(true);
+  const [hide, setHide] = useState(true);
+  const [shownAvis, setShownAvis] = useState(true);
   const { nbdec } = useParams();
 
   const getDecision = () => {
@@ -27,13 +31,29 @@ export default function PostDecision() {
       .catch((err) => err.response);
   };
 
+  const getConflit = () => {
+    api
+      .get(`conflict/${nbdec}`)
+      .then((res) => setConflit(res.data))
+      .catch((err) => err.response);
+  };
+
   useEffect(() => {
     getDecision();
+    getConflit();
     getAvis();
   }, [nbdec]);
 
   const handleClick = () => {
     setShown(!shown);
+  };
+
+  const handleConflit = () => {
+    setHide(!hide);
+  };
+
+  const handleAvis = () => {
+    setShownAvis(!shownAvis);
   };
 
   return (
@@ -48,11 +68,17 @@ export default function PostDecision() {
             info={info}
             shown={shown}
             notice={notice}
+            conflit={conflit}
             nbdec={nbdec}
           />
         )}
-        <MenuBar handleClick={handleClick} />
-        <TextEditor shown={shown} nbdec={nbdec} handleClick={handleClick} />
+        <MenuBar
+          handleClick={handleClick}
+          handleConflit={handleConflit}
+          handleAvis={handleAvis}
+        />
+        <TextEditor shownAvis={shownAvis} nbdec={nbdec} />
+        <ConflitEditor hide={hide} nbdec={nbdec} />
       </div>
     </div>
   );

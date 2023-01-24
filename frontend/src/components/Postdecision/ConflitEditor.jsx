@@ -5,8 +5,8 @@ import { authContext } from "../../hooks/authContext";
 import api from "../../services/api";
 import "./TextEditor.css";
 
-function TextEditor({ shownAvis, nbdec }) {
-  const [notice, setNotice] = useState({});
+function ConflitEditor({ hide, nbdec }) {
+  const [conflit, setConflit] = useState({});
   const [content, setContent] = useState();
 
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function TextEditor({ shownAvis, nbdec }) {
       content: e.target.value,
     });
 
-    setNotice({
+    setConflit({
       id_decision: nbdec,
       id_user: auth.data.id,
       content: content.content,
@@ -27,9 +27,9 @@ function TextEditor({ shownAvis, nbdec }) {
 
   const handleSubmitConnexion = (e) => {
     e.preventDefault();
-    if (notice) {
+    if (conflit) {
       api
-        .post("notice/", notice)
+        .post("conflict/", conflit)
         .then((res) => {
           if (res.status === 200) {
             navigate("/dashboard");
@@ -39,8 +39,8 @@ function TextEditor({ shownAvis, nbdec }) {
     }
   };
   return (
-    <div style={{ display: shownAvis ? "none" : "block" }}>
-      <h1 className="avis">Donne ton avis : Make Sense France </h1>
+    <div style={{ display: hide ? "none" : "block" }}>
+      <h1 className="avis">Donne ton Conflit : Make Sense France </h1>
 
       <textarea
         className="editorr"
@@ -62,9 +62,9 @@ function TextEditor({ shownAvis, nbdec }) {
   );
 }
 
-export default TextEditor;
+export default ConflitEditor;
 
-TextEditor.propTypes = {
-  shownAvis: PropTypes.string.isRequired,
+ConflitEditor.propTypes = {
+  hide: PropTypes.string.isRequired,
   nbdec: PropTypes.string.isRequired,
 };
