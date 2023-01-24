@@ -1,3 +1,12 @@
+.containerDecision {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  grid-template-rows: 0.1fr 4fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 93vh;
+}
+
 .navbardecision {
   grid-area: 1 / 1 / 2 / 3;
   display: flex;
@@ -58,13 +67,4 @@
 .btnMenu {
   background-color: transparent;
   border: none;
-}
-
-.containerDecision {
-  display: grid;
-  grid-template-columns: 3fr 0.5fr;
-  grid-template-rows: 0.1fr 4fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  height: 93vh;
 }

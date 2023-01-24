@@ -51,7 +51,7 @@ export default function PostDecision() {
             nbdec={nbdec}
           />
         )}
-        <MenuBar handleClick={handleClick} />
+        <MenuBar id={nbdec} handleClick={handleClick} />
         <TextEditor shown={shown} nbdec={nbdec} handleClick={handleClick} />
       </div>
     </div>

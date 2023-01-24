@@ -83,6 +83,7 @@ function NavBar({ profileImage }) {
       .catch((err) => err.response);
     logout();
   };
+
   return (
     <div>
       <nav>

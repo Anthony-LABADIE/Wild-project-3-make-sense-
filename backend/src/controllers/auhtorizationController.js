@@ -20,6 +20,32 @@ const authorizationController = {
       })
       .catch((err) => res.send(err));
   },
+  getAllAuthoByDecision: (req, res) => {
+    const { id } = req.body;
+    authorizationModel
+      .findAuthoByDecision(id)
+      .then((authorization) => {
+        if (authorization) {
+          res.send(authorization);
+        } else {
+          res.status(404).send("USER NOT FOUND");
+        }
+      })
+      .catch((err) => res.send(err));
+  },
+  getAllAuthoByExpert: (req, res) => {
+    const { id } = req.body;
+    authorizationModel
+      .findAuthoByExpert(id)
+      .then((authorization) => {
+        if (authorization) {
+          res.send(authorization);
+        } else {
+          res.status(404).send("USER NOT FOUND");
+        }
+      })
+      .catch((err) => res.send(err));
+  },
   postAuthorizations: (req, res) => {
     authorizationModel.createOne(req.body).then((authorization) => {
       if (authorization.affectedRows !== 0) {
