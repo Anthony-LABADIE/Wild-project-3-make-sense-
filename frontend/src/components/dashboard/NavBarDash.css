@@ -105,6 +105,7 @@ h4 {
 }
 
 .notification {
+  position: relative;
   grid-area: 1 / 5 / 2 / 6;
   width: 90%;
   margin-top: 0;
@@ -206,4 +207,20 @@ h4 {
 
 .btn-nav {
   display: none;
+}
+
+.iconImg {
+  width: 30%;
+  height: 30%;
+}
+.counter {
+  position: absolute;
+  top: 2px;
+  right: 9px;
+  background-color: #f44336;
+  color: white;
+  padding: 0.1rem 0.4rem;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  font-weight: bold;
 }

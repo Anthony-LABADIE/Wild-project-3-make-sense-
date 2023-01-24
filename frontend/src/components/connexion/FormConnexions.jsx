@@ -49,7 +49,6 @@ export default function FormInscription() {
         .catch((err) => err.response);
     }
   };
-
   return (
     <form className="form-connexion" onSubmit={handleSubmit}>
       <h2>CONNEXION</h2>

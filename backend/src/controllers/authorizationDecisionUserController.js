@@ -27,5 +27,13 @@ const authorizationDecisionUserController = {
       .then((authorizations) => res.send(authorizations))
       .catch((err) => res.send(err));
   },
+
+  getDecisionUserNotif: (req, res) => {
+    const { id } = req.params;
+    authorizationDecisionUserModel
+      .findAllDecisionNotification(id)
+      .then((authorizations) => res.send(authorizations))
+      .catch((err) => res.send(err));
+  },
 };
 module.exports = authorizationDecisionUserController;

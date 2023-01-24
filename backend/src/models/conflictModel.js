@@ -1,9 +1,12 @@
 const db = require("../../config");
 
-const findAll = () => {
+const findAll = (id) => {
   return db
     .promise()
-    .query("SELECT * FROM conflict")
+    .query(
+      "SELECT conflict.content, user.lastname, user.firstname FROM conflict INNER JOIN user ON user.id = conflict.id_user WHERE conflict.id_decision = ?",
+      [id]
+    )
     .then(([conflict]) => conflict);
 };
 const createOne = (payload) => {

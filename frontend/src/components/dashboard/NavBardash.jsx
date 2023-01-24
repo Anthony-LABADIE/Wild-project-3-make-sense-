@@ -11,16 +11,18 @@ import triangle from "../../assets/img/triangle.png";
 import adminImg from "../../assets/img/utilisateur.png";
 import { authContext } from "../../hooks/authContext";
 import NotificationContext from "../../Contexts/NotificationContexts";
-
+import MemuNotification from "./MenuNotification";
 import "./NavBarDash.css";
 
 function NavBar({ profileImage }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
-  const { notif } = useContext(NotificationContext);
-  const { logout, auth, setUserSocketIo } = useContext(authContext);
+  const { notif, setNotif } = useContext(NotificationContext);
+  const { logout, auth, userSocketIo, setUserSocketIo } =
+    useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
+  const [dropNotif, setDropNotif] = useState(true);
   const [admin, setAdmin] = useState(false);
   const navigate = useNavigate();
 
@@ -31,6 +33,22 @@ function NavBar({ profileImage }) {
   const handleClick = () => {
     setDropMenu(!dropMenu);
   };
+
+  const handleNotif = () => {
+    setDropNotif(!dropNotif);
+  };
+
+  const loadNotifcation = () => {
+    api
+      .get(`decision/authorization/user/notification/${auth.data.id}`)
+      .then((res) => {
+        setNotif(res.data);
+      });
+  };
+
+  useEffect(() => {
+    loadNotifcation();
+  }, [notif]);
 
   const loadUserInfo = () => {
     api.get(`user/${auth.data.id}`).then((response) => {
@@ -73,7 +91,7 @@ function NavBar({ profileImage }) {
   };
   useEffect(() => {
     getUserSocketIo();
-  }, []);
+  }, [userSocketIo]);
   const nav = () => {
     navigate("/messages");
   };
@@ -107,8 +125,16 @@ function NavBar({ profileImage }) {
               <h4>décisions</h4>
             </div>
             <div className="notification">
-              <img id="notification" src={notificationImg} alt="notification" />
-              <h4>notifications {notif[0].notification}</h4>
+              <img
+                id="notification"
+                src={notificationImg}
+                alt="notification"
+                className="iconImg"
+                onClick={handleNotif}
+                role="presentation"
+              />
+              <h4>notifications</h4>
+              <div className="counter"> {notif[0].notification}</div>
             </div>
 
             <div className="message">
@@ -158,6 +184,7 @@ function NavBar({ profileImage }) {
             déconnexion
           </button>
         </div>
+        <MemuNotification dropNotif={dropNotif} />
       </nav>
     </div>
   );

@@ -58,6 +58,20 @@ const authorizationController = {
       })
       .catch((err) => res.send(err));
   },
+
+  updateNotification: (req, res) => {
+    const { id } = req.params;
+    authorizationModel
+      .putNotif(id)
+      .then((authorization) => {
+        if (authorization.affectedRows === 0) {
+          res.status(404).send("Not Found");
+        } else {
+          res.send(authorization);
+        }
+      })
+      .catch((err) => res.send(err));
+  },
 };
 
 module.exports = authorizationController;
