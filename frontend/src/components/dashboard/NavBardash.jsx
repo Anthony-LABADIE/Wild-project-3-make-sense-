@@ -18,7 +18,7 @@ function NavBar({ profileImage }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
-  const { notif } = useContext(NotificationContext);
+  const { notif, setNotif } = useContext(NotificationContext);
   const { logout, auth, userSocketIo, setUserSocketIo } =
     useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
@@ -130,6 +130,8 @@ function NavBar({ profileImage }) {
                 src={notificationImg}
                 alt="notification"
                 className="iconImg"
+                onClick={handleNotif}
+                role="presentation"
               />
               <h4>notifications</h4>
               <div className="counter"> {notif[0].notification}</div>
