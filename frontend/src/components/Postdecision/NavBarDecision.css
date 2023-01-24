@@ -7,6 +7,18 @@
   background-color: #346a82;
 }
 
+.navbardecision h2{
+color: white;
+width: 100%;
+padding-top: 1%;
+}
+.navbardecision h3{
+  color: white;
+  width: 100%;
+  padding-top: 1%;
+
+  }
+
 .navbardecision img {
   margin-left: 7vw;
   margin-top: 4vh;
@@ -24,8 +36,7 @@
   align-items: center;
   justify-content: space-around;
   height: 100%;
-  background-color: #e3e8ea;
-  width: 100%;
+  background: linear-gradient(180deg, #E5E9EB 0%, rgba(229, 233, 235, 0) 100%);  width: 100%;
 }
 
 .bodyDecision {
@@ -41,14 +52,13 @@
 
 .textBody {
   height: 60vh;
-  width: 40vw;
+  width: 50vw;
   background-color: white;
   border: solid 1px black;
-  margin-top: 5vh;
+  margin-top: 5.5vh;
   display: flex;
   justify-content: center;
-  margin-left: 50vh;
-  overflow-y: scroll;
+  margin-left: 30vh;
   border-radius: 10px;
 }
 

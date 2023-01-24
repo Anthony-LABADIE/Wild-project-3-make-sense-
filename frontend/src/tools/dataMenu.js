@@ -3,7 +3,6 @@ const dataMenu = [
     id: 1,
     title: "DETAILS",
     typeof: "button",
-    // isActive: true;
   },
 
   {
