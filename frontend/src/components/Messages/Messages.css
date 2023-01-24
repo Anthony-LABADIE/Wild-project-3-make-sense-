@@ -117,8 +117,8 @@
   text-align: right;
 }
 .message__status {
-    position: fixed;
-    bottom: 16%;
-    font-size: 13px;
-    font-style: italic;
+  position: fixed;
+  bottom: 16%;
+  font-size: 13px;
+  font-style: italic;
 }
