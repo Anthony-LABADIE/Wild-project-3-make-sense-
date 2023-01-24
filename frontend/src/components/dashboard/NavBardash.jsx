@@ -18,7 +18,7 @@ function NavBar({ profileImage }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
-  const { notif } = useContext(NotificationContext);
+  const { notif, setNotif } = useContext(NotificationContext);
   const { logout, auth, setUserSocketIo } = useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
   const [dropNotif, setDropNotif] = useState(true);
@@ -36,6 +36,18 @@ function NavBar({ profileImage }) {
   const handleNotif = () => {
     setDropNotif(!dropNotif);
   };
+
+  const loadNotifcation = () => {
+    api
+      .get(`decision/authorization/user/notification/${auth.data.id}`)
+      .then((res) => {
+        setNotif(res.data);
+      });
+  };
+
+  useEffect(() => {
+    loadNotifcation();
+  }, [notif]);
 
   const loadUserInfo = () => {
     api.get(`user/${auth.data.id}`).then((response) => {
