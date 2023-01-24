@@ -1,25 +1,9 @@
-import PropTypes from "prop-types";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { authContext } from "../../hooks/authContext";
 import logo from "../../assets/img/profil.png";
 
-function ChatBar({ socket }) {
-  const { userSocketIo, auth } = useContext(authContext);
-  const [user, setUser] = useState(auth.data.lastname);
-  const handleSubmitUserSocket = (e) => {
-    e.preventDefault();
-    socket.emit("sendUser", {
-      userName: auth.data.lastname,
-      socketID: socket.id,
-    });
-    setUser("");
-  };
-  useEffect(() => {
-    socket.on("newUser", (newuser) => {
-      setUser([...user, newuser]);
-    });
-    handleSubmitUserSocket();
-  }, [user]);
+function ChatBar() {
+  const { userSocketIo } = useContext(authContext);
 
   return (
     <div className="chat__sidebar">
@@ -48,10 +32,5 @@ function ChatBar({ socket }) {
     </div>
   );
 }
-
-ChatBar.propTypes = {
-  socket: PropTypes.func.isRequired,
-  on: PropTypes.func.isRequired,
-};
 
 export default ChatBar;

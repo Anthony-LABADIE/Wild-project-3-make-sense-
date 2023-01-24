@@ -19,7 +19,8 @@ function NavBar({ profileImage }) {
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
   const { notif } = useContext(NotificationContext);
-  const { logout, auth, setUserSocketIo } = useContext(authContext);
+  const { logout, auth, userSocketIo, setUserSocketIo } =
+    useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
   const [admin, setAdmin] = useState(false);
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ function NavBar({ profileImage }) {
   };
   useEffect(() => {
     getUserSocketIo();
-  }, []);
+  }, [userSocketIo]);
   const nav = () => {
     navigate("/messages");
   };
@@ -107,8 +108,14 @@ function NavBar({ profileImage }) {
               <h4>décisions</h4>
             </div>
             <div className="notification">
-              <img id="notification" src={notificationImg} alt="notification" />
-              <h4>notifications {notif[0].notification}</h4>
+              <img
+                id="notification"
+                src={notificationImg}
+                alt="notification"
+                className="iconImg"
+              />
+              <h4>notifications</h4>
+              <div className="counter"> {notif[0].notification}</div>
             </div>
 
             <div className="message">
