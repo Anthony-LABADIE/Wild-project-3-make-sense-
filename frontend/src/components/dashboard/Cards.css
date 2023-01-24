@@ -31,11 +31,18 @@
 
 .threecards {
   display: flex;
-  justify-content: space-around;
+
   margin-left: 30px;
   margin-right: 30px;
   margin-bottom: 10px;
   gap: 20px;
+}
+
+.sixCards {
+  display: grid;
+  grid-template-columns: repeat(3, 150px); /* 3 columns */
+  grid-template-rows: repeat(3, 150px); /* 3 rows  */
+  grid-gap: 7vw 20vw; /* 50 pixels of space added between rows and 30 pixels added between columns  */
 }
 
 .more {

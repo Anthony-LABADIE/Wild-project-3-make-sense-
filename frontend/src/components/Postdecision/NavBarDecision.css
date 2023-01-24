@@ -58,6 +58,26 @@
 .btnMenu {
   background-color: transparent;
   border: none;
+  cursor: pointer;
+  height: 40%;
+  margin-top: 1.5em;
+  font-size: 0.9em;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+.btnMenu2 {
+  background-color: red;
+  border: none;
+  cursor: pointer;
+  height: 40%;
+  margin-top: 1.5em;
+  font-size: 0.9em;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+.btnMenu:hover {
+  background-color: #dadada;
+  border-radius: 10%;
 }
 
 .containerDecision {

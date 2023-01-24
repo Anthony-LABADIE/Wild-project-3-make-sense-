@@ -6,7 +6,7 @@ import triangle from "../../assets/img/triangle.png";
 import "./Cards.css";
 
 function CardsAllDecision() {
-  const [threedecision, setThreeDecision] = useState([]);
+  const [sixDecisions, setSixDecisions] = useState([]);
   const [decision, setDecision] = useState([]);
   const [show, setShow] = useState(true);
 
@@ -14,10 +14,10 @@ function CardsAllDecision() {
     setShow(!show);
   };
 
-  const getThreeDecision = () => {
+  const getSixDecisions = () => {
     api
-      .get("decision/three", { withCredentials: true })
-      .then((response) => setThreeDecision(response.data))
+      .get("decision/six", { withCredentials: true })
+      .then((response) => setSixDecisions(response.data))
       .catch((err) => err.response);
   };
 
@@ -29,10 +29,10 @@ function CardsAllDecision() {
   };
 
   useEffect(() => {
-    getThreeDecision();
+    getSixDecisions();
   }, []);
 
-  const cardMap = threedecision.map((cardItem) => (
+  const cardMap = sixDecisions.map((cardItem) => (
     <CardsItem
       nbdec={cardItem.id}
       status={cardItem.status}
@@ -61,7 +61,7 @@ function CardsAllDecision() {
   return (
     <div className="AllDecision">
       <div className="title">
-        <h2>Toutes les décisions </h2>
+        <h1>Toutes les décisions </h1>
         <div className="trait" />
         {show ? (
           <button
@@ -85,7 +85,12 @@ function CardsAllDecision() {
         )}
       </div>
       <div className="carreau">
-        {show ? <div className="threecards"> {cardMap} </div> : null}
+        {show ? (
+          <div className={sixDecisions.length > 3 ? "sixCards" : "threecards"}>
+            {" "}
+            {cardMap}{" "}
+          </div>
+        ) : null}
         {show ? null : <div className="allCards"> {cardAllMap} </div>}
       </div>
     </div>

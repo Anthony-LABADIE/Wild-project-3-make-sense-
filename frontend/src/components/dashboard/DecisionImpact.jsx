@@ -9,19 +9,19 @@ import "./Decisionimpact.css";
 export default function Decisionimpact() {
   const { auth } = useContext(authContext);
   const [show, setShow] = useState(true);
-  const [threedecision, setThreeDecision] = useState([]);
+  const [sixDecisions, setSixDecisions] = useState([]);
   const [decision, setDecision] = useState([]);
 
   const handleClick = () => {
     setShow(!show);
   };
 
-  const getThreeDecision = () => {
+  const getSixDecisions = () => {
     api
-      .get(`decision/authorization/user/three/${auth.data.id}`, {
+      .get(`decision/authorization/user/six/${auth.data.id}`, {
         withCredentials: true,
       })
-      .then((response) => setThreeDecision(response.data))
+      .then((response) => setSixDecisions(response.data))
       .catch((err) => err.response);
   };
 
@@ -35,10 +35,10 @@ export default function Decisionimpact() {
   };
 
   useEffect(() => {
-    getThreeDecision();
+    getSixDecisions();
   }, []);
 
-  const cardMap = threedecision.map((cardItem) => (
+  const cardMap = sixDecisions.map((cardItem) => (
     <CardsItem
       id={cardItem.id}
       nbdec={cardItem.nbdec}
@@ -88,7 +88,12 @@ export default function Decisionimpact() {
         )}
       </div>
       <div className="carreau">
-        {show ? <div className="threecards"> {cardMap} </div> : null}
+        {show ? (
+          <div className={sixDecisions.length > 3 ? "sixCards" : "threecards"}>
+            {" "}
+            {cardMap}{" "}
+          </div>
+        ) : null}
         {show ? null : <div className="allCards"> {cardAllMap} </div>}
       </div>
     </div>
