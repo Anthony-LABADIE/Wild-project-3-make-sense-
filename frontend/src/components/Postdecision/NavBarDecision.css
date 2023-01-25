@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
 
+
+.containerDecision {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr;
+  grid-template-rows: 0.1fr 4fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background-color: white;
+}
 .navbardecision {
   grid-area: 1 / 1 / 2 / 3;
   display: flex;
@@ -83,15 +92,6 @@
 .btnMenu:hover {
   background-color: #dadada;
   border-radius: 10%;
-}
-
-.containerDecision {
-  display: grid;
-  grid-template-columns: 2fr 0.5fr;
-  grid-template-rows: 0.1fr 4fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  background-color: white;
 }
 
 .btnMenu2 {
