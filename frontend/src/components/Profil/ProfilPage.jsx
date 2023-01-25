@@ -1,6 +1,7 @@
 import "./ProfilePage.css";
 import { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
 import api from "../../services/api";
 import NavBar from "../dashboard/NavBardash";
 import { authContext } from "../../hooks/authContext";
@@ -11,7 +12,7 @@ function ProfilePage() {
   const [profilImage, setProfilImage] = useState();
   const [file, setFile] = useState();
   const { auth } = useContext(authContext);
-  const [userDecisions, setUserDecisions] = useState();
+  const [userDecisions, setUserDecisions] = useState([]);
   const [modify, setModify] = useState(false);
 
   const [input, setInput] = useState({});
@@ -282,21 +283,26 @@ function ProfilePage() {
             id="line"
           />
         </div>
-        <div className="userDecisions">
+        <div className={userDecisions.length > 3 ? "sixCards" : "threecards"}>
           {" "}
-          {userDecisions &&
-            userDecisions.map((decision) => (
-              <CardsItem
-                title={decision.title}
-                lastname={decision.lastname}
-                firstname={decision.firstname}
-                status={decision.status}
-                id_status={decision.id_status}
-                image={decision.image}
-                nbdec={decision.id}
-              />
-            ))}
+          {userDecisions.map((decision) => (
+            <CardsItem
+              title={decision.title}
+              lastname={decision.lastname}
+              firstname={decision.firstname}
+              status={decision.status}
+              id_status={decision.id_status}
+              image={decision.image}
+              nbdec={decision.id}
+            />
+          ))}
         </div>
+        <Link to="/decisiondash">
+          <div className="voirButton">
+            {" "}
+            <h3 style={{ color: "#346a82" }}>Voir Plus</h3>
+          </div>
+        </Link>
       </div>
     </div>
   );

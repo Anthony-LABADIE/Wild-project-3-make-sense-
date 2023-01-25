@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@500&display=swap");
 
 #navbar {
-  height: 8vh;
+  height: 10vh;
   background-color: white;
 }
 .profilMenu__p {
@@ -165,7 +165,7 @@ h4 {
 }
 
 #messageLogo {
-  margin-top: 10%;
+  margin-top: 20%;
   width: 30%;
 }
 
@@ -201,8 +201,8 @@ h4 {
 }
 
 #triangle {
-  height: 1vh;
-  width: 1vh;
+  height: 2vh;
+  width: 2vh;
   position: relative;
   top: -3vh;
   left: 13vw;

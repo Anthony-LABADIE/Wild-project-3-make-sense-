@@ -137,7 +137,7 @@
 }
 .decisionBtn:hover {
   cursor: pointer;
-  background: gainsboro;
+  background: rgb(162, 159, 159);
 }
 .allButtons {
   display: flex;

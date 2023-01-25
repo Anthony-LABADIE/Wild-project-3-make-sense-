@@ -208,6 +208,16 @@ function DecisionPage({ socket }) {
         onClick={handleClick}
         className="decisionBtn"
         name={button}
+        /*    style={{
+          backgroundColor:
+            button === "Final Décision"
+              ? " rgba(224, 177, 177, 0.28)"
+              : "#ffffff",
+          border:
+            button === "Final Décision" ? " 1px solid #ff0000" : "gainsboro",
+          color: button === "Final Décision" ? "#ff0000" : "#000000",
+          textDecoration: "none",
+        }} */
       >
         {button}
       </button>

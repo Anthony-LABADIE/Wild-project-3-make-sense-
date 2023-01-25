@@ -1,8 +1,8 @@
 .btn-decisioncreate {
   border-radius: 5px;
   background-color: #346a82;
-  width: 20vw;
-  height: 5vh;
+  padding: 0.7vw;
+
   color: white;
   font-size: small;
   font-style: bold;
