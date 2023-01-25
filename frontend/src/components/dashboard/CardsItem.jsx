@@ -37,7 +37,9 @@ function CardsItem({
         </h2>
         <div className="user">
           <img id="imgprofile" src={image || profil} alt="imgprofile" />
-          par {lastname} {firstname}
+          <h4>
+            par {lastname} {firstname}
+          </h4>
         </div>
       </div>
     </Link>

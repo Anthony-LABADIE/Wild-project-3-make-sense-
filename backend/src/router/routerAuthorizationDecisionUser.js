@@ -20,8 +20,8 @@ AuthorisationUserDecisionRouter.get(
 );
 
 AuthorisationUserDecisionRouter.get(
-  "/three/:id/",
-  authorizationDecisionUserController.getThreeDecision
+  "/six/:id/",
+  authorizationDecisionUserController.getSixDecisions
 );
 
 AuthorisationUserDecisionRouter.get(

@@ -6,7 +6,7 @@ const app = require("./src/app");
 
 const Server = http.createServer(app);
 
-const port = parseInt(process.env.APP_PORT ?? "5000", 10);
+const port = parseInt(process.env.APP_PORT ?? "8000", 10);
 
 const io = socketIo(Server, {
   cors: {
