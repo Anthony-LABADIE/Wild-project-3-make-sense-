@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import NavBarDecision from "../components/Postdecision/NavBarDecision";
 import NavBar from "../components/dashboard/NavBardash";
 import api from "../services/api";
@@ -7,13 +7,16 @@ import MenuBar from "../components/Postdecision/MenuBar";
 import BodyDecision from "../components/Postdecision/BodyDecision";
 import TextEditor from "../components/Postdecision/TextEditor";
 import ConflitEditor from "../components/Postdecision/ConflitEditor";
+import { authContext } from "../hooks/authContext";
 
 export default function PostDecision() {
+  const { auth } = useContext(authContext);
   const [info, setInfo] = useState();
   const [notice, setNotice] = useState([]);
   const [conflit, setConflit] = useState([]);
   const [shown, setShown] = useState(true);
   const [hide, setHide] = useState(true);
+  const [authDecision, setAuthDecision] = useState();
   const [shownAvis, setShownAvis] = useState(true);
   const { nbdec } = useParams();
 
@@ -24,6 +27,14 @@ export default function PostDecision() {
       .catch((err) => err.response);
   };
 
+  const getAuthDecision = () => {
+    api
+      .get(`/decision/authorization/user/single/${nbdec}/${auth.data.id}`, {
+        withCredentials: true,
+      })
+      .then((response) => setAuthDecision(response.data))
+      .catch((err) => err.response);
+  };
   const getAvis = () => {
     api
       .get(`notice/${nbdec}`)
@@ -42,6 +53,7 @@ export default function PostDecision() {
     getDecision();
     getConflit();
     getAvis();
+    getAuthDecision();
   }, [nbdec]);
 
   const handleClick = () => {
@@ -55,6 +67,8 @@ export default function PostDecision() {
   const handleAvis = () => {
     setShownAvis(!shownAvis);
   };
+
+  console.warn(authDecision, "iciiiiiii");
 
   return (
     <div>
