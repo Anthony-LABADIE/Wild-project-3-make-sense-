@@ -37,7 +37,6 @@ function NavBar({ profileImage }) {
   const handleNotif = () => {
     setDropNotif(!dropNotif);
   };
-
   const loadNotifcation = () => {
     api
       .get(`decision/authorization/user/notification/${auth.data.id}`)
