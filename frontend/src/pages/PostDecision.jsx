@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import NavBarDecision from "../components/Postdecision/NavBarDecision";
 import NavBar from "../components/dashboard/NavBardash";
 import api from "../services/api";
+import "./PostDecision.css";
 import MenuBar from "../components/Postdecision/MenuBar";
 import BodyDecision from "../components/Postdecision/BodyDecision";
 import TextEditor from "../components/Postdecision/TextEditor";

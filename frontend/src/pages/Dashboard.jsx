@@ -33,7 +33,7 @@ export default function Dashboard({ socket }) {
   }, []);
 
   return (
-    <div>
+    <div className="bodyDash">
       {notif && <NavBardash socket={socket} />}
       <div className="dashboard">
         <ButtonCreateDecision />

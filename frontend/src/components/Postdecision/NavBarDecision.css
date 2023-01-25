@@ -7,17 +7,16 @@
   background-color: #346a82;
 }
 
-.navbardecision h2{
-color: white;
-width: 100%;
-padding-top: 1%;
-}
-.navbardecision h3{
+.navbardecision h2 {
   color: white;
   width: 100%;
   padding-top: 1%;
-
-  }
+}
+.navbardecision h3 {
+  color: white;
+  width: 100%;
+  padding-top: 1%;
+}
 
 .navbardecision img {
   margin-left: 7vw;
@@ -36,7 +35,8 @@ padding-top: 1%;
   align-items: center;
   justify-content: space-around;
   height: 100%;
-  background: linear-gradient(180deg, #E5E9EB 0%, rgba(229, 233, 235, 0) 100%);  width: 100%;
+  background: linear-gradient(180deg, #e5e9eb 0%, rgba(229, 233, 235, 0) 100%);
+  width: 100%;
 }
 
 .bodyDecision {
@@ -51,15 +51,15 @@ padding-top: 1%;
 }
 
 .textBody {
-  height: 60vh;
-  width: 50vw;
+  height: 45vh;
+  width: 45vw;
   background-color: white;
   border: solid 1px black;
-  margin-top: 5.5vh;
-  display: flex;
-  justify-content: center;
+  margin-top: 6vh;
   margin-left: 30vh;
   border-radius: 10px;
+  padding: 4%;
+  text-align: left;
 }
 
 .menuBody {
@@ -91,7 +91,6 @@ padding-top: 1%;
   grid-template-rows: 0.1fr 4fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  height: 93vh;
   background-color: white;
 }
 

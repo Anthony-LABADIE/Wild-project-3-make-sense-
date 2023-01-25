@@ -62,7 +62,7 @@ h4 {
   list-style-type: none;
   background-color: white;
   height: 120%;
-    width: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: 9fr repeat(5, 1fr);
   grid-template-rows: 1fr;
