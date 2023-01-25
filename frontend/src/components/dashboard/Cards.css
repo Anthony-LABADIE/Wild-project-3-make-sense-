@@ -21,7 +21,9 @@
 .title h2 {
   width: 30vw;
 }
-
+h4 {
+  font-size: 0.75rem;
+}
 #trait {
   width: 20vw;
   height: 1%;

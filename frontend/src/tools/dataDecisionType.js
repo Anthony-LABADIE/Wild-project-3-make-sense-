@@ -1,9 +1,10 @@
 const dataDecisionType = [
   "Toutes",
+  "Active",
   "Décisions Impactés",
   "Mes Décisions",
   "1ère Décision",
   "Conflits",
-  "final decision",
+  "Final Décision",
 ];
 export default dataDecisionType;

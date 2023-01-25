@@ -122,7 +122,9 @@ function Transition({ socket }) {
           path="/decisiondash"
           element={
             <ProtectedRoute>
-              <DecisionPage />
+              <NotificationContextProvider>
+                <DecisionPage socket={socket} />
+              </NotificationContextProvider>
             </ProtectedRoute>
           }
         />

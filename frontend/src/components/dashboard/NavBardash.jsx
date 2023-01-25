@@ -85,7 +85,7 @@ function NavBar({ profileImage }) {
   };
   return (
     <div>
-      <nav>
+      <nav id="navbar">
         {(toggleMenu || largeur > 500) && (
           <ul className="listeNav">
             <Link to="/dashboard">

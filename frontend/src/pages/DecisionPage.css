@@ -142,6 +142,6 @@
 .allButtons {
   display: flex;
   padding-left: 10vw;
-
+  padding-top: 8vh;
   gap: 3vw;
 }
