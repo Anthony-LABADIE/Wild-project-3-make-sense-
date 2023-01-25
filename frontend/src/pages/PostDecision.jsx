@@ -68,8 +68,6 @@ export default function PostDecision() {
     setShownAvis(!shownAvis);
   };
 
-  console.warn(authDecision, "iciiiiiii");
-
   return (
     <div>
       <NavBar />
@@ -86,11 +84,15 @@ export default function PostDecision() {
             nbdec={nbdec}
           />
         )}
-        <MenuBar
-          handleClick={handleClick}
-          handleConflit={handleConflit}
-          handleAvis={handleAvis}
-        />
+        {authDecision && (
+          <MenuBar
+            handleClick={handleClick}
+            handleConflit={handleConflit}
+            handleAvis={handleAvis}
+            authDecision={authDecision}
+            nbdec={nbdec}
+          />
+        )}
         <TextEditor shownAvis={shownAvis} nbdec={nbdec} />
         <ConflitEditor hide={hide} nbdec={nbdec} />
       </div>
