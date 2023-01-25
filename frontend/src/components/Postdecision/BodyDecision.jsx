@@ -96,6 +96,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
         type="button"
         name="unClicked"
         id={button.id}
+        name="unclicked"
         onClick={handleClick}
         className={button.id === numberClicked ? "btnMenu2" : "btnMenu"}
       >

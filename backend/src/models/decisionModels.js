@@ -1,10 +1,10 @@
 const db = require("../../config");
 
-const findthree = () => {
+const findSix = () => {
   return db
     .promise()
     .query(
-      "SELECT decision.id, title, lastname, firstname, image, status, status.id AS nbStatus FROM decision INNER JOIN user ON user.id = decision.id_user INNER JOIN status ON decision.id_status = status.id LIMIT 3"
+      "SELECT decision.id, title, lastname, firstname, image, status, status.id AS nbStatus FROM decision INNER JOIN user ON user.id = decision.id_user INNER JOIN status ON decision.id_status = status.id LIMIT 6"
     )
     .then(([decision]) => decision);
 };
@@ -42,7 +42,7 @@ const updateOne = (decisionData, id) => {
     .then(([res]) => res);
 };
 module.exports = {
-  findthree,
+  findSix,
   findAll,
   findOne,
   createOne,
