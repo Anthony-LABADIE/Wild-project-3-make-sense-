@@ -2,10 +2,10 @@
 const authorizationDecisionUserModel = require("../models/authorizationDecisionUserModel");
 
 const authorizationDecisionUserController = {
-  getThreeDecision: (req, res) => {
+  getSixDecisions: (req, res) => {
     const { id } = req.params;
     authorizationDecisionUserModel
-      .findthree(id)
+      .findSix(id)
       .then((decision) => res.send(decision))
       .catch((err) => {
         console.error(err);

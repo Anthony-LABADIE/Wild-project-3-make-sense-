@@ -39,18 +39,27 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
     switch (e.target.id) {
       case "1":
         setInfotext(infoContent);
-
+        if (e.target.className === "btnMenu") {
+          e.target.className = "btnMenu2";
+        }
         break;
       case "2":
         setInfotext(infoContexte);
-
+        if (e.target.className === "btnMenu") {
+          e.target.className = "btnMenu2";
+        }
         break;
       case "3":
         setInfotext(infoProfit);
-
+        if (e.target.className === "btnMenu") {
+          e.target.className = "btnMenu2";
+        }
         break;
       case "4":
         setInfotext(infoUsefullness);
+        if (e.target.className === "btnMenu") {
+          e.target.className = "btnMenu2";
+        }
         break;
 
       case "5":
@@ -84,6 +93,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
       <button
         type="button"
         id={button.id}
+        name="unclicked"
         onClick={handleClick}
         className="btnMenu"
       >

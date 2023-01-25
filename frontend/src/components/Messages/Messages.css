@@ -1,10 +1,11 @@
 .chat {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 .chat__sidebar {
-  height: 100vh;
+  height: 90vh;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   flex: 0.2;
   padding: 20px;
@@ -38,7 +39,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  /* background-color: #f1f4f9; */
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .leaveChat__btn {
@@ -117,8 +117,8 @@
   text-align: right;
 }
 .message__status {
-  position: relative;
-  top: 20rem;
+  position: fixed;
+  bottom: 16%;
   font-size: 13px;
   font-style: italic;
 }

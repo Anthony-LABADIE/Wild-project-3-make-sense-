@@ -37,7 +37,6 @@ function NavBar({ profileImage }) {
   const handleNotif = () => {
     setDropNotif(!dropNotif);
   };
-
   const loadNotifcation = () => {
     api
       .get(`decision/authorization/user/notification/${auth.data.id}`)
@@ -103,7 +102,7 @@ function NavBar({ profileImage }) {
   };
   return (
     <div>
-      <nav>
+      <nav id="navbar">
         {(toggleMenu || largeur > 500) && (
           <ul className="listeNav">
             <Link to="/dashboard">
@@ -121,8 +120,10 @@ function NavBar({ profileImage }) {
             </div>
 
             <div className="decision">
-              <img id="decision" src={decision} alt="decision" />
-              <h4>décisions</h4>
+              <Link to="/decisiondash" className="decision">
+                <img id="decision" src={decision} alt="decision" />
+                <h4>décisions</h4>
+              </Link>
             </div>
             <div className="notification">
               <img
