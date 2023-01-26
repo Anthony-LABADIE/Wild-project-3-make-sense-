@@ -2,7 +2,14 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import dataMenu from "../../tools/dataMenu";
 
-export default function BodyDecision({ info, shown, notice, conflit }) {
+export default function BodyDecision({
+  info,
+  shown,
+  notice,
+  conflit,
+  firstdecision,
+  finalDecision,
+}) {
   const infoContent = info[0].content;
   const infoContexte = info[0].contexte;
   const infoProfit = info[0].profit;
@@ -18,7 +25,6 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
         <h4>
           de {avis.lastname} {avis.firstname}
         </h4>
-        f
       </div>
     ));
   };
@@ -30,36 +36,43 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
         <h4>
           de {confli.lastname} {confli.firstname}
         </h4>
-        f
       </div>
     ));
+  };
+
+  const getFirstdecision = () => {
+    return (
+      <div>
+        <p> {firstdecision.content}</p>
+      </div>
+    );
+  };
+
+  const getFinaldecision = () => {
+    return (
+      <div>
+        <p> {finalDecision.content}</p>
+      </div>
+    );
   };
 
   const handleClick = (e) => {
     switch (e.target.id) {
       case "1":
         setInfotext(infoContent);
-        if (e.target.className === "btnMenu") {
-          e.target.className = "btnMenu2";
-        }
+
         break;
       case "2":
         setInfotext(infoContexte);
-        if (e.target.className === "btnMenu") {
-          e.target.className = "btnMenu2";
-        }
+
         break;
       case "3":
         setInfotext(infoProfit);
-        if (e.target.className === "btnMenu") {
-          e.target.className = "btnMenu2";
-        }
+
         break;
       case "4":
         setInfotext(infoUsefullness);
-        if (e.target.className === "btnMenu") {
-          e.target.className = "btnMenu2";
-        }
+
         break;
 
       case "5":
@@ -72,7 +85,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
 
         break;
       case "7":
-        setInfotext(getAllAvis);
+        setInfotext(getFirstdecision);
 
         break;
       case "8":
@@ -80,7 +93,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
 
         break;
       case "9":
-        setInfotext(getAllAvis);
+        setInfotext(getFinaldecision);
 
         break;
       default:
@@ -122,4 +135,6 @@ BodyDecision.propTypes = {
   shown: PropTypes.string.isRequired,
   notice: PropTypes.string.isRequired,
   conflit: PropTypes.string.isRequired,
+  firstdecision: PropTypes.string.isRequired,
+  finalDecision: PropTypes.string.isRequired,
 };

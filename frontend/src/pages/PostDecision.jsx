@@ -16,6 +16,8 @@ export default function PostDecision() {
   const [info, setInfo] = useState();
   const [notice, setNotice] = useState([]);
   const [conflit, setConflit] = useState([]);
+  const [firstdecision, setFirstDecision] = useState([]);
+  const [finalDecision, setFinalDecision] = useState([]);
   const [shown, setShown] = useState(true);
   const [hide, setHide] = useState(true);
   const [hideFirst, setHideFirst] = useState(true);
@@ -53,11 +55,27 @@ export default function PostDecision() {
       .catch((err) => err.response);
   };
 
+  const getFirstdecision = () => {
+    api
+      .get(`firstdecsion/${nbdec}`)
+      .then((res) => setFirstDecision(res.data))
+      .catch((err) => err.response);
+  };
+
+  const getFinaldecision = () => {
+    api
+      .get(`finalDecision/${nbdec}`)
+      .then((res) => setFinalDecision(res.data))
+      .catch((err) => err.response);
+  };
+
   useEffect(() => {
     getDecision();
     getConflit();
     getAvis();
     getAuthDecision();
+    getFirstdecision();
+    getFinaldecision();
   }, [nbdec]);
 
   const handleClick = () => {
@@ -93,6 +111,8 @@ export default function PostDecision() {
             shown={shown}
             notice={notice}
             conflit={conflit}
+            firstdecision={firstdecision}
+            finalDecision={finalDecision}
             nbdec={nbdec}
           />
         )}

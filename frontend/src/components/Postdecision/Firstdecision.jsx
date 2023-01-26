@@ -31,7 +31,7 @@ function Firstdecision({ hideFirst, nbdec }) {
       api
         .post("firstdecsion", firstdecision)
         .then((res) => {
-          if (res.status === 200) {
+          if (res.status === 201) {
             navigate("/dashboard");
           }
         })
