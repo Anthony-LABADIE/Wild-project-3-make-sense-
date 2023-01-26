@@ -3,7 +3,14 @@ import { useState } from "react";
 import dataMenu from "../../tools/dataMenu";
 import "./NavBarDecision.css";
 
-export default function BodyDecision({ info, shown, notice, conflit }) {
+export default function BodyDecision({
+  info,
+  shown,
+  notice,
+  conflit,
+  finaldecision,
+  firstdecision,
+}) {
   const infoContent = info[0].content;
   const infoContexte = info[0].contexte;
   const infoProfit = info[0].profit;
@@ -23,7 +30,26 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
       </div>
     ));
   };
-
+  const getAllFinalDecision = () => {
+    return finaldecision.map((finaldecisio) => (
+      <div>
+        <p> {finaldecisio.content}</p>
+        <h4>
+          de {finaldecisio.lastname} {finaldecisio.firstname}
+        </h4>
+      </div>
+    ));
+  };
+  const getAllFirstDecision = () => {
+    return firstdecision.map((firstdecisio) => (
+      <div>
+        <p> {firstdecisio.content}</p>
+        <h4>
+          de {firstdecisio.lastname} {firstdecisio.firstname}
+        </h4>
+      </div>
+    ));
+  };
   const getAllConflit = () => {
     return conflit.map((confli) => (
       <div>
@@ -31,11 +57,9 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
         <h4>
           de {confli.lastname} {confli.firstname}
         </h4>
-        f
       </div>
     ));
   };
-
   const handleClick = (e) => {
     switch (e.target.id) {
       case "1":
@@ -74,7 +98,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
 
         break;
       case "7":
-        setInfotext(getAllAvis);
+        setInfotext(getAllFirstDecision);
 
         break;
       case "8":
@@ -82,7 +106,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
 
         break;
       case "9":
-        setInfotext(getAllAvis);
+        setInfotext(getAllFinalDecision);
 
         break;
       default:
@@ -96,7 +120,6 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
         type="button"
         name="unClicked"
         id={button.id}
-        name="unclicked"
         onClick={handleClick}
         className={button.id === numberClicked ? "btnMenu2" : "btnMenu"}
       >
@@ -125,4 +148,6 @@ BodyDecision.propTypes = {
   shown: PropTypes.string.isRequired,
   notice: PropTypes.string.isRequired,
   conflit: PropTypes.string.isRequired,
+  finaldecision: PropTypes.string.isRequired,
+  firstdecision: PropTypes.string.isRequired,
 };
