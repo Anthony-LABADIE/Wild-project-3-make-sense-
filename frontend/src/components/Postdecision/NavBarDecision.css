@@ -126,6 +126,18 @@
   cursor: pointer;
 }
 
+.btn-firstDecision{
+  border-radius: 5px;
+  background-color: #346a82;
+  color: white;
+  height: 40px;
+  padding: 1px;
+  width: 150px;
+  margin-top: 10%;
+  border: none;
+  cursor: pointer;
+}
+
 .personne {
   height: 60px;
   width: 200px;

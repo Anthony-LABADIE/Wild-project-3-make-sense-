@@ -63,9 +63,7 @@ export default function MenuBar({
     <div className="menubar">
       <div className="userImpact">
         <h3>PERSONNES IMPACTEES</h3>
-        <img src={personne} alt="personne" className="personne" />
         <h3>PERSONNES EXPERTES</h3>
-        <img src={personne} alt="personne" className="personne" />
       </div>
       <button
         style={{ display: shownButtonAvis ? "block" : "none" }}
@@ -91,7 +89,7 @@ export default function MenuBar({
       </button>
       <button
         style={{ display: shownButtonFirst ? "block" : "none" }}
-        className="btn-conflit"
+        className="btn-firstDecision"
         type="button"
         onClick={() => {
           handleFisrt();

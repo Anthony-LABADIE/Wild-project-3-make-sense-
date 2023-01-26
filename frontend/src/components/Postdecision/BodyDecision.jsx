@@ -3,14 +3,7 @@ import { useState } from "react";
 import dataMenu from "../../tools/dataMenu";
 import "./NavBarDecision.css";
 
-export default function BodyDecision({
-  info,
-  shown,
-  notice,
-  conflit,
-  finaldecision,
-  firstdecision,
-}) {
+export default function BodyDecision({ info, shown, notice, conflit }) {
   const infoContent = info[0].content;
   const infoContexte = info[0].contexte;
   const infoProfit = info[0].profit;
@@ -30,26 +23,6 @@ export default function BodyDecision({
       </div>
     ));
   };
-  const getAllFinalDecision = () => {
-    return finaldecision.map((finaldecisio) => (
-      <div>
-        <p> {finaldecisio.content}</p>
-        <h4>
-          de {finaldecisio.lastname} {finaldecisio.firstname}
-        </h4>
-      </div>
-    ));
-  };
-  const getAllFirstDecision = () => {
-    return firstdecision.map((firstdecisio) => (
-      <div>
-        <p> {firstdecisio.content}</p>
-        <h4>
-          de {firstdecisio.lastname} {firstdecisio.firstname}
-        </h4>
-      </div>
-    ));
-  };
   const getAllConflit = () => {
     return conflit.map((confli) => (
       <div>
@@ -60,6 +33,7 @@ export default function BodyDecision({
       </div>
     ));
   };
+
   const handleClick = (e) => {
     switch (e.target.id) {
       case "1":
@@ -95,18 +69,22 @@ export default function BodyDecision({
 
       case "6":
         setInfotext(getAllAvis);
+        setNumberClicked(6);
 
         break;
       case "7":
-        setInfotext(getAllFirstDecision);
+        setInfotext(getAllConflit);
+        setNumberClicked(7);
 
         break;
       case "8":
         setInfotext(getAllConflit);
+        setNumberClicked(8);
 
         break;
       case "9":
-        setInfotext(getAllFinalDecision);
+        setInfotext(getAllConflit);
+        setNumberClicked(9);
 
         break;
       default:
@@ -148,6 +126,4 @@ BodyDecision.propTypes = {
   shown: PropTypes.string.isRequired,
   notice: PropTypes.string.isRequired,
   conflit: PropTypes.string.isRequired,
-  finaldecision: PropTypes.string.isRequired,
-  firstdecision: PropTypes.string.isRequired,
 };

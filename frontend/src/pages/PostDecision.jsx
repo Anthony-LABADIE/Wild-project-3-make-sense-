@@ -17,16 +17,12 @@ export default function PostDecision() {
   const [info, setInfo] = useState();
   const [notice, setNotice] = useState([]);
   const [conflit, setConflit] = useState([]);
-  const [firstdecision, setFirstdecision] = useState([]);
-  const [finaldecision, setFinaldecision] = useState([]);
   const [shown, setShown] = useState(true);
   const [hide, setHide] = useState(true);
   const [hideFirst, setHideFirst] = useState(true);
   const [hideFinal, setHideFinal] = useState(true);
   const [authDecision, setAuthDecision] = useState();
   const [shownAvis, setShownAvis] = useState(true);
-  const [shownFirstDecision, setShownFirstDecision] = useState(true);
-  const [shownFinalDecision, setShownFinalDecision] = useState(true);
   const { nbdec } = useParams();
 
   const getDecision = () => {
@@ -57,18 +53,6 @@ export default function PostDecision() {
       .then((res) => setConflit(res.data))
       .catch((err) => err.response);
   };
-  const getFinalDecision = () => {
-    api
-      .get(`finaldecision/${nbdec}`)
-      .then((res) => setFinaldecision(res.data))
-      .catch((err) => err.response);
-  };
-  const getFirstDecision = () => {
-    api
-      .get(`firstdecision/${nbdec}`)
-      .then((res) => setFirstdecision(res.data))
-      .catch((err) => err.response);
-  };
 
   useEffect(() => {
     getDecision();
@@ -96,12 +80,6 @@ export default function PostDecision() {
   const handleAvis = () => {
     setShownAvis(!shownAvis);
   };
-  const handleFirstDecision = () => {
-    setShownFirstDecision(!shownFirstDecision);
-  };
-  const handleFinalDecision = () => {
-    setShownFinalDecision(!shownFinalDecision);
-  };
 
   return (
     <div>
@@ -116,8 +94,6 @@ export default function PostDecision() {
             shown={shown}
             notice={notice}
             conflit={conflit}
-            finaldecision={finaldecision}
-            firstdecision={firstdecision}
             nbdec={nbdec}
           />
         )}
@@ -137,8 +113,6 @@ export default function PostDecision() {
           ))
         }
         <TextEditor shownAvis={shownAvis} nbdec={nbdec} />
-        <FinalDecisionEditor shownFinalDecision={hide} nbdec={nbdec} />
-        <FirstDecisionEditor shownFirstDecision={hide} nbdec={nbdec} />
         <ConflitEditor hide={hide} nbdec={nbdec} />
         <Firstdecision hideFirst={hideFirst} nbdec={nbdec} />
         <Finaldecision hideFinal={hideFinal} nbdec={nbdec} />
