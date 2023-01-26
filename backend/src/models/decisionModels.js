@@ -38,7 +38,7 @@ const deleteOne = (id) => {
 const updateOne = (decisionData, id) => {
   return db
     .promise()
-    .query("UPDATE decision SET ? Where id = ?", [decisionData, id])
+    .query("UPDATE decision SET id_status=? Where id = ?", [decisionData, id])
     .then(([res]) => res);
 };
 module.exports = {

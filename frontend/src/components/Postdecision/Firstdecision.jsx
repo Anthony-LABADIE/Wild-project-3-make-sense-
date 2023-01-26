@@ -8,6 +8,7 @@ import "./TextEditor.css";
 function Firstdecision({ hideFirst, nbdec }) {
   const [firstdecision, setFirstdecision] = useState({});
   const [content, setContent] = useState();
+  // const statutAfterFirstdecision = 3;
 
   const navigate = useNavigate();
   const { auth } = useContext(authContext);
@@ -38,6 +39,13 @@ function Firstdecision({ hideFirst, nbdec }) {
         .catch((err) => err.response);
     }
   };
+
+  // const handleStatutAfertFirstDecision = () => {
+  //   api
+  //     .update("decision", statutAfterFirstdecision)
+  //     .then((res) => res.status === 200)
+  //     .catch((err) => err.response);
+  // };
   return (
     <div style={{ display: hideFirst ? "none" : "block" }}>
       <h1 className="avis">Première decision : Make Sense France </h1>
@@ -54,7 +62,10 @@ function Firstdecision({ hideFirst, nbdec }) {
         type="button"
         id="btn-publis"
         value="Creation"
-        onClick={handleSubmitConnexion}
+        onClick={
+          handleSubmitConnexion
+          // handleStatutAfertFirstDecision();
+        }
       >
         Publier
       </button>
