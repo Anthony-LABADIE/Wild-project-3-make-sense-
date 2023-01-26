@@ -36,5 +36,16 @@ const authorizationDecisionUserController = {
       .then((authorizations) => res.send(authorizations))
       .catch((err) => res.send(err));
   },
+
+  getFindOne: (req, res) => {
+    const { id, user } = req.params;
+    authorizationDecisionUserModel
+      .findOne(id, user)
+      .then((decision) => res.send(decision))
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  },
 };
 module.exports = authorizationDecisionUserController;

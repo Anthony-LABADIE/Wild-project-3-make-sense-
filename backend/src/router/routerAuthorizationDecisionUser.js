@@ -10,11 +10,6 @@ AuthorisationUserDecisionRouter.get(
 );
 
 AuthorisationUserDecisionRouter.get(
-  "/single/:id/:user",
-  authorizationDecisionUserController.getFindOne
-);
-
-AuthorisationUserDecisionRouter.get(
   "/notification/:id",
   authorizationDecisionUserController.countDecision
 );
@@ -22,6 +17,11 @@ AuthorisationUserDecisionRouter.get(
 AuthorisationUserDecisionRouter.get(
   "/six/:id/",
   authorizationDecisionUserController.getSixDecisions
+);
+
+AuthorisationUserDecisionRouter.get(
+  "/single/:id/:user",
+  authorizationDecisionUserController.getFindOne
 );
 
 AuthorisationUserDecisionRouter.get(

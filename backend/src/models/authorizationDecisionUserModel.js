@@ -11,7 +11,6 @@ const findOne = (id, user) => {
     .then((decision) => decision);
 };
 
-
 const findSix = (id) => {
   return db
     .promise()
