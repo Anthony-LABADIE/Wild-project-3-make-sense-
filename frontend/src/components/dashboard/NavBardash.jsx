@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import api from "../../services/api";
 import logo from "../../assets/img/logo.png";
 import burger from "../../assets/img/burger.png";
-import notificationImg from "../../assets/img/notificaiton.png";
-import message from "../../assets/img/messages.png";
+import notificationImg from "../../assets/img/notification.png";
+import message from "../../assets/img/messager.png";
 import decision from "../../assets/img/decision.png";
 import triangle from "../../assets/img/triangle.png";
 import adminImg from "../../assets/img/utilisateur.png";
@@ -25,7 +25,6 @@ function NavBar({ profileImage }) {
   const [dropNotif, setDropNotif] = useState(true);
   const [admin, setAdmin] = useState(false);
   const navigate = useNavigate();
-
   const displayAdmin = () => {
     if (auth.data.is_admin === 1) setAdmin(true);
   };
@@ -179,11 +178,17 @@ function NavBar({ profileImage }) {
             className="profilMenu"
             style={{ textDecoration: "none" }}
           >
-            <p> mon profil</p>
+            <div className="profilMenu__p">
+              <p> Mon profil</p>
+            </div>
           </Link>
-          <button id="btn-logout" type="button" onClick={handleSubmission}>
-            déconnexion
-          </button>
+          <div
+            role="presentation"
+            onClick={handleSubmission}
+            className="btn-logout"
+          >
+            <p>Déconnexion</p>
+          </div>
         </div>
         <MemuNotification dropNotif={dropNotif} />
       </nav>
