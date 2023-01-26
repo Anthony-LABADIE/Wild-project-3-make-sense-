@@ -3,9 +3,9 @@
 const decisionModel = require("../models/decisionModels");
 
 const decisionController = {
-  getThreeDecision: (_, res) => {
+  getSixDecisions: (_, res) => {
     decisionModel
-      .findthree()
+      .findSix()
       .then((decision) => res.send(decision))
       .catch((err) => {
         console.error(err);

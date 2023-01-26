@@ -15,8 +15,18 @@ AuthorisationUserDecisionRouter.get(
 );
 
 AuthorisationUserDecisionRouter.get(
-  "/three/:id/",
-  authorizationDecisionUserController.getThreeDecision
+  "/six/:id/",
+  authorizationDecisionUserController.getSixDecisions
+);
+
+AuthorisationUserDecisionRouter.get(
+  "/single/:id/:user",
+  authorizationDecisionUserController.getFindOne
+);
+
+AuthorisationUserDecisionRouter.get(
+  "/notification/detail/:id",
+  authorizationDecisionUserController.getDecisionUserNotif
 );
 
 module.exports = AuthorisationUserDecisionRouter;

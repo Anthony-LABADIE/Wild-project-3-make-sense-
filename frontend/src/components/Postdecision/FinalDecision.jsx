@@ -5,8 +5,8 @@ import { authContext } from "../../hooks/authContext";
 import api from "../../services/api";
 import "./TextEditor.css";
 
-function TextEditor({ shownAvis, nbdec }) {
-  const [notice, setNotice] = useState({});
+function Finaldecision({ hideFinal, nbdec }) {
+  const [finaldecision, setfinaldecision] = useState({});
   const [content, setContent] = useState();
 
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function TextEditor({ shownAvis, nbdec }) {
       content: e.target.value,
     });
 
-    setNotice({
+    setfinaldecision({
       id_decision: nbdec,
       id_user: auth.data.id,
       content: content.content,
@@ -27,11 +27,11 @@ function TextEditor({ shownAvis, nbdec }) {
 
   const handleSubmitConnexion = (e) => {
     e.preventDefault();
-    if (notice) {
+    if (finaldecision) {
       api
-        .post("notice/", notice)
+        .post("finalDecision", finaldecision)
         .then((res) => {
-          if (res.status === 200) {
+          if (res.status === 201) {
             navigate("/dashboard");
           }
         })
@@ -39,8 +39,8 @@ function TextEditor({ shownAvis, nbdec }) {
     }
   };
   return (
-    <div style={{ display: shownAvis ? "none" : "block" }}>
-      <h1 className="avis">Donne ton avis : Make Sense France </h1>
+    <div style={{ display: hideFinal ? "none" : "block" }}>
+      <h1 className="avis">Première decision : Make Sense France </h1>
 
       <textarea
         className="editorr"
@@ -62,9 +62,9 @@ function TextEditor({ shownAvis, nbdec }) {
   );
 }
 
-export default TextEditor;
+export default Finaldecision;
 
-TextEditor.propTypes = {
-  shownAvis: PropTypes.string.isRequired,
+Finaldecision.propTypes = {
+  hideFinal: PropTypes.string.isRequired,
   nbdec: PropTypes.string.isRequired,
 };

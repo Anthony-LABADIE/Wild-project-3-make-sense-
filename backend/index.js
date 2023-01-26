@@ -6,7 +6,7 @@ const app = require("./src/app");
 
 const Server = http.createServer(app);
 
-const port = parseInt(process.env.APP_PORT ?? "5000", 10);
+const port = parseInt(process.env.APP_PORT ?? "8000", 10);
 
 const io = socketIo(Server, {
   cors: {
@@ -17,6 +17,11 @@ const io = socketIo(Server, {
 io.on("connection", (socket) => {
   socket.on("sendMessage", (payload) => {
     io.emit("newMessage", payload);
+  });
+});
+io.on("connection", (socket) => {
+  socket.on("sendUser", (payload) => {
+    io.emit("newUser", payload);
   });
 });
 Server.listen(port, (err) => {

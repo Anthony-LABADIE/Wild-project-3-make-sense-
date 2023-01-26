@@ -2,16 +2,17 @@
 const authorizationDecisionUserModel = require("../models/authorizationDecisionUserModel");
 
 const authorizationDecisionUserController = {
-  getThreeDecision: (req, res) => {
+  getSixDecisions: (req, res) => {
     const { id } = req.params;
     authorizationDecisionUserModel
-      .findthree(id)
+      .findSix(id)
       .then((decision) => res.send(decision))
       .catch((err) => {
         console.error(err);
         res.sendStatus(500);
       });
   },
+
   getDecisionUser: (req, res) => {
     const { id } = req.params;
     authorizationDecisionUserModel
@@ -26,6 +27,25 @@ const authorizationDecisionUserController = {
       .countNotifcation(id)
       .then((authorizations) => res.send(authorizations))
       .catch((err) => res.send(err));
+  },
+
+  getDecisionUserNotif: (req, res) => {
+    const { id } = req.params;
+    authorizationDecisionUserModel
+      .findAllDecisionNotification(id)
+      .then((authorizations) => res.send(authorizations))
+      .catch((err) => res.send(err));
+  },
+
+  getFindOne: (req, res) => {
+    const { id, user } = req.params;
+    authorizationDecisionUserModel
+      .findOne(id, user)
+      .then((decision) => res.send(decision))
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
   },
 };
 module.exports = authorizationDecisionUserController;

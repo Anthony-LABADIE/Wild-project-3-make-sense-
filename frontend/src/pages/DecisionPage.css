@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@500&display=swap");
+
 .title {
   width: 90vw;
   padding-left: 5vw;
@@ -16,14 +18,13 @@
 .carreau {
   width: 90vw;
   padding-left: 5vw;
+  padding-top: 10vh;
 }
 
 .title h2 {
   width: 30vw;
 }
-h4 {
-  font-size: 0.75rem;
-}
+
 #trait {
   width: 20vw;
   height: 1%;
@@ -125,4 +126,22 @@ h4 {
 .less img {
   width: 10%;
   height: 20%;
+}
+.decisionBtn {
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 67px;
+  width: 9vw;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+.decisionBtn:hover {
+  cursor: pointer;
+  background: gainsboro;
+}
+.allButtons {
+  display: flex;
+  padding-left: 10vw;
+  padding-top: 8vh;
+  gap: 3vw;
 }

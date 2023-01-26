@@ -17,4 +17,9 @@ authorizationRouter.get("/:id", authorizationController.getOneAuthorization);
 authorizationRouter.post("/", authorizationController.postAuthorizations);
 authorizationRouter.delete("/:id", authorizationController.deleteAuthorization);
 authorizationRouter.put("/:id", authorizationController.updateAuthorization);
+authorizationRouter.put(
+  "/notification/:id",
+  authorizationController.updateNotification
+);
+
 module.exports = authorizationRouter;

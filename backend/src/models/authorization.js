@@ -54,6 +54,13 @@ const putOne = (payload, id) => {
     .then(([res]) => res);
 };
 
+const putNotif = (id) => {
+  return database
+    .promise()
+    .query("UPDATE authorization SET notification = 0 WHERE id=?", [id])
+    .then(([res]) => res);
+};
+
 module.exports = {
   findAll,
   createOne,
@@ -62,4 +69,5 @@ module.exports = {
   putOne,
   findAuthoByDecision,
   findAuthoByExpert,
+  putNotif,
 };

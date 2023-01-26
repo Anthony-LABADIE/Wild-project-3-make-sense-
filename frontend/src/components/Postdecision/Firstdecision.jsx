@@ -5,8 +5,8 @@ import { authContext } from "../../hooks/authContext";
 import api from "../../services/api";
 import "./TextEditor.css";
 
-function TextEditor({ shownAvis, nbdec }) {
-  const [notice, setNotice] = useState({});
+function Firstdecision({ hideFirst, nbdec }) {
+  const [firstdecision, setFirstdecision] = useState({});
   const [content, setContent] = useState();
 
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function TextEditor({ shownAvis, nbdec }) {
       content: e.target.value,
     });
 
-    setNotice({
+    setFirstdecision({
       id_decision: nbdec,
       id_user: auth.data.id,
       content: content.content,
@@ -27,9 +27,9 @@ function TextEditor({ shownAvis, nbdec }) {
 
   const handleSubmitConnexion = (e) => {
     e.preventDefault();
-    if (notice) {
+    if (firstdecision) {
       api
-        .post("notice/", notice)
+        .post("firstdecsion", firstdecision)
         .then((res) => {
           if (res.status === 200) {
             navigate("/dashboard");
@@ -39,8 +39,8 @@ function TextEditor({ shownAvis, nbdec }) {
     }
   };
   return (
-    <div style={{ display: shownAvis ? "none" : "block" }}>
-      <h1 className="avis">Donne ton avis : Make Sense France </h1>
+    <div style={{ display: hideFirst ? "none" : "block" }}>
+      <h1 className="avis">Première decision : Make Sense France </h1>
 
       <textarea
         className="editorr"
@@ -62,9 +62,9 @@ function TextEditor({ shownAvis, nbdec }) {
   );
 }
 
-export default TextEditor;
+export default Firstdecision;
 
-TextEditor.propTypes = {
-  shownAvis: PropTypes.string.isRequired,
+Firstdecision.propTypes = {
+  hideFirst: PropTypes.string.isRequired,
   nbdec: PropTypes.string.isRequired,
 };

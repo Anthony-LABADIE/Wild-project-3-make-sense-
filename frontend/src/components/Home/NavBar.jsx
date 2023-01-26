@@ -30,7 +30,7 @@ function NavBar() {
   }, []);
 
   return (
-    <nav>
+    <nav id="navbar">
       {(toggleMenu || largeur > 500) && (
         <ul className="liste">
           <img className="logo" src={logo} alt="logo" />
