@@ -43,35 +43,35 @@
 p.one {
   color: white;
   grid-area: 1 / 1;
-  margin-left: 37.5%;
+  margin-left: 12.5%;
   height: 80%;
   font-size: 0.8em;
 }
 p.two {
   color: white;
   grid-area: 1 / 1;
-  margin-left: 50%;
+  margin-left: 25%;
   height: 80%;
   font-size: 0.8em;
 }
 p.three {
   color: white;
   grid-area: 1 / 1;
-  margin-left: 62%;
+  margin-left: 37%;
   height: 80%;
   font-size: 0.8em;
 }
 p.four {
   color: white;
   grid-area: 1 / 1;
-  margin-left: 74%;
+  margin-left: 49%;
   height: 80%;
   font-size: 0.8em;
 }
 p.five {
   color: white;
   grid-area: 1 / 1;
-  margin-left: 86%;
+  margin-left: 61%;
   height: 80%;
   font-size: 0.8em;
 }
@@ -79,7 +79,7 @@ p.five {
 p.six {
   color: white;
   grid-area: 1 / 1;
-  margin-left: -20%;
+  margin-left: -70%;
   height: 0%;
   font-size: 0.8em;
   text-align: center;
@@ -87,7 +87,7 @@ p.six {
 p.seven {
   color: white;
   grid-area: 1 / 1;
-  margin-left: 5%;
+  margin-left: -45%;
   height: 0%;
   font-size: 0.8em;
   text-align: center;
@@ -95,7 +95,7 @@ p.seven {
 p.height {
   color: white;
   grid-area: 1 / 1;
-  margin-left: 30%;
+  margin-left: -22%;
   height: 0%;
   font-size: 0.8em;
   text-align: center;
@@ -103,7 +103,7 @@ p.height {
 p.nine {
   color: white;
   grid-area: 1 / 1;
-  margin-left: 54%;
+  margin-left: 2%;
   height: 0%;
   font-size: 0.8em;
   text-align: center;
@@ -111,7 +111,7 @@ p.nine {
 p.ten {
   color: white;
   grid-area: 1 / 1;
-  margin-left: 77%;
+  margin-left: 26%;
   height: 0%;
   font-size: 0.8em;
   text-align: center;
@@ -124,9 +124,9 @@ p.ten {
   width: 49%;
   border: 0px solid;
   border-radius: 15px;
-  margin-left: 40%;
+  margin-left: 14.5%;
   background-color: white;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 }
 .barProgress .color {
   position: absolute;

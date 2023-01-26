@@ -10,7 +10,9 @@ function NavBarDecision({ info }) {
       {info.map((decision) => (
         <>
           <h2>{decision.title}</h2>
-          <img src={decision.image || profileImage} alt="logo" />
+          <div className="imageDecision">
+            <img src={decision.image || profileImage} alt="logo" />
+          </div>
           <h3 id="nameUser">
             par {decision.lastname} {decision.firstname}
           </h3>
