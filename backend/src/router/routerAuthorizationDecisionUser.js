@@ -20,6 +20,11 @@ AuthorisationUserDecisionRouter.get(
 );
 
 AuthorisationUserDecisionRouter.get(
+  "/single/:id/:user",
+  authorizationDecisionUserController.getFindOne
+);
+
+AuthorisationUserDecisionRouter.get(
   "/notification/detail/:id",
   authorizationDecisionUserController.getDecisionUserNotif
 );

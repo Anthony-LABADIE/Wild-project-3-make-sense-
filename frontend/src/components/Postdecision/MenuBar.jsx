@@ -1,14 +1,64 @@
 import PropTypes from "prop-types";
-import "./NavBarDecision.css";
-import personne from "../../assets/img/personne-3.png";
+import React, { useEffect, useState, useContext } from "react";
+import { authContext } from "../../hooks/authContext";
 
 export default function MenuBar({
   handleClick,
   handleConflit,
   handleAvis,
-  handleFinalDecision,
-  handleFirstDecision,
+  handleFisrt,
+  handleFinal,
+  authDecision,
+  nbdec,
+  info,
 }) {
+  const [shownButtonAvis, setShownButtonAvis] = useState(true);
+  const [shownButtonConflit, setShownButtonConflit] = useState(true);
+  const [shownButtonFirst, setShownButtonFirst] = useState(true);
+  const [shownButtonFinal, setShownButtonFinal] = useState(true);
+  const status = info[0].id_status;
+  const user = info[0].id_user;
+  const { auth } = useContext(authContext);
+
+  const ActifAvis = () => {
+    if (status === 1 && authDecision[0].length === 1) {
+      setShownButtonAvis(true);
+    } else {
+      setShownButtonAvis(false);
+    }
+  };
+
+  const ActifConflit = () => {
+    if (status === 3 && authDecision[0].length === 3) {
+      setShownButtonConflit(true);
+    } else {
+      setShownButtonConflit(false);
+    }
+  };
+
+  const ActifFirstDecision = () => {
+    if (user === auth.data.id && status === 1) {
+      setShownButtonFirst(true);
+    } else {
+      setShownButtonFirst(false);
+    }
+  };
+
+  const ActifFinalDecision = () => {
+    if (user === auth.data.id && status === 3) {
+      setShownButtonFinal(true);
+    } else {
+      setShownButtonFinal(false);
+    }
+  };
+
+  useEffect(() => {
+    ActifAvis();
+    ActifConflit();
+    ActifFirstDecision();
+    ActifFinalDecision();
+  }, [nbdec]);
+
   return (
     <div className="menubar">
       <div className="userImpact">
@@ -18,6 +68,7 @@ export default function MenuBar({
         <img src={personne} alt="personne" className="personne" />
       </div>
       <button
+        style={{ display: shownButtonAvis ? "block" : "none" }}
         className="btn-avis"
         type="button"
         onClick={() => {
@@ -28,6 +79,7 @@ export default function MenuBar({
         DONNEZ UN AVIS
       </button>
       <button
+        style={{ display: shownButtonConflit ? "block" : "none" }}
         className="btn-conflit"
         type="button"
         onClick={() => {
@@ -38,24 +90,26 @@ export default function MenuBar({
         DONNEZ UN CONFLIT
       </button>
       <button
-        className="btn-finaldecision"
+        style={{ display: shownButtonFirst ? "block" : "none" }}
+        className="btn-conflit"
         type="button"
         onClick={() => {
-          handleFinalDecision();
+          handleFisrt();
           handleClick();
         }}
       >
-        PREND UNE DECISION
+        DONNEZ UNE PREMIERE DECISION
       </button>
       <button
-        className="btn-firstdecision"
+        style={{ display: shownButtonFinal ? "block" : "none" }}
+        className="btn-conflit"
         type="button"
         onClick={() => {
-          handleFirstDecision();
+          handleFinal();
           handleClick();
         }}
       >
-        PREND UNE PREMIERE DECISION
+        DONNEZ UNE DECISION FINALE
       </button>
     </div>
   );
@@ -65,6 +119,9 @@ MenuBar.propTypes = {
   handleClick: PropTypes.string.isRequired,
   handleConflit: PropTypes.string.isRequired,
   handleAvis: PropTypes.string.isRequired,
-  handleFinalDecision: PropTypes.string.isRequired,
-  handleFirstDecision: PropTypes.string.isRequired,
+  authDecision: PropTypes.string.isRequired,
+  nbdec: PropTypes.string.isRequired,
+  info: PropTypes.string.isRequired,
+  handleFisrt: PropTypes.string.isRequired,
+  handleFinal: PropTypes.string.isRequired,
 };
