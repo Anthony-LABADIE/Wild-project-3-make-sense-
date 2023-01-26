@@ -125,13 +125,13 @@ function DecisionPage({ socket }) {
         return impacted.map((final) => {
           return (
             <CardsItem
-              nbdec={final.id}
+              id={final.id}
+              nbdec={final.nbdec}
               status={final.status}
               title={final.title}
               lastname={final.lastname}
               firstname={final.firstname}
               image={final.image}
-              nbStatus={final.nbStatus}
             />
           );
         });
