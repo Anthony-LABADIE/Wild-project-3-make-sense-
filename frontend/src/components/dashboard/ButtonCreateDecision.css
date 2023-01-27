@@ -14,7 +14,6 @@
 }
 
 .btn-decision {
-  padding-top: 30px;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -23,14 +22,14 @@
   font-family: "Raleway", sans-serif;
 }
 #dashTitle {
-  font-size: 3rem;
-  padding-left: 5.3vw;
+  font-size: 2rem;
+  padding-left: 3vw;
   padding-bottom: 2vh;
   color: #346a82;
 }
 #deciTitle {
-  font-size: 3rem;
-  padding-left: 5.3vw;
+  font-size: 2rem;
+  padding-left: 3vw;
   padding-bottom: 2vh;
   color: #346a82;
 }
