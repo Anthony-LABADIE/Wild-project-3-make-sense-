@@ -73,10 +73,10 @@
   align-items: center;
   justify-content: space-between;
 }
-.message__footer {
-  width: 80%;
-  height: 100%;
-  border-radius: 10px;
+.form__message input {
+  width: 70%;
+  height: 2rem;
+  border-radius: 4rem;
   border: 1px solid transparent;
   outline: none;
   padding: 15px;
@@ -84,7 +84,8 @@
 }
 .sendBtn {
   width: 150px;
-  background-color: #3c5cc7;
+  height: 2rem;
+  background-color: #0c3944;
   border-radius: 16px;
   padding: 10px;
   border: none;
@@ -93,25 +94,34 @@
   cursor: pointer;
 }
 .sendBtn:hover {
-  background-color: #1643d6;
+  background-color: #98a1a3;
 }
 .message__recipient {
-  background-color: #f5ccc2;
+  background-color: #fff30d;
   width: 300px;
   padding: 10px;
   border-radius: 10px;
   font-size: 15px;
 }
 .message__sender {
-  background-color: rgb(194, 243, 194);
+  background-color: #0c3944;
   max-width: 300px;
   padding: 10px;
   border-radius: 10px;
   margin-left: auto;
   font-size: 15px;
+  color: #fff;
 }
-.message__chats > p {
+.message__chats__r {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 3px;
+}
+.message__chats__p {
   font-size: 13px;
+  display: flex;
+  flex-direction: column;
 }
 .sender__name {
   text-align: right;
@@ -121,4 +131,11 @@
   bottom: 16%;
   font-size: 13px;
   font-style: italic;
+}
+.message__chat__image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  translate: 10px;
 }

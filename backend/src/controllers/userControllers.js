@@ -36,6 +36,7 @@ const userController = {
             lastname,
             password: hash,
             is_admin,
+            image,
             is_connect,
           } = user;
           if (await passwordVerify(hash, password)) {
@@ -46,6 +47,7 @@ const userController = {
                 lastname,
                 email,
                 is_admin,
+                image,
                 is_connect,
               },
               { expiresIn: "1h" }
@@ -57,7 +59,15 @@ const userController = {
                 secure: true,
               })
               .status(200)
-              .send({ id, firstname, lastname, email, is_admin, is_connect });
+              .send({
+                id,
+                firstname,
+                lastname,
+                email,
+                is_admin,
+                image,
+                is_connect,
+              });
           } else {
             res.status(401).send({ error: "invalid password" });
           }
