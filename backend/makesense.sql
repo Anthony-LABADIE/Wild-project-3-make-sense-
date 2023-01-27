@@ -90,6 +90,8 @@ CREATE TABLE
         `id_authorization` INT NOT NULL, 
         PRIMARY KEY (`id`) 
     );
+
+ 
     ALTER TABLE `Notification`
 ADD
     CONSTRAINT `fk_Notification_id_authorization` FOREIGN KEY(`id_authorization`) REFERENCES `Authorization` (`id`);

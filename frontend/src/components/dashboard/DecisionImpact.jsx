@@ -33,6 +33,7 @@ export default function Decisionimpact() {
       lastname={cardItem.lastname}
       firstname={cardItem.firstname}
       image={cardItem.image}
+      nbStatus={cardItem.nbStatus}
     />
   ));
 
