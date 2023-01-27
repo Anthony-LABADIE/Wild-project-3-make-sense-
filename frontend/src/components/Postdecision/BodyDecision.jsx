@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import dataMenu from "../../tools/dataMenu";
-import "./NavBarDecision.css";
 
 export default function BodyDecision({ info, shown, notice, conflit }) {
   const infoContent = info[0].content;
@@ -23,6 +22,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
       </div>
     ));
   };
+
   const getAllConflit = () => {
     return conflit.map((confli) => (
       <div>
@@ -38,33 +38,29 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
     switch (e.target.id) {
       case "1":
         setInfotext(infoContent);
-
         setNumberClicked(1);
 
         break;
       case "2":
         setInfotext(infoContexte);
-
         setNumberClicked(2);
 
         break;
       case "3":
         setInfotext(infoProfit);
-
         setNumberClicked(3);
 
         break;
       case "4":
         setInfotext(infoUsefullness);
-
         setNumberClicked(4);
 
         break;
 
       case "5":
         setInfotext(infoInconvenience);
-
         setNumberClicked(5);
+
         break;
 
       case "6":
@@ -73,7 +69,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
 
         break;
       case "7":
-        setInfotext(getAllConflit);
+        setInfotext(getAllAvis);
         setNumberClicked(7);
 
         break;
@@ -83,7 +79,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
 
         break;
       case "9":
-        setInfotext(getAllConflit);
+        setInfotext(getAllAvis);
         setNumberClicked(9);
 
         break;
@@ -96,8 +92,8 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
     return dataMenu.map((button) => (
       <button
         type="button"
-        name="unClicked"
         id={button.id}
+        name="unclicked"
         onClick={handleClick}
         className={button.id === numberClicked ? "btnMenu2" : "btnMenu"}
       >

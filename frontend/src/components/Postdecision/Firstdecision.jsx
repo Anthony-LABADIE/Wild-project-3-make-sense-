@@ -29,7 +29,7 @@ function Firstdecision({ hideFirst, nbdec }) {
     e.preventDefault();
     if (firstdecision) {
       api
-        .post("firstdecision", firstdecision)
+        .post("firstdecsion", firstdecision)
         .then((res) => {
           if (res.status === 200) {
             navigate("/dashboard");
