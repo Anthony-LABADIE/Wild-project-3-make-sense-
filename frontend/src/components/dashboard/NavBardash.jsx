@@ -14,13 +14,12 @@ import NotificationContext from "../../Contexts/NotificationContexts";
 import MemuNotification from "./MenuNotification";
 import "./NavBarDash.css";
 
-function NavBar({ profileImage }) {
+function NavBar({ profileImage, socket }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
   const { notif, setNotif } = useContext(NotificationContext);
-  const { logout, auth, userSocketIo, setUserSocketIo } =
-    useContext(authContext);
+  const { logout, auth } = useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
   const [dropNotif, setDropNotif] = useState(true);
   const [admin, setAdmin] = useState(false);
@@ -81,18 +80,17 @@ function NavBar({ profileImage }) {
       window.removeEventListener("resize", changWidth);
     };
   }, []);
-
-  const getUserSocketIo = () => {
-    api.get("user/").then((response) => {
-      setUserSocketIo(response.data);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    socket.emit("sendUser", {
+      lastname: auth.data.lastname,
+      firstname: auth.data.firstname,
+      image: auth.data.image,
+      socketID: socket.id,
     });
-  };
-  useEffect(() => {
-    getUserSocketIo();
-  }, [userSocketIo]);
-  const nav = () => {
     navigate("/messages");
   };
+
   const handleSubmission = () => {
     api
       .put(`/user/disconnect/${auth.data.id}`, false)
@@ -142,7 +140,7 @@ function NavBar({ profileImage }) {
                 id="messageLogo"
                 src={message}
                 alt="message"
-                onClick={(getUserSocketIo, nav)}
+                onClick={handleSubmit}
                 role="presentation"
               />
               <h4>messages</h4>
@@ -198,6 +196,9 @@ function NavBar({ profileImage }) {
 
 NavBar.propTypes = {
   profileImage: PropTypes.string.isRequired,
+  socket: PropTypes.func.isRequired,
+  emit: PropTypes.func.isRequired,
+  id: PropTypes.func.isRequired,
 };
 
 export default NavBar;
