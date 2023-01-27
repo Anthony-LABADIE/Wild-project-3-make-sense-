@@ -12,8 +12,6 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
 
   const [infoText, setInfotext] = useState("");
   const [numberClicked, setNumberClicked] = useState(false);
-  const [numberClicked, setNumberClicked] = useState(false);
-
   const getAllAvis = () => {
     return notice.map((avis) => (
       <div>
@@ -98,7 +96,6 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
         name="unClicked"
         id={button.id}
         onClick={handleClick}
-        className={button.id === numberClicked ? "btnMenu2" : "btnMenu"}
         className={button.id === numberClicked ? "btnMenu2" : "btnMenu"}
       >
         {button.title}

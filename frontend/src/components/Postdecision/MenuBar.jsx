@@ -172,7 +172,7 @@ export default function MenuBar({
       </button>
       <button
         style={{ display: shownButtonFirst ? "block" : "none" }}
-        className="btn-firstDecision"
+        className="btn-Decision"
         type="button"
         onClick={() => {
           handleFisrt();
@@ -183,7 +183,7 @@ export default function MenuBar({
       </button>
       <button
         style={{ display: shownButtonFinal ? "block" : "none" }}
-        className="btn-conflit"
+        className="btn-Decision"
         type="button"
         onClick={() => {
           handleFinal();

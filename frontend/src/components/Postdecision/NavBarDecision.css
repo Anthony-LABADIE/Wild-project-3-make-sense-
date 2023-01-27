@@ -68,8 +68,8 @@
 
 .textMenubar {
   text-align: center;
-  font-size: 1.7em;
-  margin-top: 4vh;
+  font-size: 1.1em;
+  margin-top: 1vh;
   margin-bottom: 5vh;
 }
 
@@ -150,7 +150,26 @@
 }
 
 .btn-avis {
-  margin-top: 20vh;
+  border-radius: 5px;
+  background-color: #346a82;
+  color: white;
+  height: 40px;
+  padding: 11px;
+  width: 150px;
+  margin-top: 10%;
+  border: none;
+  cursor: pointer;  
+}
+
+.btn-Decision{
+  border-radius: 5px;
+  background-color: #346a82;
+  color: white;
+  height: 40px;
+  padding: 11px;
+  margin-top: 10%;
+  border: none;
+  cursor: pointer;
 }
 
 .popupOn {
@@ -238,8 +257,8 @@
 }
 
 .popupOnExpert img {
-  width: 4vw;
-  height: 6vh;
+  width: 2.5vw;
+  height: 2.5vw;
   border-radius: 50%;
   padding-right: 0.2vw;
 }
