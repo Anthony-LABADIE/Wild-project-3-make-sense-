@@ -93,19 +93,19 @@ export default function BodyDecision({
 
       case "6":
         setInfotext(getAllAvis);
-
+        setNumberClicked(6);
         break;
       case "7":
         setInfotext(getFirstdecision);
-
+        setNumberClicked(7);
         break;
       case "8":
         setInfotext(getAllConflit);
-
+        setNumberClicked(8);
         break;
       case "9":
         setInfotext(getFinaldecision);
-
+        setNumberClicked(9);
         break;
       default:
         setInfotext("nothing");

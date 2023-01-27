@@ -46,6 +46,7 @@ function Conflict() {
         <textarea
           className="edit"
           contentEditable="true"
+          suppressContentEditableWarning="true"
           onChange={handleChange}
           type="input"
           id="text-editor"
