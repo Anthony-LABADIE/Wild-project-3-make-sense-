@@ -100,6 +100,7 @@ function NavBar({ profileImage }) {
       .catch((err) => err.response);
     logout();
   };
+
   return (
     <div>
       <nav id="navbar">
@@ -135,7 +136,7 @@ function NavBar({ profileImage }) {
                 role="presentation"
               />
               <h4>notifications</h4>
-              <div className="counter"> {notif[0].notification}</div>
+              {/* <div className="counter"> {notif[0].notification}</div> */}
             </div>
 
             <div className="message">

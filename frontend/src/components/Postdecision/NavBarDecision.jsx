@@ -10,13 +10,15 @@ function NavBarDecision({ info }) {
       {info.map((decision) => (
         <>
           <h2>{decision.title}</h2>
-          <img src={decision.image || profileImage} alt="logo" />
+          <div className="imageDecision">
+            <img src={decision.image || profileImage} alt="logo" />
+          </div>
           <h3 id="nameUser">
             par {decision.lastname} {decision.firstname}
           </h3>
         </>
       ))}
-      <ProgressBar />
+      <ProgressBar statut={info[0].id_status} />
     </div>
   );
 }
@@ -24,6 +26,7 @@ function NavBarDecision({ info }) {
 NavBarDecision.propTypes = {
   info: PropTypes.shape({
     firstname: PropTypes.string,
+    id_status: PropTypes.string,
     image: PropTypes.string,
     lastname: PropTypes.string,
     map: PropTypes.func,
