@@ -1,13 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
-
 .containerDecision {
   display: grid;
-  grid-template-columns: 2fr 0.5fr;
+  grid-template-columns: 6fr 1fr;
   grid-template-rows: 0.1fr 4fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  background-color: white;
+  height: 93vh;
 }
+
 .navbardecision {
   grid-area: 1 / 1 / 2 / 3;
   display: flex;
@@ -26,13 +25,34 @@
   padding-top: 1%;
 }
 
-.navbardecision img {
+.navbardecision h2 {
+  color: white;
+  width: 25vw;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.navbardecision h3 {
+  color: white;
+  width: 15vw;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.imageDecision {
   margin-left: 7vw;
-  margin-top: 4vh;
-  width: 3vw;
-  border-radius: 50%;
-  height: 6vh;
   margin-right: 1vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.imageDecision img {
+  width: 3vw;
+  height: 6vh;
+  border-radius: 50%;
 }
 
 .menubar {
@@ -41,10 +61,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   height: 100%;
   background: linear-gradient(180deg, #e5e9eb 0%, rgba(229, 233, 235, 0) 100%);
   width: 100%;
+}
+
+.textMenubar {
+  text-align: center;
+  font-size: 1.7em;
+  margin-top: 4vh;
+  margin-bottom: 5vh;
+}
+
+.scrollImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10vw;
+  height: 5vw;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.scrollImage img {
+  width: 3vw;
+  height: 6vh;
+  border-radius: 50%;
+  margin-right: -0.4vw;
+  margin-left: -0.4vw;
 }
 
 .bodyDecision {
@@ -88,10 +132,6 @@
   font-family: "Raleway", sans-serif;
   font-weight: bold;
 }
-.btnMenu:hover {
-  background-color: #dadada;
-  border-radius: 10%;
-}
 
 .btnMenu2 {
   background-color: #e3e8ea;
@@ -99,48 +139,109 @@
   border-bottom: solid 3px #346a82;
   cursor: pointer;
   height: 100%;
-  /* margin-top: 1.5em; */
   font-size: 0.9em;
   font-family: "Raleway", sans-serif;
   font-weight: bold;
 }
 
-.userImpact h3 {
-  font-size: 1em;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 10%;
-  margin-top: 30%;
+.btnMenu:hover {
+  background-color: #dadada;
+  border-radius: 10%;
 }
 
 .btn-avis {
-  border-radius: 5px;
-  background-color: #346a82;
-  color: white;
-  height: 40px;
-  padding: 11px;
-  width: 150px;
-  margin-top: 10%;
-  border: none;
-  cursor: pointer;
+  margin-top: 20vh;
 }
 
-.btn-firstDecision{
-  border-radius: 5px;
-  background-color: #346a82;
-  color: white;
-  height: 40px;
-  padding: 1px;
-  width: 150px;
-  margin-top: 10%;
-  border: none;
-  cursor: pointer;
+.popupOn {
+  display: block;
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  width: auto;
+  padding-left: 1vw;
+  padding-right: 2vw;
+  border: solid 3px #346a82;
+  background-color: #e5e9eb;
+  border-radius: 10%;
+  overflow: auto;
+  scrollbar-width: none;
+  animation: progress 2s;
 }
 
-.personne {
-  height: 60px;
-  width: 200px;
+.popupOn img {
+  width: 4vw;
+  height: 6vh;
+  border-radius: 50%;
+  padding-right: 0.2vw;
+}
+
+.popupOff {
+  display: none;
+}
+
+.popupFlex {
+  display: flex;
+  align-items: center;
+}
+
+.popupColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes progress {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.imageImpacted {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#imageImpacted {
+  height: 2vh;
+  text-align: center;
+}
+
+#imageImpactedExpert {
+  height: 2vh;
+  text-align: center;
+}
+
+.popupOnExpert {
+  display: block;
+  position: absolute;
+  top: 62%;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  width: auto;
+  padding-left: 1vw;
+  padding-right: 2vw;
+  border: solid 3px #346a82;
+  background-color: #e5e9eb;
+  border-radius: 10%;
+  overflow: auto;
+  scrollbar-width: none;
+  animation: progress 2s;
+}
+
+.popupOnExpert img {
+  width: 4vw;
+  height: 6vh;
+  border-radius: 50%;
+  padding-right: 0.2vw;
 }
 
 .notifuser {

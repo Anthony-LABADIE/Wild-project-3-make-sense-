@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import dataMenu from "../../tools/dataMenu";
+import "./NavBarDecision.css";
 
 export default function BodyDecision({ info, shown, notice, conflit }) {
   const infoContent = info[0].content;
@@ -10,6 +11,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
   const infoInconvenience = info[0].inconvenience;
 
   const [infoText, setInfotext] = useState("");
+  const [numberClicked, setNumberClicked] = useState(false);
   const [numberClicked, setNumberClicked] = useState(false);
 
   const getAllAvis = () => {
@@ -61,6 +63,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
         setInfotext(infoInconvenience);
         setNumberClicked(5);
 
+        setNumberClicked(5);
         break;
 
       case "6":
@@ -92,9 +95,10 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
     return dataMenu.map((button) => (
       <button
         type="button"
+        name="unClicked"
         id={button.id}
-        name="unclicked"
         onClick={handleClick}
+        className={button.id === numberClicked ? "btnMenu2" : "btnMenu"}
         className={button.id === numberClicked ? "btnMenu2" : "btnMenu"}
       >
         {button.title}
