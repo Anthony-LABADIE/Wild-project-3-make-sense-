@@ -52,7 +52,13 @@ function ProfilePage() {
     switch (info) {
       case "position":
         if (!modify) {
-          return <h3 id="infoPos">{userInfo.position}</h3>;
+          return (
+            <h3 id={userInfo.position === "" ? "posPlaceholder" : "infoPos"}>
+              {userInfo.position === ""
+                ? "Quel est ton poste?"
+                : userInfo.position}
+            </h3>
+          );
         }
         if (modify) {
           return (
@@ -61,6 +67,7 @@ function ProfilePage() {
               name="position"
               type="text"
               id="inputPos"
+              placeholder="Quel est ton poste?"
               onChange={handleChange}
               onKeyDown={handleSubmission}
             />
@@ -120,7 +127,13 @@ function ProfilePage() {
         break;
       case "bio":
         if (!modify) {
-          return <p id="pText">{userInfo.bio}</p>;
+          return (
+            <p id={userInfo.bio === "" ? "bioPlaceholder" : "pText"}>
+              {userInfo.bio === ""
+                ? "Parle nous un peu de toi..."
+                : userInfo.bio}
+            </p>
+          );
         }
         if (modify) {
           return (
@@ -129,6 +142,7 @@ function ProfilePage() {
               name="bio"
               type="text"
               id="inputBio"
+              placeholder="Parle nous un peu de toi..."
               onChange={handleChange}
               onKeyDown={handleSubmission}
             />

@@ -18,6 +18,8 @@ function DecisionPage({ socket }) {
   const [status, setStatus] = useState(0);
   const [userDecisions, setUserDecisions] = useState();
   const [impacted, setImpacted] = useState([]);
+  const [numberClicked, setNumberClicked] = useState();
+
   const loadUserDecision = () => {
     api.get(`/user/decision/${auth.data.id}`).then((response) => {
       setUserDecisions(response.data);
@@ -35,24 +37,32 @@ function DecisionPage({ socket }) {
     switch (e.target.name) {
       case "Toutes":
         setStatus(0);
+        setNumberClicked(1);
         break;
-      case "Active":
+      case "Postés":
         setStatus(1);
+        setNumberClicked(2);
         break;
-      case "Décisions Impactés":
+      case "Décisions Impactées":
         setStatus(2);
-        break;
-      case "1ère Décision":
-        setStatus(3);
-        break;
-      case "Final Décision":
-        setStatus(4);
-        break;
-      case "Conflit":
-        setStatus(5);
+        setNumberClicked(3);
         break;
       case "Mes Décisions":
         setStatus(10);
+        setNumberClicked(4);
+        break;
+      case "1ère Décisions":
+        setStatus(3);
+        setNumberClicked(5);
+        break;
+
+      case "Conflits":
+        setStatus(5);
+        setNumberClicked(6);
+        break;
+      case "Décisions Finales":
+        setStatus(4);
+        setNumberClicked(7);
         break;
 
       default:
@@ -206,8 +216,9 @@ function DecisionPage({ socket }) {
       <button
         type="button"
         onClick={handleClick}
-        className="decisionBtn"
-        name={button}
+        className={button.id === numberClicked ? "decisionBtn2" : "decisionBtn"}
+        id={button.id}
+        name={button.name}
         /*    style={{
           backgroundColor:
             button === "Final Décision"
@@ -219,7 +230,7 @@ function DecisionPage({ socket }) {
           textDecoration: "none",
         }} */
       >
-        {button}
+        {button.name}
       </button>
     ));
   };
@@ -229,6 +240,7 @@ function DecisionPage({ socket }) {
   return (
     <div className="AllDecision">
       {notif && <NavBar socket={socket} />}
+      <h1 id="deciTitle">Décisions</h1>
       <div className="allButtons">{getAllbuttons()}</div>
 
       <div className="carreau">

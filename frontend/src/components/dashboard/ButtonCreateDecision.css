@@ -9,12 +9,28 @@
   border: none;
   cursor: pointer;
   font-family: "Raleway", sans-serif;
+  margin-right: 8vw;
+  margin-top: 0.7vh;
 }
 
 .btn-decision {
   padding-top: 30px;
   display: flex;
-  justify-content: flex-end;
-  width: 95%;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
   font-family: "Raleway", sans-serif;
+}
+#dashTitle {
+  font-size: 3rem;
+  padding-left: 5.3vw;
+  padding-bottom: 2vh;
+  color: #346a82;
+}
+#deciTitle {
+  font-size: 3rem;
+  padding-left: 5.3vw;
+  padding-bottom: 2vh;
+  color: #346a82;
 }

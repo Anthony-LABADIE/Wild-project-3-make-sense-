@@ -43,9 +43,9 @@
 
 .sixCards {
   display: grid;
-  grid-template-columns: repeat(3, 150px); /* 3 columns */
-  grid-template-rows: repeat(3, 150px); /* 3 rows  */
-  grid-gap: 7vw 20vw; /* 50 pixels of space added between rows and 30 pixels added between columns  */
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(2, 245px);
+  grid-gap: 3vw 20vw; /* 50 pixels of space added between rows and 30 pixels added between columns  */
 }
 
 .more {
@@ -135,13 +135,23 @@
   font-family: "Raleway", sans-serif;
   font-weight: 600;
 }
+.decisionBtn2 {
+  background: #3d7581;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 67px;
+  width: 9vw;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
 .decisionBtn:hover {
   cursor: pointer;
-  background: rgb(162, 159, 159);
+  background: #fcf8ad ;
+  
 }
 .allButtons {
   display: flex;
   padding-left: 10vw;
-  padding-top: 8vh;
+
   gap: 3vw;
 }
