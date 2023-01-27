@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import dataMenu from "../../tools/dataMenu";
+import "./NavBarDecision.css";
 
 export default function BodyDecision({ info, shown, notice, conflit }) {
   const infoContent = info[0].content;
@@ -10,6 +11,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
   const infoInconvenience = info[0].inconvenience;
 
   const [infoText, setInfotext] = useState("");
+  const [numberClicked, setNumberClicked] = useState(false);
 
   const getAllAvis = () => {
     return notice.map((avis) => (
@@ -18,7 +20,6 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
         <h4>
           de {avis.lastname} {avis.firstname}
         </h4>
-        f
       </div>
     ));
   };
@@ -39,32 +40,33 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
     switch (e.target.id) {
       case "1":
         setInfotext(infoContent);
-        if (e.target.className === "btnMenu") {
-          e.target.className = "btnMenu2";
-        }
+
+        setNumberClicked(1);
+
         break;
       case "2":
         setInfotext(infoContexte);
-        if (e.target.className === "btnMenu") {
-          e.target.className = "btnMenu2";
-        }
+
+        setNumberClicked(2);
+
         break;
       case "3":
         setInfotext(infoProfit);
-        if (e.target.className === "btnMenu") {
-          e.target.className = "btnMenu2";
-        }
+
+        setNumberClicked(3);
+
         break;
       case "4":
         setInfotext(infoUsefullness);
-        if (e.target.className === "btnMenu") {
-          e.target.className = "btnMenu2";
-        }
+
+        setNumberClicked(4);
+
         break;
 
       case "5":
         setInfotext(infoInconvenience);
 
+        setNumberClicked(5);
         break;
 
       case "6":
@@ -92,10 +94,10 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
     return dataMenu.map((button) => (
       <button
         type="button"
+        name="unClicked"
         id={button.id}
-        name="unclicked"
         onClick={handleClick}
-        className="btnMenu"
+        className={button.id === numberClicked ? "btnMenu2" : "btnMenu"}
       >
         {button.title}
       </button>
