@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import PropTypes from "prop-types";
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +9,7 @@ import "./TextEditor.css";
 function Finaldecision({ hideFinal, nbdec }) {
   const [finaldecision, setfinaldecision] = useState({});
   const [content, setContent] = useState();
+  const id_status = 4;
 
   const navigate = useNavigate();
   const { auth } = useContext(authContext);
@@ -25,6 +27,17 @@ function Finaldecision({ hideFinal, nbdec }) {
     });
   };
 
+  const handleChangeStatus = () => {
+    api
+      .put(`decision/${nbdec}`, { id_status })
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/dashboard");
+        }
+      })
+      .catch((err) => err.response);
+  };
+
   const handleSubmitConnexion = (e) => {
     e.preventDefault();
     if (finaldecision) {
@@ -37,10 +50,12 @@ function Finaldecision({ hideFinal, nbdec }) {
         })
         .catch((err) => err.response);
     }
+
+    handleChangeStatus();
   };
   return (
     <div style={{ display: hideFinal ? "none" : "block" }}>
-      <h1 className="avis">Première decision : Make Sense France </h1>
+      <h1 className="avis"> decision Finale : Make Sense France </h1>
 
       <textarea
         className="editorr"

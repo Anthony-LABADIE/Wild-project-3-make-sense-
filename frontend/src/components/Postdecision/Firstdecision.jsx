@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import PropTypes from "prop-types";
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +9,7 @@ import "./TextEditor.css";
 function Firstdecision({ hideFirst, nbdec }) {
   const [firstdecision, setFirstdecision] = useState({});
   const [content, setContent] = useState();
-  // const statutAfterFirstdecision = 3;
+  const id_status = 2;
 
   const navigate = useNavigate();
   const { auth } = useContext(authContext);
@@ -26,6 +27,17 @@ function Firstdecision({ hideFirst, nbdec }) {
     });
   };
 
+  const handleChangeStatus = () => {
+    api
+      .put(`decision/${nbdec}`, { id_status })
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/dashboard");
+        }
+      })
+      .catch((err) => err.response);
+  };
+
   const handleSubmitConnexion = (e) => {
     e.preventDefault();
     if (firstdecision) {
@@ -38,14 +50,9 @@ function Firstdecision({ hideFirst, nbdec }) {
         })
         .catch((err) => err.response);
     }
+    handleChangeStatus();
   };
 
-  // const handleStatutAfertFirstDecision = () => {
-  //   api
-  //     .update("decision", statutAfterFirstdecision)
-  //     .then((res) => res.status === 200)
-  //     .catch((err) => err.response);
-  // };
   return (
     <div style={{ display: hideFirst ? "none" : "block" }}>
       <h1 className="avis">Première decision : Make Sense France </h1>
@@ -62,10 +69,7 @@ function Firstdecision({ hideFirst, nbdec }) {
         type="button"
         id="btn-publis"
         value="Creation"
-        onClick={
-          handleSubmitConnexion
-          // handleStatutAfertFirstDecision();
-        }
+        onClick={handleSubmitConnexion}
       >
         Publier
       </button>

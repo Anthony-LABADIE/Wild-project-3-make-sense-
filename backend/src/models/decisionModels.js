@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const db = require("../../config");
 
 const findSix = () => {
@@ -35,10 +36,10 @@ const deleteOne = (id) => {
     .query("DELETE FROM decision WHERE id = ?", [id])
     .then(([res]) => res);
 };
-const updateOne = (decisionData, id) => {
+const updateOne = (id_status, id) => {
   return db
     .promise()
-    .query("UPDATE decision SET id_status=? Where id = ?", [decisionData, id])
+    .query("UPDATE decision SET id_status=? Where id = ?", [id_status, id])
     .then(([res]) => res);
 };
 module.exports = {

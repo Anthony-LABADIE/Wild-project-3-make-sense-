@@ -19,8 +19,7 @@ function NavBar({ profileImage }) {
   const [profilImage, setProfilImage] = useState();
   const [largeur, setLargeur] = useState(window.innerWidth);
   const { notif, setNotif } = useContext(NotificationContext);
-  const { logout, auth, userSocketIo, setUserSocketIo } =
-    useContext(authContext);
+  const { logout, auth, setUserSocketIo } = useContext(authContext);
   const [dropMenu, setDropMenu] = useState(true);
   const [dropNotif, setDropNotif] = useState(true);
   const [admin, setAdmin] = useState(false);
@@ -88,9 +87,9 @@ function NavBar({ profileImage }) {
       setUserSocketIo(response.data);
     });
   };
-  useEffect(() => {
-    getUserSocketIo();
-  }, [userSocketIo]);
+  // useEffect(() => {
+  //   getUserSocketIo();
+  // }, []);
   const nav = () => {
     navigate("/messages");
   };

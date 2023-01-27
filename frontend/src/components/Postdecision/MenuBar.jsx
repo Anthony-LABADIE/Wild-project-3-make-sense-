@@ -29,7 +29,7 @@ export default function MenuBar({
   };
 
   const ActifConflit = () => {
-    if (status === 3 && authDecision[0].length === 3) {
+    if (status === 2 && authDecision[0].length === 1) {
       setShownButtonConflit(true);
     } else {
       setShownButtonConflit(false);
@@ -45,7 +45,7 @@ export default function MenuBar({
   };
 
   const ActifFinalDecision = () => {
-    if (user === auth.data.id && status === 3) {
+    if (user === auth.data.id && status === 2) {
       setShownButtonFinal(true);
     } else {
       setShownButtonFinal(false);
