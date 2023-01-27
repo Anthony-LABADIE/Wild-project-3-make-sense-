@@ -6,19 +6,19 @@ function ProgressBar({ statut }) {
   const statutCount = statut;
   let statutBar = "one";
   switch (true) {
-    case statutCount === 1:
+    case statutCount === 0:
       statutBar = "0%";
       break;
-    case statutCount === 2:
-      statutBar = "25%";
+    case statutCount === 1:
+      statutBar = "12%";
       break;
-    case statutCount === 3:
+    case statutCount === 2:
       statutBar = "50%";
       break;
-    case statutCount === 4:
-      statutBar = "75%";
+    case statutCount === 3:
+      statutBar = "60%";
       break;
-    case statutCount === 5:
+    case statutCount === 4:
       statutBar = "100%";
       break;
     default:

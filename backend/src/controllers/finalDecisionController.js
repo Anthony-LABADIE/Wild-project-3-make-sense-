@@ -29,9 +29,11 @@ const finalDecisionController = {
       });
   },
   postFinalDecision: (req, res) => {
-    const { content } = req.body;
+    const { id_decision, id_user, content } = req.body;
     finalDecisionModel
       .createOne({
+        id_decision,
+        id_user,
         content,
       })
       .then((result) =>
