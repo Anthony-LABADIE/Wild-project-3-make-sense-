@@ -60,6 +60,7 @@ function Finaldecision({ hideFinal, nbdec }) {
       <textarea
         className="editorr"
         contentEditable="true"
+        suppressContentEditableWarning="true"
         onChange={handleChange}
         type="input"
         id="text-editor"

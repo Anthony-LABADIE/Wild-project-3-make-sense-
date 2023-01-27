@@ -1,26 +1,7 @@
 import PropTypes from "prop-types";
-import { useState, useEffect, useContext } from "react";
-import { authContext } from "../../hooks/authContext";
-import api from "../../services/api";
 import NotificationItem from "./NotificationItem";
 
-export default function MemuNotification({ dropNotif }) {
-  const [detailNotif, setDetailNotif] = useState([]);
-  const { auth } = useContext(authContext);
-
-  const getAllDecision = () => {
-    api
-      .get(`decision/authorization/user/notification/detail/${auth.data.id}`, {
-        withCredentials: true,
-      })
-      .then((response) => setDetailNotif(response.data))
-      .catch((err) => err.response);
-  };
-
-  useEffect(() => {
-    getAllDecision();
-  }, [detailNotif]);
-
+export default function MemuNotification({ dropNotif, detailNotif }) {
   const NotifAllMap = detailNotif.map((notifItem) => (
     <NotificationItem
       key={notifItem.id}
@@ -34,15 +15,14 @@ export default function MemuNotification({ dropNotif }) {
   ));
 
   return (
-    <div
-      className="menuNotif"
-      style={{ display: dropNotif ? "none" : "block" }}
-    >
+    <div className="menuNotif" style={{ display: dropNotif ? "none" : "flex" }}>
       {NotifAllMap}
     </div>
   );
 }
 
 MemuNotification.propTypes = {
+  detailNotif: PropTypes.string.isRequired,
+  map: PropTypes.func.isRequired,
   dropNotif: PropTypes.string.isRequired,
 };
