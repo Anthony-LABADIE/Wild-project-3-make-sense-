@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useState, useEffect, useContext } from "react";
+import { useLocation } from "react-router";
 import api from "../services/api";
 import CardsItem from "../components/dashboard/CardsItem";
 import dataDecisionType from "../tools/dataDecisionType";
@@ -18,12 +19,17 @@ function DecisionPage({ socket }) {
   const [status, setStatus] = useState(0);
   const [userDecisions, setUserDecisions] = useState();
   const [impacted, setImpacted] = useState([]);
-  const [numberClicked, setNumberClicked] = useState();
+  const [numberClicked, setNumberClicked] = useState(1);
+  const location = useLocation();
 
   const loadUserDecision = () => {
     api.get(`/user/decision/${auth.data.id}`).then((response) => {
       setUserDecisions(response.data);
     });
+    if (location.state) {
+      setStatus(2);
+      setNumberClicked(3);
+    }
   };
   const getInmpactedDecisions = () => {
     api
@@ -87,17 +93,6 @@ function DecisionPage({ socket }) {
     getInmpactedDecisions();
   }, []);
 
-  const cardMap = currentRecords.map((cardItem) => (
-    <CardsItem
-      nbdec={cardItem.id}
-      status={cardItem.status}
-      title={cardItem.title}
-      lastname={cardItem.lastname}
-      firstname={cardItem.firstname}
-      image={cardItem.image}
-      nbStatus={cardItem.nbStatus}
-    />
-  ));
   const filterCards = () => {
     switch (status) {
       case 0:
@@ -114,6 +109,7 @@ function DecisionPage({ socket }) {
             />
           );
         });
+
       case 1:
         return currentRecords
           .filter((cardItem) => cardItem.nbStatus === 1)
@@ -208,7 +204,7 @@ function DecisionPage({ socket }) {
           );
         });
       default:
-        return cardMap;
+        return null;
     }
   };
   const getAllbuttons = () => {

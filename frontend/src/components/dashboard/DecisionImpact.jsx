@@ -10,6 +10,7 @@ import "./Decisionimpact.css";
 export default function Decisionimpact() {
   const { auth } = useContext(authContext);
   const [sixDecisions, setSixDecisions] = useState([]);
+  const impacts = true;
 
   const getSixDecisions = () => {
     api
@@ -48,7 +49,7 @@ export default function Decisionimpact() {
           {cardMap}
         </div>
       </div>
-      <Link to="/decisiondash">
+      <Link to="/decisiondash" state={{ impact: impacts }}>
         <div className="voirButton">
           {" "}
           <h3 style={{ color: "#346a82" }}>Voir Plus</h3>
