@@ -24,8 +24,8 @@ export default function PostDecision() {
   const [shownAvis, setShownAvis] = useState(true);
   const { nbdec } = useParams();
 
-  const getDecision = () => {
-    api
+  const getDecision = async () => {
+    await api
       .get(`decision/user/${nbdec}`)
       .then((response) => setInfo(response.data))
       .catch((err) => err.response);
