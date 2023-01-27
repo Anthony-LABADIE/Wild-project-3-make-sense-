@@ -4,29 +4,41 @@
   height: 8vh;
   background-color: white;
 }
-
-.profilMenu p {
-  margin-left: 0.8vw;
+.profilMenu__p {
+  text-align: center;
   color: black;
   font-size: 1em;
+  width: auto;
 }
 
-#btn-logout {
-  width: 0vw;
-  font-size: 1em;
+.profilMenu__p:hover {
+  color: white;
+  background-color: #367787;
+}
+.btn-logout {
+  text-align: center;
   color: black;
+  font-size: 1em;
+  width: auto;
   background-color: transparent;
-  border: none;
+  cursor: pointer;
+}
+.btn-logout:hover {
+  color: white;
+  background-color: #367787;
+  cursor: pointer;
 }
 .dropdown-menu {
   position: absolute;
   top: 8vh;
   left: 90vw;
-  width: 8.9vw;
-  height: 14vh;
+  width: 7vw;
+  height: 10vh;
   background-color: white;
   font-size: small;
   z-index: 1;
+  border-radius: 10px;
+  border: 1px solid;
 }
 
 .pictureProfil {
@@ -184,8 +196,8 @@ h4 {
   height: 1vh;
   width: 1vh;
   position: relative;
-  top: -2.5vh;
-  left: 14.5vw;
+  top: -3vh;
+  left: 13vw;
 }
 
 .profil {

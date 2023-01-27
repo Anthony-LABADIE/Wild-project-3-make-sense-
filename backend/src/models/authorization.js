@@ -15,6 +15,26 @@ const findOne = (id) => {
     .then(([res]) => res);
 };
 
+const findAuthoByDecision = (id) => {
+  return database
+    .promise()
+    .query(
+      "SELECT us1.image, us1.lastname, us1.firstname, authorization.id_decision FROM decision INNER JOIN authorization ON decision.id = authorization.id_decision INNER JOIN user AS us1 ON us1.id = authorization.id_user WHERE authorization.id_decision = ? and authorization.is_expert = ?;",
+      [id, false]
+    )
+    .then(([res]) => res);
+};
+
+const findAuthoByExpert = (id) => {
+  return database
+    .promise()
+    .query(
+      "SELECT us1.image, us1.lastname, us1.firstname, authorization.id_decision FROM decision INNER JOIN authorization ON decision.id = authorization.id_decision INNER JOIN user AS us1 ON us1.id = authorization.id_user WHERE authorization.id_decision = ? and authorization.is_expert = ?;",
+      [id, true]
+    )
+    .then(([res]) => res);
+};
+
 const createOne = (payload) => {
   return database
     .promise()
@@ -47,5 +67,7 @@ module.exports = {
   findOne,
   deleteOne,
   putOne,
+  findAuthoByDecision,
+  findAuthoByExpert,
   putNotif,
 };

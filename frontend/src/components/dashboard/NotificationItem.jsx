@@ -25,13 +25,13 @@ function NotificationItem({
         onClick={updateNotif}
         role="presentation"
       >
-        <h2 className="notifTitle" style={{ textDecoration: "none" }}>
-          {title}
-        </h2>
         <div className="notifuser">
           <img id="notifimage" src={image || profil} alt="imgprofile" />
           par {lastname} {firstname}
         </div>
+        <h2 className="notifTitle" style={{ textDecoration: "none" }}>
+          {title}
+        </h2>
       </div>
     </Link>
   );
