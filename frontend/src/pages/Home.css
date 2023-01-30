@@ -9,6 +9,10 @@
   font-family: "Raleway", sans-serif;
 }
 
+.homePage {
+  background-color: rgba(51, 105, 129, 11%);
+}
+
 .App-header h2 {
   color: white;
   font-size: 4em;
