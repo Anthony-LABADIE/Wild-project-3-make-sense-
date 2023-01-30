@@ -26,7 +26,7 @@ export default function Decisionimpact() {
 
   const cardMap = sixDecisions.map((cardItem) => (
     <CardsItem
-      nbdec={cardItem.id}
+      nbdec={cardItem.nbdec}
       status={cardItem.status}
       title={cardItem.title}
       lastname={cardItem.lastname}
