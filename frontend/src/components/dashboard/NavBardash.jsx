@@ -33,8 +33,8 @@ function NavBar({ profileImage, socket }) {
     setDropMenu(!dropMenu);
   };
 
-  const loadNotifcation = () => {
-    api
+  const loadNotifcation = async () => {
+    await api
       .get(`decision/authorization/user/notification/${auth.data.id}`)
       .then((res) => {
         setNotif(res.data);
@@ -150,7 +150,7 @@ function NavBar({ profileImage, socket }) {
                 role="presentation"
               />
               <h4>notifications</h4>
-              <div className="counter"> {notif[0].notification}</div>
+              {/* <div className="counter"> {notif[0].notification}</div> */}
             </div>
 
             <div className="message">

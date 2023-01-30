@@ -40,41 +40,30 @@
   color: white;
 }
 
-p.one {
+.one {
   color: white;
   grid-area: 1 / 1;
   margin-left: 12.5%;
   height: 80%;
   font-size: 0.8em;
+  display: flex;
 }
-p.two {
-  color: white;
-  grid-area: 1 / 1;
-  margin-left: 25%;
-  height: 80%;
-  font-size: 0.8em;
+.two {
+  margin-right: 8%;
 }
-p.three {
-  color: white;
-  grid-area: 1 / 1;
-  margin-left: 37%;
-  height: 80%;
-  font-size: 0.8em;
+.three {
+ margin-top: 1.4vh;
+ margin-left: -2%;
+ display: flex;
+color:  white;
+ width: 38vw;
+ gap: 2.9vw;
 }
-p.four {
-  color: white;
-  grid-area: 1 / 1;
-  margin-left: 49%;
-  height: 80%;
-  font-size: 0.8em;
+.four {
+  width: 8vw;
+text-align: center;
 }
-p.five {
-  color: white;
-  grid-area: 1 / 1;
-  margin-left: 61%;
-  height: 80%;
-  font-size: 0.8em;
-}
+
 
 p.six {
   color: white;

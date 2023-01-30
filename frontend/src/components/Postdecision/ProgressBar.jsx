@@ -2,8 +2,19 @@
 import React from "react";
 import "./ProgressBar.css";
 import PropTypes from "prop-types";
+import Dates from "./Dates";
+import WordTop from "./WordTop";
 
 function ProgressBar({ statut, postedDate, deadline }) {
+  const dateArray = [];
+  const statutArrayTop = [
+    "Début de décision",
+    "Fin des avis",
+    "1ère décision prise",
+    "Fin des conflits",
+    "Décision définitive",
+  ];
+
   const statutCount = statut;
   let statutBar = "one";
   switch (true) {
@@ -31,6 +42,7 @@ function ProgressBar({ statut, postedDate, deadline }) {
   const four = days_Diff / 4;
 
   const formatednewdateone = b.toLocaleDateString("fr");
+  dateArray.push(formatednewdateone);
 
   function addDaysToDate(date, days) {
     const res = new Date(date);
@@ -40,43 +52,34 @@ function ProgressBar({ statut, postedDate, deadline }) {
 
   const newdate = addDaysToDate(b, four);
   const formatednewdatetwo = newdate.toLocaleDateString("fr");
+  dateArray.push(formatednewdatetwo);
 
   const height = four * 2;
   const newdatethree = addDaysToDate(b, height);
   const formatednewdatethree = newdatethree.toLocaleDateString("fr");
+  dateArray.push(formatednewdatethree);
 
   const ten = four * 3;
   const newdatefour = addDaysToDate(b, ten);
   const formatednewdatefour = newdatefour.toLocaleDateString("fr");
+  dateArray.push(formatednewdatefour);
 
   const formatednewdatefive = a.toLocaleDateString("fr");
+  dateArray.push(formatednewdatefive);
+
+  const dateArrayMap = dateArray.map((date) => <Dates date={date} />);
+  const statutArrayTopMap = statutArrayTop.map((word) => (
+    <WordTop word={word} />
+  ));
 
   return (
     <div className="progressBar">
       <div className="NavList">
-        <p className="one">{formatednewdateone}</p>
-        <p className="two">{formatednewdatetwo}</p>
-        <p className="three">{formatednewdatethree}</p>
-        <p className="four">{formatednewdatefour}</p>
-        <p className="five">{formatednewdatefive}</p>
+        <div className="one">{dateArrayMap}</div>
         <div className="barProgress">
           <div className="color" style={{ width: statutBar }} />
-        </div>{" "}
-        <p className="six">
-          Début <br /> de décision
-        </p>
-        <p className="seven">
-          Fin <br /> des avis
-        </p>
-        <p className="height">
-          1ère décision <br /> prise
-        </p>
-        <p className="nine">
-          Fin des <br /> conflit
-        </p>
-        <p className="ten">
-          Décision <br /> définitif
-        </p>
+          <div className="three">{statutArrayTopMap}</div>
+        </div>
       </div>
     </div>
   );
