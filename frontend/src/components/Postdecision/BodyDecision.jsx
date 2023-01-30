@@ -3,7 +3,14 @@ import { useState } from "react";
 import dataMenu from "../../tools/dataMenu";
 import "./NavBarDecision.css";
 
-export default function BodyDecision({ info, shown, notice, conflit }) {
+export default function BodyDecision({
+  info,
+  shown,
+  notice,
+  conflit,
+  firstdecision,
+  finalDecision,
+}) {
   const infoContent = info[0].content;
   const infoContexte = info[0].contexte;
   const infoProfit = info[0].profit;
@@ -32,6 +39,22 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
         </h4>
       </div>
     ));
+  };
+
+  const getFirstdecision = () => {
+    return (
+      <div>
+        <p> {firstdecision.content}</p>
+      </div>
+    );
+  };
+
+  const getFinaldecision = () => {
+    return (
+      <div>
+        <p> {finalDecision.content}</p>
+      </div>
+    );
   };
 
   const handleClick = (e) => {
@@ -70,7 +93,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
 
         break;
       case "7":
-        setInfotext(getAllAvis);
+        setInfotext(getFirstdecision);
         setNumberClicked(7);
 
         break;
@@ -80,7 +103,7 @@ export default function BodyDecision({ info, shown, notice, conflit }) {
 
         break;
       case "9":
-        setInfotext(getAllAvis);
+        setInfotext(getFinaldecision);
         setNumberClicked(9);
 
         break;
@@ -123,4 +146,6 @@ BodyDecision.propTypes = {
   shown: PropTypes.string.isRequired,
   notice: PropTypes.string.isRequired,
   conflit: PropTypes.string.isRequired,
+  firstdecision: PropTypes.string.isRequired,
+  finalDecision: PropTypes.string.isRequired,
 };

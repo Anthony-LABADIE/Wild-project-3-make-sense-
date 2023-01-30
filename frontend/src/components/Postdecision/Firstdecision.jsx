@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import PropTypes from "prop-types";
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +9,7 @@ import "./TextEditor.css";
 function Firstdecision({ hideFirst, nbdec }) {
   const [firstdecision, setFirstdecision] = useState({});
   const [content, setContent] = useState();
+  const id_status = 2;
 
   const navigate = useNavigate();
   const { auth } = useContext(authContext);
@@ -25,19 +27,32 @@ function Firstdecision({ hideFirst, nbdec }) {
     });
   };
 
+  const handleChangeStatus = () => {
+    api
+      .put(`decision/${nbdec}`, { id_status })
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/dashboard");
+        }
+      })
+      .catch((err) => err.response);
+  };
+
   const handleSubmitConnexion = (e) => {
     e.preventDefault();
     if (firstdecision) {
       api
         .post("firstdecsion", firstdecision)
         .then((res) => {
-          if (res.status === 200) {
+          if (res.status === 201) {
             navigate("/dashboard");
           }
         })
         .catch((err) => err.response);
     }
+    handleChangeStatus();
   };
+
   return (
     <div style={{ display: hideFirst ? "none" : "block" }}>
       <h1 className="avis">Première decision : Make Sense France </h1>
@@ -45,6 +60,7 @@ function Firstdecision({ hideFirst, nbdec }) {
       <textarea
         className="editorr"
         contentEditable="true"
+        suppressContentEditableWarning="true"
         onChange={handleChange}
         type="input"
         id="text-editor"

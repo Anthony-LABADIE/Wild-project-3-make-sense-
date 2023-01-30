@@ -9,7 +9,10 @@ const findAll = () => {
 const findOne = (id) => {
   return db
     .promise()
-    .query("SELECT * FROM finaldecision WHERE id = ?", [Number(id)])
+    .query(
+      "SELECT finaldecision.content FROM finaldecision  WHERE finaldecision.id_decision = ?",
+      [Number(id)]
+    )
     .then(([res]) => res);
 };
 const createOne = (payload) => {

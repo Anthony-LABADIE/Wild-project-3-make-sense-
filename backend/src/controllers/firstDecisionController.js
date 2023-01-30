@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const firstdecisionModel = require("../models/firstDecision");
 
 const firstdecisionController = {
@@ -29,9 +30,11 @@ const firstdecisionController = {
   },
 
   postFirstDecision: (req, res) => {
-    const { content } = req.body;
+    const { id_decision, id_user, content } = req.body;
     firstdecisionModel
       .createOne({
+        id_decision,
+        id_user,
         content,
       })
       .then((result) =>
