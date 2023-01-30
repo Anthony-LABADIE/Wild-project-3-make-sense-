@@ -19,7 +19,6 @@ export default function BodyDecision({
 
   const [infoText, setInfotext] = useState("");
   const [numberClicked, setNumberClicked] = useState(false);
-
   const getAllAvis = () => {
     return notice.map((avis) => (
       <div>
@@ -62,31 +61,28 @@ export default function BodyDecision({
     switch (e.target.id) {
       case "1":
         setInfotext(infoContent);
-
         setNumberClicked(1);
 
         break;
       case "2":
         setInfotext(infoContexte);
-
         setNumberClicked(2);
 
         break;
       case "3":
         setInfotext(infoProfit);
-
         setNumberClicked(3);
 
         break;
       case "4":
         setInfotext(infoUsefullness);
-
         setNumberClicked(4);
 
         break;
 
       case "5":
         setInfotext(infoInconvenience);
+        setNumberClicked(5);
 
         setNumberClicked(5);
         break;

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@500;700&display=swap");
+
 .containerDecision {
   display: grid;
   grid-template-columns: 6fr 1fr;
@@ -12,6 +14,17 @@
   display: flex;
   padding-left: 2vw;
   background-color: #346a82;
+}
+
+.navbardecision h2 {
+  color: white;
+  width: 100%;
+  padding-top: 1%;
+}
+.navbardecision h3 {
+  color: white;
+  width: 100%;
+  padding-top: 1%;
 }
 
 .navbardecision h2 {
@@ -55,13 +68,6 @@
   width: 100%;
 }
 
-.textMenubar {
-  text-align: center;
-  font-size: 1.7em;
-  margin-top: 4vh;
-  margin-bottom: 5vh;
-}
-
 .scrollImage {
   display: flex;
   align-items: center;
@@ -89,19 +95,22 @@
   align-items: center;
   height: 100%;
   row-gap: 0;
+  background-color: white;
 }
 
 .textBody {
-  height: 60vh;
-  width: 40vw;
-  background-color: white;
+  height: 45vh;
+  width: 45vw;
+  background-color: rgba(51, 105, 129, 11%);
   border: solid 1px black;
-  margin-top: 5vh;
-  display: flex;
-  justify-content: center;
-  margin-left: 50vh;
-  overflow-y: scroll;
+  margin-top: 6vh;
+  margin-left: 30vh;
+  border-radius: 10px;
+  padding: 4%;
+  text-align: left;
 }
+
+
 
 .menuBody {
   display: flex;
@@ -139,7 +148,45 @@
 }
 
 .btn-avis {
-  margin-top: 20vh;
+  border-radius: 5px;
+  background-color: #346a82;
+  color: white;
+  height: 40px;
+  padding: 11px;
+  width: 150px;
+  margin-top: 10%;
+  border: none;
+  cursor: pointer;
+}
+
+.expertList {
+  text-align: center;
+  font-size: 1em;
+  margin-top: 1vh;
+  margin-bottom: 5vh;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+
+.impactList {
+  text-align: center;
+  font-size: 1em;
+  margin-top: 18vh;
+  margin-bottom: 5vh;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+
+.btn-Decision {
+  border-radius: 5px;
+  background-color: #346a82;
+  color: white;
+  height: 45px;
+  width: 180px;
+  padding: 2px;
+  margin-top: 45%;
+  border: none;
+  cursor: pointer;
 }
 
 .popupOn {
@@ -227,8 +274,8 @@
 }
 
 .popupOnExpert img {
-  width: 4vw;
-  height: 6vh;
+  width: 2.5vw;
+  height: 2.5vw;
   border-radius: 50%;
   padding-right: 0.2vw;
 }

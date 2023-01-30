@@ -5,11 +5,6 @@ const AuthorisationUserDecisionRouter = express.Router();
 const authorizationDecisionUserController = require("../controllers/authorizationDecisionUserController");
 
 AuthorisationUserDecisionRouter.get(
-  "/:id",
-  authorizationDecisionUserController.getDecisionUser
-);
-
-AuthorisationUserDecisionRouter.get(
   "/notification/:id",
   authorizationDecisionUserController.countDecision
 );
@@ -27,6 +22,11 @@ AuthorisationUserDecisionRouter.get(
 AuthorisationUserDecisionRouter.get(
   "/notification/detail/:id",
   authorizationDecisionUserController.getDecisionUserNotif
+);
+
+AuthorisationUserDecisionRouter.get(
+  "/:id",
+  authorizationDecisionUserController.getDecisionUser
 );
 
 module.exports = AuthorisationUserDecisionRouter;
