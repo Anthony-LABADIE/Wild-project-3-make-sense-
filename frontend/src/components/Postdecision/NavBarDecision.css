@@ -235,7 +235,8 @@
 
 .notifuser {
   display: flex;
-  width: 20vw;
+  gap: 1vw;
+  width: 25vw;
 }
 
 #notifimage {
@@ -246,10 +247,12 @@
 
 .notifTitle {
   font-size: small;
+  text-align: center;
 }
 
 .menuNotif {
   display: flex;
+  flex-direction: column;
   position: absolute;
   left: 63vw;
   width: 30vw;
@@ -274,21 +277,27 @@
 .menuNotif::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #d62929;
+  background-color: #0c3944;
 }
 
 .notifItem {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   border-radius: 30px;
   background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 6px;
 }
 .notifItem:hover {
   display: flex;
   justify-content: space-around;
   border-radius: 30px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: #e7e7e7;
 }
 .linkNotif {
   display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 0.5em;
 }
