@@ -18,7 +18,7 @@ function NotificationItem({
       .then((response) => response.status === 200);
   };
   return (
-    <Link to={`/dashboard/decision/${nbdec}`}>
+    <Link className="linkNotif" to={`/dashboard/decision/${nbdec}`}>
       <div
         className="notifItem"
         style={{ textDecoration: "none" }}
@@ -27,7 +27,7 @@ function NotificationItem({
       >
         <div className="notifuser">
           <img id="notifimage" src={image || profil} alt="imgprofile" />
-          par {lastname} {firstname}
+          {lastname} {firstname} vous a notifié dans la décision : &nbsp;
         </div>
         <h2 className="notifTitle" style={{ textDecoration: "none" }}>
           {title}

@@ -23,6 +23,7 @@ function NavBar({ profileImage, socket }) {
   const [dropMenu, setDropMenu] = useState(true);
   const [dropNotif, setDropNotif] = useState(true);
   const [admin, setAdmin] = useState(false);
+  const [detailNotif, setDetailNotif] = useState([]);
   const navigate = useNavigate();
   const displayAdmin = () => {
     if (auth.data.is_admin === 1) setAdmin(true);
@@ -32,9 +33,6 @@ function NavBar({ profileImage, socket }) {
     setDropMenu(!dropMenu);
   };
 
-  const handleNotif = () => {
-    setDropNotif(!dropNotif);
-  };
   const loadNotifcation = () => {
     api
       .get(`decision/authorization/user/notification/${auth.data.id}`)
@@ -97,7 +95,26 @@ function NavBar({ profileImage, socket }) {
       .catch((err) => err.response);
     logout();
   };
+  const getAllDecision = () => {
+    api
+      .get(`decision/authorization/user/notification/detail/${auth.data.id}`, {
+        withCredentials: true,
+      })
+      .then((response) => setDetailNotif(response.data))
+      .catch((err) => err.response);
+  };
 
+  const handleClickNotif = () => {
+    getAllDecision(() => {
+      if (dropNotif === true) getAllDecision();
+      else;
+      if (dropNotif === false);
+    });
+  };
+  const handleNotif = () => {
+    setDropNotif(!dropNotif);
+    handleClickNotif();
+  };
   return (
     <div>
       <nav id="navbar">
@@ -189,7 +206,7 @@ function NavBar({ profileImage, socket }) {
             <p>Déconnexion</p>
           </div>
         </div>
-        <MemuNotification dropNotif={dropNotif} />
+        <MemuNotification dropNotif={dropNotif} detailNotif={detailNotif} />
       </nav>
     </div>
   );
