@@ -8,7 +8,6 @@ export const authContext = createContext({});
 function AuthProvider({ children }) {
   const [auth, setAuth] = useState({ data: null });
   const [notif, setNotif] = useState();
-  const [userSocketIo, setUserSocketIo] = useState({});
   const navigate = useNavigate();
   const login = (data) => {
     setAuth({ data });
@@ -43,10 +42,8 @@ function AuthProvider({ children }) {
       logout,
       notif,
       setNotif,
-      userSocketIo,
-      setUserSocketIo,
     }),
-    [auth, userSocketIo]
+    [auth]
   );
 
   const valueNotif = () => ({

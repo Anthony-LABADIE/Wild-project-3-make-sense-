@@ -99,11 +99,11 @@ const decisionController = {
         res.sendStatus(500);
       });
   },
-  updateDecision: (req, res) => {
+  updateDecision: async (req, res) => {
     const { id } = req.params;
-    const decisionData = req.body;
+    const { id_status } = req.body;
     decisionModel
-      .updateOne(decisionData, id)
+      .updateOne(id_status, id)
       .then((decision) => res.send(decision))
       .catch((err) => {
         console.error(err);

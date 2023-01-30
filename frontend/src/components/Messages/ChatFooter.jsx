@@ -9,6 +9,7 @@ function ChatFooter({ socket }) {
   const handleSendMessage = (e) => {
     e.preventDefault();
     socket.emit("sendMessage", {
+      image: auth.data.image,
       userName: auth.data.lastname,
       socketID: socket.id,
       message,
@@ -21,7 +22,7 @@ function ChatFooter({ socket }) {
         <input
           type="text"
           placeholder="Write message"
-          className="message__footer"
+          className="message__footer__input"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />

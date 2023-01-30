@@ -37,17 +37,21 @@ function ChatBody({ socket }) {
               </div>
             </div>
           ) : (
-            <div className="message__chats">
-              <p>{message.userName}</p>
+            <div className="message__chats__r">
+              <div>
+                <img
+                  className="message__chat__image"
+                  src={message.image}
+                  alt="img_profil"
+                />
+              </div>
+              <p>{message.username}</p>
               <div className="message__recipient">
                 <p>{message.message}</p>
               </div>
             </div>
           )
         )}
-        <div className="message__status">
-          <p>Someone is typing...</p>
-        </div>
       </div>
     </>
   );

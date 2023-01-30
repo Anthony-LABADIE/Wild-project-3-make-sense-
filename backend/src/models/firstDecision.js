@@ -10,7 +10,10 @@ const findAll = () => {
 const findOne = (id) => {
   return database
     .promise()
-    .query("SELECT * FROM firstdecision WHERE id = ?", [Number(id)])
+    .query(
+      "SELECT firstdecision.content, user.lastname, user.firstname FROM firstdecision INNER JOIN user ON user.id = firstdecision.id_user WHERE firstdecision.id_decision = ?",
+      [Number(id)]
+    )
     .then(([res]) => res);
 };
 

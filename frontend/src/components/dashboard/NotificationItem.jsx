@@ -18,20 +18,20 @@ function NotificationItem({
       .then((response) => response.status === 200);
   };
   return (
-    <Link to={`/dashboard/decision/${nbdec}`}>
+    <Link className="linkNotif" to={`/dashboard/decision/${nbdec}`}>
       <div
         className="notifItem"
         style={{ textDecoration: "none" }}
         onClick={updateNotif}
         role="presentation"
       >
+        <div className="notifuser">
+          <img id="notifimage" src={image || profil} alt="imgprofile" />
+          {lastname} {firstname} vous a notifié dans la décision : &nbsp;
+        </div>
         <h2 className="notifTitle" style={{ textDecoration: "none" }}>
           {title}
         </h2>
-        <div className="notifuser">
-          <img id="notifimage" src={image || profil} alt="imgprofile" />
-          par {lastname} {firstname}
-        </div>
       </div>
     </Link>
   );
