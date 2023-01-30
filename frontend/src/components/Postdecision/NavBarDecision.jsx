@@ -18,7 +18,11 @@ function NavBarDecision({ info }) {
           </h3>
         </>
       ))}
-      <ProgressBar statut={info[0].id_status} />
+      <ProgressBar
+        statut={info[0].id_status}
+        postedDate={info[0].date_posted}
+        deadline={info[0].deadline}
+      />
     </div>
   );
 }
