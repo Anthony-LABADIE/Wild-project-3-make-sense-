@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Transition from "./Transition";
 import AuthProvider from "./hooks/authContext";
-
 import "./App.css";
 
 function App() {
