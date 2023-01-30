@@ -47,17 +47,22 @@
   height: 80%;
   font-size: 0.8em;
   display: flex;
+  width: 38vw;
+  gap: 2.9vw;
+  padding-top: 1vh;
 }
 .two {
-  margin-right: 8%;
+  width: 8vw;
+  text-align: center;
 }
 .three {
- margin-top: 1.4vh;
- margin-left: -2%;
+ margin-left: 12.5%;
  display: flex;
 color:  white;
  width: 38vw;
  gap: 2.9vw;
+ font-size: 0.8em;
+ padding-bottom: 2vh;
 }
 .four {
   width: 8vw;
@@ -115,7 +120,8 @@ p.ten {
   border-radius: 15px;
   margin-left: 14.5%;
   background-color: white;
-  margin-bottom: 1em;
+
+  margin-top: 3vh;
 }
 .barProgress .color {
   position: absolute;

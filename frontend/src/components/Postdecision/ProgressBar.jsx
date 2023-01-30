@@ -78,8 +78,8 @@ function ProgressBar({ statut, postedDate, deadline }) {
         <div className="one">{dateArrayMap}</div>
         <div className="barProgress">
           <div className="color" style={{ width: statutBar }} />
-          <div className="three">{statutArrayTopMap}</div>
         </div>
+        <div className="three">{statutArrayTopMap}</div>
       </div>
     </div>
   );
