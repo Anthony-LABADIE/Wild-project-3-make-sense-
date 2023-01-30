@@ -40,41 +40,35 @@
   color: white;
 }
 
-p.one {
+.one {
   color: white;
   grid-area: 1 / 1;
   margin-left: 12.5%;
   height: 80%;
   font-size: 0.8em;
+  display: flex;
+  width: 38vw;
+  gap: 2.9vw;
+  padding-top: 1vh;
 }
-p.two {
-  color: white;
-  grid-area: 1 / 1;
-  margin-left: 25%;
-  height: 80%;
-  font-size: 0.8em;
+.two {
+  width: 8vw;
+  text-align: center;
 }
-p.three {
-  color: white;
-  grid-area: 1 / 1;
-  margin-left: 37%;
-  height: 80%;
-  font-size: 0.8em;
+.three {
+ margin-left: 12.5%;
+ display: flex;
+color:  white;
+ width: 38vw;
+ gap: 2.9vw;
+ font-size: 0.8em;
+ padding-bottom: 2vh;
 }
-p.four {
-  color: white;
-  grid-area: 1 / 1;
-  margin-left: 49%;
-  height: 80%;
-  font-size: 0.8em;
+.four {
+  width: 8vw;
+text-align: center;
 }
-p.five {
-  color: white;
-  grid-area: 1 / 1;
-  margin-left: 61%;
-  height: 80%;
-  font-size: 0.8em;
-}
+
 
 p.six {
   color: white;
@@ -126,7 +120,8 @@ p.ten {
   border-radius: 15px;
   margin-left: 14.5%;
   background-color: white;
-  margin-bottom: 1em;
+
+  margin-top: 3vh;
 }
 .barProgress .color {
   position: absolute;
