@@ -84,6 +84,8 @@ function ProgressBar({ statut, postedDate, deadline }) {
 
 ProgressBar.propTypes = {
   statut: PropTypes.number.isRequired,
+  postedDate: PropTypes.string.isRequired,
+  deadline: PropTypes.string.isRequired,
 };
 
 export default ProgressBar;
