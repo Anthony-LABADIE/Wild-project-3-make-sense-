@@ -11,18 +11,17 @@
   position: fixed;
 }
 
-#polygon4{
-  width : 20vh;
-  height : 20vh;
+#polygon4 {
+  width: 20vh;
+  height: 20vh;
   margin-left: 130%;
   transform: rotate(10deg);
 }
 
-#logo{
-  width : 70vh;
-  height : 10vh;
+#logo {
+  width: 70vh;
+  height: 10vh;
   margin-left: 10%;
-
 }
 
 #logoValidationconnexion {
@@ -42,11 +41,10 @@
 }
 
 .form-connexion {
-margin-bottom: 40%;
+  margin-bottom: 40%;
   height: 40vh;
   width: 40vw;
   border-radius: 15px;
-
 }
 
 .form-connexion h2 {
@@ -55,8 +53,8 @@ margin-bottom: 40%;
   display: flex;
   justify-content: center;
   font-family: "Raleway", sans-serif;
-  font-weight:  bold;
-  font-size:xx-large;
+  font-weight: bold;
+  font-size: xx-large;
 }
 
 #lastname {
@@ -79,7 +77,6 @@ margin-bottom: 40%;
   align-items: center;
   justify-content: center;
   font-family: "Raleway", sans-serif;
-
 }
 
 #mail p {
@@ -94,7 +91,6 @@ margin-bottom: 40%;
   font-family: "Raleway", sans-serif;
   border-radius: 15px;
   width: 80%;
-
 }
 #password {
   grid-area: 4 / 1 / 5 / 3;
@@ -104,7 +100,6 @@ margin-bottom: 40%;
   align-items: center;
   justify-content: center;
   font-family: "Raleway", sans-serif;
-
 }
 
 #btn-visibility {
@@ -128,20 +123,19 @@ margin-bottom: 40%;
   border-radius: 15px;
   padding: 12px 0px;
   width: 80%;
-
 }
 
 #btn-inscription {
   grid-area: 5 / 1 / 6 / 3;
-  border-radius: 15px ;
+  border-radius: 15px;
   background-color: #346a82;
   color: white;
   font-family: "Raleway", sans-serif;
   width: 80%;
   padding: 12px 0px;
-margin-left: 10%;
-cursor: pointer;
-margin-top: 10px;
+  margin-left: 10%;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 #termes {
