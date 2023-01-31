@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@500&display=swap");
+
 .form {
   grid-area: 2 / 2 / 3 / 3;
   display: grid;
@@ -11,16 +13,16 @@
 
 #logoValidation {
   position: relative;
-  top: -2.8vh;
-  left: 19vw;
-  width: 1.3vw;
+  top: -5vh;
+  left: 18.3vw;
+  width: 2vw;
 }
 
 #btn-visibility-inscription {
   position: relative;
-  top: -2.8vh;
-  left: 19vw;
-  width: 1.3vw;
+  top: -5vh;
+  left: 18.3vw;
+  width: 2vw;
 }
 
 .form h2 {
@@ -33,42 +35,45 @@
 
 #lastname {
   grid-area: 2 / 1 / 3 / 2;
-  border-radius: 5px solid transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: "Raleway", sans-serif;
+  border-radius: 15px;
 }
 
 #lastnameConnexion {
   width: 96%;
+  border-radius: 15px;
   font-family: "Raleway", sans-serif;
 }
 
 #firstname {
   grid-area: 2 / 2 / 3 / 3;
-  border-radius: 5px solid transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: "Raleway", sans-serif;
+  border-radius: 15px;
 }
 
 #firstnameConnexion {
-  width: 96%;
+  width: 100%;
+  border-radius: 15px;
   font-family: "Raleway", sans-serif;
 }
 
 #mail {
   grid-area: 3 / 1 / 4 / 3;
-  border-radius: 5px solid transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: "Raleway", sans-serif;
+  border-radius: 15px;
+  
 }
 
 #mail h4 {
@@ -81,16 +86,19 @@
 
 #email {
   width: 98%;
+  border-radius: 15px;
   font-family: "Raleway", sans-serif;
 }
+
+
 #password {
   grid-area: 4 / 1 / 5 / 3;
-  border-radius: 5px solid transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: "Raleway", sans-serif;
+  border-radius: 15px;
 }
 
 #password p {
@@ -104,6 +112,7 @@
 #pass {
   width: 98%;
   font-family: "Raleway", sans-serif;
+  border-radius: 15px;
 }
 
 #message {
@@ -144,13 +153,17 @@
 }
 
 #passwordConnexion {
-  width: 98%;
+  width: 95%;
   font-family: "Raleway", sans-serif;
+  border-radius: 15px;
+  padding: 12px;
 }
 
 #emailConnexion {
-  width: 98%;
+  width: 95%;
   font-family: "Raleway", sans-serif;
+  border-radius: 15px;
+  padding: 12px;
 }
 
 @media screen and (max-width: 500px) {

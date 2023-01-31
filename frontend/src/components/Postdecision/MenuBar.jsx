@@ -134,7 +134,7 @@ export default function MenuBar({
   }, [nbdec]);
   return (
     <div className="menubar">
-      <div className="textMenubar">PERSONNES IMPACTEES</div>
+      <div className="impactList">PERSONNES IMPACTEES</div>
 
       <div id="imageImpacted" />
 
@@ -142,7 +142,7 @@ export default function MenuBar({
       <div className={popup ? "popupOn" : "popupOff"}>
         {impactedPeopleMapPopup}
       </div>
-      <div className="textMenubar">PERSONNES EXPERTES</div>
+      <div className="expertList">PERSONNES EXPERTES</div>
       <div id="imageImpactedExpert" />
       <div className="scrollImage">{impactedExpertMap}</div>
       <div className={popupExpert ? "popupOnExpert" : "popupOff"}>
@@ -172,7 +172,7 @@ export default function MenuBar({
       </button>
       <button
         style={{ display: shownButtonFirst ? "block" : "none" }}
-        className="btn-conflit"
+        className="btn-Decision"
         type="button"
         onClick={() => {
           handleFisrt();
@@ -183,7 +183,7 @@ export default function MenuBar({
       </button>
       <button
         style={{ display: shownButtonFinal ? "block" : "none" }}
-        className="btn-conflit"
+        className="btn-Decision"
         type="button"
         onClick={() => {
           handleFinal();

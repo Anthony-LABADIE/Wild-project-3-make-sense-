@@ -6,7 +6,7 @@ import Footer from "../components/Home/Footer";
 
 export default function Home() {
   return (
-    <div>
+    <div className="homePage">
       <NavBar />
       <header className="App-header">
         <h2> PRENONS DES DECISIONS </h2>

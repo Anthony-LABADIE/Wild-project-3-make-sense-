@@ -150,7 +150,14 @@ function NavBar({ profileImage, socket }) {
                 role="presentation"
               />
               <h4>notifications</h4>
-              {/* <div className="counter"> {notif[0].notification}</div> */}
+              <div
+                className={
+                  notif[0].notification === 0 ? "counternone" : "counter"
+                }
+              >
+                {" "}
+                {notif[0].notification}
+              </div>
             </div>
 
             <div className="message">

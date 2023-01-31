@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import good from "../../assets/img/good.png";
 import bad from "../../assets/img/bad.png";
 import eyes from "../../assets/img/oeil.png";
+import polygon4 from "../../assets/img/Polygon4.png";
+import logo from "../../assets/img/logo.png";
+
 import eyesInvisibles from "../../assets/img/oeilcache.png";
 import api from "../../services/api";
 import { authContext } from "../../hooks/authContext";
@@ -50,47 +53,52 @@ export default function FormInscription() {
     }
   };
   return (
-    <form className="form-connexion" onSubmit={handleSubmit}>
-      <h2>CONNEXION</h2>
-      <div id="mail">
-        <input
-          type="text"
-          id="email"
-          name="mail"
-          placeholder="adresse mail"
-          value={email}
-          onChange={emailValidation}
-          required="required"
-        />
-        <img
-          id="logoValidationconnexion"
-          src={logoValide ? good : bad}
-          alt="validation"
-        />
-      </div>
+    <div className="connexion-page">
+      <img src={polygon4} alt="polygon4" id="polygon4" />
+      <img src={logo} alt="logo" id="logo" />
 
-      <div id="password">
-        <input
-          type={passwordVisibility ? "teste" : "password"}
-          name="password"
-          id="pass"
-          placeholder="mot de passe"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required="required"
-        />
-        <img
-          id="btn-visibility"
-          onClick={handleVisibility}
-          src={passwordVisibility ? eyesInvisibles : eyes}
-          role="presentation"
-          alt="oeil"
-        />
-      </div>
+      <form className="form-connexion" onSubmit={handleSubmit}>
+        <h2>Connexion à Makesense</h2>
+        <div id="mail">
+          <input
+            type="text"
+            id="email"
+            name="mail"
+            placeholder="adresse mail"
+            value={email}
+            onChange={emailValidation}
+            required="required"
+          />
+          <img
+            id="logoValidationconnexion"
+            src={logoValide ? good : bad}
+            alt="validation"
+          />
+        </div>
 
-      <button type="submit" id="btn-inscription" value="Login">
-        Connexion
-      </button>
-    </form>
+        <div id="password">
+          <input
+            type={passwordVisibility ? "teste" : "password"}
+            name="password"
+            id="pass"
+            placeholder="mot de passe"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required="required"
+          />
+          <img
+            id="btn-visibility"
+            onClick={handleVisibility}
+            src={passwordVisibility ? eyesInvisibles : eyes}
+            role="presentation"
+            alt="oeil"
+          />
+        </div>
+
+        <button type="submit" id="btn-inscription" value="Login">
+          Connexion
+        </button>
+      </form>
+    </div>
   );
 }
