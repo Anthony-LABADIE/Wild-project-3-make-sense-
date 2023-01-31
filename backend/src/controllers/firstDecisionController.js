@@ -2,31 +2,12 @@
 const firstdecisionModel = require("../models/firstDecision");
 
 const firstdecisionController = {
-  getAllFirstDecision: (_, res) => {
-    firstdecisionModel
-      .findAll()
-      .then((firstdecision) => res.send(firstdecision))
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
-  },
-
-  getOneFirstDecision: (req, res) => {
+  getAllFirstDecision: (req, res) => {
     const { id } = req.params;
     firstdecisionModel
-      .findOne(id)
-      .then((firstdecision) => {
-        if (firstdecision.length === 0) {
-          res.sendStatus(404);
-        } else {
-          res.send(firstdecision[0]);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
+      .findAll(id)
+      .then((firstDecision) => res.send(firstDecision))
+      .catch((err) => res.send(err));
   },
 
   postFirstDecision: (req, res) => {

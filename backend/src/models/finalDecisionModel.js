@@ -1,19 +1,13 @@
 const db = require("../../config");
 
-const findAll = () => {
-  return db
-    .promise()
-    .query("SELECT * FROM finaldecision")
-    .then(([decision]) => decision);
-};
-const findOne = (id) => {
+const findAll = (id) => {
   return db
     .promise()
     .query(
       "SELECT finaldecision.content FROM finaldecision  WHERE finaldecision.id_decision = ?",
-      [Number(id)]
+      [id]
     )
-    .then(([res]) => res);
+    .then(([decision]) => decision);
 };
 const createOne = (payload) => {
   return db
@@ -33,4 +27,4 @@ const updateOne = (decisionData, id) => {
     .query("UPDATE finaldecision SET ? Where id = ?", [decisionData, id])
     .then(([res]) => res);
 };
-module.exports = { findAll, findOne, createOne, updateOne, deleteOne };
+module.exports = { findAll, createOne, updateOne, deleteOne };

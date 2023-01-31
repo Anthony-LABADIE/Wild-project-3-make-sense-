@@ -4,8 +4,7 @@ const finalDecisiontRouter = express.Router();
 
 const finalDecisionControllers = require("../controllers/finalDecisionController");
 
-finalDecisiontRouter.get("/", finalDecisionControllers.getAllFinalDecision);
-finalDecisiontRouter.get("/:id", finalDecisionControllers.getOneFinalDecision);
+finalDecisiontRouter.get("/:id", finalDecisionControllers.getAllFinalDecision);
 finalDecisiontRouter.post("/", finalDecisionControllers.postFinalDecision);
 finalDecisiontRouter.delete(
   "/:id",

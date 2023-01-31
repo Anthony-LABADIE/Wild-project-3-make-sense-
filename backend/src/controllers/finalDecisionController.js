@@ -3,31 +3,14 @@
 const finalDecisionModel = require("../models/finalDecisionModel");
 
 const finalDecisionController = {
-  getAllFinalDecision: (_, res) => {
-    finalDecisionModel
-      .findAll()
-      .then((decision) => res.send(decision))
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
-  },
-  getOneFinalDecision: (req, res) => {
+  getAllFinalDecision: (req, res) => {
     const { id } = req.params;
     finalDecisionModel
-      .findOne(id)
-      .then((decision) => {
-        if (decision.length === 0) {
-          res.sendStatus(404);
-        } else {
-          res.send(decision[0]);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
+      .findAll(id)
+      .then((notice) => res.send(notice))
+      .catch((err) => res.send(err));
   },
+
   postFinalDecision: (req, res) => {
     const { id_decision, id_user, content } = req.body;
     finalDecisionModel

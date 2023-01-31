@@ -56,19 +56,18 @@
   text-align: center;
 }
 .three {
- margin-left: 12.5%;
- display: flex;
-color:  white;
- width: 38vw;
- gap: 2.9vw;
- font-size: 0.8em;
- padding-bottom: 2vh;
+  margin-left: 12.5%;
+  display: flex;
+  color: white;
+  width: 38vw;
+  gap: 2.9vw;
+  font-size: 0.8em;
+  padding-bottom: 2vh;
 }
 .four {
   width: 8vw;
-text-align: center;
+  text-align: center;
 }
-
 
 p.six {
   color: white;
