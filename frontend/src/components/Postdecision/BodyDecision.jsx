@@ -17,7 +17,7 @@ export default function BodyDecision({
   const infoUsefullness = info[0].usefullness;
   const infoInconvenience = info[0].inconvenience;
 
-  const [infoText, setInfotext] = useState("");
+  const [infoText, setInfotext] = useState(infoContent);
   const [numberClicked, setNumberClicked] = useState(false);
   const getAllAvis = () => {
     return notice.map((avis) => (
@@ -42,19 +42,19 @@ export default function BodyDecision({
   };
 
   const getFirstdecision = () => {
-    return (
+    return firstdecision.map((first) => (
       <div>
-        <p> {firstdecision.content}</p>
+        <p> {first.content}</p>
       </div>
-    );
+    ));
   };
 
   const getFinaldecision = () => {
-    return (
+    return finalDecision.map((final) => (
       <div>
-        <p> {finalDecision.content}</p>
+        <p> {final.content}</p>
       </div>
-    );
+    ));
   };
 
   const handleClick = (e) => {
