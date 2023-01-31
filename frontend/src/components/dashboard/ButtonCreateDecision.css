@@ -1,0 +1,20 @@
+.btn-decisioncreate {
+  border-radius: 5px;
+  background-color: #346a82;
+  width: 20vw;
+  height: 5vh;
+  color: white;
+  font-size: small;
+  font-style: bold;
+  border: none;
+  cursor: pointer;
+  font-family: "Raleway", sans-serif;
+}
+
+.btn-decision {
+  padding-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+  font-family: "Raleway", sans-serif;
+}

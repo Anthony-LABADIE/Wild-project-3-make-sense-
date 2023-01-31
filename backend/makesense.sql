@@ -1,4 +1,4 @@
--- Active: 1669885952503@@127.0.0.1@3306@makesense
+-- Active: 1669830684047@@127.0.0.1@3306@make_sense
 ​
 CREATE TABLE
     `Status` (
@@ -27,7 +27,12 @@ CREATE TABLE
         `lastname` varchar(100) NOT NULL,
         `firstname` varchar(100) NOT NULL,
         `email` varchar(100) NOT NULL,
-        `is_admin` BOOLEAN NOT NULL,
+        `is_admin` BOOLEAN NULL,
+        `password` BOOLEAN NULL, 
+        `image` varchar(255) NULL,
+        `bio` varchar(100) NULL,
+        `is_connect` BOOLEAN NULL,
+        `position` varchar(100) NULL,
         PRIMARY KEY (`id`)
     );
 ​
@@ -53,8 +58,9 @@ CREATE TABLE
     `Authorization` (
         `id` INT NOT NULL AUTO_INCREMENT, 
         `id_user` INT NOT NULL,
-        `id_decision` INT NOT NULL,
-        `is_expert` BOOLEAN NOT NULL, 
+        `id_decision` INT NULL,
+        `is_expert` BOOLEAN,
+        `notification` BOOLEAN,  
         PRIMARY KEY (`id`) 
     );
 ​
@@ -77,6 +83,18 @@ CREATE TABLE
         `date` DATE NOT NULL,
         PRIMARY KEY (`id`)
     );
+
+    CREATE TABLE
+    `Notification` (
+        `id` INT NOT NULL AUTO_INCREMENT, 
+        `id_authorization` INT NOT NULL, 
+        PRIMARY KEY (`id`) 
+    );
+
+ 
+    ALTER TABLE `Notification`
+ADD
+    CONSTRAINT `fk_Notification_id_authorization` FOREIGN KEY(`id_authorization`) REFERENCES `Authorization` (`id`);
 ​
 ALTER TABLE `Decision`
 ADD

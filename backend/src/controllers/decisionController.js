@@ -3,6 +3,16 @@
 const decisionModel = require("../models/decisionModels");
 
 const decisionController = {
+  getSixDecisions: (_, res) => {
+    decisionModel
+      .findSix()
+      .then((decision) => res.send(decision))
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  },
+
   getAllDecision: (_, res) => {
     decisionModel
       .findAll()
@@ -74,7 +84,7 @@ const decisionController = {
         res.sendStatus(500);
       });
   },
-  deleteUser: (req, res) => {
+  deleteDecision: (req, res) => {
     const { id } = req.params;
     decisionModel
       .deleteOne(id)
@@ -89,11 +99,11 @@ const decisionController = {
         res.sendStatus(500);
       });
   },
-  updateDecision: (req, res) => {
+  updateDecision: async (req, res) => {
     const { id } = req.params;
-    const decisionData = req.body;
+    const { id_status } = req.body;
     decisionModel
-      .updateOne(decisionData, id)
+      .updateOne(id_status, id)
       .then((decision) => res.send(decision))
       .catch((err) => {
         console.error(err);
