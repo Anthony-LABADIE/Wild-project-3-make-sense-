@@ -1,18 +1,11 @@
 const database = require("../../config");
 
-const findAll = () => {
-  return database
-    .promise()
-    .query("SELECT * FROM firstdecision")
-    .then(([res]) => res);
-};
-
-const findOne = (id) => {
+const findAll = (id) => {
   return database
     .promise()
     .query(
-      "SELECT firstdecision.content, user.lastname, user.firstname FROM firstdecision INNER JOIN user ON user.id = firstdecision.id_user WHERE firstdecision.id_decision = ?",
-      [Number(id)]
+      "SELECT firstdecision.content FROM firstdecision WHERE firstdecision.id_decision = ?",
+      [id]
     )
     .then(([res]) => res);
 };
@@ -38,4 +31,4 @@ const updateOne = (firstdecisionData, id) => {
     .then(([res]) => res);
 };
 
-module.exports = { findAll, findOne, createOne, deleteOne, updateOne };
+module.exports = { findAll, createOne, deleteOne, updateOne };

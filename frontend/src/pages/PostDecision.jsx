@@ -34,37 +34,37 @@ export default function PostDecision() {
       .catch((err) => err.response);
   };
 
-  const getAuthDecision = () => {
-    api
+  const getAuthDecision = async () => {
+    await api
       .get(`/decision/authorization/user/single/${nbdec}/${auth.data.id}`, {
         withCredentials: true,
       })
       .then((response) => setAuthDecision(response.data))
       .catch((err) => err.response);
   };
-  const getAvis = () => {
-    api
+  const getAvis = async () => {
+    await api
       .get(`notice/${nbdec}`)
       .then((res) => setNotice(res.data))
       .catch((err) => err.response);
   };
 
-  const getConflit = () => {
-    api
+  const getConflit = async () => {
+    await api
       .get(`conflict/${nbdec}`)
       .then((res) => setConflit(res.data))
       .catch((err) => err.response);
   };
 
-  const getFirstdecision = () => {
-    api
+  const getFirstdecision = async () => {
+    await api
       .get(`firstdecsion/${nbdec}`)
       .then((res) => setFirstDecision(res.data))
       .catch((err) => err.response);
   };
 
-  const getFinaldecision = () => {
-    api
+  const getFinaldecision = async () => {
+    await api
       .get(`finalDecision/${nbdec}`)
       .then((res) => setFinalDecision(res.data))
       .catch((err) => err.response);

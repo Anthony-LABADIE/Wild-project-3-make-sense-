@@ -32,8 +32,8 @@ function NavBar({ profileImage, socket }) {
     setDropMenu(!dropMenu);
   };
 
-  const loadNotifcation = () => {
-    api
+  const loadNotifcation = async () => {
+    await api
       .get(`decision/authorization/user/notification/${auth.data.id}`)
       .then((res) => {
         setNotif(res.data);
