@@ -32,7 +32,7 @@ export default function Dashboard({ socket }) {
 
   useEffect(() => {
     loadNotifcation();
-  }, [notif]);
+  }, []);
 
   const handleSubmission = () => {
     api.put(`/user/connect/${auth.data.id}`, true).catch((err) => err.response);

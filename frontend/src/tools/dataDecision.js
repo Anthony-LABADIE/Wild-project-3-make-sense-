@@ -12,7 +12,7 @@ const dataDecision = [
     input: [
       {
         id: 1,
-        label: "Titre de la decision",
+        label: "Titre de la decision*",
         placeholder: "Texte",
         type: "text",
         name: "title",
@@ -20,7 +20,7 @@ const dataDecision = [
       },
       {
         id: 2,
-        label: "Contenu de la decision",
+        label: "Contenu de la decision*",
         placeholder: "Texte",
         type: "text",
         name: "content",

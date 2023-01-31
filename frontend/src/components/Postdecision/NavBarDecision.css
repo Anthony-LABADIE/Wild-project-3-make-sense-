@@ -79,7 +79,7 @@
 }
 
 .scrollImage img {
-  width: 3vw;
+  width: 6vh;
   height: 6vh;
   border-radius: 50%;
   margin-right: -0.4vw;
@@ -109,8 +109,6 @@
   padding: 4%;
   text-align: left;
 }
-
-
 
 .menuBody {
   display: flex;
@@ -209,7 +207,7 @@
 }
 
 .popupOn img {
-  width: 4vw;
+  width: 6vh;
   height: 6vh;
   border-radius: 50%;
   padding-right: 0.2vw;
