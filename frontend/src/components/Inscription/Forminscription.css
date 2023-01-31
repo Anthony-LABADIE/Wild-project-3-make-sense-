@@ -73,7 +73,6 @@
   justify-content: center;
   font-family: "Raleway", sans-serif;
   border-radius: 15px;
-  
 }
 
 #mail h4 {
@@ -89,7 +88,6 @@
   border-radius: 15px;
   font-family: "Raleway", sans-serif;
 }
-
 
 #password {
   grid-area: 4 / 1 / 5 / 3;
