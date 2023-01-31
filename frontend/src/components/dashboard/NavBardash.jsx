@@ -28,7 +28,6 @@ function NavBar({ profileImage, socket }) {
   const displayAdmin = () => {
     if (auth.data.is_admin === 1) setAdmin(true);
   };
-
   const handleClick = () => {
     setDropMenu(!dropMenu);
   };
@@ -43,7 +42,7 @@ function NavBar({ profileImage, socket }) {
 
   useEffect(() => {
     loadNotifcation();
-  }, [notif]);
+  }, []);
 
   const loadUserInfo = () => {
     api.get(`user/${auth.data.id}`).then((response) => {

@@ -10,10 +10,17 @@
   font-size: 1em;
   width: auto;
 }
-
+@keyframes textBig {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.1;
+  }
+}
 .profilMenu__p:hover {
-  color: white;
-  background-color: #367787;
+  cursor: pointer;
+  animation: textBig 1s;
 }
 .btn-logout {
   text-align: center;
@@ -24,9 +31,8 @@
   cursor: pointer;
 }
 .btn-logout:hover {
-  color: white;
-  background-color: #367787;
   cursor: pointer;
+  animation: textBig 1s;
 }
 .dropdown-menu {
   position: absolute;
@@ -39,6 +45,7 @@
   z-index: 1;
   border-radius: 10px;
   border: 1px solid;
+  z-index: 10;
 }
 
 .pictureProfil {

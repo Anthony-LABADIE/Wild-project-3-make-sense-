@@ -2,6 +2,8 @@
 import PropTypes from "prop-types";
 import "./ProfilAllUser.css";
 import profil from "../../assets/img/profil.png";
+import star from "../../assets/img/star.png";
+import star_click from "../../assets/img/star_click.png";
 
 function UserItem({
   lastname,
@@ -11,20 +13,11 @@ function UserItem({
   expert,
   clicked,
   isExpert,
+  image,
 }) {
-  const expertCondition = isExpert ? "expertButtonGreen" : "expertButtonRed";
   return (
     <div className="userContainer">
       <div className={clicked ? "UserItemOn" : "UserItemOff"}>
-        <h2
-          className="div2"
-          onClick={onclick}
-          key={id}
-          onKeyDown={onclick}
-          role="presentation"
-        >
-          {firstname} {lastname}
-        </h2>
         <div
           className="div1"
           onClick={onclick}
@@ -32,16 +25,26 @@ function UserItem({
           onKeyDown={onclick}
           role="presentation"
         >
-          <img src={profil} alt="insta" />
+          <img src={image || profil} alt="insta" />
+        </div>
+        <div
+          className="div2"
+          onClick={onclick}
+          key={id}
+          onKeyDown={onclick}
+          role="presentation"
+        >
+          {firstname} {lastname}
         </div>
         <div className="div3">
-          <button
-            className={clicked ? expertCondition : "expertButtonRed"}
+          <img
             onClick={expert}
-            type="button"
-          >
-            expert
-          </button>
+            src={isExpert ? star_click : star}
+            alt="logo"
+            key={id}
+            onKeyDown={onclick}
+            role="presentation"
+          />
         </div>
       </div>
     </div>
@@ -56,6 +59,7 @@ UserItem.propTypes = {
   expert: PropTypes.string.isRequired,
   clicked: PropTypes.bool.isRequired,
   isExpert: PropTypes.bool.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default UserItem;

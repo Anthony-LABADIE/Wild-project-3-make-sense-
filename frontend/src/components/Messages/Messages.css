@@ -6,15 +6,32 @@
 }
 .chat__sidebar {
   height: 90vh;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-right-style: groove;
   flex: 0.2;
   padding: 20px;
+}
+.chat__sidebar h2 {
+  text-align: center;
 }
 .chat__main {
   flex: 0.8;
 }
 .chat__header {
-  margin: 30px 0 20px 0;
+  padding-top: 20px;
+  text-align: center;
+}
+.p__chat__bar {
+  align-items: center;
+  display: flex;
+  color: #0c3944;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+}
+.container__chat__bar {
+  background-color: #ffffff;
+  width: 100%;
+  height: 75vh;
+  border-radius: 15px;
 }
 .chat__users > * {
   display: flex;
@@ -23,10 +40,11 @@
   font-size: 14px;
 }
 .chat__user img {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   margin-right: 10px;
+  margin: 20px;
 }
 .online__users > * {
   margin-bottom: 10px;
@@ -34,12 +52,10 @@
   font-style: italic;
 }
 .chat__mainHeader {
-  height: 10vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
   padding: 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .leaveChat__btn {
   padding: 10px;
@@ -56,6 +72,7 @@
   background-color: #fff;
   padding: 20px;
   overflow-y: scroll;
+  border-radius: 15px;
 }
 
 .message__container > * {
@@ -64,7 +81,6 @@
 .chat__footer {
   padding: 10px;
   height: 10vh;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 .form__message {
   width: 100%;
@@ -74,17 +90,17 @@
   justify-content: space-between;
 }
 .form__message input {
-  width: 70%;
-  height: 2rem;
-  border-radius: 4rem;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
   border: 1px solid transparent;
   outline: none;
   padding: 15px;
   box-shadow: 0 16px 48px 0 rgb(0 55 83 / 13%);
 }
 .sendBtn {
-  width: 150px;
-  height: 2rem;
+  width: 70px;
+  height: 50px;
   background-color: #0c3944;
   border-radius: 16px;
   padding: 10px;

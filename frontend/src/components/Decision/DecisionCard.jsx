@@ -21,13 +21,13 @@ function DecisionCard({ img, txt, title1, inputtext, isActiveDecision }) {
           <p>{txt}</p>
           {isActiveDecision === 1 ? (
             <div>
-              <label htmlFor="Date">Date posted</label>
+              <label htmlFor="Date">Date postée</label>
               <DatePicker />
             </div>
           ) : null}
           {isActiveDecision === 2 ? (
             <div>
-              <label htmlFor="Date">Deadline</label>
+              <label htmlFor="Date">Date limite</label>
               <DatePickerDeadline />
             </div>
           ) : null}
@@ -36,7 +36,9 @@ function DecisionCard({ img, txt, title1, inputtext, isActiveDecision }) {
         <div className="Decision__container__input">
           {inputtext.map((el) => (
             <div>
-              <label htmlFor={el.label}>{el.label}</label>
+              <label className="container__input" htmlFor={el.label}>
+                {el.label}
+              </label>
               <br />
               <br />
               <form id="form">

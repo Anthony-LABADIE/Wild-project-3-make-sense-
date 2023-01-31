@@ -7,8 +7,7 @@ function ChatBody({ socket }) {
   const [chatMessages, setChatMessages] = useState([]);
 
   const handleLeaveChat = () => {
-    navigate("/");
-    window.location.reload();
+    navigate("/dashboard");
   };
 
   useEffect(() => {

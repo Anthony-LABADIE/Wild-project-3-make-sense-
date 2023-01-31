@@ -13,7 +13,7 @@ function ChatBar({ socket }) {
     <div className="chat__sidebar">
       <h2>Discussions</h2>
 
-      <div>
+      <div className="container__chat__bar">
         <h4 className="chat__header">ACTIVE USERS</h4>
         <div className="chat__users">
           {user.map((el) => (
@@ -23,7 +23,7 @@ function ChatBar({ socket }) {
               ) : (
                 <img src={el.image} alt="profil" />
               )}
-              <p>
+              <p className="p__chat__bar">
                 {el.lastname}&#160;
                 {el.firstname}
               </p>
