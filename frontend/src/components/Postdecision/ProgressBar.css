@@ -18,6 +18,7 @@
   margin: 0;
   padding: 0;
   padding-left: none;
+  margin-top: 0.5rem;
 }
 
 .TitleNotice {
@@ -50,6 +51,7 @@
   width: 38vw;
   gap: 2.9vw;
   padding-top: 1vh;
+  margin-bottom: 1vh;
 }
 .two {
   width: 8vw;
@@ -114,7 +116,7 @@ p.ten {
   position: relative;
   grid-area: 1 / 1;
   height: 5px;
-  width: 49%;
+  width: 65%;
   border: 0px solid;
   border-radius: 15px;
   margin-left: 14.5%;
