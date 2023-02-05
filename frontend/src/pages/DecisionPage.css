@@ -132,22 +132,53 @@
   border: 1px solid #000000;
   border-radius: 67px;
   width: 9vw;
+  height: 7vh;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+
+.postDecisionBtn {
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 67px;
+  width: 7vw;
+  font-size: 0.7rem;
+
+  cursor: pointer;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
 }
 .decisionBtn2 {
   background: #3d7581;
+  cursor: pointer;
   color: #ffffff;
   border: 1px solid #000000;
   border-radius: 67px;
-  width: 9vw;
+  width: 7vw;
+  height: 7vh;
+
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+
+.postDecisionBtn2 {
+  background: #3d7581;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 67px;
+  width: 7vw;
+
+  font-size: 0.7rem;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
 }
 .decisionBtn:hover {
   cursor: pointer;
-  background: #fcf8ad ;
-  
+  background: #fcf8ad;
+}
+.postDecisionBtn:hover {
+  cursor: pointer;
+  background: #fcf8ad;
 }
 .allButtons {
   display: flex;
