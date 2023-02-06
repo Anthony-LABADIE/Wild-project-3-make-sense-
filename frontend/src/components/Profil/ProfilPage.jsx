@@ -1,6 +1,7 @@
 import "./ProfilePage.css";
 import { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
 import api from "../../services/api";
 import NavBar from "../dashboard/NavBardash";
 import { authContext } from "../../hooks/authContext";
@@ -11,7 +12,7 @@ function ProfilePage() {
   const [profilImage, setProfilImage] = useState();
   const [file, setFile] = useState();
   const { auth } = useContext(authContext);
-  const [userDecisions, setUserDecisions] = useState();
+  const [userDecisions, setUserDecisions] = useState([]);
   const [modify, setModify] = useState(false);
 
   const [input, setInput] = useState({});
@@ -51,7 +52,13 @@ function ProfilePage() {
     switch (info) {
       case "position":
         if (!modify) {
-          return <h3 id="infoPos">{userInfo.position}</h3>;
+          return (
+            <h3 id={userInfo.position === "" ? "posPlaceholder" : "infoPos"}>
+              {userInfo.position === ""
+                ? "Quel est ton poste?"
+                : userInfo.position}
+            </h3>
+          );
         }
         if (modify) {
           return (
@@ -60,6 +67,7 @@ function ProfilePage() {
               name="position"
               type="text"
               id="inputPos"
+              placeholder="Quel est ton poste?"
               onChange={handleChange}
               onKeyDown={handleSubmission}
             />
@@ -119,7 +127,13 @@ function ProfilePage() {
         break;
       case "bio":
         if (!modify) {
-          return <p id="pText">{userInfo.bio}</p>;
+          return (
+            <p id={userInfo.bio === "" ? "bioPlaceholder" : "pText"}>
+              {userInfo.bio === ""
+                ? "Parle nous un peu de toi..."
+                : userInfo.bio}
+            </p>
+          );
         }
         if (modify) {
           return (
@@ -128,6 +142,7 @@ function ProfilePage() {
               name="bio"
               type="text"
               id="inputBio"
+              placeholder="Parle nous un peu de toi..."
               onChange={handleChange}
               onKeyDown={handleSubmission}
             />
@@ -282,21 +297,26 @@ function ProfilePage() {
             id="line"
           />
         </div>
-        <div className="userDecisions">
+        <div className={userDecisions.length > 3 ? "sixCards" : "threecards"}>
           {" "}
-          {userDecisions &&
-            userDecisions.map((decision) => (
-              <CardsItem
-                title={decision.title}
-                lastname={decision.lastname}
-                firstname={decision.firstname}
-                status={decision.status}
-                id_status={decision.id_status}
-                image={decision.image}
-                nbdec={decision.id}
-              />
-            ))}
+          {userDecisions.map((decision) => (
+            <CardsItem
+              title={decision.title}
+              lastname={decision.lastname}
+              firstname={decision.firstname}
+              status={decision.status}
+              id_status={decision.id_status}
+              image={decision.image}
+              nbdec={decision.id}
+            />
+          ))}
         </div>
+        <Link to="/decisiondash">
+          <div className="voirButton">
+            {" "}
+            <h3 style={{ color: "#346a82" }}>Voir Plus</h3>
+          </div>
+        </Link>
       </div>
     </div>
   );

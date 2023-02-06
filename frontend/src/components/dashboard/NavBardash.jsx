@@ -151,11 +151,13 @@ function NavBar({ profileImage, socket }) {
               <h4>notifications</h4>
               <div
                 className={
-                  notif[0].notification === 0 ? "counternone" : "counter"
+                  notif[0] && notif[0].notification === 0
+                    ? "counternone"
+                    : "counter"
                 }
               >
                 {" "}
-                {notif[0].notification}
+                {notif[0] && notif[0].notification}
               </div>
             </div>
 

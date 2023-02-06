@@ -8,21 +8,16 @@ import "./TextEditor.css";
 
 function Finaldecision({ hideFinal, nbdec }) {
   const [finaldecision, setfinaldecision] = useState({});
-  const [content, setContent] = useState();
+
   const id_status = 4;
 
   const navigate = useNavigate();
   const { auth } = useContext(authContext);
   const handleChange = (e) => {
-    setContent({
-      ...content,
-      content: e.target.value,
-    });
-
     setfinaldecision({
       id_decision: nbdec,
       id_user: auth.data.id,
-      content: content.content,
+      content: e.target.value,
       date: "2022-01-01",
     });
   };
@@ -54,8 +49,8 @@ function Finaldecision({ hideFinal, nbdec }) {
     handleChangeStatus();
   };
   return (
-    <div style={{ display: hideFinal ? "none" : "block" }}>
-      <h1 className="avis"> decision Finale : Make Sense France </h1>
+    <div style={{ display: hideFinal ? "none" : "block" }} className="postAvis">
+      <h1 className="avis"> Decision Finale : Make Sense </h1>
 
       <textarea
         className="editorr"
