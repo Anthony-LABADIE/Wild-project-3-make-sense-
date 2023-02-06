@@ -117,7 +117,11 @@ export default function PostDecision() {
               finalDecision={finalDecision}
               nbdec={nbdec}
             />
-          )}
+          )}{" "}
+          <TextEditor shownAvis={shownAvis} nbdec={nbdec} />
+          <ConflitEditor hide={hide} nbdec={nbdec} />
+          <Firstdecision hideFirst={hideFirst} nbdec={nbdec} />
+          <Finaldecision hideFinal={hideFinal} nbdec={nbdec} />
           {
             (info,
             authDecision && (
@@ -134,10 +138,6 @@ export default function PostDecision() {
               />
             ))
           }
-          <TextEditor shownAvis={shownAvis} nbdec={nbdec} />
-          <ConflitEditor hide={hide} nbdec={nbdec} />
-          <Firstdecision hideFirst={hideFirst} nbdec={nbdec} />
-          <Finaldecision hideFinal={hideFinal} nbdec={nbdec} />
         </div>
       </div>
     </div>

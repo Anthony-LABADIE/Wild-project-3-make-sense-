@@ -24,7 +24,7 @@ export default function BodyDecision({
       <div>
         <div className="textBody">
           <p> {avis.content}</p>
-          <h4>
+          <h4 id="comments">
             de {avis.firstname}
             {avis.lastname}
           </h4>
@@ -36,10 +36,13 @@ export default function BodyDecision({
   const getAllConflit = () => {
     return conflit.map((confli) => (
       <div>
-        <p> {confli.content}</p>
-        <h4>
-          de {confli.lastname} {confli.firstname}
-        </h4>
+        <div className="textBody">
+          <p> {confli.content}</p>
+          <h4 id="comments">
+            de {confli.firstname}
+            {confli.lastname}
+          </h4>
+        </div>
       </div>
     ));
   };
@@ -115,7 +118,28 @@ export default function BodyDecision({
         setButtoName(e.target.name);
     }
   };
-
+  const rendeResults = () => {
+    if (numberClicked !== 6 && numberClicked !== 8) {
+      return (
+        <div className="textBody">
+          <h1 style={{ fontSize: "2.3rem" }}>{buttonName}</h1>
+          <p>{infoText}</p>
+        </div>
+      );
+    }
+    if (numberClicked === 6) {
+      return getAllAvis();
+    }
+    if (numberClicked === 8) {
+      return getAllConflit();
+    }
+    return (
+      <div className="textBody">
+        <h1 style={{ fontSize: "2.3rem" }}>{buttonName}</h1>
+        <p>{infoText}</p>
+      </div>
+    );
+  };
   const getAllbutton = () => {
     return dataMenu.map((button) => (
       <button
@@ -140,14 +164,7 @@ export default function BodyDecision({
       }}
     >
       <div className="menuBody">{getAllbutton()}</div>
-      {numberClicked !== 6 ? (
-        <div className="textBody">
-          <h1 style={{ fontSize: "2.3rem" }}>{buttonName}</h1>
-          <p>{infoText}</p>
-        </div>
-      ) : (
-        getAllAvis()
-      )}
+      {rendeResults()}
     </div>
   );
 }

@@ -41,16 +41,13 @@ function CardsAllDecision() {
       <div className="carreau">
         <div className={sixDecisions.length > 3 ? "sixCards" : "threecards"}>
           {cardMap}{" "}
-          <div className="voirPlus">
+        </div>{" "}
+        <Link to="/decisiondash">
+          <div className="voirButton">
             {" "}
-            <Link to="/decisiondash">
-              <div className="voirButton">
-                {" "}
-                <h3 style={{ color: "#346a82" }}>Voir Plus</h3>
-              </div>
-            </Link>
+            <h3 style={{ color: "#346a82" }}>Voir Plus</h3>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
