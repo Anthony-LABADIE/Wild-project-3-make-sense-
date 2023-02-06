@@ -42,7 +42,7 @@ function NavBar({ profileImage, socket }) {
 
   useEffect(() => {
     loadNotifcation();
-  }, []);
+  }, [notif]);
 
   const loadUserInfo = () => {
     api.get(`user/${auth.data.id}`).then((response) => {
