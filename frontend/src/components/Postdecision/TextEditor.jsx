@@ -7,20 +7,19 @@ import "./TextEditor.css";
 
 function TextEditor({ shownAvis, nbdec }) {
   const [notice, setNotice] = useState({});
-  const [content, setContent] = useState();
 
   const navigate = useNavigate();
   const { auth } = useContext(authContext);
   const handleChange = (e) => {
-    setContent({
+    /*  setContent({
       ...content,
       content: e.target.value,
-    });
+    }); */
 
     setNotice({
       id_decision: nbdec,
       id_user: auth.data.id,
-      content: content.content,
+      content: e.target.value,
       date: "2022-01-01",
     });
   };
@@ -39,8 +38,8 @@ function TextEditor({ shownAvis, nbdec }) {
     }
   };
   return (
-    <div style={{ display: shownAvis ? "none" : "block" }}>
-      <h1 className="avis">Donne ton avis : Make Sense France </h1>
+    <div style={{ display: shownAvis ? "none" : "flex" }} className="postAvis">
+      <h1 className="avis">Donne ton avis : Make Sense </h1>
 
       <textarea
         className="editorr"

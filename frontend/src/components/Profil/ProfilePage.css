@@ -74,6 +74,9 @@ select {
   color: white;
   border-radius: 1vmin;
 }
+#importBtn:hover {
+  cursor: pointer;
+}
 .picture {
   height: 35vmin;
   width: 35vmin;
@@ -291,7 +294,20 @@ h3 {
 #infoPos {
   padding: 1vh;
 }
+#posPlaceholder {
+  font-weight: lighter;
+  opacity: 40%;
+  padding-top: 1vh;
+}
 
+#bioPlaceholder {
+  font-weight: lighter;
+  opacity: 30%;
+  margin-bottom: 2vh;
+  font-size: 1.5rem;
+  padding-right: 2vw;
+  font-family: "Raleway", sans-serif;
+}
 #infoPos:hover {
   background-color: rgba(0, 0, 0, 0.05);
 

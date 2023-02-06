@@ -105,38 +105,40 @@ export default function PostDecision() {
 
       <div className="containerDecision">
         {info && <NavBarDecision info={info} />}
-
-        {info && (
-          <BodyDecision
-            info={info}
-            shown={shown}
-            notice={notice}
-            conflit={conflit}
-            firstdecision={firstdecision}
-            finalDecision={finalDecision}
-            nbdec={nbdec}
-          />
-        )}
-        {
-          (info,
-          authDecision && (
-            <MenuBar
-              id={nbdec}
-              handleClick={handleClick}
-              handleConflit={handleConflit}
-              handleAvis={handleAvis}
-              handleFisrt={handleFisrt}
-              handleFinal={handleFinal}
-              authDecision={authDecision}
-              nbdec={nbdec}
+        <div className="centerContainer">
+          {" "}
+          {info && (
+            <BodyDecision
               info={info}
+              shown={shown}
+              notice={notice}
+              conflit={conflit}
+              firstdecision={firstdecision}
+              finalDecision={finalDecision}
+              nbdec={nbdec}
             />
-          ))
-        }
-        <TextEditor shownAvis={shownAvis} nbdec={nbdec} />
-        <ConflitEditor hide={hide} nbdec={nbdec} />
-        <Firstdecision hideFirst={hideFirst} nbdec={nbdec} />
-        <Finaldecision hideFinal={hideFinal} nbdec={nbdec} />
+          )}{" "}
+          <TextEditor shownAvis={shownAvis} nbdec={nbdec} />
+          <ConflitEditor hide={hide} nbdec={nbdec} />
+          <Firstdecision hideFirst={hideFirst} nbdec={nbdec} />
+          <Finaldecision hideFinal={hideFinal} nbdec={nbdec} />
+          {
+            (info,
+            authDecision && (
+              <MenuBar
+                id={nbdec}
+                handleClick={handleClick}
+                handleConflit={handleConflit}
+                handleAvis={handleAvis}
+                handleFisrt={handleFisrt}
+                handleFinal={handleFinal}
+                authDecision={authDecision}
+                nbdec={nbdec}
+                info={info}
+              />
+            ))
+          }
+        </div>
       </div>
     </div>
   );

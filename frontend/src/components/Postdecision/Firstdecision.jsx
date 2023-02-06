@@ -54,8 +54,8 @@ function Firstdecision({ hideFirst, nbdec }) {
   };
 
   return (
-    <div style={{ display: hideFirst ? "none" : "block" }}>
-      <h1 className="avis">Première decision : Make Sense France </h1>
+    <div style={{ display: hideFirst ? "none" : "block" }} className="postAvis">
+      <h1 className="avis">1ère decision : Make Sense </h1>
 
       <textarea
         className="editorr"

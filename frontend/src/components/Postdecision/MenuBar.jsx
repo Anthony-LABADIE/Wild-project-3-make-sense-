@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import { useState, useEffect, useContext } from "react";
 import api from "../../services/api";
+import comment from "../../assets/img/chat.png";
+import decision from "../../assets/img/file.png";
+import conflict from "../../assets/img/fight.png";
 import ImpactedPeopleItem from "./ImpactedPeopleItem";
 import ExpertPeopleItem from "./ExpertPeopleItem";
 import ImpactedPeopleItemPopup from "./ImpactedPeopleItemPopup";
@@ -135,9 +138,7 @@ export default function MenuBar({
   return (
     <div className="menubar">
       <div className="impactList">PERSONNES IMPACTEES</div>
-
       <div id="imageImpacted" />
-
       <div className="scrollImage">{impactedPeopleMap}</div>
       <div className={popup ? "popupOn" : "popupOff"}>
         {impactedPeopleMapPopup}
@@ -148,50 +149,56 @@ export default function MenuBar({
       <div className={popupExpert ? "popupOnExpert" : "popupOff"}>
         {expertPeopleMapPopup}
       </div>
-      <button
-        style={{ display: shownButtonAvis ? "block" : "none" }}
-        className="btn-avis"
-        type="button"
-        onClick={() => {
-          handleAvis();
-          handleClick();
-        }}
-      >
-        DONNEZ UN AVIS
-      </button>
-      <button
-        style={{ display: shownButtonConflit ? "block" : "none" }}
-        className="btn-conflit"
-        type="button"
-        onClick={() => {
-          handleConflit();
-          handleClick();
-        }}
-      >
-        DONNEZ UN CONFLIT
-      </button>
-      <button
-        style={{ display: shownButtonFirst ? "block" : "none" }}
-        className="btn-Decision"
-        type="button"
-        onClick={() => {
-          handleFisrt();
-          handleClick();
-        }}
-      >
-        DONNEZ UNE PREMIERE DECISION
-      </button>
-      <button
-        style={{ display: shownButtonFinal ? "block" : "none" }}
-        className="btn-Decision"
-        type="button"
-        onClick={() => {
-          handleFinal();
-          handleClick();
-        }}
-      >
-        DONNEZ UNE DECISION FINALE
-      </button>
+      <div className="menuButtons">
+        <button
+          style={{ display: shownButtonAvis ? "block" : "none" }}
+          className="btn-avis"
+          type="button"
+          onClick={() => {
+            handleAvis();
+            handleClick();
+          }}
+        >
+          <img src={comment} alt="" id="comment" />
+          <h4 id="decisionTxt">Avis</h4>
+        </button>{" "}
+        <button
+          style={{ display: shownButtonFirst ? "block" : "none" }}
+          className="btn-Decision"
+          type="button"
+          onClick={() => {
+            handleFisrt();
+            handleClick();
+          }}
+        >
+          <img src={decision} alt="" id="comment" />
+          <h4 id="decisionTxt">1ère Décision</h4>
+        </button>
+        <button
+          style={{ display: shownButtonConflit ? "block" : "none" }}
+          className="btn-conflit"
+          type="button"
+          onClick={() => {
+            handleConflit();
+            handleClick();
+          }}
+        >
+          <img src={conflict} alt="" id="comment" />
+          <h4 id="decisionTxt">Conflit</h4>
+        </button>
+        <button
+          style={{ display: shownButtonFinal ? "block" : "none" }}
+          className="btn-Decision"
+          type="button"
+          onClick={() => {
+            handleFinal();
+            handleClick();
+          }}
+        >
+          <img src={decision} alt="" id="comment" />
+          <h4 id="decisionTxt">Décision Finale</h4>
+        </button>
+      </div>
     </div>
   );
 }
