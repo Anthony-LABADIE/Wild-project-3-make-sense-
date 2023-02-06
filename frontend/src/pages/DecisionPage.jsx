@@ -42,7 +42,7 @@ function DecisionPage({ socket }) {
       case "Décisions Impactés":
         setStatus(2);
         break;
-      case "1ère Décision":
+      case "Première decision":
         setStatus(3);
         break;
       case "Final Décision":

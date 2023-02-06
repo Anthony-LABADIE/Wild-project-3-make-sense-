@@ -14,6 +14,7 @@
   display: flex;
   padding-left: 2vw;
   background-color: #346a82;
+  height: 15vh;
 }
 
 .navbardecision h2 {
@@ -63,7 +64,7 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
-  background-color: #E3E8EA;
+  background-color: #e3e8ea;
   width: 100%;
 }
 
@@ -94,12 +95,12 @@
   align-items: center;
   height: 100%;
   row-gap: 0;
-  background-color: #E3E8EA;
+  background-color: #e3e8ea;
 }
 
 .textBody {
-  height: 45vh;
-  width: 45vw;
+  height: 40vh;
+  width: 35vw;
   background-color: white;
   border: solid 1px black;
   margin-top: 6vh;
@@ -168,7 +169,7 @@
 .impactList {
   text-align: center;
   font-size: 1em;
-  margin-top: 18vh;
+  margin-top: 11vh;
   margin-bottom: 5vh;
   font-family: "Raleway", sans-serif;
   font-weight: bold;
@@ -181,7 +182,7 @@
   height: 45px;
   width: 180px;
   padding: 2px;
-  margin-top: 45%;
+  margin-top: 4vh;
   border: none;
   cursor: pointer;
 }

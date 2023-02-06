@@ -18,7 +18,6 @@ export default function FormInscription() {
   const [logoValide, setLogoValide] = useState(false);
   const { login, auth } = useContext(authContext);
   const navigate = useNavigate();
-
   useEffect(() => {
     if (auth.data) {
       navigate("/dashboard");

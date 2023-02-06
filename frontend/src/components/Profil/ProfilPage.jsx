@@ -44,6 +44,7 @@ function ProfilePage() {
 
   const modifyOn = () => {
     setModify(!modify);
+    loadUserInfo();
   };
 
   // eslint-disable-next-line consistent-return

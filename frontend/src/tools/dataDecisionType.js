@@ -3,7 +3,7 @@ const dataDecisionType = [
   "Active",
   "Décisions Impactés",
   "Mes Décisions",
-  "1ère Décision",
+  "Première decision",
   "Conflits",
   "Final Décision",
 ];
