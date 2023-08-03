@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   const [socket, setSocket] = useState(null);
   useEffect(() => {
-    setSocket(socketIO("http://localhost:5000"));
+    setSocket(socketIO("http://localhost:8000"));
   }, []);
   return (
     <div className="App">
